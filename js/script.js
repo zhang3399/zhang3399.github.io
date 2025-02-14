@@ -1,138 +1,147 @@
-(function($){
-  // Search
-  var $searchWrap = $('#search-form-wrap'),
-    isSearchAnim = false,
-    searchAnimDuration = 200;
+/* all pure javascript no jquery */
 
-  var startSearchAnim = function(){
-    isSearchAnim = true;
-  };
 
-  var stopSearchAnim = function(callback){
-    setTimeout(function(){
-      isSearchAnim = false;
-      callback && callback();
-    }, searchAnimDuration);
-  };
 
-  $('.nav-search-btn').on('click', function(){
-    if (isSearchAnim) return;
 
-    startSearchAnim();
-    $searchWrap.addClass('on');
-    stopSearchAnim(function(){
-      $('.search-form-input').focus();
-    });
-  });
+;
+var lastScrollTop = 0;
+if (document.addEventListener) {
+    document.addEventListener("scroll", scroll, false);
+} else {
+    document.onscroll = scroll();
+}
 
-  $('.search-form-input').on('blur', function(){
-    startSearchAnim();
-    $searchWrap.removeClass('on');
-    stopSearchAnim();
-  });
-
-  // Share
-  $('body').on('click', function(){
-    $('.article-share-box.on').removeClass('on');
-  }).on('click', '.article-share-link', function(e){
-    e.stopPropagation();
-
-    var $this = $(this),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      id = 'article-share-box-' + $this.attr('data-id'),
-      title = $this.attr('data-title'),
-      offset = $this.offset();
-
-    if ($('#' + id).length){
-      var box = $('#' + id);
-
-      if (box.hasClass('on')){
-        box.removeClass('on');
-        return;
-      }
+function scroll() { // or window.addEventListener("scroll"....
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    var main = document.querySelector('.main-body'); //中间部分
+    var viewportOffset = main.getBoundingClientRect();
+    var top = viewportOffset.top;
+    if (st > lastScrollTop) {
+        if (top < 0) {
+            //隐藏顶栏
+            var header = document.querySelector('.main-header');
+            header.style.display = 'none';
+            // 显示返回顶部
+            var scrollBar = document.querySelector('.toTop-btn');
+            scrollBar.style.display = 'block';
+            var share = document.querySelector('.share-content');
+            if (share !== null) {
+                share.style.display = 'block';
+            }
+        }
     } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-          '<input class="article-share-input" value="' + url + '">',
-          '<div class="article-share-links">',
-            '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(title) + '&url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"><span class="fa fa-twitter"></span></a>',
-            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"><span class="fa fa-facebook"></span></a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"><span class="fa fa-pinterest"></span></a>',
-            '<a href="https://www.linkedin.com/shareArticle?mini=true&url=' + encodedUrl + '" class="article-share-linkedin" target="_blank" title="LinkedIn"><span class="fa fa-linkedin"></span></a>',
-          '</div>',
-        '</div>'
-      ].join('');
+        var header = document.querySelector('.main-header');
+        header.style.display = 'flex';
+        if (top > 50) {
+            //显示顶栏
 
-      var box = $(html);
+            //隐藏返回顶部
+            var scrollBar = document.querySelector('.toTop-btn');
+            scrollBar.style.display = 'none';
 
-      $('body').append(box);
+        }
+    }
+    lastScrollTop = st;
+}
+/* 直接写在javascript里面页面会闪一下 ，从白色过度到另一个颜色  */
+//  window.onload=function(){
+
+//}
+
+var toTopBtn = document.querySelector('.toTop-btn');
+// btn
+toTopBtn.onclick = function() {
+    window.scrollTo(0, 0);
+}
+
+
+var title = document.title;
+window.onblur = function() {
+
+    document.title = "See You Again ●'◡'●"; //离开本页面
+}
+window.onfocus = function() {
+    document.title = title; //切换回本页面
+}
+
+
+/* 
+    可以产生二维码了
+   
+    http://service.weibo.com/share/share.php?url=
+
+    这个时候可以使用事件冒泡
+
+
+
+    */
+var weiboUrl = 'http://service.weibo.com/share/share.php?url=' + document.location.href + '&title=' + document.title;
+var twitterUrl = 'http://twitter.com/home/?status=' + '我发现了这篇好文章  ' + document.title + ',' + '  分享给你' + 'http://hktkdy.com/quiz-about-focus';
+var shareAll = document.querySelector('.share-content');
+var qrcode = document.getElementById("qrcode");
+if (shareAll !== null) {
+    shareAll.onclick = function(e) {
+
+        switch (e.target.id) {
+            case 'toweixin':
+                var img = qrcode.querySelector('img');
+                if (img == null) {
+                    new QRCode(qrcode, {
+                        text: document.location.href,
+                        width: 128,
+                        height: 128,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+
+                    var img = qrcode.querySelector('img');
+                    img.setAttribute('id', 'qrcodeImg');
+                }
+                qrcode.style.display = 'block';
+
+                break;
+            case 'toweibo':
+                window.open(weiboUrl);
+                break;
+            case 'totwitter':
+                window.open(twitterUrl);
+                break;
+        }
+    }
+}
+/*当在屏幕上点击时，如果没有点击二维码区域或者分享到微信区域，则默认隐藏。*/
+window.onclick = function(e) {
+    if (e.target.id !== "qrcodeImg" && e.target.id !== "toweixin") {
+        if (qrcode !== null) {
+            qrcode.style.display = 'none';
+        }
+    }
+    if (e.target.id == 'rewardme' && e.target.className !== "reward-btn") {
+        var rewardQr = document.querySelector('.reward-qr');
+        rewardQr.style.display = "none";
     }
 
-    $('.article-share-box.on').hide();
+}
 
-    box.css({
-      top: offset.top + 25,
-      left: offset.left
-    }).addClass('on');
-  }).on('click', '.article-share-box', function(e){
-    e.stopPropagation();
-  }).on('click', '.article-share-box-input', function(){
-    $(this).select();
-  }).on('click', '.article-share-box-link', function(e){
-    e.preventDefault();
-    e.stopPropagation();
 
-    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-  });
 
-  // Caption
-  $('.article-entry').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+var articleEntry = document.querySelector(".article-entry");
+if (articleEntry !== null) {
+    document.body.style.backgroundColor = "#fff";
+}
 
-      var alt = this.alt;
+//当鼠标滑倒打赏图标时，展示二维码
+function showRewardQr() {
+    var rewardBtn = document.querySelector('.reward-btn');
+    if (rewardBtn) {
+        rewardBtn.onmouseover = function() {
+            var rewardQr = document.querySelector('.reward-qr');
+            if (rewardQr) {
+                rewardQr.style.display = 'block'
+            }
+        }
+    }
+}
 
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-      $(this).wrap('<a href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
-    });
-
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-
-  if ($.fancybox){
-    $('.fancybox').fancybox();
-  }
-
-  // Mobile nav
-  var $container = $('#container'),
-    isMobileNavAnim = false,
-    mobileNavAnimDuration = 200;
-
-  var startMobileNavAnim = function(){
-    isMobileNavAnim = true;
-  };
-
-  var stopMobileNavAnim = function(){
-    setTimeout(function(){
-      isMobileNavAnim = false;
-    }, mobileNavAnimDuration);
-  }
-
-  $('#main-nav-toggle').on('click', function(){
-    if (isMobileNavAnim) return;
-
-    startMobileNavAnim();
-    $container.toggleClass('mobile-nav-on');
-    stopMobileNavAnim();
-  });
-
-  $('#wrap').on('click', function(){
-    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
-
-    $container.removeClass('mobile-nav-on');
-  });
-})(jQuery);
+showRewardQr();
