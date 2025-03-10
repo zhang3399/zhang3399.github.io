@@ -29,23 +29,29 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="ѧϰ����" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">Hexo</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-09T15:07:00.000Z" title="2025/3/9 23:07:00">2025-03-09</time>发表</span><span class="level-item"><time dateTime="2025-03-10T03:32:36.239Z" title="2025/3/10 11:32:36">2025-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/yolov5s%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/">yolov5s缺陷检测模型部署</a></span><span class="level-item">6 分钟读完 (大约841个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/09/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></p><div class="content"><p><span style="text-align:center">整个过程采用远程的方式，记录树莓派部署YOLOv5s的过程。</span><br>准备：</p>
-<ul>
-<li>树莓派5-4B</li>
-<li>树莓派系统（安装的官方64位系统）</li>
-<li>USB摄像头</li>
-</ul>
-<h4 id="一、-获取yolov5s-pt权值文件"><a href="#一、-获取yolov5s-pt权值文件" class="headerlink" title="一、 获取yolov5s.pt权值文件"></a>一、 获取yolov5s.pt权值文件</h4><p>使用的是轻量的<code>yolov5s</code>模型,在本地训练后，通过命令发送发到树莓派上:</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="ѧϰ����" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">Hexo</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-09T15:07:00.000Z" title="2025/3/9 23:07:00">2025-03-09</time>发表</span><span class="level-item"><time dateTime="2025-03-10T04:12:29.670Z" title="2025/3/10 12:12:29">2025-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/yolov5s%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/">yolov5s缺陷检测模型部署</a></span><span class="level-item">6 分钟读完 (大约825个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/09/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></p><div class="content"><div style="text-align: center;">
+    <span>整个过程采用远程的方式，记录树莓派部署YOLOv5s的过程。</span>
+</div>
+准备：
+- 树莓派5-4B
+- 树莓派系统（安装的官方64位系统）
+- USB摄像头
+
+<h4 id="一、-获取yolov5s-pt权值文件"><a href="#一、-获取yolov5s-pt权值文件" class="headerlink" title="一、 获取yolov5s.pt权值文件"></a>一、 获取yolov5s.pt权值文件</h4><div style="text-align: center;">
+    <span>使用的是轻量的<li>yolov5s</li>模型,在本地训练后，通过命令发送发到树莓派上:</span>
+</div>
+
 <ol>
 <li>首先查看树莓派地址：</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/13.png" alt="alt text"><br>连接的wify，可以看到所属的地址端口。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig  <span class="comment"># 查看地址</span></span><br></pre></td></tr></table></figure>
+<p><img src="/../images/13.png"><br>连接的wify，可以看到所属的地址端口。</p>
 <ol>
 <li>将本地训练好的<code>yolov5s.pt</code>权值文件发送到树莓派上：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp yolov5s.pt &lt;用户名&gt;@&lt;树莓派地址&gt;:&lt;保存文件地址&gt;  </span><br></pre></td></tr></table></figure>
-<p>远程登录树莓派配置的用户名，</p>
+
+
 <h4 id="二、-树莓派环境搭建"><a href="#二、-树莓派环境搭建" class="headerlink" title="二、 树莓派环境搭建"></a>二、 树莓派环境搭建</h4><p>本打算参考其他博主的方法，将<code>pt</code>权值文件转为<code>ONNX</code>再利用<code>OpenVINO</code>转为IR模型部署到树莓派上，在本地成功得到<code>IR</code>模型后，在树莓派配置<code>OpenVINO</code>环境加速推理时，遇到问题有点多，准备有空再进行尝试。</p>
 <p>树莓派中运行yolov5s的环境使用<code>Anaconda</code>配置和管理</p>
 <ul>
@@ -70,7 +76,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python detect.py \</span><br><span class="line">--weights yolov5s.pt \   <span class="comment"># 没有准备可省略该行，自动下载官方权值文件</span></span><br><span class="line">--img 320 \              <span class="comment"># 指定图片大小，压缩图片，加快检测速度，但是清晰度降低</span></span><br><span class="line">--<span class="built_in">source</span> /image/1.jpg \  <span class="comment"># 指定图片路径</span></span><br><span class="line">--device cpu \           <span class="comment"># 使用cpu进行推理</span></span><br></pre></td></tr></table></figure>
 <p>使用的cpu进行推理，速度较慢，看资料显示树莓派也是有GPU的，但是因为树莓派GPU的算力太低，所以还是使用cpu进行推理，如果想使用GPU进行推理，需要安装<code>CUDA</code>，而且树莓派安装<code>CUDA</code>比较麻烦。</p>
 <ol start="2">
-<li>检测效果如下：<br><img src="/../images/12.png" alt="alt text"></li>
+<li>检测效果如下：<br><img src="/../images/12.png"></li>
 </ol>
 <h4 id="四、-开启摄像头实时检测"><a href="#四、-开启摄像头实时检测" class="headerlink" title="四、 开启摄像头实时检测"></a>四、 开启摄像头实时检测</h4><p>检测视频流，遇到无法弹出实时检测界面，这让之前的工作毫无成就感，之后通过安装<code>lightdm</code>来解决的。<br><code>lightdm</code> 能够提供图形界面服务，使 <code>OpenCV</code> <code>cv2.imshow()</code> 能通过 <code>VNC</code> 的虚拟显示端口渲染窗口。</p>
 <ol>
@@ -82,15 +88,15 @@
 <li>查看摄像头<br>使用<code>v4l2-ctl</code>指令查看所有视频设备</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v4l2-ctl --list-devices</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/11.png" alt="alt text"><br>可以看到识别到的USB摄像头。<br>识别是<code>/dev/video0</code>、<code>/dev/video1</code>，所以使用<code>0</code>作为<code>source</code>参数。</p>
-<ol start="3">
+<p><img src="/../images/11.png"><br>可以看到识别到的USB摄像头。<br>识别是<code>/dev/video0</code>、<code>/dev/video1</code>，所以使用<code>0</code>作为<code>source</code>参数。</p>
+<ol>
 <li>运行程序</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python detect.py \</span><br><span class="line">--weights yolov5s.pt \</span><br><span class="line">--<span class="built_in">source</span> 0 \             <span class="comment"># 使用摄像头（0 表示第一个摄像头）</span></span><br><span class="line">--view-img \             <span class="comment"># 启用实时画面显示--img-size 320</span></span><br><span class="line">--device cpu</span><br></pre></td></tr></table></figure>
-<ol start="4">
+<ol>
 <li>检测效果如下：</li>
 </ol>
-<video width="100%" controls>
+<video width="100%" controls loading="lazy">
   <source src="/videos/2.mp4" type="video/mp4">
 </video>
 
