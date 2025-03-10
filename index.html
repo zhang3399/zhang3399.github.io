@@ -29,7 +29,7 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="ѧϰ����" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-09T15:07:00.000Z" title="2025/3/9 23:07:00">2025-03-09</time>发表</span><span class="level-item"><time dateTime="2025-03-10T05:34:38.635Z" title="2025/3/10 13:34:38">2025-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/yolov5s%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/">yolov5s缺陷检测模型部署</a></span><span class="level-item">6 分钟读完 (大约917个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/09/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></p><div class="content"><p>🚀 整个过程采用远程的方式，记录树莓派部署<code>YOLOv5s</code>的过程。</p>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="ѧϰ����" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-09T15:07:00.000Z" title="2025/3/9 23:07:00">2025-03-09</time>发表</span><span class="level-item"><time dateTime="2025-03-10T05:42:58.830Z" title="2025/3/10 13:42:58">2025-03-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/yolov5s%E7%BC%BA%E9%99%B7%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2/">yolov5s缺陷检测模型部署</a></span><span class="level-item">6 分钟读完 (大约917个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/09/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></p><div class="content"><p>🚀 整个过程采用远程的方式，记录树莓派部署<code>YOLOv5s</code>的过程。</p>
 <p>准备：</p>
 <ul>
 <li>树莓派5-4B</li>
@@ -70,8 +70,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python detect.py \</span><br><span class="line">--weights yolov5s.pt \   <span class="comment"># 没有准备可省略该行，自动下载官方权值文件</span></span><br><span class="line">--img 320 \              <span class="comment"># 指定图片大小，压缩图片，加快检测速度，但是清晰度降低</span></span><br><span class="line">--<span class="built_in">source</span> /image/1.jpg \  <span class="comment"># 指定图片路径</span></span><br><span class="line">--device cpu \           <span class="comment"># 使用cpu进行推理</span></span><br></pre></td></tr></table></figure>
 <p>使用的cpu进行推理，速度较慢，看资料显示树莓派也是有GPU的，但是因为树莓派GPU的算力太低，所以还是使用cpu进行推理，如果想使用GPU进行推理，需要安装<code>CUDA</code>，而且树莓派安装<code>CUDA</code>比较麻烦。</p>
 <ol start="2">
-<li>检测效果如下🌱：<br><img src="/../images/12.png"></li>
+<li>检测效果如下🌱：</li>
 </ol>
+<p><img src="/../images/12.png"></p>
 <h4 id="四、-开启摄像头实时检测"><a href="#四、-开启摄像头实时检测" class="headerlink" title="四、 开启摄像头实时检测"></a>四、 开启摄像头实时检测</h4><p>🍋检测视频流，遇到无法弹出实时检测界面，这让之前的工作毫无成就感😳，之后通过安装<code>lightdm</code>来解决的。</p>
 <p><code>lightdm</code> 能够提供图形界面服务，使 <code>OpenCV</code> <code>cv2.imshow()</code> 能通过 <code>VNC</code> 的虚拟显示端口渲染窗口。</p>
 <ol>
@@ -83,7 +84,9 @@
 <li>查看摄像头🌱<br>使用<code>v4l2-ctl</code>指令查看所有视频设备</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v4l2-ctl --list-devices</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/11.png"><br>可以看到识别到的USB摄像头。<br>识别是<code>/dev/video0</code>、<code>/dev/video1</code>，所以使用<code>0</code>作为<code>source</code>参数。</p>
+
+<p><img src="/../images/11.png"></p>
+<p>可以看到识别到的USB摄像头。<br>识别是<code>/dev/video0</code>、<code>/dev/video1</code>，所以使用<code>0</code>作为<code>source</code>参数。</p>
 <ol start="3">
 <li>运行程序🌱</li>
 </ol>
