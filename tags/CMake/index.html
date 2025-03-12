@@ -29,11 +29,10 @@
       switchTab();
       window.addEventListener('hashchange', switchTab, false);
   })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="青柠手札" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/%E6%96%87%E7%AB%A0%E5%BD%92%E6%A1%A3">Archives</a><a class="navbar-item" href="/%E5%88%86%E7%B1%BB">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/zhang3399"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">CMake</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-12T07:26:00.000Z" title="2025/3/12 15:26:00">2025-03-12</time>发表</span><span class="level-item"><time dateTime="2025-03-12T13:54:38.901Z" title="2025/3/12 21:54:38">2025-03-12</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/">项目工具</a></span><span class="level-item">9 分钟读完 (大约1277个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/12/2025-3-12-CMake%E4%BD%BF%E7%94%A8/">🚀 CMake项目构建</a></p><div class="content"><blockquote>
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="青柠手札" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/%E6%96%87%E7%AB%A0%E5%BD%92%E6%A1%A3">Archives</a><a class="navbar-item" href="/%E5%88%86%E7%B1%BB">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/zhang3399"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">CMake</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-03-12T07:26:00.000Z" title="2025/3/12 15:26:00">2025-03-12</time>发表</span><span class="level-item"><time dateTime="2025-03-12T15:55:36.704Z" title="2025/3/12 23:55:36">2025-03-12</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/">项目工具</a></span><span class="level-item">13 分钟读完 (大约1978个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/03/12/2025-3-12-CMake%E4%BD%BF%E7%94%A8/">🚀 CMake项目构建</a></p><div class="content"><blockquote>
 <p>​<strong>最佳实践提示</strong>：建议使用CMake 3.15+版本以获得最佳跨平台支持</p>
 </blockquote>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<ul>
 <li><a href="#%E4%B8%80%E5%9F%BA%E7%A1%80%E8%A7%84%E8%8C%83">一、基础规范</a><ul>
 <li><a href="#11-%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F">1.1 命令格式</a></li>
 <li><a href="#12%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83">1.2注释规范</a></li>
@@ -52,6 +51,11 @@
 <li><a href="#%E5%9B%9B%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5">四、工程实践</a><ul>
 <li><a href="#41-%E6%A0%87%E5%87%86%E7%BB%93%E6%9E%84">4.1 标准结构</a></li>
 <li><a href="#42-%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B">4.2 构建流程</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E5%8A%A8%E9%9D%99%E6%80%81%E5%BA%93">五、动静态库</a><ul>
+<li><a href="#51-%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E5%BA%93">5.1 生成静态库</a></li>
+<li><a href="#52-%E4%BD%BF%E7%94%A8%E5%8A%A8%E9%9D%99%E6%80%81%E5%BA%93">5.2 使用动静态库</a></li>
 </ul>
 </li>
 <li><a href="#%E4%BA%94%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7">五、进阶技巧</a><ul>
@@ -129,6 +133,58 @@
 <hr>
 <h2 id="四、工程实践"><a href="#四、工程实践" class="headerlink" title="四、工程实践"></a>四、工程实践</h2><h3 id="4-1-标准结构"><a href="#4-1-标准结构" class="headerlink" title="4.1 标准结构"></a>4.1 标准结构</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CMakeLists.txt</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"><span class="keyword">project</span>(MyProject LANGUAGES CXX)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加源文件</span></span><br><span class="line"><span class="keyword">set</span>(SOURCES main.cpp foo.cpp bar.cpp)</span><br><span class="line"><span class="keyword">add_executable</span>(MyExecutable <span class="variable">$&#123;SOURCES&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加头文件搜索路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加链接库</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(MyExecutable PRIVATE MyLibrary)</span><br></pre></td></tr></table></figure>
 <h3 id="4-2-构建流程"><a href="#4-2-构建流程" class="headerlink" title="4.2 构建流程"></a>4.2 构建流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="五、动静态库"><a href="#五、动静态库" class="headerlink" title="五、动静态库"></a>五、动静态库</h2><h3 id="5-1-生成静态库"><a href="#5-1-生成静态库" class="headerlink" title="5.1 生成静态库"></a>5.1 生成静态库</h3><p><strong><code>add_library</code>命令</strong><br><code>add_library</code>命令用于创建库，其语法如下：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 静态库</span></span><br><span class="line"><span class="keyword">add_library</span>(MyLibrary STATIC [源文件<span class="number">1</span>] [源文件<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 动态库</span></span><br><span class="line"><span class="keyword">add_library</span>(MyLibrary SHARED  [源文件<span class="number">1</span>] [源文件<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<p><code>MyLibrary</code>表示<code>动静态</code>的<code>库名</code>，完整动静态文件名包含三部分：<code>lib</code>+<code>库名</code>+<code>扩展名</code><br>动态库扩展名为<code>.so</code>(Linux下)、<code>dll</code>(Windows下)   <code>SHARED</code>：表示生成动态库<br>静态库扩展名为<code>.a</code>(Linux下)、<code>lib</code>(Windows下)    <code>STATIC</code>：表示生成静态库</p>
+<p><code>静态库</code>默认不具有可执行权限，所以指定静态库路径的时候不可以使用<code>EXECUTABLE_OUTPUT_PATH</code>，而应该使用<code>LIBRARY_OUTPUT_PATH</code>，这个宏对于动态库和静态库都有效。</p>
+<table>
+<thead>
+<tr>
+<th align="center">类别</th>
+<th align="center">编译</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">静态库</td>
+<td align="center">编译时链接</td>
+</tr>
+<tr>
+<td align="center">动态库</td>
+<td align="center">运行时链接</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-使用动静态库"><a href="#5-2-使用动静态库" class="headerlink" title="5.2 使用动静态库"></a>5.2 使用动静态库</h3><p><code>链接</code><strong>动静态</strong>库，需要使用<code>link_libraries</code>命令</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">link_libraries</span>(&lt;static lib&gt; [&lt;static lib&gt;...])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><code>参数1</code> 指定要链接静态库的名字，可以是文件全名，也可以是文件名（不带<code>lib</code>前缀和扩展名<code>.a</code>）<br><code>参数2</code> 要链接的其他静态库的名字</p>
+<p>**注意：**如果该静态库不是系统提供的（自己制作或第三方提供静态库）可能出现找不到的情况，需要指定静态库的路径</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">link_directories</span>(&lt;path&gt;)</span><br></pre></td></tr></table></figure>
+<p><code>参数</code> 指定静态库的路径</p>
+<p><code>target_link_libraries</code> 用于将动态库链接到目标可执行文件（因此位于<code>add_executable</code>或<code>add_library</code>命令之后）</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(&lt;<span class="keyword">target</span>&gt; [PRIVATE|PUBLIC|INTERFACE] &lt;item&gt;...)</span><br></pre></td></tr></table></figure>
+<p><code>&lt;target&gt;</code>：表示目标可执行文件或库的名称<br><code>[PRIVATE|PUBLIC|INTERFACE]</code>：表示链接库的访问权限，默认为<code>PUBLIC</code>,可以是<code>PRIVATE</code>、<code>PUBLIC</code>、<code>INTERFACE</code>之一<br><code>&lt;item&gt;</code>：表示要链接的库的名称，可以是库的名称，也可以是库的路径</p>
+<p><code>动态库</code>：具有传递性，即链接动态库的库，也会链接动态库所依赖的动态库，例如：如果<code>动态库A</code>链接<code>动态库B、C</code>，<code>动态库D</code>链接<code>动态库A</code>，此时链接<code>动态库D</code>相当于链接了<code>动态库B、C</code>中定义的方法。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">target_link_libraries</span>(A B C)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(D A)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="center">权限</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PRIVATE</td>
+<td align="center">在private后面的库仅被link前面的target中，并且终结掉，第三方库不能感知你调用了啥库</td>
+</tr>
+<tr>
+<td align="center">PUBLIC</td>
+<td align="center">在public后面的库会被link到前面的target中，并且里面的符号会被导出，提供给第三方</td>
+</tr>
+<tr>
+<td align="center">INTERFACE</td>
+<td align="center">interface 后面引入的库不会被连接到前面的target中，只会导出符号</td>
+</tr>
+</tbody></table>
 <hr>
 <h2 id="五、进阶技巧"><a href="#五、进阶技巧" class="headerlink" title="五、进阶技巧"></a>五、进阶技巧</h2><h3 id="5-1-条件判断"><a href="#5-1-条件判断" class="headerlink" title="5.1 条件判断"></a>5.1 条件判断</h3><p><strong><code>if</code></strong></p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">EXISTS</span> <span class="variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line">    <span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
