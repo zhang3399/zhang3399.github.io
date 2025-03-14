@@ -35,7 +35,7 @@
 &lt;ol&gt;
 &lt;li&gt;首先查看树莓派地址：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 查看地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/13.webg&#34; alt=&#34;&#34;&gt;&lt;br&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 查看地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/13.webp&#34; alt=&#34;&#34;&gt;&lt;br&gt;
 连接的 wify，可以看到所属的地址端口。&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;将本地训练好的 &lt;code&gt;yolov5s.pt&lt;/code&gt;  权值文件发送到树莓派上：&lt;/li&gt;
@@ -67,7 +67,7 @@
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;检测效果如下🌱：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/12.webg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/12.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&#34;开启摄像头实时检测&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开启摄像头实时检测&#34;&gt;#&lt;/a&gt; 开启摄像头实时检测&lt;/h1&gt;
 &lt;p&gt;🍋检测视频流，遇到无法弹出实时检测界面，这让之前的工作毫无成就感😳，之后通过安装 &lt;code&gt;lightdm&lt;/code&gt;  来解决的。&lt;/p&gt;
@@ -79,7 +79,7 @@
 &lt;li&gt;查看摄像头🌱&lt;br&gt;
 使用 &lt;code&gt;v4l2-ctl&lt;/code&gt;  指令查看所有视频设备&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;v4l2-ctl --list-devices&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/11.webg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;v4l2-ctl --list-devices&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/11.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看到识别到的 USB 摄像头 &lt;code&gt;/dev/video0&lt;/code&gt; 、 &lt;code&gt;/dev/video1&lt;/code&gt; ，使用 &lt;code&gt;0&lt;/code&gt;  作为 &lt;code&gt;source&lt;/code&gt;  参数。&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;运行程序🌱&lt;/li&gt;
