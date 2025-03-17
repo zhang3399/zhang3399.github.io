@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>CodeVortex记事本 • Posts by &#34;cmake&#34; category</title>
+        <title>CodeVortex记事本 • Posts by &#34;项目工具&#34; category</title>
         <link>https://zhang3399.github.io</link>
         <description>记录过程中的点点滴滴</description>
         <language>zh-CN</language>
@@ -12,14 +12,12 @@
         <category>TypeScript</category>
         <category>树莓派</category>
         <category>YOLOv5s</category>
-        <category>C++</category>
         <category>Boost</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/03/12/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</guid>
             <title>🚀 CMake项目构建</title>
             <link>https://zhang3399.github.io/2025/03/12/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</link>
             <category>CMake</category>
-            <category>C++</category>
             <pubDate>Wed, 12 Mar 2025 15:26:00 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;​&lt;strong&gt;编译环境&lt;/strong&gt;：在 Wiondows 下，使用 VScode+WSL2+Ubuntu20.04+GCC 编译器&lt;/p&gt;
