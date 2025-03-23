@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;socket&#34; tag</title>
+        <link>https://zhang3399.github.io</link>
+        <description>记录过程中的点点滴滴</description>
+        <language>zh-CN</language>
+        <pubDate>Sat, 15 Jun 2024 10:00:00 +0800</pubDate>
+        <lastBuildDate>Sat, 15 Jun 2024 10:00:00 +0800</lastBuildDate>
+        <category>git</category>
+        <category>CMake</category>
+        <category>TypeScript</category>
+        <category>树莓派</category>
+        <category>YOLOv5s</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>Socket</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2024/06/15/2024-6-15-Socket/</guid>
+            <title>Socket</title>
+            <link>https://zhang3399.github.io/2024/06/15/2024-6-15-Socket/</link>
+            <category>Socket</category>
+            <pubDate>Sat, 15 Jun 2024 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;p&gt;Socket 是网络编程的一个抽象概念，它是对 TCP/IP 协议的封装，提供了一组接口，使得程序员可以更方便地使用网络功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;socket的原理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#socket的原理&#34;&gt;#&lt;/a&gt; Socket 的原理&lt;/h1&gt;
+&lt;p&gt;Socket 的原理是基于 TCP/IP 协议的，它通过 TCP/IP 协议来传输数据。TCP/IP 协议是一种网络通信协议，它定义了计算机之间如何进行通信。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tcp&lt;/strong&gt;&lt;br&gt;
+&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/tcp.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;socket的使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#socket的使用&#34;&gt;#&lt;/a&gt; Socket 的使用&lt;/h1&gt;
+&lt;h2 id=&#34;服务器端通信流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#服务器端通信流程&#34;&gt;#&lt;/a&gt; 服务器端通信流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建用于监听的套接字，这个套接字是一个文件描述符:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;
+int lfd = socket( AF_INET, SOCK_STREAM, 0 );
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;socket&lt;/code&gt;  接受三个参数，分别是 &lt;code&gt;地址族&lt;/code&gt; 、 &lt;code&gt;套接字类型&lt;/code&gt; 和 &lt;code&gt;协议类型&lt;/code&gt; 。&lt;br&gt;
+ &lt;code&gt;AF_INET&lt;/code&gt;  表示使用 &lt;code&gt;IPv4&lt;/code&gt;  协议， &lt;code&gt;SOCK_STREAM&lt;/code&gt;  表示使用 &lt;code&gt;TCP&lt;/code&gt;  协议， &lt;code&gt;0&lt;/code&gt;  表示使用默认协议。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;绑定套接字到指定的 IP 地址和端口号:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;struct sockaddr_in serv_addr;
+serv_addr.sin_family = AF_INET;
+serv_addr.sin_addr.s_addr = htonl(INADDR_ANY); // 使用本地IP地址
+serv_addr.sin_port = htons(8888); // 使用指定的端口号
+
+bind( lfd, (struct sockaddr*)&amp;amp;serv_addr, sizeof(serv_addr) );
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;bind&lt;/code&gt;  接受三个参数，分别是 &lt;code&gt;套接字描述符&lt;/code&gt; 、 &lt;code&gt;地址结构体&lt;/code&gt; 和 &lt;code&gt;地址结构体&lt;/code&gt; 的大小。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;监听套接字:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;listen( lfd, 128 );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;listen 接受两个参数，分别是 &lt;code&gt;套接字描述符&lt;/code&gt; 和 &lt;code&gt;监听队列的长度&lt;/code&gt; 。&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;接受客户端连接:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;struct sockaddr_in cli_addr;
+socklen_t cli_len = sizeof(cli_addr);
+int cfd = accept( lfd, (struct sockaddr*)&amp;amp;cli_addr, &amp;amp;cli_len );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;accept&lt;/code&gt;  接受三个参数，分别是 &lt;code&gt;套接字描述符&lt;/code&gt; 、 &lt;code&gt;客户端地址结构体&lt;/code&gt; 和 &lt;code&gt;客户端地址结构体&lt;/code&gt; 的大小。&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;读取客户端发送的数据:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;char buf[1024];
+int n = read( cfd, buf, sizeof(buf) );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;read&lt;/code&gt;  接受三个参数，分别是 &lt;code&gt;套接字描述符&lt;/code&gt; 、 &lt;code&gt;缓冲区&lt;/code&gt; 和 &lt;code&gt;缓冲区大小&lt;/code&gt; 。&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;发送数据给客户端:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;write( cfd, &amp;quot;hello world&amp;quot;, 11 );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;write&lt;/code&gt;  接受三个参数，分别是 &lt;code&gt;套接字描述符&lt;/code&gt; 、 &lt;code&gt;数据&lt;/code&gt; 和 &lt;code&gt;数据大小&lt;/code&gt; 。&lt;/p&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;关闭套接字:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;close( lfd );// 关闭监听套接字
+close( cfd );// 关闭客户端套接字
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;close&lt;/code&gt;  接受一个参数，即 &lt;code&gt;套接字描述符&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;服务端程序的完整代码如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;arpa/inet.h&amp;gt;
+
+int main()
+&amp;#123;
+    // 1. 创建用于监听的套接字
+    int lfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (lfd == -1)
+    &amp;#123;
+        perror(&amp;quot;socket&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 2. 绑定套接字到指定的IP地址和端口号
+    struct sockaddr_in serv_addr;
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    serv_addr.sin_port = htons(8888);
+
+    if (bind(lfd, (struct sockaddr*)&amp;amp;serv_addr, sizeof(serv_addr)) == -1)
+    &amp;#123;
+        perror(&amp;quot;bind&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 3. 监听套接字
+    if (listen(lfd, 128) == -1)
+    &amp;#123;
+        perror(&amp;quot;listen&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 4. 接受客户端连接
+    struct sockaddr_in cli_addr;
+    socklen_t cli_len = sizeof(cli_addr);
+    int cfd = accept(lfd, (struct sockaddr*)&amp;amp;cli_addr, &amp;amp;cli_len);
+    if (cfd == -1)
+    &amp;#123;
+        perror(&amp;quot;accept&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 5. 读取客户端发送的数据
+    char buf[1024];
+    int n = read(cfd, buf, sizeof(buf));
+    if (n == -1)
+    &amp;#123;
+        perror(&amp;quot;read&amp;quot;);
+        exit(1);
+    &amp;#125;
+    printf(&amp;quot;recv buf: %s\n&amp;quot;, buf);
+
+    // 6. 发送数据给客户端
+    if (write(cfd, &amp;quot;hello world&amp;quot;, 11) == -1)
+    &amp;#123;
+        perror(&amp;quot;write&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 7. 关闭套接字
+    close(lfd);
+    close(cfd);
+
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;客户端通信流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#客户端通信流程&#34;&gt;#&lt;/a&gt; 客户端通信流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建用于连接的套接字:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;int cfd = socket( AF_INET, SOCK_STREAM, 0 );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;连接服务器:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;struct sockaddr_in serv_addr;
+serv_addr.sin_family = AF_INET;
+serv_addr.sin_addr.s_addr = inet_addr(&amp;quot;127.0.0.1&amp;quot;); // 使用服务器的IP地址
+serv_addr.sin_port = htons(8888); // 使用指定的端口号
+
+connect( cfd, (struct sockaddr*)&amp;amp;serv_addr, sizeof(serv_addr) );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;发送数据给服务器:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;write( cfd, &amp;quot;hello world&amp;quot;, 11 );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;读取服务器发送的数据:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;char buf[1024];
+int n = read( cfd, buf, sizeof(buf) );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;关闭套接字:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;close( cfd );
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;客户端程序的完整代码如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;arpa/inet.h&amp;gt;
+
+int main()
+&amp;#123;
+    // 1. 创建用于连接的套接字
+    int cfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (cfd == -1)
+    &amp;#123;
+        perror(&amp;quot;socket&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 2. 连接服务器
+    struct sockaddr_in serv_addr;
+    serv_addr.sin_family = AF_INET;
+
+    serv_addr.sin_addr.s_addr = inet_addr(&amp;quot;127.0.0.1&amp;quot;);
+    serv_addr.sin_port = htons(8888);
+
+    if (connect(cfd, (struct sockaddr*)&amp;amp;serv_addr, sizeof(serv_addr)) == -1)
+    &amp;#123;
+        perror(&amp;quot;connect&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 3. 发送数据给服务器
+    if (write(cfd, &amp;quot;hello world&amp;quot;, 11) == -1)
+    &amp;#123;
+        perror(&amp;quot;write&amp;quot;);
+        exit(1);
+    &amp;#125;
+
+    // 4. 读取服务器发送的数据
+    char buf[1024];
+
+    int n = read(cfd, buf, sizeof(buf));
+    if (n == -1)
+    &amp;#123;
+        perror(&amp;quot;read&amp;quot;);
+        exit(1);
+    &amp;#125;
+    printf(&amp;quot;recv buf: %s\n&amp;quot;, buf);
+
+    // 5. 关闭套接字
+    close(cfd);
+
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
