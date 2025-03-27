@@ -5,8 +5,8 @@
         <link>https://zhang3399.github.io</link>
         <description>滴答滴答滴答</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 23 Feb 2025 01:39:00 +0800</pubDate>
-        <lastBuildDate>Sun, 23 Feb 2025 01:39:00 +0800</lastBuildDate>
+        <pubDate>Mon, 20 Jan 2025 01:39:00 +0800</pubDate>
+        <lastBuildDate>Mon, 20 Jan 2025 01:39:00 +0800</lastBuildDate>
         <category>git</category>
         <category>CMake</category>
         <category>TypeScript</category>
@@ -15,12 +15,14 @@
         <category>Boost</category>
         <category>Lambda 表达式</category>
         <category>Socket</category>
+        <category>I/O多路复用</category>
+        <category>数据处理及内存管理</category>
         <item>
-            <guid isPermalink="true">https://zhang3399.github.io/2025/02/23/2025-2-23-TypeScript/</guid>
+            <guid isPermalink="true">https://zhang3399.github.io/2025/01/20/2025-2-23-TypeScript/</guid>
             <title>TypeScript学习</title>
-            <link>https://zhang3399.github.io/2025/02/23/2025-2-23-TypeScript/</link>
+            <link>https://zhang3399.github.io/2025/01/20/2025-2-23-TypeScript/</link>
             <category>TypeScript</category>
-            <pubDate>Sun, 23 Feb 2025 01:39:00 +0800</pubDate>
+            <pubDate>Mon, 20 Jan 2025 01:39:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;基础类型8种&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基础类型8种&#34;&gt;#&lt;/a&gt; 基础类型 (8 种)&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;JavaScript&lt;/code&gt;  语言（注意，不是  &lt;code&gt;TypeScript&lt;/code&gt; ）将值分成 8 种类型。&lt;/p&gt;
 &lt;ul&gt;

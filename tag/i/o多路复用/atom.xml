@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhang3399.github.io</id>
+    <title>CodeVortex记事本 • Posts by &#34;i/o多路复用&#34; tag</title>
+    <link href="https://zhang3399.github.io" />
+    <updated>2024-08-08T12:00:00.000Z</updated>
+    <category term="git" />
+    <category term="CMake" />
+    <category term="TypeScript" />
+    <category term="树莓派" />
+    <category term="YOLOv5s" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="Socket" />
+    <category term="I/O多路复用" />
+    <category term="数据处理及内存管理" />
+    <entry>
+        <id>https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</id>
+        <title></title>
+        <link rel="alternate" href="https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;I/O多路复用&lt;/code&gt; 是一种技术，允许一个进程同时监控多个文件描述符，并在其中任何一个文件描述符准备好进行 I/O 操作时通知进程。这种技术可以提高程序的性能和效率，特别是在需要同时处理多个网络连接或文件描述符的情况下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;select&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#select&#34;&gt;#&lt;/a&gt; select&lt;/h1&gt;
+&lt;p&gt;函数原型：使用 &lt;code&gt;select&lt;/code&gt;  这种 &lt;code&gt;IO&lt;/code&gt;  多路转接方式需要调用一个同名函数 &lt;code&gt;select&lt;/code&gt; ，这个函数是跨平台的， &lt;code&gt;Linux&lt;/code&gt; 、 &lt;code&gt;Windows&lt;/code&gt; 、 &lt;code&gt;MacOS&lt;/code&gt;  等操作系统都是支持的。该函数可以委托内核帮助我们检测若干个文件描述符的状态，其实就是检测这些文件描述符对应的读写缓冲区的状态。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读缓冲区状态：检测里面是否有数据，如果有数据该缓冲区对应的文件描述符就绪&lt;/li&gt;
+&lt;li&gt;写缓冲区状态：检测里面是否还有空闲空间，如果有空闲空间该缓冲区对应的文件描述符就绪&lt;/li&gt;
+&lt;li&gt;读取异常状态：检测是否发生异常，比如网络异常、文件异常等，如果发生异常该缓冲区对应的文件描述符就绪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;委托检测的文件描述符遍历检测完毕之后，已就绪的这些满足的文件描述符会通过 select () 的参数分为 3 个集合传出，程序员得到这几个集合依次分情况依次处理即可。&lt;/p&gt;
+&lt;p&gt;函数原型：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;sys/select.h&amp;gt;
+struct timeval &amp;#123;
+    time_t tv_sec; /* 秒 */
+    suseconds_t tv_usec; /* 微秒 */
+&amp;#125;
+
+int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nfds&lt;/code&gt; ：需要检测的文件描述符的范围，即检测的文件描述符从 0 到 &lt;code&gt;nfds-1&lt;/code&gt; ， &lt;code&gt;nfds&lt;/code&gt;  的值通常为待检测的&lt;em&gt;最大文件描述符&lt;/em&gt;加 1。(内核允许最大一般是 1024)
+&lt;ul&gt;
+&lt;li&gt;内核需要线程遍历这些集合中的文件描述符，这个值是循环结束的条件。&lt;/li&gt;
+&lt;li&gt;在 windows 中，该参数是无效的，指定为 - 1 即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;readfds&lt;/code&gt; ：需要检测读状态的文件描述符集合，即检测这些文件描述符对应的读缓冲区状态。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;传入传出参数&lt;/code&gt; ，读集合一般情况下是需要检测的，这样测能直到通过哪些文件描述符接收数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;writefds&lt;/code&gt; ：需要检测写状态的文件描述符集合，即检测这些文件描述符对应的写缓冲区状态。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;传入传出参数&lt;/code&gt; ，如果不需要使用该参数可以指定为 NULL。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;exceptfds&lt;/code&gt; ：需要检测异常状态的文件描述符集合，即检测这些文件描述符对应的异常状态。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;传入传出参数&lt;/code&gt; ，如果不需要使用该参数可以指定为 NULL。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;timeout&lt;/code&gt; ：超时时间，即检测文件描述符状态的超时时间。&lt;/li&gt;
+&lt;li&gt;函数返回值：
+&lt;ul&gt;
+&lt;li&gt;大于 &lt;code&gt;0&lt;/code&gt; ：成功，返回集合中已就绪的文件描述符的个数。&lt;/li&gt;
+&lt;li&gt;等于 &lt;code&gt;-1&lt;/code&gt; ：则表示出错。&lt;/li&gt;
+&lt;li&gt;等于 &lt;code&gt;0&lt;/code&gt; ：则表示超时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/ioduolu.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;另外初始化 &lt;code&gt;fd_set&lt;/code&gt;  类型的参数还需要使用相关的一些列操作函数，具体如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;void FD_ZERO(fd_set *set); // 将set集合中的所有文件描述符对应的标志位都设置为0，表示集合中没有文件描述符
+void FD_SET(int fd, fd_set *set); // 将set集合中的fd文件描述符对应的标志位设置为1，表示集合中有该文件描述符
+void FD_CLR(int fd, fd_set *set); // 将set集合中的fd文件描述符对应的标志位设置为0，表示集合中没有该文件描述符
+void FD_ISSET(int fd, fd_set *set); // 判断set集合中的fd文件描述符对应的标志位是否为1，如果为1则表示集合中有该文件描述符，否则表示集合中没有该文件描述符
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;poll&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#poll&#34;&gt;#&lt;/a&gt; poll&lt;/h1&gt;
+&lt;p&gt;函数原型：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;poll.h&amp;gt;
+struct pollfd &amp;#123;
+    int fd; /* 文件描述符 */
+    short events; /* 监控的事件 */
+    short revents; /* 实际发生的事件 */
+&amp;#125;;
+
+
+int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fds&lt;/code&gt; ：需要检测的文件描述符集合，即检测这些文件描述符对应的读缓冲区状态、写缓冲区状态、异常状态。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;传入传出参数&lt;/code&gt; ，读集合一般情况下是需要检测的，这样测能直到通过哪些文件描述符接收数据。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pollfd&lt;/code&gt;  结构体数组，每个 &lt;code&gt;pollfd&lt;/code&gt;  结构体表示一个文件描述符的检测信息，包括文件描述符、检测的事件、实际发生的事件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nfds&lt;/code&gt; ：需要检测的文件描述符的个数，即检测的文件描述符从 0 到 &lt;code&gt;nfds-1&lt;/code&gt; ， &lt;code&gt;nfds&lt;/code&gt;  的值通常为待检测的&lt;em&gt;最大文件描述符&lt;/em&gt;加 1。
+&lt;ul&gt;
+&lt;li&gt;内核需要线程遍历这些集合中的文件描述符，这个值是循环结束的条件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;timeout&lt;/code&gt; ：超时时间，即检测文件描述符状态的超时时间。&lt;/li&gt;
+&lt;li&gt;函数返回值：
+&lt;ul&gt;
+&lt;li&gt;大于 &lt;code&gt;0&lt;/code&gt; ：成功，返回集合中已就绪的文件描述符的个数。&lt;/li&gt;
+&lt;li&gt;等于 &lt;code&gt;-1&lt;/code&gt; ：则表示出错。&lt;/li&gt;
+&lt;li&gt;等于 &lt;code&gt;0&lt;/code&gt; ：则表示超时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;select 与 poll 的并发性能比较：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;  函数的 &lt;code&gt;fd_set&lt;/code&gt;  类型参数，在每次调用 &lt;code&gt;select&lt;/code&gt;  函数时，都需要重新设置，而 &lt;code&gt;poll&lt;/code&gt;  函数的 &lt;code&gt;pollfd&lt;/code&gt;  类型参数，只需要在第一次调用 &lt;code&gt;poll&lt;/code&gt;  函数时设置一次，之后每次调用 &lt;code&gt;poll&lt;/code&gt;  函数时，只需要修改需要检测的文件描述符的 &lt;code&gt;pollfd&lt;/code&gt;  结构体即可。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="I/O多路复用" />
+        <updated>2024-08-08T12:00:00.000Z</updated>
+    </entry>
+</feed>

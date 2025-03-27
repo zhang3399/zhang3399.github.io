@@ -15,6 +15,8 @@
         <category>Boost</category>
         <category>Lambda 表达式</category>
         <category>Socket</category>
+        <category>I/O多路复用</category>
+        <category>数据处理及内存管理</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/03/12/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</guid>
             <title>🚀 CMake项目构建</title>

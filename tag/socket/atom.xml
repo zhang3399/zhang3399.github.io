@@ -12,6 +12,8 @@
     <category term="Boost" />
     <category term="Lambda 表达式" />
     <category term="Socket" />
+    <category term="I/O多路复用" />
+    <category term="数据处理及内存管理" />
     <entry>
         <id>https://zhang3399.github.io/2024/06/15/2024-6-15-Socket/</id>
         <title>Socket</title>
