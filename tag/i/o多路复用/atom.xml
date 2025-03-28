@@ -13,10 +13,10 @@
     <category term="Lambda 表达式" />
     <category term="Socket" />
     <category term="I/O多路复用" />
-    <category term="数据处理及内存管理" />
+    <category term="内存管理" />
     <entry>
         <id>https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</id>
-        <title></title>
+        <title>I/O多路复用</title>
         <link rel="alternate" href="https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;I/O多路复用&lt;/code&gt; 是一种技术，允许一个进程同时监控多个文件描述符，并在其中任何一个文件描述符准备好进行 I/O 操作时通知进程。这种技术可以提高程序的性能和效率，特别是在需要同时处理多个网络连接或文件描述符的情况下。&lt;/p&gt;

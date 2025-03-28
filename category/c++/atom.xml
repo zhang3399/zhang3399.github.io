@@ -13,7 +13,7 @@
     <category term="Lambda 表达式" />
     <category term="Socket" />
     <category term="I/O多路复用" />
-    <category term="数据处理及内存管理" />
+    <category term="内存管理" />
     <entry>
         <id>https://zhang3399.github.io/2025/03/19/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
         <title>Lambda 表达式</title>
@@ -554,7 +554,7 @@
     </entry>
     <entry>
         <id>https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</id>
-        <title></title>
+        <title>I/O多路复用</title>
         <link rel="alternate" href="https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"/>
         <content type="html">&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;I/O多路复用&lt;/code&gt; 是一种技术，允许一个进程同时监控多个文件描述符，并在其中任何一个文件描述符准备好进行 I/O 操作时通知进程。这种技术可以提高程序的性能和效率，特别是在需要同时处理多个网络连接或文件描述符的情况下。&lt;/p&gt;
@@ -735,7 +735,7 @@ int poll(struct pollfd *fds, nfds_t nfds, int timeout);
     </entry>
     <entry>
         <id>https://zhang3399.github.io/2024/06/08/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</id>
-        <title></title>
+        <title>数据处理及内存管理</title>
         <link rel="alternate" href="https://zhang3399.github.io/2024/06/08/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
         <content type="html">&lt;h1 id=&#34;数据处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据处理&#34;&gt;#&lt;/a&gt; 数据处理&lt;/h1&gt;
 &lt;h2 id=&#34;大小端转换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#大小端转换&#34;&gt;#&lt;/a&gt; 大小端转换&lt;/h2&gt;
@@ -990,7 +990,7 @@ int poll(struct pollfd *fds, nfds_t nfds, int timeout);
 &lt;p&gt;| 内存管理 | 共享内存，可能导致数据竞争或内存泄漏 | 独立内存，内存安全 |&lt;/p&gt;
 &lt;p&gt;| 性能开销 | 较低，直接复制指针 | 较高，需要复制大量数据 |&lt;/p&gt;
 </content>
-        <category term="数据处理及内存管理" />
+        <category term="内存管理" />
         <updated>2024-06-08T02:00:00.000Z</updated>
     </entry>
 </feed>

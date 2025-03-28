@@ -16,10 +16,10 @@
         <category>Lambda 表达式</category>
         <category>Socket</category>
         <category>I/O多路复用</category>
-        <category>数据处理及内存管理</category>
+        <category>内存管理</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
-            <title></title>
+            <title>I/O多路复用</title>
             <link>https://zhang3399.github.io/2024/08/08/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
             <category>I/O多路复用</category>
             <pubDate>Thu, 08 Aug 2024 20:00:00 +0800</pubDate>
