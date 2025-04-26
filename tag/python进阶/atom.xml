@@ -1,0 +1,722 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhang3399.github.io</id>
+    <title>CodeVortex记事本 • Posts by &#34;python进阶&#34; tag</title>
+    <link href="https://zhang3399.github.io" />
+    <updated>2021-10-06T02:00:00.000Z</updated>
+    <category term="Socket" />
+    <category term="CMake" />
+    <category term="多线程" />
+    <category term="I/O多路复用" />
+    <category term="TypeScript" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="python" />
+    <category term="Linux" />
+    <category term="Windows" />
+    <category term="git" />
+    <category term="python进阶" />
+    <category term="SQL" />
+    <category term="数据结构" />
+    <category term="LSTM" />
+    <category term="YOLOv5" />
+    <category term="OpenCV" />
+    <category term="ONNX" />
+    <category term="Adman梯度下降" />
+    <category term="YOLOv5s" />
+    <entry>
+        <id>https://zhang3399.github.io/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/</id>
+        <title>python进阶</title>
+        <link rel="alternate" href="https://zhang3399.github.io/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/"/>
+        <content type="html">&lt;h1&gt;面向对象&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;面向对象编程是一种编程范式或编程风格。它以类和对象为核心，将数据（属性）和操作（方法）封装在一起，通过继承和多态等机制实现代码的重用和扩展。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;类&#34;&gt;类&lt;/h2&gt;
+&lt;p&gt;类是面向对象编程中的基本概念，它是一种抽象的数据类型，用于定义对象的属性和行为。类可以看作是对象的模板，通过类可以创建多个具有相同属性和行为的对象。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;类的定义&lt;/strong&gt;&lt;br&gt;
+在Python中，使用&lt;code&gt;class&lt;/code&gt;关键字来定义一个类。&lt;/p&gt;
+&lt;p&gt;注意：类名通常使用大写字母开头，遵循驼峰命名法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# 基本格式：
+# class 类名:
+#     类的属性和方法
+
+class ClassName:
+    # 类的属性
+    name = &amp;quot;name&amp;quot;
+
+    # 类的方法
+    def method(self):
+        print(&amp;quot;method id：&amp;quot;, self)  # self是类实例的引用，用于访问类的属性和方法
+
+# 实例化
+class_instance = ClassName()
+print(&amp;quot;class_instance id is:&amp;quot;, class_instance)
+class_instance.method()
+
+&amp;quot;&amp;quot;&amp;quot;
+结果：
+class_instance id is: &amp;lt;__main__.ClassName object at 0x000001CE2FEA9FD0&amp;gt;
+method id： &amp;lt;__main__.ClassName object at 0x000001CE2FEA9FD0&amp;gt;
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;构造函数&lt;code&gt;__init__()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;构造函数是类的一个特殊方法，用于初始化对象的状态。当创建对象时，Python会自动调用构造函数。&lt;/li&gt;
+&lt;li&gt;构造函数的第一个参数必须是&lt;code&gt;self&lt;/code&gt;，表示对象本身的引用。&lt;/li&gt;
+&lt;li&gt;构造函数可以接受任意数量的参数，用于初始化对象的属性。&lt;/li&gt;
+&lt;li&gt;构造函数可以返回任意类型的值，但通常返回&lt;code&gt;None&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;构造函数可以包含任意数量的代码，用于执行初始化操作。&lt;/li&gt;
+&lt;li&gt;构造函数可以调用其他方法，用于执行初始化操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class ClassName:
+    def __init__(self, name): #self--实例本身，name--实例属性（非类属性）
+        self.name = name
+
+class_instance = ClassName(&amp;quot;name&amp;quot;)
+print(&amp;quot;class_instance.name is:&amp;quot;, class_instance.name)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;析构函数&lt;code&gt;__del__()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;析构函数是类的一个特殊方法，用于在对象被销毁时执行清理操作。当对象被销毁时，Python会自动调用析构函数。&lt;/li&gt;
+&lt;li&gt;析构函数的第一个参数必须是&lt;code&gt;self&lt;/code&gt;，表示对象本身的引用。&lt;/li&gt;
+&lt;li&gt;析构函数可以接受任意数量的参数，用于执行清理操作。&lt;/li&gt;
+&lt;li&gt;析构函数可以返回任意类型的值，但通常返回&lt;code&gt;None&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;析构函数可以包含任意数量的代码，用于执行清理操作。&lt;/li&gt;
+&lt;li&gt;析构函数可以调用其他方法，用于执行清理操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class ClassName:
+    def __init__(self, name):
+        self.name = name
+
+    def __del__(self):
+        print(&amp;quot;del ClassName&amp;quot;)
+
+class_instance = ClassName(&amp;quot;name&amp;quot;)
+del class_instance # 或者 class_instance = None (删除对象)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;封装&lt;/h1&gt;
+&lt;p&gt;封装：面向对象编程中的一个重要概念，它指的是将对象的属性和方法封装在一起，形成一个独立的单元。&lt;br&gt;
+目的：隐藏对象的内部实现细节，只对外提供必要的接口，从而提高代码的可维护性和安全性。&lt;/p&gt;
+&lt;p&gt;在Python中，可以通过以下方式实现封装：&lt;/p&gt;
+&lt;h2 id=&#34;隐藏属性&#34;&gt;隐藏属性&lt;/h2&gt;
+&lt;p&gt;使用&lt;code&gt;__&lt;/code&gt;双下划线开头的属性名或方法名，表示私有，只能在类的内部访问。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class ClassName:
+    name = &amp;quot;name&amp;quot;
+    __age = 18
+
+class_instance = ClassName()
+
+print(&amp;quot;class_instance.name is:&amp;quot;, class_instance.name) # √
+
+print(&amp;quot;class_instance.__age is:&amp;quot;, class_instance.__age) # × AttributeError: &#39;ClassName&#39; object has no attribute &#39;__age&#39;
+
+## 隐藏属性实际上是将类名修改为： _类名__属性名 
+print(&amp;quot;class_instance.__age is:&amp;quot;, class_instance._ClassName__age) # √
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;私有属性-方法&#34;&gt;私有属性/方法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;xxx&lt;/code&gt;：普通属性/方法，可以在类的外部访问。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;_xxx&lt;/code&gt;：受保护的属性/方法，如果定义在类中，可以外部访问，也可以子类中访问。但是另外的&lt;code&gt;.py&lt;/code&gt;文件通过&lt;code&gt;from import *&lt;/code&gt;导入时，&lt;code&gt;_xxx&lt;/code&gt;属性/方法不会被导入。
+&lt;ul&gt;
+&lt;li&gt;这种一般是为了避免与python关键字冲突而采用的命名方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__xxx&lt;/code&gt;：双下划线开头，隐藏的属性/方法，只能在类的内部访问，如果定义在类中，子类不会继承。
+&lt;ul&gt;
+&lt;li&gt;这种命名一般是python中的魔法方法或者属性，都是有特殊含义和功能的，自己不要轻易定义。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;私有属性&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class ClassName:
+    name = &amp;quot;name&amp;quot;
+    _age = 18
+    __sex = &amp;quot;male&amp;quot;
+
+class_instance = ClassName()
+
+print(&amp;quot;class_instance.name is:&amp;quot;, class_instance.name) # √
+print(&amp;quot;class_instance._age is:&amp;quot;, class_instance._age) # √
+print(&amp;quot;class_instance.__sex is:&amp;quot;, class_instance.__sex) # × AttributeError: &#39;ClassName&#39; object has no attribute &#39;__sex&#39;
+print(&amp;quot;class_instance._ClassName__sex is:&amp;quot;, class_instance._ClassName__sex) # √
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;隐藏方法&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Man:
+    def __play(self):
+        print(&amp;quot;write code&amp;quot;)
+    def funa(self):
+        # 内部调用私有方法
+        self.__play() # 类内部调用私有方法
+        Man.__play(self) # 类内部调用私有方法（不推荐）
+
+man = Man()
+man.funa() # √ 类内部调用私有方法
+man.__play() # × AttributeError: &#39;Man&#39; object has no attribute &#39;__play&#39;
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+write code
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;私有方法&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Gril:
+    def _play(self): #私有方法
+        print(&amp;quot;play game&amp;quot;)
+
+gril = Gril()
+gril._play() # √
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;继承&lt;/h1&gt;
+&lt;p&gt;继承：面向对象编程中的一个重要概念，它指的是一个类可以继承另一个类的属性和方法，从而实现代码的重用和扩展。&lt;/p&gt;
+&lt;p&gt;格式：&lt;code&gt;class 子类名(父类名):&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;单继承&#34;&gt;单继承&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Persion:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+    def sing(self):
+        print(&amp;quot;sing&amp;quot;)
+
+class Student(Persion):
+    pass # 占位符，表示不添加任何新的属性和方法
+
+student = Student()
+student.eat() # √
+student.sing() # √
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+eat
+sing
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;继承的传递（多重继承）&#34;&gt;继承的传递（多重继承）&lt;/h2&gt;
+&lt;p&gt;子类可以继承父类的属性和方法，也可以继承父类的父类的属性和方法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Persion:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+    def sing(self):
+        print(&amp;quot;sing&amp;quot;)
+
+class Student(Persion):
+    pass
+
+class Teacher(Student):
+    pass
+
+teacher = Teacher()
+teacher.eat() # √
+teacher.sing() # √
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+eat
+sing
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;重写&#34;&gt;重写&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;子类重写父类的方法&lt;br&gt;
+子类可以重写父类的方法，即在子类中定义一个与父类方法同名的方法，从而覆盖父类的方法。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Persion:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+
+class Student(Persion):
+    def eat(self):
+        print(&amp;quot;eat food&amp;quot;)
+
+student = Student()
+student.eat() # eat food
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+eat food
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;子类拓展父类的方法(不会改变父类方法)&lt;br&gt;
+&lt;strong&gt;写法1&lt;/strong&gt;：子类在需要拓展的父类方法下写&lt;code&gt;父类名.方法名()&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Persion:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+
+class Student(Persion):
+    def eat(self):
+        Persion.eat(self)
+        print(&amp;quot;eat food&amp;quot;)
+
+#拓展父类方法
+student1 = Student()
+student1.eat() # eat food
+# 不会改变父类方法
+stuent2 = Persion()
+stuent2.eat()
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+eat
+eat food
+eat
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;写法2&lt;/strong&gt;：子类在需要拓展的父类方法下写&lt;code&gt;super().方法名()&lt;/code&gt;&lt;br&gt;
+注意：&lt;code&gt;super&lt;/code&gt;在python里面是一个特殊的类，super()是使用super类创建的一个对象，这个对象是父类，但是不是父类的实例，而是父类的子类，所以super()可以调用父类的方法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Persion:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+
+class Student(Persion):
+    def eat(self):
+        super().eat()
+        print(&amp;quot;eat food&amp;quot;)
+
+#拓展父类方法
+student1 = Student()
+student1.eat() # eat food
+# 不会改变父类方法
+stuent2 = Persion()
+stuent2.eat()
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+eat
+eat food
+eat
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;新式类写法&#34;&gt;新式类写法&lt;/h2&gt;
+&lt;p&gt;python中，类有两种写法：经典类和新式类。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class A&lt;/code&gt;&lt;br&gt;
+经典类：不由任意内置类型派生的类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Animal:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+# 经典类：没有新的属性和方法
+class Dog(Animal):
+    pass
+
+# 派生类
+class Cat(Animal):
+    name = &amp;quot;cat&amp;quot;
+    def play(self):
+        print(&amp;quot;play&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class A()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;class A(object) &lt;/code&gt;新式类：继承了object类或者该类的子类都是新式类。 --推荐使用&lt;br&gt;
+&lt;code&gt;object&lt;/code&gt;类是所有类的基类，所有类都继承自object类,是python为所有对象提供的基类(顶级父类)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意：python3中如果一个类没有继承任何类，则默认继承&lt;code&gt;object&lt;/code&gt;类，所以python3中所有的类都是新式类。&lt;/p&gt;
+&lt;h2 id=&#34;多继承&#34;&gt;多继承&lt;/h2&gt;
+&lt;p&gt;一个类可以继承多个类，多个类之间用逗号分隔。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Student:
+    def study(self):
+        print(&amp;quot;study&amp;quot;)
+
+class Teacher:
+    def teach(self):
+        print(&amp;quot;teach&amp;quot;)
+
+class TeacherStudent(Teacher, Student):
+    pass
+
+teacher_student = TeacherStudent()
+
+teacher_student.study() # study
+teacher_student.teach() # teach
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 多个父类具有同名方法，则调用顺序为：&lt;code&gt;从左到右，深度优先&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方法的搜索顺序：&lt;/strong&gt;&lt;br&gt;
+python中内置的&lt;code&gt;__mro__&lt;/code&gt;属性可以查看类的继承顺序。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class A:
+    def funa(self):
+        print(&amp;quot;A.funa&amp;quot;)
+
+class B(A):
+    def funb(self):
+        print(&amp;quot;B.funb&amp;quot;)
+
+class C(A):
+    def funa(self):
+        print(&amp;quot;C.funa&amp;quot;)
+
+class D(B, C):
+    pass
+
+d = D()
+d.funa() # C.funa
+print(D.__mro__)
+&amp;quot;&amp;quot;&amp;quot;
+输出：（从左到右，深度优先）
+(&amp;lt;class &#39;__main__.D&#39;&amp;gt;, &amp;lt;class &#39;__main__.B&#39;&amp;gt;, &amp;lt;class &#39;__main__.C&#39;&amp;gt;, &amp;lt;class &#39;__main__.A&#39;&amp;gt;, &amp;lt;class &#39;object&#39;&amp;gt;)
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;多态&lt;/h1&gt;
+&lt;p&gt;多态：面向对象编程中的一个重要概念，它指的是一个对象可以有多种形态，即同一个方法可以在不同的对象上调用，从而实现不同的功能。&lt;/p&gt;
+&lt;p&gt;多态的前提：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;继承&lt;/li&gt;
+&lt;li&gt;重写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;多态的体现：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;父类引用指向子类对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Animal:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+
+class Dog(Animal):
+    def eat(self):
+        print(&amp;quot;dog eat&amp;quot;)
+
+class Cat(Animal):
+    def eat(self):
+        print(&amp;quot;cat eat&amp;quot;)
+
+animal = Animal()
+animal.eat() # eat
+
+dog = Dog()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;多态性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;同一个方法，不同的对象调用，产生不同的结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Animal:
+    def eat(self):
+        print(&amp;quot;eat&amp;quot;)
+
+class Dog(Animal):
+    def eat(self):
+        print(&amp;quot;dog eat&amp;quot;)
+
+class Cat(Animal):
+    def eat(self):
+        print(&amp;quot;cat eat&amp;quot;)
+
+def funa(obj):
+    obg.eat()
+
+animal = Animal()
+funa(animal) # eat
+
+dog = Dog()
+funa(dog) # dog eat
+
+cat = Cat()
+funa(cat) # cat eat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;静态方法&#34;&gt;静态方法&lt;/h2&gt;
+&lt;p&gt;静态方法：不需要实例化对象就可以直接调用的方法，使用&lt;code&gt;@staticmethod&lt;/code&gt;装饰器来定义。&lt;/p&gt;
+&lt;p&gt;静态方法的特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不需要实例化对象就可以直接调用&lt;/li&gt;
+&lt;li&gt;不需要&lt;code&gt;self&lt;/code&gt;参数&lt;/li&gt;
+&lt;li&gt;静态方法可以访问类变量和实例变量&lt;/li&gt;
+&lt;li&gt;静态方法不能访问实例方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;静态方法的使用场景：当方法不需要访问实例变量和类变量时，可以使用静态方法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Animal:
+    @staticmethod
+    def say_hello():
+        print(&amp;quot;hello&amp;quot;)
+# 静态方法既可以使用对象访问，也可以使用类名访问
+
+# 实例对象访问
+animal = Animal(&amp;quot;dog&amp;quot;)
+animal.say_hello() # hello
+
+# 类名访问
+Animal.say_hello() # hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：类方法可以直接方法时传参数，例如Animal.say_hello(name)&lt;/p&gt;
+&lt;h2 id=&#34;类方法&#34;&gt;类方法&lt;/h2&gt;
+&lt;p&gt;类方法：使用&lt;code&gt;@classmethod&lt;/code&gt;装饰器来定义，对于类方法，第一个参数必须是类对象，通常命名为&lt;code&gt;cls&lt;/code&gt;，表示类本身。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Animal:
+    name = &amp;quot;animal&amp;quot;
+    @classmethod
+    def say_hello(cls):
+        print(&amp;quot;hello&amp;quot;)
+# 类方法既可以使用对象访问，也可以使用类名访问
+
+# 实例对象访问
+animal = Animal(&amp;quot;dog&amp;quot;)
+animal.say_hello() # hello
+
+# 类名访问
+Animal.say_hello() # hello
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当方法中需要使用到类对象（如访问私有类属性时），定义类方法&lt;br&gt;
+类方法一般配合类属性使用&lt;/p&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;实例方法：方法内部访问实例属性，方法内部可以通过&lt;code&gt;类名.类属性名&lt;/code&gt;来访问类属性。&lt;/li&gt;
+&lt;li&gt;静态方法&lt;code&gt;@staticmethod&lt;/code&gt;：方法内部，不需要访问实例属性和类属性。
+&lt;ul&gt;
+&lt;li&gt;如果需要访问类属性，方法内部可以通过&lt;code&gt;类名.类属性名&lt;/code&gt;来访问，不能访问实例属性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;类方法&lt;code&gt;@classmethod&lt;/code&gt;：方法内部只需要访问类属性，方法内部可以通过&lt;code&gt;cls.类属性名&lt;/code&gt;来访问类属性，不能访问实例属性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    name = &amp;quot;小明&amp;quot; # 类属性
+    def __init__(self):
+        self.age = 18 # 实例属性:对象私有
+    
+    def play(self):  # 实例方法
+        # 在实例方法中访问类属性
+        print(f&#39;&amp;#123;Person.name&amp;#125;在玩游戏&#39;)
+        # 在实例方法中访问实例属性
+        print(f&#39;&amp;#123;self.age&amp;#125;岁&#39;)
+
+    @staticmethod
+    def eat():  # 静态方法： 类中的函数，形参没有限制,没有self指向实例对象的概念
+        print(f&amp;quot;&amp;#123;Person.name&amp;#125;eat food&amp;quot;) # 静态方法可访问类属性，但是无意义，静态方法既不传递类对象，也不传递实例对象
+        # print(f&amp;quot;&amp;#123;self.age&amp;#125;岁&amp;quot;) # × 静态方法不能访问实例属性
+
+    @classmethod # 类方法:针对类存在的方法
+    def say_hello(cls):  # 类方法：cls 代表类对象本身，不用类名.属性名 
+        print(f&#39;&amp;#123;cls.name&amp;#125;在说话&#39;)
+        # print(f&amp;quot;&amp;#123;self.age&amp;#125;岁&amp;quot;) # × 不能访问实例属性
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;单例模式&lt;/h1&gt;
+&lt;p&gt;含义：一种常见的设计模式，用于确保一个类只有一个实例，并提供一个全局访问点。&lt;br&gt;
+优点：节省内存，避免重复创建对象。&lt;br&gt;
+弊端：多线程访问容易引发线程安全问题。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方式&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过@classmethod实现&lt;/li&gt;
+&lt;li&gt;通过装饰器实现&lt;/li&gt;
+&lt;li&gt;通过重写__new__方法实现&lt;/li&gt;
+&lt;li&gt;通过模块导入实现&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;new-方法&#34;&gt;__new__方法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__new__&lt;/code&gt;方法是&lt;code&gt;object基类&lt;/code&gt;提供的内置的&lt;code&gt;静态方法&lt;/code&gt;，它是在对象被创建之前调用的，用于创建对象。&lt;code&gt;__new__&lt;/code&gt;方法返回一个对象，这个对象会被&lt;code&gt;__init__&lt;/code&gt;方法初始化。&lt;/p&gt;
+&lt;p&gt;作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在内存中为对象分配空间&lt;/li&gt;
+&lt;li&gt;返回对象的引用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    def __init__(self, name):
+        print(&amp;quot;Person.__init__&amp;quot;)
+        self.name = name
+    
+    def __new__(cls, *args, **kwargs): # 重写new不再调用父类的new方法
+        print(&amp;quot;Person.__new__&amp;quot;)
+        # 对父类方法进行扩展 super().方法名()
+        res = super().__new__(cls) #方法重写，res里面保存的是实例对象的引用
+        return res
+
+person = Person(&amp;quot;小明&amp;quot;)
+
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+Person.__new__
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;通过重写-new-方法实现单例模式&#34;&gt;通过重写__new__方法实现单例模式&lt;/h2&gt;
+&lt;p&gt;设计流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义一个类属性，初始化为None，用来记录单利对象的引用&lt;/li&gt;
+&lt;li&gt;重写__new__方法&lt;/li&gt;
+&lt;li&gt;进行判断，如果类属性为None，把__new__()返回对象的引用保存进去&lt;/li&gt;
+&lt;li&gt;返回类型属性中记录的对象引用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Singleton(object):
+    __instance = None # 类属性
+    def __new__(cls, *args, **kwargs):
+        print(&amp;quot;Singleton.__new__&amp;quot;)
+        return super().__new__(cls)
+    
+    def __init__(self):
+        print(&amp;quot;Singleton.__init__&amp;quot;)
+
+s1 = Singleton()
+s2 = Singleton()
+print(s1 is s2) # True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;通过导入模块实现单例模式&#34;&gt;通过导入模块实现单例模式&lt;/h2&gt;
+&lt;p&gt;模块的&lt;code&gt;__init__.py&lt;/code&gt;文件中的代码在模块第一次被导入时执行，只会执行一次，因此可以利用这个特性来实现单例模式。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# my_singleton.py
+class Singleton(object):
+    def __init__(self):
+        print(&amp;quot;Singleton.__init__&amp;quot;)
+
+    def __new__(cls, *args, **kwargs):
+        print(&amp;quot;Singleton.__new__&amp;quot;)
+        return super().__new__(cls)
+
+singleton = Singleton()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# main.py
+from my_singleton import singleton
+
+print(singleton)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;应用场景&#34;&gt;应用场景&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;回收站对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;音乐播放器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;开发游戏软件 场景管理器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;数据库配置、数据库连接池的设计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;线程池、连接池、缓存、日志对象&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;魔法方法&amp;amp;魔法属性&lt;/h1&gt;
+&lt;p&gt;魔法方法：在Python中，以双下划线开头和结尾的方法称为魔法方法，也称为特殊方法。魔法方法在特定的情况下自动调用，不需要手动调用。&lt;/p&gt;
+&lt;h2 id=&#34;doc-属性&#34;&gt;__doc__属性&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__doc__&lt;/code&gt;: 类、函数的描述信息&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    &amp;quot;&amp;quot;&amp;quot;这是一个描述信息&amp;quot;&amp;quot;&amp;quot; # 只能使用多行注释，单行注释无效
+    pass
+print(Person.__doc__) # 这是一个描述信息
+
+def fun():
+    &amp;quot;&amp;quot;&amp;quot;这是一个描述信息&amp;quot;&amp;quot;&amp;quot;
+    pass
+print(fun.__doc__) # 这是一个描述信息
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;modeule-属性&#34;&gt;__modeule__属性&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__module__&lt;/code&gt;: 类所属的模块名&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    pass
+print(Person.__module__) # __main__
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;class-属性&#34;&gt;__class__属性&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__class__&lt;/code&gt;: 类所属的类名&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    pass
+print(Person.__class__) # &amp;lt;class &#39;type&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;str-方法&#34;&gt;&lt;strong&gt;str&lt;/strong&gt;()方法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__str__&lt;/code&gt;: 当使用print输出对象时，自动调用&lt;code&gt;__str__&lt;/code&gt;方法，返回一个字符串&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    def __str__(self):
+        return &amp;quot;这是一个Person对象&amp;quot;
+
+person = Person()
+print(person) # 这是一个Person对象
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;del-方法&#34;&gt;&lt;strong&gt;del&lt;/strong&gt;()方法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__del__&lt;/code&gt;: 当对象被销毁时，自动调用&lt;code&gt;__del__&lt;/code&gt;方法&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    def __del__(self):
+        print(&amp;quot;Person对象被销毁&amp;quot;)
+
+person = Person()
+del person # Person对象被销毁
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;call-方法&#34;&gt;&lt;strong&gt;call&lt;/strong&gt;()方法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__call__&lt;/code&gt;: 当对象被当作函数调用时，自动调用&lt;code&gt;__call__&lt;/code&gt;方法&lt;br&gt;
+callable: 判断对象是否可调用&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    def __call__(self, *args, **kwargs):
+        print(&amp;quot;Person对象被当作函数调用&amp;quot;)
+
+person = Person()
+person() # 调用一个可调用的实例对象，其实就是在调用它的__call__()方法
+
+# 判断对象是否可调用
+print(callable(person)) # True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;dict-属性&#34;&gt;__dict__属性&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;__dict__&lt;/code&gt;: 类或对象的属性字典&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class Person(object):
+    def __init__(self, name):
+        self.name = name
+
+person = Person(&amp;quot;小明&amp;quot;)
+print(person.__dict__) # &amp;#123;&#39;name&#39;: &#39;小明&#39;&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;文件操作&lt;/h1&gt;
+&lt;p&gt;文件：存储在硬盘上的数据&lt;/p&gt;
+&lt;p&gt;文件操作步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;打开文件&lt;/li&gt;
+&lt;li&gt;读写文件&lt;/li&gt;
+&lt;li&gt;关闭文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文件对象的方法&#34;&gt;文件对象的方法&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;open()函数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;open()&lt;/code&gt;创建一个file对象，默认是以只读模式打开。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;read(n)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;read()&lt;/code&gt;方法用于读取文件内容，n表示读取的字符个数，如果不指定n，则表示读取整个文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+content = file.read()
+file.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;write()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;write()&lt;/code&gt;方法用于向文件中写入内容。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+file.write(&amp;quot;要写入的内容&amp;quot;)
+file.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;close()&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;close()&lt;/code&gt;方法用于关闭文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+file.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;属性&#34;&gt;属性&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;name&lt;br&gt;
+&lt;code&gt;name&lt;/code&gt;: 返回要打开文件的文件名，可以包含具体的路径。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+print(file.name)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;mode&lt;br&gt;
+&lt;code&gt;mode&lt;/code&gt;: 返回打开文件时使用的模式,如’r’、‘w’、&#39;a’等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+print(file.mode)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;closed&lt;br&gt;
+&lt;code&gt;closed&lt;/code&gt;: 返回文件是否已经关闭,True表示已经关闭，False表示已经打开。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+print(file.closed)
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="python进阶" />
+        <updated>2021-10-06T02:00:00.000Z</updated>
+    </entry>
+</feed>

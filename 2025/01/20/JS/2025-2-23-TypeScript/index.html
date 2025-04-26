@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AKVHQR3R.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-TA7VUAVB.js"></link><link rel="modulepreload" href="/js/copy-tex-ZHBKMPHU.js"></link><link rel="modulepreload" href="/js/index.esm-Y6LSXM2O.js"></link><link rel="modulepreload" href="/js/post-6XOMY7J6.js"></link><link rel="modulepreload" href="/js/quicklink-DGW6QOA6.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img3.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><meta name="keywords" content="TypeScript"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2025/01/20/JS/2025-2-23-TypeScript/"><title>TypeScript学习</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">TypeScript学习</h1><div class="meta"><span class="item" title="创建时间：2025-01-20 01:39:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2025-01-20T01:39:00+08:00">2025-01-20</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>8.6k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>8 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img3.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/TypeScript/" itemprop="item" rel="index" title="分类于TypeScript"><span itemprop="name">TypeScript<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2025/01/20/JS/2025-2-23-TypeScript/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1>基础类型(8种)</h1>
+<p><code>JavaScript</code> 语言（注意，不是 <code>TypeScript</code>）将值分成8种类型。</p>
+<ul>
+<li><code>boolean</code> 布尔</li>
+<li><code>string</code> 字符串</li>
+<li><code>number</code> 数量</li>
+<li><code>bigint</code> 长整型数字</li>
+<li><code>symbol</code> 象征</li>
+<li><code>object</code> 对象</li>
+<li><code>undefined</code> 未定义的</li>
+<li><code>null</code> 零值</li>
+</ul>
+<p><code>TypeScript</code> 继承了 <code>JavaScript</code> 的类型设计，以上<code>8种类型</code>可以看作 <code>TypeScript</code> 的基本类型。<br>
+注意，上面所有类型的名称都是小写字母，首字母大写的<strong>Number、String、Boolean</strong>等在 <code>JavaScript</code> 语言中都是<strong>内置对象</strong>，而不是类型名称。</p>
+<ol>
+<li>布尔值</li>
+</ol>
+<pre><code class="language-typescript">let isDone: boolean = false;
+</code></pre>
+<ol start="2">
+<li>字符串</li>
+</ol>
+<p>（普通字符串和模板字符串都属于string类型）</p>
+<pre><code class="language-typescript">let str1: string = &quot;bob&quot;;
+let str2: string = `$&#123;str1&#125; world`;
+</code></pre>
+<ol start="3">
+<li>number类型</li>
+</ol>
+<pre><code class="language-typescript">let decLiteral: number = 6;
+let hexLiteral: number = 0xf00d;
+let binaryLiteral: number = 0b1010;
+let octalLiteral: number = 0o744;
+</code></pre>
+<ol start="4">
+<li>bigint类型</li>
+</ol>
+<p>bigint 类型是 ES2020 标准引入的。<code>JavaScript</code> 版本不能低于 ES2020<br>
+bigint 类型包含所有的大整数。</p>
+<pre><code class="language-typescript">const x:bigint = 123n;
+const y:bigint = 0xffffn;
+</code></pre>
+<p>bigint 与 number 类型不兼容。</p>
+<pre><code class="language-typescript">const x:bigint = 123; // 报错
+const y:bigint = 3.14; // 报错
+</code></pre>
+<ol start="5">
+<li>symbol类型</li>
+</ol>
+<p>symbol 类型包含所有的 Symbol 值。</p>
+<pre><code class="language-typescript">const x:symbol = Symbol();
+</code></pre>
+<ol start="6">
+<li>object 类型</li>
+</ol>
+<p>根据 <code>JavaScript</code> 的设计，object 类型包含了所有对象、数组和函数。</p>
+<pre><code class="language-typescript">const x:object = &#123; foo: 123 &#125;;
+const y:object = [1, 2, 3];
+const z:object = (n:number) =&gt; n + 1;
+</code></pre>
+<p>上面示例中，对象、数组、函数都属于 object 类型。</p>
+<p>关于数组，TypeScript 有专门类型定义。</p>
+<pre><code class="language-typescript">//第一种写法
+let list: number[] = [1, 2, 3];
+list.push(4);
+list.length = 2;
+list[1] = 5; 
+</code></pre>
+<p>采用<code>number[]</code>定义了数组成员是动态的,可以增加、减少、修改成员，但成员类型必须为number类型。</p>
+<pre><code class="language-typescript">//第二种写法
+let arr:Array&lt;number&gt; = [1, 2, 3];
+</code></pre>
+<ol start="7">
+<li>undefined</li>
+<li>null</li>
+</ol>
+<pre><code class="language-typescript">let u: undefined = undefined;
+let n: null = null;
+</code></pre>
+<p>注意，如果没有声明类型的变量，被赋值为<code>undefined</code>或<code>null</code>，在关闭编译设置noImplicitAny和strictNullChecks时，它们的类型会被推断为any。</p>
+<pre><code class="language-typescript">// 关闭 noImplicitAny 和 strictNullChecks
+
+let a = undefined;   // any
+const b = undefined; // any
+
+let c = null;        // any
+const d = null;      // any
+</code></pre>
+<p>如果希望避免这种情况，则需要打开编译选项strictNullChecks。</p>
+<pre><code class="language-typescript">// 打开编译设置 strictNullChecks
+
+let a = undefined;   // undefined
+const b = undefined; // undefined
+
+let c = null;        // null
+const d = null;      // null
+</code></pre>
+<p>元组</p>
+<pre><code class="language-typescript">let x: [string, number];
+x = [&quot;hello&quot;, 10]; // OK
+x = [10, &quot;hello&quot;]; // Error
+</code></pre>
+<p>any</p>
+<pre><code class="language-typescript">let notSure: any = 4;
+notSure = &quot;maybe a string instead&quot;;
+notSure = false; // okay, definitely a boolean
+</code></pre>
+<h1>类型推论</h1>
+<p>变量初始化类型推断，如果没有明确声明类型，<code>TypeScript</code> 会根据变量初始值推断类型。</p>
+<pre><code class="language-typescript">//变量
+let someValue = 4;// 初始化时，根据赋值自动推断为 number类型
+someValue = &quot;maybe a string instead&quot;;//error
+
+//数组
+let list = [1, 2, 3];// 初始化时，根据赋值自动推断为 number[]类型
+list.push(&quot;hello&quot;);//error
+</code></pre>
+<p>数组变量未声明类型，且为空数组，TypeScript 会推断为 <code>any[]</code>类型。</p>
+<pre><code class="language-typescript">let list = [];//推断为 any[]
+
+list.push(1);//赋值后，推断为number[]类型
+
+list.push(&quot;hello&quot;);//再次赋值，推断为 (number|string)[]类型
+</code></pre>
+<h1>只读数组，const断言</h1>
+<p><code>JavaScript</code> 中，<code>const</code> 定义的变量，不能重新赋值，但可以修改其成员。</p>
+<pre><code class="language-typescript">const arr = [1, 2, 3];//number[]
+arr[0] = 4;//ok
+arr[0] = &quot;hello world!&quot;;//error,
+arr.push(5);//error
+</code></pre>
+<p><code>TsypeScript</code> 允许声明只读数组，方法是在数组类型前加上<code>redayonly</code>关键字。</p>
+<pre><code class="language-typescript">const arr: readonly number[] = [1, 2, 3];//readonly number[]
+arr[0] = 4;//error
+arr.push(5);//error
+delete arr[0];//error
+</code></pre>
+<p><code>TsypeScript</code> 将<code>readonly number[]</code>视为<code>number[]</code>的父类，子类型具有父类行的特征并具有自己的特征<code>pop\push</code>,所以子类可以赋值给父类型，反过来不行。</p>
+<pre><code class="language-typescript">let arr:readonly number[] = [1, 2, 3];
+let arr2:readonly number[] = arr;//ok
+arr = arr2;//error
+
+//--------------------------
+
+function getSum(s:number[]) &#123;
+  // ...
+&#125;
+const arr:readonly number[] = [1, 2, 3];
+getSum(arr) // error,等价于 getSum(s:number[]=arr:readonly number[])
+</code></pre>
+<p><code>number[]</code>作为子类继承<code>readonly number[]</code>父类，而父类没有<code>pop()</code>、<code>push()</code>方法,所以两者并不完全等价。</p>
+<pre><code class="language-typescript"></code></pre>
+<p>TypeScript 中，const 定义的变量，不能重新赋值，也不能修改其成员。</p>
+<pre><code class="language-typescript">const arr: readonly number[] = [1, 2, 3];
+arr[0] = 4;//error
+</code></pre>
+<h1>只读数组，泛型写法</h1>
+<pre><code class="language-typescript">// error 
+const arr:readonly Array&lt;number&gt; = [0, 1];
+
+// method 1
+const a1:ReadonlyArray&lt;number&gt; = [0, 1];
+// method 2
+const a2:Readonly&lt;number[]&gt; = [0, 1];
+// method 3 使用“const 断言”实现
+const arr1 = [0, 1] as const;
+arr1[0] = [2]; // 报错 
+</code></pre>
+<h1>类型断言</h1>
+<p>对于没有类型声明的值，<code>TypeScript</code> 会进行类型推断，很多时候得到的结果，未必是开发者想要的，类型断言可以用来告诉编译器变量的类型，可以避免编译器进行类型推断。</p>
+<pre><code class="language-typescript">type T = 'a'|'b'|'c';
+
+let foo = 'a';
+// let bar:T = foo; // error bar为T类型，foo 推断为string类型
+let bar:T = foo as T; // ok 断言foo为T类型
+</code></pre>
+<h1>断言语法</h1>
+<pre><code class="language-typescript">    // 语法一：`&lt;类型&gt;值`
+    &lt;Type&gt;value
+</code></pre>
+<pre><code class="language-typescript">    // 语法二：`值 as 类型`
+    value as Type // 推荐写法
+</code></pre>
+<p>对象类型有严格字面量检查，如果存在额外的属性会报错.</p>
+<pre><code class="language-typescript">const p:&#123; x: number &#125; = &#123; x: 0, y: 0 &#125;;// error
+</code></pre>
+<p>断言可以绕过字面量检查，存在类型断言，就没有严格字面量检查了，所以不报错。</p>
+<pre><code class="language-typescript">const p0:&#123; x: number &#125; =
+  &#123; x: 0, y: 0 &#125; as &#123; x: number &#125;;// ok断言使得等号左右两边类型一致
+
+const p1:&#123; x: number &#125; =
+  &#123; x: 0, y: 0 &#125; as &#123; x: number; y: number &#125;;// ok 断言使得等号左右两边类型一致
+</code></pre>
+<h1>值类型</h1>
+<p>TypeScript 规定，单个值也是一种类型，称为“值类型”。</p>
+<pre><code class="language-typescript">let x:'hello';
+
+x = 'hello'; // 正确
+x = 'world'; // 报错
+</code></pre>
+<p>TypeScript 推断类型时，遇到<code>const</code>命令声明的变量，如果代码里面没有注明类型，就会推断该变量是值类型。</p>
+<pre><code class="language-typescript">// x 的类型是 &quot;https&quot;
+const x = 'https';
+
+// y 的类型是 string
+const y:string = 'https';
+</code></pre>
+<p>这样推断是合理的，因为<code>const</code>命令声明的变量，一旦声明就不能改变，相当于常量。值类型就意味着不能赋为其他值。</p>
+<p>注意，<code>const</code>命令声明的变量，如果赋值为对象，并不会推断为值类型。</p>
+<pre><code class="language-typescript">// x 的类型是 &#123; foo: number &#125;
+const x = &#123; foo: 1 &#125;;
+</code></pre>
+<p>变量<code>x</code>没有被推断为值类型，而是推断属性<code>foo</code>的类型是<code>number</code>。这是因为<code> </code>JavaScript<code> </code>里面，<code>const</code>变量赋值为对象时，属性值是可以改变的。</p>
+<pre><code class="language-typescript">const x:5 = 4 + 1; // 报错
+</code></pre>
+<p>上面示例中，等号左侧的类型是数值<code>5</code>，等号右侧<code>4 + 1</code>的类型，<code>TypeScript</code> 推测为<code>number</code>。由于<code>5</code>是<code>number</code>的子类型，<code>number</code>是<code>5</code>的父类型，父类型不能赋值给子类型，所以报错了.<br>
+但是，反过来是可以的，子类型可以赋值给父类型。</p>
+<pre><code class="language-typescript">let x:5 = 5;
+let y:number = 4 + 1;
+
+x = y; // 报错
+y = x; // 正确
+</code></pre>
+<p>如果一定要让子类型可以赋值为父类型的值，就要用到类型断言</p>
+<pre><code class="language-typescript">const x:5 = (4 + 1) as 5; // 正确
+</code></pre>
+<p>上面示例中，在<code>4 + 1</code>后面加上<code>as 5</code>，就是告诉编译器，可以把<code>4 + 1</code>的类型视为值类型<code>5</code>，这样就不会报错了。</p>
+<p>只包含单个值的值类型，用处不大。实际开发中，往往将多个值结合，作为联合类型使用。</p>
+<h1>联合类型</h1>
+<p>联合类型（union types）指的是多个类型组成的一个新类型，使用符号|表示。</p>
+<p>联合类型<code>A|B</code>表示，任何一个类型只要属于<code>A</code>或<code>B</code>，就属于联合类型<code>A|B</code>。</p>
+<pre><code class="language-typescript">// 基本类型的联合类型
+let myFavoriteNumber: string | number;
+myFavoriteNumber = 'seven'; // OK
+myFavoriteNumber = 7; // OK
+
+// 值类型的联合类型
+let set : true| false;
+let name : 'Tom' | 'Jerry' | 'Spike';
+let color: 'red' | 'blue' | 'green';
+</code></pre>
+<p>打开编译选项<code>strictNullChecks</code>后，其他类型的变量不能赋值为<code>undefined</code>或<code>nul</code>l。这时，如果某个变量确实可能包含空值，就可以采用联合类型的写法。</p>
+<pre><code class="language-typescript">let name:string|null;
+
+name = 'John';
+name = null;
+// 多行书写联合类型
+let x:
+  | 'one'
+  | 'two'
+  | 'three'
+  | 'four';
+</code></pre>
+<p>如果一个变量有多种类型，读取该变量时，往往需要进行“类型缩小”（type narrowing），区分该值到底属于哪一种类型，然后再进一步处理。</p>
+<pre><code class="language-typescript">function printId(
+  id:number|string
+) &#123;
+    console.log(id.toUpperCase()); // 报错
+&#125;
+
+// 类型缩小
+function printId(
+  id:number|string
+) &#123;
+  if (typeof id === 'string') &#123;
+    console.log(id.toUpperCase());
+  &#125; else &#123;
+    console.log(id);
+  &#125;
+&#125;
+</code></pre>
+<h1>交叉类型</h1>
+<p>交叉类型（intersection types）指的多个类型组成的一个新类型，使用符号<code>&amp;</code>表示。</p>
+<p>交叉类型<code>A&amp;B</code>表示，任何一个类型必须同时属于<code>A</code>和<code>B</code>，才属于交叉类型<code>A&amp;B</code>，即交叉类型同时满足A和B的特征。</p>
+<pre><code class="language-typescript">let x:number&amp;string;
+</code></pre>
+<p>上面示例中，变量<code>x</code>同时是数值和字符串，这当然是不可能的，所以<code>TypeScript</code> 会认为x的类型实际是<code>never</code>。</p>
+<p>交叉类型的主要用途是表示对象的合成。</p>
+<pre><code class="language-typescript">let obj:
+  &#123; foo: string &#125; &amp;
+  &#123; bar: string &#125;;
+
+obj = &#123;
+  foo: 'hello',
+  bar: 'world'
+&#125;;
+</code></pre>
+<p>上面示例中，变量<code>obj</code>同时具有属性<code>foo</code>和属性<code>bar</code>。</p>
+<p>交叉类型常常用来为对象类型添加新属性。</p>
+<pre><code class="language-typescript">type A = &#123; foo: number &#125;;
+
+type B = A &amp; &#123; bar: number &#125;;
+</code></pre>
+<p>上面示例中，类型<code>B</code>是一个交叉类型，用来在<code>A</code>的基础上增加了属性<code>bar</code>。</p>
+<h1>type 命令</h1>
+<p>type命令用来定义一个类型的别名。</p>
+<pre><code class="language-typescript">type Age = number;
+
+let age:Age = 55;
+</code></pre>
+<p>上面示例中，<code>type</code>命令为<code>number</code>类型定义了一个别名<code>Age</code>。这样就能像使用<code>number</code>一样，使用<code>Age</code>作为类型。</p>
+<p>别名的作用域是块级作用域。这意味着，代码块内部定义的别名，影响不到外部。</p>
+<pre><code class="language-typescript">type Color = 'red';
+
+if (Math.random() &lt; 0.5) &#123;
+  type Color = 'blue';
+&#125;
+</code></pre>
+<p>别名支持使用表达式，也可以在定义一个别名时，使用另一个别名，即别名允许嵌套。</p>
+<pre><code class="language-typescript">type World = &quot;world&quot;;
+type Greeting = `hello $&#123;World&#125;`;
+</code></pre>
+<h1>typeof 运算符</h1>
+<p><code>JavaScript</code> 语言中，<code>typeof</code> 运算符是一个一元运算符，返回一个字符串，代表操作数的类型。</p>
+<pre><code class="language-typescript">typeof 'foo'; // 'string'
+</code></pre>
+<p><code>JavaScript</code> 里面，<code>typeof</code>运算符只可能返回八种结果，而且都是字符串。</p>
+<pre><code class="language-typescript">typeof undefined; // &quot;undefined&quot;
+typeof true; // &quot;boolean&quot;
+typeof 1337; // &quot;number&quot;
+typeof &quot;foo&quot;; // &quot;string&quot;
+typeof &#123;&#125;; // &quot;object&quot;
+typeof parseInt; // &quot;function&quot;
+typeof Symbol(); // &quot;symbol&quot;
+typeof 127n // &quot;bigint&quot;
+</code></pre>
+<p>由于编译时不会进行 <code>JavaScript</code> 的值运算，所以<code>TypeScript</code> 规定，typeof 的参数只能是标识符，不能是需要运算的表达式。</p>
+<pre><code class="language-typescript">type T = typeof Date(); // 报错
+</code></pre>
+<p>上面示例会报错，原因是 <code>typeof</code> 的参数不能是一个值的运算式，而<code>Date()</code>需要运算才知道结果。</p>
+<p>另外，<code>typeof</code>命令的参数不能是类型。</p>
+<pre><code class="language-typescript">type T = typeof Date(); // 报错
+</code></pre>
+<h1>块圾类型声明</h1>
+<p>TypeScript 支持块级类型声明，即类型可以声明在代码块（用大括号表示）里面，并且只在当前代码块有效。</p>
+<pre><code class="language-typescript">if (true) &#123;
+  type T = number;
+  let v:T = 5;
+&#125; else &#123;
+  type T = string;
+  let v:T = 'hello';
+&#125;
+</code></pre>
+<h1>类型兼容</h1>
+<p>TypeScript 的类型存在兼容关系，某些类型可以兼容其他类型。</p>
+<pre><code class="language-typescript">type T = number|string;
+
+let a:number = 1;
+let b:T = a;
+</code></pre>
+<p>TypeScript 的一个规则是，凡是可以使用父类型的地方，都可以使用子类型，但是反过来不行。</p>
+<pre><code class="language-typescript">let a:'hi' = 'hi';
+let b:string = 'hello';
+
+b = a; // 正确
+a = b; // 报错
+</code></pre>
+<p>上面示例中，<code>hi</code>是<code>string</code>的子类型，<code>string</code>是<code>hi</code>的父类型。所以，变量<code>a</code>可以赋值给变量<code>b</code>，但是反过来就会报错。</p>
+<div class="tags"><a href="/tags/TypeScript/" rel="tag"><i class="ic i-tag"></i>TypeScript</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-03-28 00:02:48" itemprop="dateModified" datetime="2025-03-28T00:02:48+08:00">2025-03-28</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2025/01/20/JS/2025-2-23-TypeScript/" title="TypeScript学习">https://zhang3399.github.io/2025/01/20/JS/2025-2-23-TypeScript/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" rel="prev" itemprop="url" data-background-image="images&#x2F;img3.webp" title="I&#x2F;O多路复用"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>C++</span><h3>I/O多路复用</h3></a></div><div class="item right"><a href="/2025/02/23/linux/2025-2-23-git/" rel="next" itemprop="url" data-background-image="images&#x2F;img2.webp" title="git基本使用"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>git</span><h3>git基本使用</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">基础类型(8种)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">类型推论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">只读数组，const断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">只读数组，泛型写法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">类型断言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">断言语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">值类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">联合类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">交叉类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">type 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">typeof 运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">块圾类型声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">类型兼容</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li  class="active"><a href="/2025/01/20/JS/2025-2-23-TypeScript/" rel="bookmark" title="TypeScript学习">TypeScript学习</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">18</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">8</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2025/02/23/linux/2025-2-23-git/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/">I/O多路复用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Window-Linux/" title="分类于Window/Linux">Window/Linux</a></div><span><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/">终端操作</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Lambda 表达式</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/">onnx+opencv+opencl</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/C++/2024-6-15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/">python进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/">python基本语法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/TypeScript/" title="分类于TypeScript">TypeScript</a></div><span><a href="/2025/01/20/JS/2025-2-23-TypeScript/">TypeScript学习</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">131k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">1:59</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2025/01/20/JS/2025-2-23-TypeScript/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO&#x2F;+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn&#x2F;6Z&#x2F;hRTt8+pR6L4N2" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha384-Zm+UU4tdcfAm29vg+MTbfu&#x2F;&#x2F;q5B&#x2F;lInMbMCr4T8c9rQFyOv6PlfQYpB5wItcXWe7" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" integrity="sha384-TOxsBplaL96&#x2F;QDWPIUg+ye3v89qSE3s22XNtJMmCeZEep3cVDmXy1zEfZvVv+y2m" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.25" type="module" fetchpriority="high" defer></script></body></html>

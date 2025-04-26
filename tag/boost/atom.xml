@@ -1,0 +1,1175 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhang3399.github.io</id>
+    <title>CodeVortex记事本 • Posts by &#34;boost&#34; tag</title>
+    <link href="https://zhang3399.github.io" />
+    <updated>2025-03-14T10:00:00.000Z</updated>
+    <category term="Socket" />
+    <category term="CMake" />
+    <category term="多线程" />
+    <category term="I/O多路复用" />
+    <category term="TypeScript" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="python" />
+    <category term="Linux" />
+    <category term="Windows" />
+    <category term="git" />
+    <category term="python进阶" />
+    <category term="SQL" />
+    <category term="数据结构" />
+    <category term="LSTM" />
+    <category term="YOLOv5" />
+    <category term="OpenCV" />
+    <category term="ONNX" />
+    <category term="Adman梯度下降" />
+    <category term="YOLOv5s" />
+    <entry>
+        <id>https://zhang3399.github.io/2025/03/14/C++/2025-3-14-Boost/</id>
+        <title>Boost</title>
+        <link rel="alternate" href="https://zhang3399.github.io/2025/03/14/C++/2025-3-14-Boost/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Boost&lt;/code&gt; 是一个开源的 C++ 库集合，提供了许多实用的功能，如网络编程、图形界面、数学计算等。Boost 库可以与标准 C++ 库无缝集成，扩展了 C++ 的功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;安装 Boost 库&lt;/h1&gt;
+&lt;p&gt;通过 APT 包管理器安装 Boost 库：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;# 1. 更新软件包索引
+sudo apt update
+
+# 2. 安装 Boost 核心库和开发文件（包含头文件和静态/动态库）
+sudo apt install libboost-all-dev -y
+
+# 3. 验证安装（检查版本）
+boostversion=$(cat /usr/include/boost/version.hpp | grep &amp;quot;#define BOOST_VERSION&amp;quot; | awk &#39;&amp;#123;print $3&amp;#125;&#39;)
+
+echo &amp;quot;Boost 版本: $boostversion&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;基本使用&lt;/h1&gt;
+&lt;p&gt;同步操作会阻塞当前线程，直到操作完成。异步操作则不会阻塞线程，通过回调函数在操作完成后触发。&lt;/p&gt;
+&lt;h2 id=&#34;同步&#34;&gt;同步&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;
+#include &amp;lt;iostream&amp;gt;
+#include&amp;lt;boost/asio.hpp&amp;gt;
+int main()&amp;#123;
+    boost::asio::io_context io;
+    boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5));
+    // 同步,阻塞线程5秒
+    t.wait();
+    // wait() 返回，定时器资源（如系统句柄）被自动释放
+    std::cout&amp;lt;&amp;lt;&amp;quot;Hello,world!&amp;quot;&amp;lt;&amp;lt;std::endl;
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;定时器&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;steady_timer&lt;/code&gt; 是 &lt;code&gt;Boost.Asio&lt;/code&gt; 提供的定时器类，用于在指定时间后执行回调函数。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;steady_timer &lt;/code&gt;的构造函数需要 &lt;code&gt;io_context&lt;/code&gt; 参数，目的是 &lt;strong&gt;​显式声明&lt;/strong&gt; 该定时器依赖** 的&lt;strong&gt;事件循环&lt;/strong&gt;。这种设计确保类型安全，避免隐式关联导致的错误。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;io_context 的作用&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;io_context&lt;/code&gt; 是 &lt;code&gt;Boost.Asio&lt;/code&gt; 的核心组件，负责调度以及执行所有异步（如 DNS 解析、连接、读写）和同步操作的生命周期。（如定时器、网络 I/O）。&lt;/p&gt;
+&lt;h2 id=&#34;异步&#34;&gt;异步&lt;/h2&gt;
+&lt;p&gt;异步操作需要事件循环来驱动，&lt;code&gt;io_context::run()&lt;/code&gt; 方法启动事件处理流程。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include&amp;lt;boost/asio.hpp&amp;gt;
+
+void print(const boost::system::error_code&amp;amp; a /*e*/)
+&amp;#123;
+    std::cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;std::endl;
+    std::cout&amp;lt;&amp;lt;&amp;quot;Hello,world!&amp;quot;&amp;lt;&amp;lt;std::endl;
+&amp;#125;
+int main()&amp;#123;
+    boost::asio::io_context io;
+    boost::asio::steady_timer t(io, boost::asio::chrono::seconds(5)); 
+    t.async_wait(&amp;amp;print);   // 异步,不会阻塞线程，回调函数print会在5秒后执行
+    io.run();
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;io.run() &lt;/code&gt;是异步编程的核心，负责监听操作系统异步操作（如定时器到期、网络请求完成）的完成事件，确保资源（如&lt;code&gt;定时器&lt;/code&gt;、&lt;code&gt;socket&lt;/code&gt;）被正确释放，并触发回调函数。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;特性&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;同步代码&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;异步代码&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​执行方式&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;阻塞等待（&lt;code&gt;wait()&lt;/code&gt;）&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;非阻塞，通过回调触发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​事件循环&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无需 &lt;code&gt;io.run()&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;必须调用 &lt;code&gt;io.run()&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​线程占用&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;单线程阻塞&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;单线程/多线程（由 &lt;code&gt;run()&lt;/code&gt; 决定）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​适用场景&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;简单、短耗时操作&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;高并发、实时性要求高的场景&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;​时间点计算&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;函数式编程&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;functional&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+void print(const boost::system::error_code&amp;amp; /*e*/,
+    boost::asio::steady_timer* t, int* count)
+&amp;#123;
+  if (*count &amp;lt; 5)
+  &amp;#123;
+    std::cout &amp;lt;&amp;lt; *count &amp;lt;&amp;lt; std::endl;
+    ++(*count);
+
+    // 新到期时间 = 当前到期时间 + 1秒
+    t-&amp;gt;expires_at(t-&amp;gt;expiry() + boost::asio::chrono::seconds(1));
+
+    // 异步等待新到期时间
+    t-&amp;gt;async_wait(std::bind(print,
+        std::placeholders::_1, t, count));
+  &amp;#125;
+&amp;#125;
+
+int main()
+&amp;#123;
+  boost::asio::io_context io;
+
+  int count = 0;
+  boost::asio::steady_timer t(io, boost::asio::chrono::seconds(1));
+  
+  t.async_wait(std::bind(print,
+    std::placeholders::_1, &amp;amp;t, &amp;amp;count));
+
+  io.run();
+
+  std::cout &amp;lt;&amp;lt; &amp;quot;Final count is &amp;quot; &amp;lt;&amp;lt; count &amp;lt;&amp;lt; std::endl;
+
+  return 0;
+&amp;#125;
+
+// 输出
+// 0
+// 1
+// 2
+// 3
+// 4
+// Final count is 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;// 新到期时间 = 当前到期时间 + 1秒
+t-&amp;gt;expires_at(t-&amp;gt;expires_at() + boost::asio::chrono::seconds(1));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;t-&amp;gt;expires_at()&lt;/code&gt; 返回定时器当前的到期时间点（&lt;code&gt;system_clock::time_point&lt;/code&gt; 类型），&lt;code&gt;boost::asio::chrono::seconds(1)&lt;/code&gt;表示一个 ​时间间隔​（&lt;code&gt;duration&lt;/code&gt; 类型）。两者相加会生成新的到期时间点：&lt;/p&gt;
+&lt;p&gt;这种设计允许动态调整定时器的触发时间，适用于需要重复执行任务的场景（如每隔&lt;code&gt;1&lt;/code&gt;秒打印一次计数器）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;​类型匹配的底层原理&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;expires_at()&lt;/code&gt; 的参数类型是 &lt;code&gt;system_clock::time_point&lt;/code&gt;，而 &lt;code&gt;boost::asio::chrono::seconds(1)&lt;/code&gt; 的类型是 &lt;code&gt;duration&lt;/code&gt;,明确指定了时间单位（秒），避免了因隐式类型转换导致的单位混淆（如误用毫秒或微秒）。&lt;br&gt;
+&lt;code&gt;Boost.Asio&lt;/code&gt; 的 &lt;code&gt;chrono&lt;/code&gt; 库通过 &lt;strong&gt;​类型推导&lt;/strong&gt; 和 &lt;strong&gt;运算符重载&lt;/strong&gt;，自动将 &lt;code&gt;duration&lt;/code&gt; 转换为 &lt;code&gt;time_point&lt;/code&gt;，确保表达式合法。&lt;br&gt;
+若直接使用 &lt;code&gt;t-&amp;gt;expires_at(1)&lt;/code&gt;，编译器会报错，因为 &lt;code&gt;1&lt;/code&gt; 的类型是 &lt;code&gt;int&lt;/code&gt;，无法隐式转换为 &lt;code&gt;time_point&lt;/code&gt;。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;面向对象编程&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;functional&amp;gt; 
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+class printer
+&amp;#123;
+public:
+    // 构造函数，初始化timer_成员和count_成员
+    printer(boost::asio::io_context&amp;amp; io)
+    : timer_(io, boost::asio::chrono::seconds(1)),  // 初始化timer_成员
+      count_(0)                                     // 初始化count_成员
+    &amp;#123;
+    // bind() 函数将成员函数print绑定到当前对象上，并作为回调函数传递给timer_.async_wait()
+        timer_.async_wait(std::bind(&amp;amp;printer::print, this)); 
+    &amp;#125;
+    // 析构函数
+    ~printer()
+    &amp;#123;
+        std::cout&amp;lt;&amp;lt; &amp;quot;final count is &amp;quot;&amp;lt;&amp;lt; count_ &amp;lt;&amp;lt;std::endl;
+    &amp;#125;
+
+    void print()&amp;#123;
+        if(count_&amp;lt;5)
+        &amp;#123;
+            std::cout &amp;lt;&amp;lt; count_ &amp;lt;&amp;lt;std::endl;
+            ++count_;
+            // 新到期时间 = 当前到期时间 + 1秒
+            timer_.expires_at(timer_.expiry() + boost::asio::chrono::seconds(1));
+            timer_.async_wait(std::bind(&amp;amp;printer::print,this));
+        &amp;#125;
+    &amp;#125;
+
+private:
+    boost::asio::steady_timer timer_;
+    int count_;
+&amp;#125;;
+
+int main()
+&amp;#123;
+  boost::asio::io_context io;
+  printer p(io);
+  io.run();
+  return 0;
+&amp;#125;
+
+// 输出
+// 0
+// 1
+// 2
+// 3
+// 4
+// final count is 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;优缺点对比&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;维度&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;​函数式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;​面向对象&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​代码简洁性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 代码简短，适合简单场景&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌ 类定义增加代码量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​安全性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌ 需手动管理指针，易出错&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 自动管理资源，避免悬垂指针&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​扩展性&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌ 修改需调整参数传递链&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 新增功能只需扩展类方法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​异步上下文&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌ 依赖外部变量，多线程下可能竞争&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 成员变量天然隔离，适合多线程异步任务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;​性能开销&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 无虚函数或类结构开销&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌ 类实例化带来微小内存开销&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;线程安全的异步任务队列（通过 Strand 串行化）&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;functional&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;thread&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+// 通过 strand_ 序列化回调函数的执行
+class printer
+&amp;#123;
+public:
+    printer(boost::asio::io_context&amp;amp; io)
+        : strand_(boost::asio::make_strand(io)),     // 初始化strand_成员
+        timer1_(io, boost::asio::chrono::seconds(1)),// 初始化timer1_成员
+        timer2_(io, boost::asio::chrono::seconds(1)),// 初始化timer2_成员
+        count_(0)
+    &amp;#123;
+        // 使用strand_串行化异步操作,bind_executor()将异步操作绑定到strand_上
+        timer1_.async_wait(boost::asio::bind_executor(strand_,
+            std::bind(&amp;amp;printer::print1, this)));
+  
+        timer2_.async_wait(boost::asio::bind_executor(strand_,
+            std::bind(&amp;amp;printer::print2, this)));
+    &amp;#125;
+
+    ~printer()
+    &amp;#123;
+      std::cout &amp;lt;&amp;lt; &amp;quot;Final count is &amp;quot; &amp;lt;&amp;lt; count_ &amp;lt;&amp;lt; std::endl;
+    &amp;#125;
+    void print1()
+    &amp;#123;
+        if (count_ &amp;lt; 10)
+        &amp;#123;
+        std::cout &amp;lt;&amp;lt; &amp;quot;Timer 1: &amp;quot; &amp;lt;&amp;lt; count_ &amp;lt;&amp;lt; std::endl;
+        ++count_;
+
+        timer1_.expires_at(timer1_.expiry() + boost::asio::chrono::seconds(1));
+
+        timer1_.async_wait(boost::asio::bind_executor(strand_,
+                std::bind(&amp;amp;printer::print1, this)));
+        &amp;#125;
+    &amp;#125;
+
+    void print2()
+    &amp;#123;
+        if (count_ &amp;lt; 10)
+        &amp;#123;
+        std::cout &amp;lt;&amp;lt; &amp;quot;Timer 2: &amp;quot; &amp;lt;&amp;lt; count_ &amp;lt;&amp;lt; std::endl;
+        ++count_;
+
+        timer2_.expires_at(timer2_.expiry() + boost::asio::chrono::seconds(1));
+
+        timer2_.async_wait(boost::asio::bind_executor(strand_,
+                std::bind(&amp;amp;printer::print2, this)));
+        &amp;#125;
+    &amp;#125;
+
+private:
+  boost::asio::strand&amp;lt;boost::asio::io_context::executor_type&amp;gt; strand_;
+  boost::asio::steady_timer timer1_;
+  boost::asio::steady_timer timer2_;
+  int count_;
+&amp;#125;;
+
+int main()
+&amp;#123;
+  boost::asio::io_context io;
+  printer p(io);
+  // 创建一个新线程，执行 Lambda 表达式中的代码 (即 io.run())
+  std::thread t([&amp;amp;]&amp;#123; io.run(); &amp;#125;);
+  io.run();
+  // 阻塞主线程，直到 t 线程结束
+  t.join();
+
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码通过多线程运行 &lt;code&gt;io_context &lt;/code&gt;的事件循环，结合 &lt;code&gt;strand_&lt;/code&gt; 的序列化机制，实现了高效的事件响应与线程安全的逻辑处理。虽然有两个线程处理事件，但任务逻辑（&lt;code&gt;print1&lt;/code&gt;/&lt;code&gt;print2&lt;/code&gt;）本质上是单线程化的，因此更准确地说，这是多线程协作处理事件循环，但任务执行是序列化的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Lambda&lt;/code&gt; 的捕获方式 [&amp;amp;]&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[&amp;amp;] 表示以引用方式捕获所有外部变量。&lt;br&gt;
+在 &lt;code&gt;Lambda&lt;/code&gt; 内部可以直接访问外部作用域的所有变量（如 &lt;code&gt;io&lt;/code&gt;），且操作的是原变量本身，而非副本。&lt;/li&gt;
+&lt;li&gt;​对比其他捕获方式：&lt;br&gt;
+[=]：以值方式捕获（创建副本，可能影响性能）。&lt;br&gt;
+[io]：仅捕获 io 变量（需显式指定）。&lt;br&gt;
+此处 [&amp;amp;] 简化了代码，但需确保 &lt;code&gt;Lambda&lt;/code&gt; 生命周期内外部变量有效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;代码的多线程机制&lt;br&gt;
+&lt;strong&gt;​线程数量与任务类型&lt;/strong&gt;&lt;br&gt;
+代码中通过 &lt;code&gt;std::thread t([&amp;amp;]&amp;#123; io.run(); &amp;#125;)&lt;/code&gt; 创建了一个工作线程，主线程也调用 &lt;code&gt;io.run()&lt;/code&gt;，因此 ​总共有两个线程运行 &lt;code&gt;io_context&lt;/code&gt; 的事件循环。这两个线程会并行处理 &lt;code&gt;io_context&lt;/code&gt; 中的异步操作（如定时器到期事件）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;​异步操作的并行性&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;timer1_&lt;/code&gt; 和 &lt;code&gt;timer2_&lt;/code&gt; 是独立的定时器，它们的异步等待操作会被提交到 &lt;code&gt;io_context&lt;/code&gt; 的任务队列中。理论上，这两个定时器的到期事件可能被分配到不同的线程处理。但由于绑定了 &lt;code&gt;strand_&lt;/code&gt;，所有回调会被强制序列化执行，​实际表现为单线程顺序处理​。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Strand 的核心作用&lt;br&gt;
+&lt;strong&gt;​线程安全与顺序保证&lt;/strong&gt;&lt;br&gt;
+&lt;code&gt;strand_ &lt;/code&gt;是 &lt;code&gt;Boost.Asio&lt;/code&gt; 提供的一种隐式同步机制，其作用包括：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;​序列化回调执行：所有通过 &lt;code&gt;strand_&lt;/code&gt; 提交的回调（如 &lt;code&gt;print1&lt;/code&gt; 和 &lt;code&gt;print2&lt;/code&gt;）会按提交顺序依次执行，即使多个线程在运行 &lt;code&gt;io_context&lt;/code&gt;。&lt;br&gt;
+​消除数据竞争：对共享资源 &lt;code&gt;count_&lt;/code&gt; 的修改（如&lt;code&gt;++count_&lt;/code&gt;）会被限制在同一个线程上下文中，无需显式加锁。&lt;br&gt;
+&lt;strong&gt;​代码中的具体实现&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;timer1_.async_wait(boost::asio::bind_executor(strand_, ...));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将定时器的回调函数绑定到 &lt;code&gt;strand_&lt;/code&gt; 的执行器上，确保回调在 &lt;code&gt;strand_ &lt;/code&gt;的调度下运行。因此，即使两个定时器的到期事件被不同线程触发，&lt;code&gt;print1&lt;/code&gt; 和 &lt;code&gt;print2&lt;/code&gt; 也不会并发执行。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;执行流程示例&lt;br&gt;
+假设两个定时器同时到期：
+&lt;ol&gt;
+&lt;li&gt;​事件触发：&lt;code&gt;timer1_&lt;/code&gt; 和 &lt;code&gt;timer2_&lt;/code&gt; 的到期事件被提交到 &lt;code&gt;io_context&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;​线程分配：事件可能被主线程或工作线程 &lt;code&gt;t&lt;/code&gt; 处理。&lt;/li&gt;
+&lt;li&gt;​Strand 调度：无论哪个线程处理事件，回调函数会被 &lt;code&gt;strand_ &lt;/code&gt;序列化。例如：
+&lt;ul&gt;
+&lt;li&gt;线程1执行 &lt;code&gt;print1&lt;/code&gt; → 输出 &lt;code&gt;Timer 1: 0&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;线程2执行 &lt;code&gt;print2&lt;/code&gt; → 但需等待 &lt;code&gt;print1&lt;/code&gt; 完成后才能执行，输出 &lt;code&gt;Timer 2: 1&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;最终 &lt;code&gt;count_&lt;/code&gt; 会严格递增至10，无并发问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;TCP&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;TCP连接&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP连接是面向连接的，可靠的，基于字节流的传输层通信协议。&lt;/li&gt;
+&lt;li&gt;TCP连接需要三次握手来建立连接，四次挥手来关闭连接。&lt;/li&gt;
+&lt;li&gt;TCP连接的建立和关闭都需要消耗一定的资源，因此需要合理管理TCP连接。&lt;/li&gt;
+&lt;li&gt;TCP连接的建立和关闭都需要消耗一定的资源，因此需要合理管理TCP连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;UDP连接&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;UDP连接是无连接的，不可靠的，基于数据报的传输层通信协议。&lt;/li&gt;
+&lt;li&gt;UDP连接不需要建立连接，只需要发送数据报即可。&lt;/li&gt;
+&lt;li&gt;UDP连接不需要关闭连接，只需要发送数据报即可。&lt;/li&gt;
+&lt;li&gt;UDP连接的建立和关闭不需要消耗资源，因此不需要管理UDP连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;TCP和UDP的区别&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;TCP&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;UDP&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;面向连接&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;无连接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;可靠&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不可靠&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;基于字节流&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;基于数据报&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;需要三次握手&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不需要握手&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;需要四次挥手&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不需要挥手&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;建立和关闭连接需要消耗资源&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;建立和关闭连接不需要消耗资源&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;需要管理连接&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不需要管理连接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;TCP和UDP的应用场景&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP连接适用于需要可靠传输的场景，如文件传输、邮件发送等。&lt;/li&gt;
+&lt;li&gt;UDP连接适用于需要快速传输的场景，如视频直播、实时游戏等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;TCP和UDP的编程模型&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TCP连接的编程模型通常包括客户端和服务端两部分，客户端通过 &lt;code&gt;socket&lt;/code&gt; 函数创建一个套接字，然后通过 &lt;code&gt;connect&lt;/code&gt; 函数连接到服务端，然后通过 &lt;code&gt;send&lt;/code&gt; 和 &lt;code&gt;recv&lt;/code&gt; 函数进行数据的发送和接收，最后通过 &lt;code&gt;close&lt;/code&gt; 函数关闭连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;同步TCP时间服务器&#34;&gt;同步TCP时间服务器&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;命令行参数&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;int main(int argc, char* argv[])&amp;#123;&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;argc（Argument Count）​&lt;/strong&gt;&lt;br&gt;
+表示命令行参数的总数量（包括程序名本身）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例如，若用户输入 &lt;code&gt;./myprogram arg1 arg2&lt;/code&gt;，则 &lt;code&gt;argc&lt;/code&gt; 的值为 ​3​（程序名 + 2 个参数）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​&lt;strong&gt;argv[]（Argument Vector）​&lt;/strong&gt;&lt;br&gt;
+是一个字符串指针数组，存储所有命令行参数的具体值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;argv[0]&lt;/code&gt;：程序自身的名称（如 “./myprogram”）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argv[1]&lt;/code&gt; ~ &lt;code&gt;argv[argc-1]&lt;/code&gt;：用户输入的其他参数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argv[argc]&lt;/code&gt;：固定为 NULL（表示数组结束）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;stdio.h&amp;gt;
+
+int main(int argc, char* argv[]) &amp;#123;
+    printf(&amp;quot;参数总数 argc = %d\n&amp;quot;, argc);
+    
+    for (int i = 0; i &amp;lt; argc; i++) &amp;#123;
+        printf(&amp;quot;argv[%d] = %s\n&amp;quot;, i, argv[i]);
+    &amp;#125;
+    
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;运行示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;./myprogram arg1 arg2 arg3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;参数总数 argc = 4
+argv[0] = ./myprogram
+argv[1] = arg1
+argv[2] = arg2
+argv[3] = arg3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;同步TCP服务端&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;服务端: 监听端口 13 ,发送时间数据&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;ctime&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+using boost::asio::ip::tcp;
+
+std::string make_daytime_string() &amp;#123;
+    std::time_t now = std::time(nullptr);
+    return std::ctime(&amp;amp;now); // 格式示例: &amp;quot;Wed Oct  2 00:00:00 2023\n&amp;quot;
+&amp;#125;
+
+int main() &amp;#123;
+    try &amp;#123;
+        boost::asio::io_context io_context;
+
+        // 监听端口 13 (需管理员权限) 或改用其他端口如 12345
+        tcp::acceptor acceptor(io_context, tcp::endpoint(tcp::v4(), 13));
+
+        std::cout &amp;lt;&amp;lt; &amp;quot;Daytime 服务器启动，监听端口: &amp;quot; &amp;lt;&amp;lt; acceptor.local_endpoint().port() &amp;lt;&amp;lt; std::endl;
+
+        for (;;) &amp;#123;
+            tcp::socket socket(io_context);
+            acceptor.accept(socket); // 阻塞等待客户端连接
+
+            std::cout &amp;lt;&amp;lt; &amp;quot;客户端连接: &amp;quot; &amp;lt;&amp;lt; socket.remote_endpoint() &amp;lt;&amp;lt; std::endl;
+
+            std::string message = make_daytime_string();
+            boost::system::error_code ignored_error;
+            
+            // 发送时间数据后立即关闭连接
+            boost::asio::write(socket, boost::asio::buffer(message), ignored_error);
+        &amp;#125;
+    &amp;#125; catch (std::exception&amp;amp; e) &amp;#123;
+        std::cerr &amp;lt;&amp;lt; &amp;quot;异常: &amp;quot; &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+    &amp;#125;
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;同步TCP客户端&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;客户端：连接服务器，发送数据，接收响应，关闭连接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;整体流程&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;**​初始化 I/O 上下文：**创建 io_context 对象，管理所有 I/O 操作。&lt;/li&gt;
+&lt;li&gt;**​解析目标地址：**将用户输入的主机名和服务名转换为具体的网络地址列表。&lt;/li&gt;
+&lt;li&gt;**​创建套接字：**准备用于通信的套接字对象。&lt;/li&gt;
+&lt;li&gt;**​连接服务器：**按地址列表尝试连接，直到成功或全部失败。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;array&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+// using导入某个变量到当前作用域 
+using boost::asio::ip::tcp; // tcp命名空间
+
+int main(int argc, char* argv[])
+&amp;#123;
+  try
+  &amp;#123;
+    if (argc != 2)
+    &amp;#123;
+      // std::cerr 通常用于输出错误信息，这些信息不会被重定向到文件或管道，而是直接显示在终端上。
+      std::cerr &amp;lt;&amp;lt; &amp;quot;Usage: client &amp;lt;host&amp;gt;&amp;quot; &amp;lt;&amp;lt; std::endl;
+      return 1;
+    &amp;#125;
+    
+    boost::asio::io_context io_context;
+    //创建解析器对象，用于将 ​主机名 和 ​服务名/端口号 转换为具体的网络地址（IP + 端口）。
+    tcp::resolver resolver(io_context);      // io_context：绑定到同一个 I/O 上下文，确保解析操作由该上下文管理。
+    tcp::resolver::results_type endpoints =     
+      resolver.resolve(argv[1], &amp;quot;cc&amp;quot;);       // 解析用户输入的主机名和服务名，生成可能的网络端点列表。
+    tcp::socket socket(io_context);          // 套接字绑定到同一个 I/O 上下文，确保其操作由该上下文管理。
+    boost::asio::connect(socket, endpoints); // 尝试连接到服务器。
+
+    for (;;)
+    &amp;#123;
+      std::array&amp;lt;char, 128&amp;gt; buf;
+      boost::system::error_code error;
+
+      // read_some函数用于从TCP连接中读取数据。buffer函数用于创建一个缓冲区，用于存储读取的数据。size_t类型表示读取的字节数。
+      size_t len = socket.read_some(boost::asio::buffer(buf), error); 
+
+      if (error == boost::asio::error::eof) // eof表示连接已关闭。
+        break; // Connection closed cleanly by peer.
+      else if (error)
+        throw boost::system::system_error(error); // Some other error.
+
+      std::cout.write(buf.data(), len);// buf.data()返回缓冲区的指针，len表示读取的字节数。
+    &amp;#125;
+  &amp;#125;
+  catch (std::exception&amp;amp; e)
+  &amp;#123;
+    std::cerr &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+  &amp;#125;
+
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;boost::asio::io_context io_context;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;​作用：&lt;/strong&gt; 创建 I/O 上下文对象，管理所有底层 I/O 操作（如网络通信、定时器等）。&lt;br&gt;
+&lt;strong&gt;​原理：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;io_context&lt;/code&gt; 是 &lt;code&gt;Boost.Asio&lt;/code&gt; 的 ​事件循环核心，负责调度和处理异步操作。&lt;br&gt;
+所有异步操作（如连接、读写）都需要通过它执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;tcp::resolver resolver(io_context);&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;​作用：&lt;/strong&gt; 创建解析器对象，用于将 ​主机名 和 ​服务名/端口号 转换为具体的网络地址（IP + 端口）。&lt;br&gt;
+&lt;strong&gt;​参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;io_context&lt;/code&gt;：绑定到同一个 I/O 上下文，确保解析操作由该上下文管理。&lt;br&gt;
+&lt;strong&gt;​功能：&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;解析器 (&lt;code&gt;resolver&lt;/code&gt;) 支持 &lt;code&gt;DNS&lt;/code&gt; 查询，将域名（如 &lt;code&gt;&amp;quot;example.com&amp;quot;&lt;/code&gt;）解析为 IP 地址。&lt;/li&gt;
+&lt;li&gt;将服务名（如 &lt;code&gt;&amp;quot;http&amp;quot;&lt;/code&gt;）解析为端口号（如 &lt;code&gt;80&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;tcp::resolver::results_type endpoints = resolver.resolve(argv[1], &amp;quot;cc&amp;quot;);&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;​作用：&lt;/strong&gt; 解析用户输入的主机名和服务名，生成可能的网络端点列表。&lt;br&gt;
+&lt;strong&gt;​参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;argv[1]&lt;/code&gt;：命令行输入的主机名（如 &lt;code&gt;&amp;quot;localhost&amp;quot;&lt;/code&gt; 或 &lt;code&gt;&amp;quot;192.168.1.100&amp;quot;&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;cc&amp;quot;&lt;/code&gt;：服务名或端口号。这里可能是自定义的服务名（需系统配置）或直接表示端口号（如 &lt;code&gt;&amp;quot;12345&amp;quot;&lt;/code&gt;）。&lt;br&gt;
+&lt;strong&gt;​返回值：&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;endpoints&lt;/code&gt; 是一个端点列表，包含所有可能的 IP 地址和端口组合（例如 &lt;code&gt;IPv4&lt;/code&gt; 和 &lt;code&gt;IPv6&lt;/code&gt; 地址）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;tcp::socket socket(io_context);&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;​作用：&lt;/strong&gt; 创建 &lt;code&gt;TCP&lt;/code&gt; 套接字对象，用于与服务器通信。&lt;br&gt;
+&lt;strong&gt;​参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;io_context&lt;/code&gt;：套接字绑定到同一个 I/O 上下文，确保其操作由该上下文管理。&lt;br&gt;
+&lt;strong&gt;​功能：&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;套接字是网络通信的端点，通过它可以发送和接收数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;boost::asio::connect(socket, endpoints);&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;​作用：&lt;/strong&gt; 尝试连接到服务器。&lt;br&gt;
+&lt;strong&gt;​参数：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;socket&lt;/code&gt;：上一步创建的套接字。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;endpoints&lt;/code&gt;：解析得到的端点列表。&lt;br&gt;
+&lt;strong&gt;​行为：&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;按顺序尝试连接 &lt;code&gt;endpoints&lt;/code&gt; 中的每一个端点（如 &lt;code&gt;IPv4&lt;/code&gt; 地址优先，失败后尝试 &lt;code&gt;IPv6&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;当某个端点连接成功时，停止尝试。&lt;/li&gt;
+&lt;li&gt;如果所有端点均连接失败，抛出异常。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;异步TCP时间服务器&#34;&gt;异步TCP时间服务器&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;主函数入口&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;int main()
+&amp;#123;
+  try
+  &amp;#123;
+    boost::asio::io_context io_context;      // 创建IO上下文，管理所有异步操作
+    tcp_server server(io_context);          // 创建TCP服务器实例，初始化监听
+    io_context.run();                       // 启动事件循环，处理异步操作
+  &amp;#125;
+  catch (std::exception&amp;amp; e)                 // 异常处理
+  &amp;#123;
+    std::cerr &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+  &amp;#125;
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;io_context&lt;/code&gt; 是&lt;code&gt;Boost.Asio&lt;/code&gt;的核心，负责调度异步任务。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tcp_server&lt;/code&gt; 初始化时会开始监听连接。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;io_context.run()&lt;/code&gt; 会阻塞主线程，持续处理异步事件，直到所有任务完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;​TCP服务器初始化（tcp_server构造函数）​&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;tcp_server(boost::asio::io_context&amp;amp; io_context)
+  : io_context_(io_context),
+    acceptor_(io_context, tcp::endpoint(tcp::v4(), 13)) // 绑定IPv4地址的13端口
+&amp;#123;
+  start_accept(); // 开始异步等待客户端连接
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;acceptor_&lt;/code&gt; 初始化时绑定到本地13端口。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;start_accept()&lt;/code&gt; 启动异步接受连接的过程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;异步接受连接（start_accept）​&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;void start_accept()
+&amp;#123;
+  tcp_connection::pointer new_connection = tcp_connection::create(io_context_); // 创建新连接对象
+  acceptor_.async_accept(                       // 异步接受连接
+      new_connection-&amp;gt;socket(),
+      [this, new_connection](const boost::system::error_code&amp;amp; error) &amp;#123;
+          handle_accept(error, new_connection); // 连接完成时调用处理函数
+      &amp;#125;);
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tcp_connection::create&lt;/code&gt; 创建新的连接对象，其&lt;code&gt;socket&lt;/code&gt;由&lt;code&gt;io_context&lt;/code&gt;管理。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;async_accept&lt;/code&gt; 异步等待客户端连接。当有连接到来时，&lt;code&gt;lambda&lt;/code&gt;被调用，传递错误码和连接对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;处理新连接（handle_accept）​&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;void handle_accept(const boost::system::error_code&amp;amp; error, tcp_connection::pointer new_connection)
+&amp;#123;
+  if (!error)
+  &amp;#123;
+    new_connection-&amp;gt;start(); // 启动数据发送流程
+  &amp;#125;
+  start_accept(); // 继续监听下一个连接
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;如果没有错误，调用&lt;code&gt;new_connection-&amp;gt;start()&lt;/code&gt;开始处理客户端请求。&lt;/li&gt;
+&lt;li&gt;无论是否出错，再次调用&lt;code&gt;start_accept()&lt;/code&gt;，形成循环监听。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;strong&gt;TCP连接处理（tcp_connection::start）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;void start()
+&amp;#123;
+  message_ = make_daytime_string(); // 生成当前时间字符串
+  auto self(shared_from_this());    // 获取shared_ptr，延长对象生命周期
+  boost::asio::async_write(         // 异步发送数据
+      socket_,
+      boost::asio::buffer(message_),
+      [this, self](const auto&amp;amp; error, size_t bytes) &amp;#123;
+          handle_write(error, bytes); // 发送完成后的回调
+      &amp;#125;);
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;make_daytime_string()&lt;/code&gt; 生成当前时间的字符串。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;shared_from_this()&lt;/code&gt; 确保在异步操作期间对象不会被销毁。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;async_write&lt;/code&gt; 异步发送数据，完成后调用&lt;code&gt;handle_write&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;strong&gt;数据发送完成处理（handle_write）​&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;void handle_write(const boost::system::error_code&amp;amp; /*error*/, size_t /*bytes_transferred*/)
+&amp;#123;
+  // 此处可添加发送完成后的逻辑，例如关闭连接
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;当前代码未处理发送结果，但可在此处添加错误处理或资源释放逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;strong&gt;生成时间字符串（make_daytime_string）​&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;std::string make_daytime_string()
+&amp;#123;
+  time_t now = time(0);
+  return ctime(&amp;amp;now); // 示例输出：&amp;quot;Wed May 22 15:42:36 2024\n&amp;quot;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;返回的字符串末尾包含换行符，符合Daytime协议标准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;异步执行流程总结：​&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务器启动，监听端口13。&lt;/li&gt;
+&lt;li&gt;当客户端连接时，async_accept 完成，触发 handle_accept。&lt;/li&gt;
+&lt;li&gt;无错误则调用 start() 发送时间数据。&lt;/li&gt;
+&lt;li&gt;数据发送完成后，由 handle_write 处理后续逻辑（当前为空）。&lt;/li&gt;
+&lt;li&gt;服务器循环调用 start_accept，持续监听新连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;**关键点：**​&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;​生命周期管理：&lt;/strong&gt; 通过 &lt;code&gt;shared_from_this()&lt;/code&gt; 和 &lt;code&gt;shared_ptr&lt;/code&gt; 确保异步操作期间对象存活。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;​异步链式调用：&lt;/strong&gt; &lt;code&gt;async_accept&lt;/code&gt; →&lt;code&gt; handle_accept&lt;/code&gt; → &lt;code&gt;async_write&lt;/code&gt; → &lt;code&gt;handle_write&lt;/code&gt; 形成异步链。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;​端口重用：&lt;/strong&gt; Daytime协议使用13端口，需确保权限允许（Linux/Mac可能需要sudo运行）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;完整代码：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;ctime&amp;gt;
+#include &amp;lt;functional&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;memory&amp;gt;
+#include &amp;lt;string&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+using boost::asio::ip::tcp;
+
+std::string make_daytime_string()
+&amp;#123;
+  time_t now = time(0);
+  return ctime(&amp;amp;now); // 示例输出：&amp;quot;Wed May 22 15:42:36 2024\n&amp;quot;
+&amp;#125;
+
+class tcp_connection
+  : public std::enable_shared_from_this&amp;lt;tcp_connection&amp;gt;
+&amp;#123;
+public:
+  typedef std::shared_ptr&amp;lt;tcp_connection&amp;gt; pointer;
+
+  static pointer create(boost::asio::io_context&amp;amp; io_context)
+  &amp;#123;
+    return pointer(new tcp_connection(io_context));
+  &amp;#125;
+
+  tcp::socket&amp;amp; socket()
+  &amp;#123;
+    return socket_;
+  &amp;#125;
+
+  void start()
+  &amp;#123;
+    message_ = make_daytime_string(); // 生成当前时间字符串
+    auto self(shared_from_this());    // 获取shared_ptr，延长对象生命周期
+    boost::asio::async_write(         // 异步发送数据
+        socket_,
+        boost::asio::buffer(message_),
+        [this, self](const auto&amp;amp; error, size_t bytes) &amp;#123;
+            handle_write(error, bytes); // 发送完成后的回调
+        &amp;#125;);
+  &amp;#125;
+
+private:
+  tcp_connection(boost::asio::io_context&amp;amp; io_context)
+    : socket_(io_context)
+  &amp;#123;
+  &amp;#125;
+
+  void handle_write(const boost::system::error_code&amp;amp; /*error*/, size_t /*bytes_transferred*/)
+  &amp;#123;
+    // 此处可添加发送完成后的逻辑，例如关闭连接
+  &amp;#125;
+
+  tcp::socket socket_;
+  std::string message_;
+&amp;#125;;
+
+class tcp_server
+&amp;#123;
+public:
+  tcp_server(boost::asio::io_context&amp;amp; io_context)
+    :io_context_(io_context),
+    acceptor_(io_context, tcp::endpoint(tcp::v4(), 13)) // 绑定IPv4地址的13端口
+  &amp;#123;
+    start_accept(); // 开始异步等待客户端连接
+  &amp;#125;
+
+private:
+  void start_accept() &amp;#123;
+    tcp_connection::pointer new_connection = tcp_connection::create(io_context_);// 创建新连接对象
+    acceptor_.async_accept(         // 异步接受连接
+        new_connection-&amp;gt;socket(),
+        [this, new_connection](const boost::system::error_code&amp;amp; error) &amp;#123;
+            // 这里的 this 指向当前 tcp_server 对象
+            handle_accept(error, new_connection);
+        &amp;#125;
+    );
+  &amp;#125; 
+
+  void handle_accept(const boost::system::error_code&amp;amp; error, tcp_connection::pointer new_connection)
+  &amp;#123;
+    if (!error)
+    &amp;#123;
+      new_connection-&amp;gt;start(); // 启动数据发送流程
+    &amp;#125;
+    start_accept(); // 继续监听下一个连接
+  &amp;#125;
+
+  boost::asio::io_context&amp;amp; io_context_;
+  tcp::acceptor acceptor_;
+&amp;#125;;
+
+int main()
+&amp;#123;
+  try
+  &amp;#123;
+    boost::asio::io_context io_context;      // 创建IO上下文，管理所有异步操作
+    tcp_server server(io_context);          // 创建TCP服务器实例，初始化监听
+    io_context.run();                       // 启动事件循环，处理异步操作
+  &amp;#125;
+  catch (std::exception&amp;amp; e)                 // 异常处理
+  &amp;#123;
+    std::cerr &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+  &amp;#125;
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;UPD&lt;/h1&gt;
+&lt;h2 id=&#34;同步UDP客户端&#34;&gt;同步UDP客户端&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;array&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+using boost::asio::ip::udp;
+
+int main(int argc, char* argv[])
+&amp;#123;
+  try
+  &amp;#123;
+    if (argc != 2)
+    &amp;#123;
+      std::cerr &amp;lt;&amp;lt; &amp;quot;Usage: client &amp;lt;host&amp;gt;&amp;quot; &amp;lt;&amp;lt; std::endl;
+      return 1;
+    &amp;#125;
+
+    boost::asio::io_context io_context;
+
+    udp::resolver resolver(io_context);
+    udp::endpoint receiver_endpoint =
+      *resolver.resolve(udp::v4(), argv[1], &amp;quot;daytime&amp;quot;).begin();
+
+    udp::socket socket(io_context);
+    socket.open(udp::v4());
+
+    std::array&amp;lt;char, 1&amp;gt; send_buf  = &amp;#123;&amp;#123; 0 &amp;#125;&amp;#125;;
+    socket.send_to(boost::asio::buffer(send_buf), receiver_endpoint);
+
+    std::array&amp;lt;char, 128&amp;gt; recv_buf;
+    udp::endpoint sender_endpoint;
+    size_t len = socket.receive_from(
+        boost::asio::buffer(recv_buf), sender_endpoint);
+
+    std::cout.write(recv_buf.data(), len);
+  &amp;#125;
+  catch (std::exception&amp;amp; e)
+  &amp;#123;
+    std::cerr &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+  &amp;#125;
+
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;异步UDP服务端&#34;&gt;异步UDP服务端&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;array&amp;gt;
+#include &amp;lt;ctime&amp;gt;
+#include &amp;lt;functional&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;memory&amp;gt;
+#include &amp;lt;string&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+using boost::asio::ip::udp;
+
+std::string make_daytime_string()
+&amp;#123;
+  using namespace std; // For time_t, time and ctime;
+  time_t now = time(0);
+  return ctime(&amp;amp;now);
+&amp;#125;
+
+class udp_server
+&amp;#123;
+public:
+  udp_server(boost::asio::io_context&amp;amp; io_context)
+    : socket_(io_context, udp::endpoint(udp::v4(), 13))
+  &amp;#123;
+    start_receive();
+  &amp;#125;
+
+private:
+  void start_receive()
+  &amp;#123;
+    socket_.async_receive_from(
+        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+        std::bind(&amp;amp;udp_server::handle_receive, this,
+          boost::asio::placeholders::error,
+          boost::asio::placeholders::bytes_transferred));
+  &amp;#125;
+
+  void handle_receive(const boost::system::error_code&amp;amp; error,
+      std::size_t /*bytes_transferred*/)
+  &amp;#123;
+    if (!error)
+    &amp;#123;
+      std::shared_ptr&amp;lt;std::string&amp;gt; message(
+          new std::string(make_daytime_string()));
+
+      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+          std::bind(&amp;amp;udp_server::handle_send, this, message,
+            boost::asio::placeholders::error,
+            boost::asio::placeholders::bytes_transferred));
+
+      start_receive();
+    &amp;#125;
+  &amp;#125;
+
+  void handle_send(std::shared_ptr&amp;lt;std::string&amp;gt; /*message*/,
+      const boost::system::error_code&amp;amp; /*error*/,
+      std::size_t /*bytes_transferred*/)
+  &amp;#123;
+  &amp;#125;
+
+  udp::socket socket_;
+  udp::endpoint remote_endpoint_;
+  std::array&amp;lt;char, 1&amp;gt; recv_buffer_;
+&amp;#125;;
+
+int main()
+&amp;#123;
+  try
+  &amp;#123;
+    boost::asio::io_context io_context;
+    udp_server server(io_context);
+    io_context.run();
+  &amp;#125;
+  catch (std::exception&amp;amp; e)
+  &amp;#123;
+    std::cerr &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+  &amp;#125;
+
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;组合TCP/UDP&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;array&amp;gt;
+#include &amp;lt;ctime&amp;gt;
+#include &amp;lt;functional&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;memory&amp;gt;
+#include &amp;lt;string&amp;gt;
+#include &amp;lt;boost/asio.hpp&amp;gt;
+
+using boost::asio::ip::tcp;
+using boost::asio::ip::udp;
+
+std::string make_daytime_string()
+&amp;#123;
+  using namespace std; // For time_t, time and ctime;
+  time_t now = time(0);
+  return ctime(&amp;amp;now);
+&amp;#125;
+
+class tcp_connection
+  : public std::enable_shared_from_this&amp;lt;tcp_connection&amp;gt;
+&amp;#123;
+public:
+  typedef std::shared_ptr&amp;lt;tcp_connection&amp;gt; pointer;
+
+  static pointer create(boost::asio::io_context&amp;amp; io_context)
+  &amp;#123;
+    return pointer(new tcp_connection(io_context));
+  &amp;#125;
+
+  tcp::socket&amp;amp; socket()
+  &amp;#123;
+    return socket_;
+  &amp;#125;
+
+  void start()
+  &amp;#123;
+    message_ = make_daytime_string();
+
+    boost::asio::async_write(socket_, boost::asio::buffer(message_),
+        std::bind(&amp;amp;tcp_connection::handle_write, shared_from_this()));
+  &amp;#125;
+
+private:
+  tcp_connection(boost::asio::io_context&amp;amp; io_context)
+    : socket_(io_context)
+  &amp;#123;
+  &amp;#125;
+
+  void handle_write()
+  &amp;#123;
+  &amp;#125;
+
+  tcp::socket socket_;
+  std::string message_;
+&amp;#125;;
+
+class tcp_server
+&amp;#123;
+public:
+  tcp_server(boost::asio::io_context&amp;amp; io_context)
+    : io_context_(io_context),
+      acceptor_(io_context, tcp::endpoint(tcp::v4(), 13))
+  &amp;#123;
+    start_accept();
+  &amp;#125;
+
+private:
+  void start_accept()
+  &amp;#123;
+    tcp_connection::pointer new_connection =
+      tcp_connection::create(io_context_);
+
+    acceptor_.async_accept(new_connection-&amp;gt;socket(),
+        std::bind(&amp;amp;tcp_server::handle_accept, this, new_connection,
+          boost::asio::placeholders::error));
+  &amp;#125;
+
+  void handle_accept(tcp_connection::pointer new_connection,
+      const boost::system::error_code&amp;amp; error)
+  &amp;#123;
+    if (!error)
+    &amp;#123;
+      new_connection-&amp;gt;start();
+    &amp;#125;
+
+    start_accept();
+  &amp;#125;
+
+  boost::asio::io_context&amp;amp; io_context_;
+  tcp::acceptor acceptor_;
+&amp;#125;;
+
+class udp_server
+&amp;#123;
+public:
+  udp_server(boost::asio::io_context&amp;amp; io_context)
+    : socket_(io_context, udp::endpoint(udp::v4(), 13))
+  &amp;#123;
+    start_receive();
+  &amp;#125;
+
+private:
+  void start_receive()
+  &amp;#123;
+    socket_.async_receive_from(
+        boost::asio::buffer(recv_buffer_), remote_endpoint_,
+        std::bind(&amp;amp;udp_server::handle_receive, this,
+          boost::asio::placeholders::error));
+  &amp;#125;
+
+  void handle_receive(const boost::system::error_code&amp;amp; error)
+  &amp;#123;
+    if (!error)
+    &amp;#123;
+      std::shared_ptr&amp;lt;std::string&amp;gt; message(
+          new std::string(make_daytime_string()));
+
+      socket_.async_send_to(boost::asio::buffer(*message), remote_endpoint_,
+          std::bind(&amp;amp;udp_server::handle_send, this, message));
+
+      start_receive();
+    &amp;#125;
+  &amp;#125;
+
+  void handle_send(std::shared_ptr&amp;lt;std::string&amp;gt; /*message*/)
+  &amp;#123;
+  &amp;#125;
+
+  udp::socket socket_;
+  udp::endpoint remote_endpoint_;
+  std::array&amp;lt;char, 1&amp;gt; recv_buffer_;
+&amp;#125;;
+
+int main()
+&amp;#123;
+  try
+  &amp;#123;
+    boost::asio::io_context io_context;
+    tcp_server server1(io_context);
+    udp_server server2(io_context);
+    io_context.run();
+  &amp;#125;
+  catch (std::exception&amp;amp; e)
+  &amp;#123;
+    std::cerr &amp;lt;&amp;lt; e.what() &amp;lt;&amp;lt; std::endl;
+  &amp;#125;
+
+  return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+        <category term="Boost" />
+        <updated>2025-03-14T10:00:00.000Z</updated>
+    </entry>
+</feed>

@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "CodeVortex记事本 • All posts by \"多线程\" tag",
+    "description": "滴答滴答滴答",
+    "home_page_url": "https://zhang3399.github.io",
+    "items": [
+        {
+            "id": "https://zhang3399.github.io/2024/06/08/C++/2024-6-15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/",
+            "url": "https://zhang3399.github.io/2024/06/08/C++/2024-6-15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/",
+            "title": "数据处理及内存管理",
+            "date_published": "2024-06-08T02:00:00.000Z",
+            "content_html": "<h1>多线程</h1>\n<h2 id=\"线程池\">线程池</h2>\n<p><strong>函数指针在线程池中的应用</strong></p>\n<pre><code class=\"language-cpp\">// 定义任务结构体\nstruct Task &#123;\n    void (*function)(void* arg);  // 函数指针\n    void* arg;                    // 参数\n&#125;;\n\n// 线程池中的工作线程执行任务\nvoid worker_thread(void* arg) &#123;\n    while (1) &#123;\n        struct Task* task = get_task_from_queue();\n        task-&gt;function(task-&gt;arg);  // 执行具体任务\n    &#125;\n&#125;\n</code></pre>\n<ul>\n<li>**​灵活性：**可以动态添加不同类型的任务（如网络请求、文件操作、计算任务）。</li>\n<li><strong>​解耦：</strong> 线程池代码无需知道任务具体内容，只需调用 <code>function(arg)</code>。</li>\n</ul>\n",
+            "tags": [
+                "多线程"
+            ]
+        }
+    ]
+}

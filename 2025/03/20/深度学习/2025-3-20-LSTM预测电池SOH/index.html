@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AKVHQR3R.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-TA7VUAVB.js"></link><link rel="modulepreload" href="/js/copy-tex-ZHBKMPHU.js"></link><link rel="modulepreload" href="/js/index.esm-Y6LSXM2O.js"></link><link rel="modulepreload" href="/js/post-6XOMY7J6.js"></link><link rel="modulepreload" href="/js/quicklink-DGW6QOA6.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><meta name="keywords" content="LSTM"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/"><title>LSTM预测电池SOH</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">LSTM预测电池SOH</h1><div class="meta"><span class="item" title="创建时间：2025-03-20 23:07:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2025-03-20T23:07:00+08:00">2025-03-20</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>8.2k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>7 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="item" rel="index" title="分类于深度学习"><span itemprop="name">深度学习<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><blockquote>
+<p>本文主要介绍如何使用LSTM预测电池的SOH(SOC)。</p>
+</blockquote>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/zhang3399/Battery-SOH-prediction">https://github.com/zhang3399/Battery-SOH-prediction</a></p>
+<h2 id="1-数据集介绍">1. 数据集介绍</h2>
+<p>数据集来源于<a target="_blank" rel="noopener" href="https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#battery">https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#battery</a></p>
+<p><strong>数据说明：</strong><br>
+一组四个锂离子电池（#5、6、7和18）在室温下经历了3种不同的操作模式（充电、放电和阻抗）。以1.5A的恒流（CC）模式充电，直到电池电压达到4.2V，然后以恒压（CV）模式继续充电，直到充电电流降至20mA。以2A的恒定电流（CC）水平进行放电，直到电池5、6、7和18的电池电压分别降至2.7V、2.5V、2.2V和2.5V。通过电化学阻抗谱（EIS）从0.1Hz到5kHz的频率扫描进行阻抗测量。重复的充电和放电循环导致电池加速老化，而阻抗测量则提供了对随着老化过程而变化的内部电池参数的洞察。当电池达到寿命终止（EOL）标准时，实验停止，即额定容量下降30%（从2Ahr降至1.4Ahr）。该数据集可用于预测剩余电荷（对于给定的放电循环）和剩余使用寿命（RUL）。<br>
+<strong>文件清单：</strong><br>
+(项目目录下path.xlsx统计的充放电循环周期)</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>电池编号</th>
+<th>循环次数</th>
+<th>数据规模</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>B0005.mat</code></td>
+<td>5</td>
+<td>167</td>
+<td>15.2MB</td>
+</tr>
+<tr>
+<td><code>B0006.mat</code></td>
+<td>6</td>
+<td>167</td>
+<td>15.2MB</td>
+</tr>
+<tr>
+<td><code>B0007.mat</code></td>
+<td>7</td>
+<td>167</td>
+<td>15.3MB</td>
+</tr>
+<tr>
+<td><code>B0018.mat</code></td>
+<td>18</td>
+<td>132</td>
+<td>8.1MB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据结构：</strong></p>
+<ul>
+<li>cycle：包含充电、放电和阻抗操作的顶层结构阵列</li>
+<li>type：充电、放电或阻抗(charge, discharge or impedance)</li>
+<li>ambient_temperature：环境温度（摄氏度）</li>
+<li>time：周期开始的日期和时间，采用MATLAB日期向量格式</li>
+<li>data：包含测量值的数据结构
+<ul>
+<li>charge充电类型字段为：
+<ul>
+<li>Voltage_measured：蓄电池端子电压（伏特）</li>
+<li>Current_measured：电池输出电流（安培）</li>
+<li>Temperature_measured：电池温度（摄氏度）</li>
+<li>Current_charge：在充电器处测量的电流（安培）</li>
+<li>Voltage_charge：在充电器处测量的电压（伏特）</li>
+<li>Time：周期的时间矢量（秒）</li>
+</ul>
+</li>
+<li>discharge放电类型字段为：
+<ul>
+<li>Voltage_measured：蓄电池端子电压（伏特）</li>
+<li>Current_measured：电池输出电流（安培）</li>
+<li>Temperature_measured：电池温度（摄氏度）</li>
+<li>Current_charge：负载下测量的电流（安培）</li>
+<li>Voltage_charge：负载下测量的电压（伏特）</li>
+<li>Time：周期的时间矢量（秒）</li>
+<li>Capacity：放电至2.7V的电池容量（Ahr）</li>
+</ul>
+</li>
+<li>impedance阻抗类型字段为：
+<ul>
+<li>Sense_current：感测支路中的电流（安培）</li>
+<li>Battery_current：电池支路中的电流（安培）</li>
+<li>Current_ratio：上述电流的比率</li>
+<li>Battery_impedance：根据原始数据计算的电池阻抗（欧姆）</li>
+<li>Rectified_impedance：校准和平滑的电池阻抗（欧姆）</li>
+<li>Re：估计电解质电阻（欧姆）</li>
+<li>Rct：估计的电荷转移电阻（欧姆）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-数据预处理">2. 数据预处理</h2>
+<p><strong>提取数据：</strong></p>
+<p>考虑阻抗测试数据并不是与充放电周期进行，因此，我们只考虑充放电周期数据,并将相邻的充放电周期数据合并作为一组数据。</p>
+<p>而且训练的输入特征并不是越多越好，通过pandas的corr()函数分析，发现一些特征与SOH相关性较低，因此我们选择一些关键特征，如充电时间、充电电流标准差、放电时间和放电容量，这些特征与SOH的相关性较高，分析结果采用热力图如下：<br>
+<img loading="lazy" data-src="/images/%E7%89%B9%E5%BE%81%E7%9B%B8%E5%85%B3%E6%80%A7%E5%88%86%E6%9E%90.webp" alt=""></p>
+<pre><code class="language-python">
+def extract_operation_features(cycle):
+    ## 提取单个操作的特征
+    features = &#123;&#125;
+    data = cycle['data']
+    try:
+        if cycle['type'] == 'charge':
+            # 提取充电特征
+            features.update(&#123;
+                'cc_time': np.argmax(data['Voltage_measured'] &gt;= 4.2) / len(data['Time']),  # 恒流阶段占比
+                'current_charge_std': np.std(data['Current_measured']),
+                'Voltage_measured': np.argmax(data['Voltage_measured'] &gt;= 4.2) / len(data['Time']),
+            &#125;)
+        elif cycle['type'] == 'discharge':
+            # 提取放电特征
+            features.update(&#123;
+                'discharge_duration': data['Time'][-1] - data['Time'][0],
+                'capacity': data['Capacity']  # 取最终放电容量
+            &#125;)
+    except KeyError as e:
+        print(f&quot;特征提取错误: &#123;str(e)&#125;&quot;)
+    return features
+</code></pre>
+<p><strong>数据集划分方式：</strong></p>
+<ul>
+<li><code>df</code>是划分的数据集，是上一步提取包含5、6、7、18号电池的特征信息。</li>
+<li><code>div_batt</code>是用于划分训练集和测试集电池ID列表，这里是[‘05’, ‘06’, ‘07’]。</li>
+<li><code>test_ratio</code>控制划分比例</li>
+<li><code>test_new_batt</code>是用于将全新电池作为测试集电池ID，这里是’18’。</li>
+</ul>
+<p>函数处理返回两种验证集<code>pd.concat(val_dfs)</code>, <code>final_test_df</code>。</p>
+<ol>
+<li><code>pd.concat(val_dfs)</code>按照将div_batt列表电池的后20%作为测试集。</li>
+<li><code>final_test_df</code>将<code>test_new_batt</code>号电池作为测试集。</li>
+</ol>
+<pre><code class="language-python"># 划分数据集为训练集和测试集
+def create_hybrid_split(df, div_batt, div_name, test_ratio=0.2, test_new_batt=None): 
+    # 划分数据集为训练集和测试集 
+    # df: 数据集
+    # div_batt: 电池ID列表'
+    # div_name: 按照该属性值划分
+    # test_ratio: 测试集比例（充放电周期数据前一部分为训练集，后面为测试集，保证无交叉）
+    # test_new_batt: 新的一组电池作为测试集（可选）
+    final_test_batt = test_new_batt
+    final_test_df = df[df[div_name] == final_test_batt]
+    # 其他电池内部按时间划分
+    train_dfs, val_dfs = [], []
+    for batt_id in div_batt:
+        batt_data = df[df[div_name] == batt_id]
+        split_idx = int(len(batt_data) * (1 - test_ratio))
+
+        train_part = batt_data.iloc[:split_idx]
+        val_part = batt_data.iloc[split_idx:]
+
+        train_dfs.append(train_part)
+        val_dfs.append(val_part)
+    return pd.concat(train_dfs), pd.concat(val_dfs), final_test_df
+# 开始数据集的划分
+all_data = []
+for batt_id in ['05', '06', '07', '18']:  # 遍历电池数据B005.mat, B006.mat, B007.mat, B0018.mat
+    print(f&quot;Processing battery &#123;batt_id&#125;...&quot;)
+    cycles = load_battery_data(batt_id)  # 数据加载
+    current_cycle_num = 0  # 独立维护每个电池的周期计数器
+    last_charge_features = &#123;&#125;  # 存储最近一次充电特征
+    initial_capacity = None
+    for cycle in cycles:
+        # 跳过阻抗测试
+        if cycle['type'] == 'impedance':
+            continue
+        # 提取基础特征
+        features = extract_operation_features(cycle)
+
+        if cycle['type'] == 'charge':
+            # 缓存充电特征，等待后续放电配对
+            last_charge_features = features
+
+        elif cycle['type'] == 'discharge' and last_charge_features != &#123;&#125;: #开始为放电则跳过，确保构建（充电-放电）周期
+            if not last_charge_features:
+                print(f&quot;Warning: 放电周期 &#123;current_cycle_num&#125; 缺少充电数据&quot;)
+                continue
+            # 合并特征
+            full_features = &#123;
+                'battery_id': batt_id,
+                'cycle': current_cycle_num,
+                **last_charge_features,
+                **features
+            &#125;
+            # 初始化容量记录
+            if initial_capacity is None:
+                initial_capacity = full_features['capacity']
+                print(f&quot;电池 &#123;batt_id&#125; 初始容量: &#123;initial_capacity:.2f&#125;Ah&quot;)
+            # 计算健康指标
+            full_features['soh'] = full_features['capacity'] / initial_capacity
+            all_data.append(full_features)
+            # 周期计数器递增
+            current_cycle_num += 1
+            last_charge_features = &#123;&#125;  # 重置缓存
+# 转换为DataFrame
+df = pd.DataFrame(all_data)
+</code></pre>
+<p><strong>数据集划分：</strong></p>
+<p>这里可以设置<code>train_batt_ids</code>，<code>test_batt_ids</code>，来选择上面提到的测试集划分方式，要取消几处可选的注释。</p>
+<pre><code class="language-python">df = create_dataset()
+
+# 定义特征列（根据最新特征工程调整）
+feature_cols = [
+    'cc_time',
+    'current_charge_std',
+    'Voltage_measured',
+    'discharge_duration',
+    'capacity'
+]
+# 读取config.yaml定义的目标列
+target_col = config['data']['target_col']
+# 按电池ID划分数据集（严格隔离）
+train_batt_ids = ['05', '06', '07']  # 划分训练集、测试集数据
+# test_batt_ids = '18'  # 测试完整新电池数据（可选）
+
+train_df, test_df, final_test_df = create_hybrid_split(df,
+                                                        div_batt=train_batt_ids,
+                                                        div_name='battery_id',
+                                                        test_ratio=config['data']['test_ratio'],
+                                                        # test_new_batt=test_batt_ids   #（可选）
+                                                        )
+
+# test_df = final_test_df #（可选）
+# 特征标准化（仅在训练数据上拟合）
+scaler = StandardScaler()
+train_df[feature_cols] = scaler.fit_transform(train_df[feature_cols])
+test_df[feature_cols] = scaler.transform(test_df[feature_cols])
+</code></pre>
+<p>实验发现，将数据的前一部分用于训练，后一部分用于测试，预测精度高一些。如果采用一组新的电池如B0018号则效果会略微下降，这可能是数据量还是太少的原因，模型泛化能力不足。</p>
+<h2 id="3-模型构建">3. 模型构建</h2>
+<p>模型采用LSTM（Long Short-Term Memory）网络，用于预测电池的SOH。</p>
+<pre><code class="language-python">class BatteryLSTM(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, dropout, output_size):
+        super().__init__()
+        self.lstm = nn.LSTM(
+            input_size=input_size,
+            hidden_size=hidden_size,
+            num_layers=num_layers,
+            dropout=dropout,
+            batch_first=True
+        )
+        self.fc = nn.Sequential(
+            nn.Linear(hidden_size, 32),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(32, output_size)
+        )
+
+    def forward(self, x):
+        out, (h_n, c_n) = self.lstm(x)
+        out = self.fc(out[:, -1, :])
+        return out
+</code></pre>
+<h2 id="4-模型训练">4. 模型训练</h2>
+<p>模型训练包括模型参数设置、模型训练、模型评估等步骤。<br>
+关于精度可以尝试调整模型参数，如隐藏层大小、层数、dropout率等，以获得更好的性能。<br>
+序列长度seq_length不大的话，隐藏层不需要太大我习惯分别尝试为[32, 64, 128, 256]。</p>
+<pre><code class="language-yaml">data:
+  sequence_length: 10
+  test_ratio: 0.2
+  target_col: &quot;soh&quot;
+
+model:
+  input_size: 5
+  hidden_size: 128
+  num_layers: 2
+  dropout: 0.3
+  output_size: 1
+
+training:
+  epochs: 300
+  batch_size: 8
+  learning_rate: 0.001
+  patience: 20
+</code></pre>
+<h2 id="5-模型预测">5. 模型预测</h2>
+<p>各项指标：</p>
+<pre><code class="language-bash">======== 最终模型评估指标 ========
+MSE: 0.0001
+RMSE: 0.0090
+MAE: 0.0070
+R²: 0.9838
+</code></pre>
+<p>预测结果：<br>
+<img loading="lazy" data-src="/images/soh_trend_comparison.webp" alt=""><br>
+图片这样是因为预测的是5、6、7号电池的后20%个周期的SOH，因为偷懒未单独对每个电池进行处理，想好看一点可以在前面讲的，将18号电池单独作为测试集。</p>
+<div class="tags"><a href="/tags/LSTM/" rel="tag"><i class="ic i-tag"></i>LSTM</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-04-23 04:24:01" itemprop="dateModified" datetime="2025-04-23T04:24:01+08:00">2025-04-23</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/" title="LSTM预测电池SOH">https://zhang3399.github.io/2025/03/20/深度学习/2025-3-20-LSTM预测电池SOH/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" itemprop="url" data-background-image="images&#x2F;img7.webp" title="Lambda 表达式"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>C++</span><h3>Lambda 表达式</h3></a></div><div class="item right"><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/" rel="next" itemprop="url" data-background-image="images&#x2F;img5.webp" title="onnx+opencv+opencl"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>深度学习</span><h3>onnx+opencv+opencl</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">1. 数据集介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">2. 数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA"><span class="toc-number">3.</span> <span class="toc-text">3. 模型构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="toc-number">4.</span> <span class="toc-text">4. 模型训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%A8%A1%E5%9E%8B%E9%A2%84%E6%B5%8B"><span class="toc-number">5.</span> <span class="toc-text">5. 模型预测</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li ><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/" rel="bookmark" title="LSTM">LSTM</a></li><li ><a href="/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/" rel="bookmark" title="树莓派部署YOLOv5s">树莓派部署YOLOv5s</a></li><li ><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/" rel="bookmark" title="onnx+opencv+opencl">onnx+opencv+opencl</a></li><li  class="active"><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/" rel="bookmark" title="LSTM预测电池SOH">LSTM预测电池SOH</a></li><li ><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="bookmark" title="Adman梯度下降">Adman梯度下降</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">18</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">8</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/">python进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于数据库">数据库</a></div><span><a href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93/2023-10-12-SQL/">SQL</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Window-Linux/" title="分类于Window/Linux">Window/Linux</a></div><span><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/">终端操作</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/15/C++/2024-6-15-Socket/">Socket</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/git/" title="分类于git">git</a></div><span><a href="/2025/02/23/linux/2025-2-23-git/">git基本使用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/">I/O多路复用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/" title="分类于项目工具">项目工具</a></div><span><a href="/2025/03/12/C++/2025-3-12-CMake%E4%BD%BF%E7%94%A8/">🚀 CMake项目构建</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/14/C++/2025-3-14-Boost/">Boost</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/">onnx+opencv+opencl</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">131k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">1:59</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2025/03/20/深度学习/2025-3-20-LSTM预测电池SOH/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO&#x2F;+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn&#x2F;6Z&#x2F;hRTt8+pR6L4N2" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha384-Zm+UU4tdcfAm29vg+MTbfu&#x2F;&#x2F;q5B&#x2F;lInMbMCr4T8c9rQFyOv6PlfQYpB5wItcXWe7" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" integrity="sha384-TOxsBplaL96&#x2F;QDWPIUg+ye3v89qSE3s22XNtJMmCeZEep3cVDmXy1zEfZvVv+y2m" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.25" type="module" fetchpriority="high" defer></script></body></html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AKVHQR3R.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-TA7VUAVB.js"></link><link rel="modulepreload" href="/js/copy-tex-ZHBKMPHU.js"></link><link rel="modulepreload" href="/js/index.esm-Y6LSXM2O.js"></link><link rel="modulepreload" href="/js/post-6XOMY7J6.js"></link><link rel="modulepreload" href="/js/quicklink-DGW6QOA6.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><meta name="keywords" content="python进阶"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/"><title>python进阶</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">python进阶</h1><div class="meta"><span class="item" title="创建时间：2021-10-06 10:00:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2021-10-06T10:00:00+08:00">2021-10-06</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>12k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>11 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于python"><span itemprop="name">python<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1>面向对象</h1>
+<blockquote>
+<p>面向对象编程是一种编程范式或编程风格。它以类和对象为核心，将数据（属性）和操作（方法）封装在一起，通过继承和多态等机制实现代码的重用和扩展。</p>
+</blockquote>
+<h2 id="类">类</h2>
+<p>类是面向对象编程中的基本概念，它是一种抽象的数据类型，用于定义对象的属性和行为。类可以看作是对象的模板，通过类可以创建多个具有相同属性和行为的对象。</p>
+<p><strong>类的定义</strong><br>
+在Python中，使用<code>class</code>关键字来定义一个类。</p>
+<p>注意：类名通常使用大写字母开头，遵循驼峰命名法。</p>
+<pre><code class="language-python"># 基本格式：
+# class 类名:
+#     类的属性和方法
+
+class ClassName:
+    # 类的属性
+    name = &quot;name&quot;
+
+    # 类的方法
+    def method(self):
+        print(&quot;method id：&quot;, self)  # self是类实例的引用，用于访问类的属性和方法
+
+# 实例化
+class_instance = ClassName()
+print(&quot;class_instance id is:&quot;, class_instance)
+class_instance.method()
+
+&quot;&quot;&quot;
+结果：
+class_instance id is: &lt;__main__.ClassName object at 0x000001CE2FEA9FD0&gt;
+method id： &lt;__main__.ClassName object at 0x000001CE2FEA9FD0&gt;
+&quot;&quot;&quot;
+</code></pre>
+<ol>
+<li>构造函数<code>__init__()</code>
+<ul>
+<li>构造函数是类的一个特殊方法，用于初始化对象的状态。当创建对象时，Python会自动调用构造函数。</li>
+<li>构造函数的第一个参数必须是<code>self</code>，表示对象本身的引用。</li>
+<li>构造函数可以接受任意数量的参数，用于初始化对象的属性。</li>
+<li>构造函数可以返回任意类型的值，但通常返回<code>None</code>。</li>
+<li>构造函数可以包含任意数量的代码，用于执行初始化操作。</li>
+<li>构造函数可以调用其他方法，用于执行初始化操作。</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-python">class ClassName:
+    def __init__(self, name): #self--实例本身，name--实例属性（非类属性）
+        self.name = name
+
+class_instance = ClassName(&quot;name&quot;)
+print(&quot;class_instance.name is:&quot;, class_instance.name)
+</code></pre>
+<ol start="2">
+<li>析构函数<code>__del__()</code>
+<ul>
+<li>析构函数是类的一个特殊方法，用于在对象被销毁时执行清理操作。当对象被销毁时，Python会自动调用析构函数。</li>
+<li>析构函数的第一个参数必须是<code>self</code>，表示对象本身的引用。</li>
+<li>析构函数可以接受任意数量的参数，用于执行清理操作。</li>
+<li>析构函数可以返回任意类型的值，但通常返回<code>None</code>。</li>
+<li>析构函数可以包含任意数量的代码，用于执行清理操作。</li>
+<li>析构函数可以调用其他方法，用于执行清理操作。</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-python">class ClassName:
+    def __init__(self, name):
+        self.name = name
+
+    def __del__(self):
+        print(&quot;del ClassName&quot;)
+
+class_instance = ClassName(&quot;name&quot;)
+del class_instance # 或者 class_instance = None (删除对象)
+</code></pre>
+<h1>封装</h1>
+<p>封装：面向对象编程中的一个重要概念，它指的是将对象的属性和方法封装在一起，形成一个独立的单元。<br>
+目的：隐藏对象的内部实现细节，只对外提供必要的接口，从而提高代码的可维护性和安全性。</p>
+<p>在Python中，可以通过以下方式实现封装：</p>
+<h2 id="隐藏属性">隐藏属性</h2>
+<p>使用<code>__</code>双下划线开头的属性名或方法名，表示私有，只能在类的内部访问。</p>
+<pre><code class="language-python">class ClassName:
+    name = &quot;name&quot;
+    __age = 18
+
+class_instance = ClassName()
+
+print(&quot;class_instance.name is:&quot;, class_instance.name) # √
+
+print(&quot;class_instance.__age is:&quot;, class_instance.__age) # × AttributeError: 'ClassName' object has no attribute '__age'
+
+## 隐藏属性实际上是将类名修改为： _类名__属性名 
+print(&quot;class_instance.__age is:&quot;, class_instance._ClassName__age) # √
+</code></pre>
+<h2 id="私有属性-方法">私有属性/方法</h2>
+<ul>
+<li><code>xxx</code>：普通属性/方法，可以在类的外部访问。</li>
+<li><code>_xxx</code>：受保护的属性/方法，如果定义在类中，可以外部访问，也可以子类中访问。但是另外的<code>.py</code>文件通过<code>from import *</code>导入时，<code>_xxx</code>属性/方法不会被导入。
+<ul>
+<li>这种一般是为了避免与python关键字冲突而采用的命名方法。</li>
+</ul>
+</li>
+<li><code>__xxx</code>：双下划线开头，隐藏的属性/方法，只能在类的内部访问，如果定义在类中，子类不会继承。
+<ul>
+<li>这种命名一般是python中的魔法方法或者属性，都是有特殊含义和功能的，自己不要轻易定义。</li>
+</ul>
+</li>
+</ul>
+<p><strong>私有属性</strong></p>
+<pre><code class="language-python">class ClassName:
+    name = &quot;name&quot;
+    _age = 18
+    __sex = &quot;male&quot;
+
+class_instance = ClassName()
+
+print(&quot;class_instance.name is:&quot;, class_instance.name) # √
+print(&quot;class_instance._age is:&quot;, class_instance._age) # √
+print(&quot;class_instance.__sex is:&quot;, class_instance.__sex) # × AttributeError: 'ClassName' object has no attribute '__sex'
+print(&quot;class_instance._ClassName__sex is:&quot;, class_instance._ClassName__sex) # √
+</code></pre>
+<p><strong>隐藏方法</strong></p>
+<pre><code class="language-python">class Man:
+    def __play(self):
+        print(&quot;write code&quot;)
+    def funa(self):
+        # 内部调用私有方法
+        self.__play() # 类内部调用私有方法
+        Man.__play(self) # 类内部调用私有方法（不推荐）
+
+man = Man()
+man.funa() # √ 类内部调用私有方法
+man.__play() # × AttributeError: 'Man' object has no attribute '__play'
+&quot;&quot;&quot;
+输出：
+write code
+&quot;&quot;&quot;
+</code></pre>
+<p><strong>私有方法</strong></p>
+<pre><code class="language-python">class Gril:
+    def _play(self): #私有方法
+        print(&quot;play game&quot;)
+
+gril = Gril()
+gril._play() # √
+</code></pre>
+<h1>继承</h1>
+<p>继承：面向对象编程中的一个重要概念，它指的是一个类可以继承另一个类的属性和方法，从而实现代码的重用和扩展。</p>
+<p>格式：<code>class 子类名(父类名):</code></p>
+<h2 id="单继承">单继承</h2>
+<pre><code class="language-python">class Persion:
+    def eat(self):
+        print(&quot;eat&quot;)
+    def sing(self):
+        print(&quot;sing&quot;)
+
+class Student(Persion):
+    pass # 占位符，表示不添加任何新的属性和方法
+
+student = Student()
+student.eat() # √
+student.sing() # √
+&quot;&quot;&quot;
+输出：
+eat
+sing
+&quot;&quot;&quot;
+</code></pre>
+<h2 id="继承的传递（多重继承）">继承的传递（多重继承）</h2>
+<p>子类可以继承父类的属性和方法，也可以继承父类的父类的属性和方法。</p>
+<pre><code class="language-python">class Persion:
+    def eat(self):
+        print(&quot;eat&quot;)
+    def sing(self):
+        print(&quot;sing&quot;)
+
+class Student(Persion):
+    pass
+
+class Teacher(Student):
+    pass
+
+teacher = Teacher()
+teacher.eat() # √
+teacher.sing() # √
+&quot;&quot;&quot;
+输出：
+eat
+sing
+&quot;&quot;&quot;
+</code></pre>
+<h2 id="重写">重写</h2>
+<ol>
+<li>子类重写父类的方法<br>
+子类可以重写父类的方法，即在子类中定义一个与父类方法同名的方法，从而覆盖父类的方法。</li>
+</ol>
+<pre><code class="language-python">class Persion:
+    def eat(self):
+        print(&quot;eat&quot;)
+
+class Student(Persion):
+    def eat(self):
+        print(&quot;eat food&quot;)
+
+student = Student()
+student.eat() # eat food
+&quot;&quot;&quot;
+输出：
+eat food
+&quot;&quot;&quot;
+</code></pre>
+<ol start="2">
+<li>子类拓展父类的方法(不会改变父类方法)<br>
+<strong>写法1</strong>：子类在需要拓展的父类方法下写<code>父类名.方法名()</code></li>
+</ol>
+<pre><code class="language-python">class Persion:
+    def eat(self):
+        print(&quot;eat&quot;)
+
+class Student(Persion):
+    def eat(self):
+        Persion.eat(self)
+        print(&quot;eat food&quot;)
+
+#拓展父类方法
+student1 = Student()
+student1.eat() # eat food
+# 不会改变父类方法
+stuent2 = Persion()
+stuent2.eat()
+&quot;&quot;&quot;
+输出：
+eat
+eat food
+eat
+&quot;&quot;&quot;
+</code></pre>
+<p><strong>写法2</strong>：子类在需要拓展的父类方法下写<code>super().方法名()</code><br>
+注意：<code>super</code>在python里面是一个特殊的类，super()是使用super类创建的一个对象，这个对象是父类，但是不是父类的实例，而是父类的子类，所以super()可以调用父类的方法。</p>
+<pre><code class="language-python">class Persion:
+    def eat(self):
+        print(&quot;eat&quot;)
+
+class Student(Persion):
+    def eat(self):
+        super().eat()
+        print(&quot;eat food&quot;)
+
+#拓展父类方法
+student1 = Student()
+student1.eat() # eat food
+# 不会改变父类方法
+stuent2 = Persion()
+stuent2.eat()
+&quot;&quot;&quot;
+输出：
+eat
+eat food
+eat
+&quot;&quot;&quot;
+</code></pre>
+<h2 id="新式类写法">新式类写法</h2>
+<p>python中，类有两种写法：经典类和新式类。</p>
+<ul>
+<li><code>class A</code><br>
+经典类：不由任意内置类型派生的类。</li>
+</ul>
+<pre><code class="language-python">class Animal:
+    def eat(self):
+        print(&quot;eat&quot;)
+# 经典类：没有新的属性和方法
+class Dog(Animal):
+    pass
+
+# 派生类
+class Cat(Animal):
+    name = &quot;cat&quot;
+    def play(self):
+        print(&quot;play&quot;)
+</code></pre>
+<ul>
+<li><code>class A()</code></li>
+<li><code>class A(object) </code>新式类：继承了object类或者该类的子类都是新式类。 --推荐使用<br>
+<code>object</code>类是所有类的基类，所有类都继承自object类,是python为所有对象提供的基类(顶级父类)。</li>
+</ul>
+<p>注意：python3中如果一个类没有继承任何类，则默认继承<code>object</code>类，所以python3中所有的类都是新式类。</p>
+<h2 id="多继承">多继承</h2>
+<p>一个类可以继承多个类，多个类之间用逗号分隔。</p>
+<pre><code class="language-python">class Student:
+    def study(self):
+        print(&quot;study&quot;)
+
+class Teacher:
+    def teach(self):
+        print(&quot;teach&quot;)
+
+class TeacherStudent(Teacher, Student):
+    pass
+
+teacher_student = TeacherStudent()
+
+teacher_student.study() # study
+teacher_student.teach() # teach
+</code></pre>
+<p><strong>注意：</strong> 多个父类具有同名方法，则调用顺序为：<code>从左到右，深度优先</code>。</p>
+<p><strong>方法的搜索顺序：</strong><br>
+python中内置的<code>__mro__</code>属性可以查看类的继承顺序。</p>
+<pre><code class="language-python">class A:
+    def funa(self):
+        print(&quot;A.funa&quot;)
+
+class B(A):
+    def funb(self):
+        print(&quot;B.funb&quot;)
+
+class C(A):
+    def funa(self):
+        print(&quot;C.funa&quot;)
+
+class D(B, C):
+    pass
+
+d = D()
+d.funa() # C.funa
+print(D.__mro__)
+&quot;&quot;&quot;
+输出：（从左到右，深度优先）
+(&lt;class '__main__.D'&gt;, &lt;class '__main__.B'&gt;, &lt;class '__main__.C'&gt;, &lt;class '__main__.A'&gt;, &lt;class 'object'&gt;)
+&quot;&quot;&quot;
+</code></pre>
+<h1>多态</h1>
+<p>多态：面向对象编程中的一个重要概念，它指的是一个对象可以有多种形态，即同一个方法可以在不同的对象上调用，从而实现不同的功能。</p>
+<p>多态的前提：</p>
+<ul>
+<li>继承</li>
+<li>重写</li>
+</ul>
+<p>多态的体现：</p>
+<ul>
+<li>父类引用指向子类对象</li>
+</ul>
+<pre><code class="language-python">class Animal:
+    def eat(self):
+        print(&quot;eat&quot;)
+
+class Dog(Animal):
+    def eat(self):
+        print(&quot;dog eat&quot;)
+
+class Cat(Animal):
+    def eat(self):
+        print(&quot;cat eat&quot;)
+
+animal = Animal()
+animal.eat() # eat
+
+dog = Dog()
+</code></pre>
+<p>多态性：</p>
+<ul>
+<li>同一个方法，不同的对象调用，产生不同的结果。</li>
+</ul>
+<pre><code class="language-python">class Animal:
+    def eat(self):
+        print(&quot;eat&quot;)
+
+class Dog(Animal):
+    def eat(self):
+        print(&quot;dog eat&quot;)
+
+class Cat(Animal):
+    def eat(self):
+        print(&quot;cat eat&quot;)
+
+def funa(obj):
+    obg.eat()
+
+animal = Animal()
+funa(animal) # eat
+
+dog = Dog()
+funa(dog) # dog eat
+
+cat = Cat()
+funa(cat) # cat eat
+</code></pre>
+<h2 id="静态方法">静态方法</h2>
+<p>静态方法：不需要实例化对象就可以直接调用的方法，使用<code>@staticmethod</code>装饰器来定义。</p>
+<p>静态方法的特点：</p>
+<ul>
+<li>不需要实例化对象就可以直接调用</li>
+<li>不需要<code>self</code>参数</li>
+<li>静态方法可以访问类变量和实例变量</li>
+<li>静态方法不能访问实例方法</li>
+</ul>
+<p>静态方法的使用场景：当方法不需要访问实例变量和类变量时，可以使用静态方法。</p>
+<pre><code class="language-python">class Animal:
+    @staticmethod
+    def say_hello():
+        print(&quot;hello&quot;)
+# 静态方法既可以使用对象访问，也可以使用类名访问
+
+# 实例对象访问
+animal = Animal(&quot;dog&quot;)
+animal.say_hello() # hello
+
+# 类名访问
+Animal.say_hello() # hello
+</code></pre>
+<p>注意：类方法可以直接方法时传参数，例如Animal.say_hello(name)</p>
+<h2 id="类方法">类方法</h2>
+<p>类方法：使用<code>@classmethod</code>装饰器来定义，对于类方法，第一个参数必须是类对象，通常命名为<code>cls</code>，表示类本身。</p>
+<pre><code class="language-python">class Animal:
+    name = &quot;animal&quot;
+    @classmethod
+    def say_hello(cls):
+        print(&quot;hello&quot;)
+# 类方法既可以使用对象访问，也可以使用类名访问
+
+# 实例对象访问
+animal = Animal(&quot;dog&quot;)
+animal.say_hello() # hello
+
+# 类名访问
+Animal.say_hello() # hello
+</code></pre>
+<p>当方法中需要使用到类对象（如访问私有类属性时），定义类方法<br>
+类方法一般配合类属性使用</p>
+<p>总结：</p>
+<ul>
+<li>实例方法：方法内部访问实例属性，方法内部可以通过<code>类名.类属性名</code>来访问类属性。</li>
+<li>静态方法<code>@staticmethod</code>：方法内部，不需要访问实例属性和类属性。
+<ul>
+<li>如果需要访问类属性，方法内部可以通过<code>类名.类属性名</code>来访问，不能访问实例属性。</li>
+</ul>
+</li>
+<li>类方法<code>@classmethod</code>：方法内部只需要访问类属性，方法内部可以通过<code>cls.类属性名</code>来访问类属性，不能访问实例属性。</li>
+</ul>
+<pre><code class="language-python">class Person(object):
+    name = &quot;小明&quot; # 类属性
+    def __init__(self):
+        self.age = 18 # 实例属性:对象私有
+    
+    def play(self):  # 实例方法
+        # 在实例方法中访问类属性
+        print(f'&#123;Person.name&#125;在玩游戏')
+        # 在实例方法中访问实例属性
+        print(f'&#123;self.age&#125;岁')
+
+    @staticmethod
+    def eat():  # 静态方法： 类中的函数，形参没有限制,没有self指向实例对象的概念
+        print(f&quot;&#123;Person.name&#125;eat food&quot;) # 静态方法可访问类属性，但是无意义，静态方法既不传递类对象，也不传递实例对象
+        # print(f&quot;&#123;self.age&#125;岁&quot;) # × 静态方法不能访问实例属性
+
+    @classmethod # 类方法:针对类存在的方法
+    def say_hello(cls):  # 类方法：cls 代表类对象本身，不用类名.属性名 
+        print(f'&#123;cls.name&#125;在说话')
+        # print(f&quot;&#123;self.age&#125;岁&quot;) # × 不能访问实例属性
+</code></pre>
+<h1>单例模式</h1>
+<p>含义：一种常见的设计模式，用于确保一个类只有一个实例，并提供一个全局访问点。<br>
+优点：节省内存，避免重复创建对象。<br>
+弊端：多线程访问容易引发线程安全问题。</p>
+<p><strong>方式</strong></p>
+<ol>
+<li>通过@classmethod实现</li>
+<li>通过装饰器实现</li>
+<li>通过重写__new__方法实现</li>
+<li>通过模块导入实现</li>
+</ol>
+<h2 id="new-方法">__new__方法</h2>
+<p><code>__new__</code>方法是<code>object基类</code>提供的内置的<code>静态方法</code>，它是在对象被创建之前调用的，用于创建对象。<code>__new__</code>方法返回一个对象，这个对象会被<code>__init__</code>方法初始化。</p>
+<p>作用：</p>
+<ul>
+<li>在内存中为对象分配空间</li>
+<li>返回对象的引用</li>
+</ul>
+<pre><code class="language-python">class Person(object):
+    def __init__(self, name):
+        print(&quot;Person.__init__&quot;)
+        self.name = name
+    
+    def __new__(cls, *args, **kwargs): # 重写new不再调用父类的new方法
+        print(&quot;Person.__new__&quot;)
+        # 对父类方法进行扩展 super().方法名()
+        res = super().__new__(cls) #方法重写，res里面保存的是实例对象的引用
+        return res
+
+person = Person(&quot;小明&quot;)
+
+&quot;&quot;&quot;
+输出：
+Person.__new__
+&quot;&quot;&quot;
+</code></pre>
+<h2 id="通过重写-new-方法实现单例模式">通过重写__new__方法实现单例模式</h2>
+<p>设计流程：</p>
+<ol>
+<li>定义一个类属性，初始化为None，用来记录单利对象的引用</li>
+<li>重写__new__方法</li>
+<li>进行判断，如果类属性为None，把__new__()返回对象的引用保存进去</li>
+<li>返回类型属性中记录的对象引用</li>
+</ol>
+<pre><code class="language-python">class Singleton(object):
+    __instance = None # 类属性
+    def __new__(cls, *args, **kwargs):
+        print(&quot;Singleton.__new__&quot;)
+        return super().__new__(cls)
+    
+    def __init__(self):
+        print(&quot;Singleton.__init__&quot;)
+
+s1 = Singleton()
+s2 = Singleton()
+print(s1 is s2) # True
+</code></pre>
+<h2 id="通过导入模块实现单例模式">通过导入模块实现单例模式</h2>
+<p>模块的<code>__init__.py</code>文件中的代码在模块第一次被导入时执行，只会执行一次，因此可以利用这个特性来实现单例模式。</p>
+<pre><code class="language-python"># my_singleton.py
+class Singleton(object):
+    def __init__(self):
+        print(&quot;Singleton.__init__&quot;)
+
+    def __new__(cls, *args, **kwargs):
+        print(&quot;Singleton.__new__&quot;)
+        return super().__new__(cls)
+
+singleton = Singleton()
+</code></pre>
+<pre><code class="language-python"># main.py
+from my_singleton import singleton
+
+print(singleton)
+</code></pre>
+<h2 id="应用场景">应用场景</h2>
+<ul>
+<li>
+<ol>
+<li>回收站对象</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>音乐播放器</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>开发游戏软件 场景管理器</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>数据库配置、数据库连接池的设计</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>线程池、连接池、缓存、日志对象</li>
+</ol>
+</li>
+</ul>
+<h1>魔法方法&amp;魔法属性</h1>
+<p>魔法方法：在Python中，以双下划线开头和结尾的方法称为魔法方法，也称为特殊方法。魔法方法在特定的情况下自动调用，不需要手动调用。</p>
+<h2 id="doc-属性">__doc__属性</h2>
+<p><code>__doc__</code>: 类、函数的描述信息</p>
+<pre><code class="language-python">class Person(object):
+    &quot;&quot;&quot;这是一个描述信息&quot;&quot;&quot; # 只能使用多行注释，单行注释无效
+    pass
+print(Person.__doc__) # 这是一个描述信息
+
+def fun():
+    &quot;&quot;&quot;这是一个描述信息&quot;&quot;&quot;
+    pass
+print(fun.__doc__) # 这是一个描述信息
+</code></pre>
+<h2 id="modeule-属性">__modeule__属性</h2>
+<p><code>__module__</code>: 类所属的模块名</p>
+<pre><code class="language-python">class Person(object):
+    pass
+print(Person.__module__) # __main__
+</code></pre>
+<h2 id="class-属性">__class__属性</h2>
+<p><code>__class__</code>: 类所属的类名</p>
+<pre><code class="language-python">class Person(object):
+    pass
+print(Person.__class__) # &lt;class 'type'&gt;
+</code></pre>
+<h2 id="str-方法"><strong>str</strong>()方法</h2>
+<p><code>__str__</code>: 当使用print输出对象时，自动调用<code>__str__</code>方法，返回一个字符串</p>
+<pre><code class="language-python">class Person(object):
+    def __str__(self):
+        return &quot;这是一个Person对象&quot;
+
+person = Person()
+print(person) # 这是一个Person对象
+</code></pre>
+<h2 id="del-方法"><strong>del</strong>()方法</h2>
+<p><code>__del__</code>: 当对象被销毁时，自动调用<code>__del__</code>方法</p>
+<pre><code class="language-python">class Person(object):
+    def __del__(self):
+        print(&quot;Person对象被销毁&quot;)
+
+person = Person()
+del person # Person对象被销毁
+</code></pre>
+<h2 id="call-方法"><strong>call</strong>()方法</h2>
+<p><code>__call__</code>: 当对象被当作函数调用时，自动调用<code>__call__</code>方法<br>
+callable: 判断对象是否可调用</p>
+<pre><code class="language-python">class Person(object):
+    def __call__(self, *args, **kwargs):
+        print(&quot;Person对象被当作函数调用&quot;)
+
+person = Person()
+person() # 调用一个可调用的实例对象，其实就是在调用它的__call__()方法
+
+# 判断对象是否可调用
+print(callable(person)) # True
+</code></pre>
+<h2 id="dict-属性">__dict__属性</h2>
+<p><code>__dict__</code>: 类或对象的属性字典</p>
+<pre><code class="language-python">class Person(object):
+    def __init__(self, name):
+        self.name = name
+
+person = Person(&quot;小明&quot;)
+print(person.__dict__) # &#123;'name': '小明'&#125;
+</code></pre>
+<h1>文件操作</h1>
+<p>文件：存储在硬盘上的数据</p>
+<p>文件操作步骤：</p>
+<ul>
+<li>打开文件</li>
+<li>读写文件</li>
+<li>关闭文件</li>
+</ul>
+<h2 id="文件对象的方法">文件对象的方法</h2>
+<ol>
+<li>open()函数</li>
+</ol>
+<p><code>open()</code>创建一个file对象，默认是以只读模式打开。</p>
+<pre><code class="language-python">file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+</code></pre>
+<ol start="2">
+<li>read(n)</li>
+</ol>
+<p><code>read()</code>方法用于读取文件内容，n表示读取的字符个数，如果不指定n，则表示读取整个文件。</p>
+<pre><code class="language-python">file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+content = file.read()
+file.close()
+</code></pre>
+<ol start="3">
+<li>write()</li>
+</ol>
+<p><code>write()</code>方法用于向文件中写入内容。</p>
+<pre><code class="language-python">file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+file.write(&quot;要写入的内容&quot;)
+file.close()
+</code></pre>
+<ol start="4">
+<li>close()</li>
+</ol>
+<p><code>close()</code>方法用于关闭文件。</p>
+<pre><code class="language-python">file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+file.close()
+</code></pre>
+<h2 id="属性">属性</h2>
+<ol>
+<li>name<br>
+<code>name</code>: 返回要打开文件的文件名，可以包含具体的路径。</li>
+</ol>
+<pre><code class="language-python">file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+print(file.name)
+</code></pre>
+<ol start="2">
+<li>mode<br>
+<code>mode</code>: 返回打开文件时使用的模式,如’r’、‘w’、'a’等。</li>
+</ol>
+<pre><code class="language-python">file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+print(file.mode)
+</code></pre>
+<ol start="3">
+<li>closed<br>
+<code>closed</code>: 返回文件是否已经关闭,True表示已经关闭，False表示已经打开。</li>
+</ol>
+<pre><code class="language-python">
+file = open(&quot;文件路径&quot;, &quot;打开模式&quot;)
+print(file.closed)
+</code></pre>
+<div class="tags"><a href="/tags/python%E8%BF%9B%E9%98%B6/" rel="tag"><i class="ic i-tag"></i>python进阶</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-04-25 00:20:54" itemprop="dateModified" datetime="2025-04-25T00:20:54+08:00">2025-04-25</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" title="python进阶">https://zhang3399.github.io/2021/10/06/python/2023-10-16-python进阶/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" rel="prev" itemprop="url" data-background-image="images&#x2F;img1.webp" title="python基本语法"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>python</span><h3>python基本语法</h3></a></div><div class="item right"><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/" rel="next" itemprop="url" data-background-image="images&#x2F;img5.webp" title="终端操作"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>Window/Linux</span><h3>终端操作</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">封装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.</span> <span class="toc-text">隐藏属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7-%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">私有属性&#x2F;方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">继承</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BB%A7%E6%89%BF"><span class="toc-number">3.1.</span> <span class="toc-text">单继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%A0%E9%80%92%EF%BC%88%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">继承的传递（多重继承）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%86%99"><span class="toc-number">3.3.</span> <span class="toc-text">重写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BC%8F%E7%B1%BB%E5%86%99%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">新式类写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%A7%E6%89%BF"><span class="toc-number">3.5.</span> <span class="toc-text">多继承</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">多态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">类方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">单例模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#new-%E6%96%B9%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">__new__方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%87%8D%E5%86%99-new-%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.2.</span> <span class="toc-text">通过重写__new__方法实现单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.3.</span> <span class="toc-text">通过导入模块实现单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.4.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">魔法方法&amp;魔法属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#doc-%E5%B1%9E%E6%80%A7"><span class="toc-number">6.1.</span> <span class="toc-text">__doc__属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#modeule-%E5%B1%9E%E6%80%A7"><span class="toc-number">6.2.</span> <span class="toc-text">__modeule__属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class-%E5%B1%9E%E6%80%A7"><span class="toc-number">6.3.</span> <span class="toc-text">__class__属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#str-%E6%96%B9%E6%B3%95"><span class="toc-number">6.4.</span> <span class="toc-text">str()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#del-%E6%96%B9%E6%B3%95"><span class="toc-number">6.5.</span> <span class="toc-text">del()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-%E6%96%B9%E6%B3%95"><span class="toc-number">6.6.</span> <span class="toc-text">call()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dict-%E5%B1%9E%E6%80%A7"><span class="toc-number">6.7.</span> <span class="toc-text">__dict__属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">7.1.</span> <span class="toc-text">文件对象的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-number">7.2.</span> <span class="toc-text">属性</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li ><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" rel="bookmark" title="python基本语法">python基本语法</a></li><li  class="active"><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="bookmark" title="python进阶">python进阶</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">18</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">8</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Lambda 表达式</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/14/C++/2025-3-14-Boost/">Boost</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于数据库">数据库</a></div><span><a href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93/2023-10-12-SQL/">SQL</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/">LSTM</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/">I/O多路复用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/C++/2024-6-15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/">LSTM预测电池SOH</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/15/C++/2024-6-15-Socket/">Socket</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">131k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">1:59</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2021/10/06/python/2023-10-16-python进阶/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO&#x2F;+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn&#x2F;6Z&#x2F;hRTt8+pR6L4N2" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha384-Zm+UU4tdcfAm29vg+MTbfu&#x2F;&#x2F;q5B&#x2F;lInMbMCr4T8c9rQFyOv6PlfQYpB5wItcXWe7" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" integrity="sha384-TOxsBplaL96&#x2F;QDWPIUg+ye3v89qSE3s22XNtJMmCeZEep3cVDmXy1zEfZvVv+y2m" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.25" type="module" fetchpriority="high" defer></script></body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AKVHQR3R.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-TA7VUAVB.js"></link><link rel="modulepreload" href="/js/copy-tex-ZHBKMPHU.js"></link><link rel="modulepreload" href="/js/index.esm-Y6LSXM2O.js"></link><link rel="modulepreload" href="/js/post-6XOMY7J6.js"></link><link rel="modulepreload" href="/js/quicklink-DGW6QOA6.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img3.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><meta name="keywords" content="YOLOv5,ONNX"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/"><title>onnx+opencv+opencl</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">onnx+opencv+opencl</h1><div class="meta"><span class="item" title="创建时间：2025-03-20 23:07:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2025-03-20T23:07:00+08:00">2025-03-20</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>5.7k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>5 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img3.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="item" rel="index" title="分类于深度学习"><span itemprop="name">深度学习<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1>第一步：安装Opencv</h1>
+<p><strong>安装Opencv参考链接：</strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_53877178/article/details/127938403">安装OpenCV</a></p>
+<h1>获取yolov5s.pt权值文件</h1>
+<p>使用的是轻量的<code>yolov5s</code>模型,在本地训练后，通过命令发送发到树莓派上:</p>
+<ol>
+<li>首先查看树莓派地址：</li>
+</ol>
+<pre><code class="language-bash">    ifconfig  # 查看地址
+</code></pre>
+<p><img loading="lazy" data-src="/images/13.webp" alt=""><br>
+连接的wify，可以看到所属的地址端口。</p>
+<ol start="2">
+<li>将本地导出的<code>best.onnx</code>权值文件发送到树莓派上：</li>
+</ol>
+<pre><code class="language-bash">    scp best.onnx &lt;用户名&gt;@&lt;树莓派地址&gt;:&lt;保存文件地址&gt;  
+</code></pre>
+<ol start="3">
+<li>推理代码</li>
+</ol>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;opencv2/opencv.hpp&gt;
+#include &lt;opencv2/dnn.hpp&gt;
+#include &lt;chrono&gt;  // 添加时间测量头文件
+
+using namespace cv;
+using namespace cv::dnn;
+
+std::vector&lt;std::string&gt; classes = &#123;
+	&quot;defective_insulator&quot;,&quot;broken_defect&quot;,&quot;good_insulator&quot;,&quot;flashover_defect&quot;
+&#125;;
+
+int main() &#123;
+	// 1. 输入图片路径
+    std::string img_path = &quot;images/insulator.jpg&quot;; // 输入图片路径
+    Mat frame = imread(img_path);
+    if(frame.empty()) &#123;
+        std::cerr &lt;&lt; &quot;Error: Could not read the image.&quot; &lt;&lt; std::endl;
+        return -1;
+    &#125;
+	// 2. 加载模型
+    Net net =  cv::dnn::readNetFromONNX(&quot;weights/ZJ/best.onnx&quot;);
+	net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
+	net.setPreferableTarget(cv::dnn::DNN_TARGET_OPENCL);
+	// 打印模型信息
+    // std::cout &lt;&lt; &quot;Network layers:&quot; &lt;&lt; std::endl;
+    // for (int i = 0; i &lt; net.getLayerNames().size(); i++) &#123;
+    //     std::cout &lt;&lt; net.getLayerNames()[i] &lt;&lt; std::endl;
+    // &#125;
+	
+    if (net.empty()) &#123;
+        std::cerr &lt;&lt; &quot;Error: Could not load the neural network.&quot; &lt;&lt; std::endl;
+        return -1;
+    &#125;
+
+
+	// 3. 预处理参数设置
+    const int input_width = 512;
+    const int input_height = 512;
+    float x_factor = frame.cols / (float)input_width;  // 修改为动态计算
+    float y_factor = frame.rows / (float)input_height;
+
+
+	// 预处理计时
+	auto preprocess_start = std::chrono::high_resolution_clock::now();
+
+	// 4. 图像预处理（增加letterbox处理）
+    Mat resized;
+    int new_width, new_height;
+    if (frame.cols &gt; frame.rows) &#123;
+        new_width = input_width;
+        new_height = (int)(frame.rows * input_width / (float)frame.cols);
+    &#125; else &#123;
+        new_height = input_height;
+        new_width = (int)(frame.cols * input_height / (float)frame.rows);
+    &#125;
+    resize(frame, resized, Size(new_width, new_height));
+    
+    Mat blob = blobFromImage(resized, 1/255.0, Size(input_width, input_height), Scalar(0,0,0), true, false);
+	// blob.convertTo(blob, CV_16F);  // 半精度计算
+	// 预处理计时结束
+	auto preprocess_end = std::chrono::high_resolution_clock::now();
+
+	// 推理计时
+	auto inference_start = std::chrono::high_resolution_clock::now();
+
+    net.setInput(blob);
+
+	// 5. 推理后处理
+	cv::Mat preds =net.forward();
+
+	// 推理计时结束
+	auto inference_end = std::chrono::high_resolution_clock::now();
+
+	// 后处理计时
+    auto postprocess_start = std::chrono::high_resolution_clock::now();
+
+
+	std::vector&lt;int&gt; class_ids;
+	std::vector&lt;float&gt; confidences;
+	std::vector&lt;Rect&gt; boxes;
+	std::cout &lt;&lt; &quot;rows: &quot;&lt;&lt; preds.size[1]&lt;&lt; &quot; data: &quot; &lt;&lt; preds.size[2] &lt;&lt; std::endl;
+	// cv::Mat det_output(preds.size[1], preds.size[2], CV_32F, preds.ptr&lt;float&gt;());
+	cv::Mat det_output = preds.reshape(1, preds.size[1]); // 避免内存复制
+	//In a typical YOLO output, the format is [x_center, y_center, width, height, object_confidence, class_score1, class_score2, ..., class_scoreN] for each bounding box. 
+	for (int i = 0; i &lt; det_output.rows; i++) &#123;
+		float confidence = det_output.at&lt;float&gt;(i, 4);
+		cv::Mat class_scores = det_output.row(i).colRange(5, 5 + classes.size());
+
+		
+		Point class_id_point;
+		double max_class_score;
+		minMaxLoc(class_scores, NULL, &amp;max_class_score, NULL, &amp;class_id_point);
+		int class_id = class_id_point.x; 
+
+		float final_confidence = confidence * max_class_score;
+
+		// std::cout &lt;&lt; &quot;Final confidence: &quot; &lt;&lt; final_confidence &lt;&lt; std::endl;
+
+		if (final_confidence &lt; 0.45) &#123;
+			continue;
+		&#125;
+		
+		float cx = det_output.at&lt;float&gt;(i, 0);
+		float cy = det_output.at&lt;float&gt;(i, 1);
+		float ow = det_output.at&lt;float&gt;(i, 2);
+		float oh = det_output.at&lt;float&gt;(i, 3);
+		int x = static_cast&lt;int&gt;((cx - 0.5 * ow) * x_factor);
+		int y = static_cast&lt;int&gt;((cy - 0.5 * oh) * y_factor);
+		int width = static_cast&lt;int&gt;(ow * x_factor);
+		int height = static_cast&lt;int&gt;(oh * y_factor);
+		
+        boxes.push_back(Rect(x, y, width, height));
+        confidences.push_back(final_confidence);
+        class_ids.push_back(class_id);
+	&#125;
+
+
+	std::vector&lt;int&gt; indices;
+	dnn::NMSBoxes(boxes, confidences, 0.6, 0.3, indices); 
+
+	// Draw the final bounding boxes
+	for (size_t i = 0; i &lt; indices.size(); ++i) &#123;
+		int idx = indices[i];
+		Rect box = boxes[idx];
+		cv::rectangle(frame, cv::Point(box.x, box.y), cv::Point(box.x + box.width, box.y + box.height), cv::Scalar(0, 0, 255), 2, 8);
+	
+	
+	std::string label = classes[class_ids[idx]] + &quot;: &quot; + std::to_string(confidences[idx]);
+	putText(frame, label.c_str(), Point(box.x, box.y - 10), FONT_HERSHEY_SIMPLEX, 0.9, Scalar(0, 255, 0), 2);
+		&#125;
+
+	auto postprocess_end = std::chrono::high_resolution_clock::now();
+	
+	// 输出各阶段耗时（单位：ms）
+	float preprocess_time = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(preprocess_end - preprocess_start).count();
+	float inference_time = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(inference_end - inference_start).count();
+	float postprocess_time = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(postprocess_end - postprocess_start).count();
+
+	// 计算总耗时（单位：ms）
+	auto duration = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(postprocess_end - preprocess_start).count();
+	std::cout &lt;&lt; &quot;预处理: &quot; &lt;&lt; preprocess_time &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;
+	std::cout &lt;&lt; &quot;推理: &quot; &lt;&lt; inference_time &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl; 
+	std::cout &lt;&lt; &quot;后处理: &quot; &lt;&lt; postprocess_time &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;
+	std::cout &lt;&lt; &quot;总耗时: &quot; &lt;&lt; duration &lt;&lt; &quot; ms&quot; &lt;&lt; std::endl;
+	
+	float fps = 1000.0 / duration;  // 计算FPS
+	std::cout &lt;&lt; &quot;FPS: &quot; &lt;&lt; fps &lt;&lt; std::endl;
+	// 6. 显示结果（取消视频循环）
+	imshow(&quot;Object Detection&quot;, frame);
+	waitKey(0);  // 改为等待按键
+
+    return 0;
+&#125;
+</code></pre>
+<div class="tags"><a href="/tags/YOLOv5/" rel="tag"><i class="ic i-tag"></i>YOLOv5</a><a href="/tags/OpenCV/" rel="tag"><i class="ic i-tag"></i>OpenCV</a><a href="/tags/ONNX/" rel="tag"><i class="ic i-tag"></i>ONNX</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-04-20 16:58:10" itemprop="dateModified" datetime="2025-04-20T16:58:10+08:00">2025-04-20</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/" title="onnx+opencv+opencl">https://zhang3399.github.io/2025/03/20/深度学习/2025-3-9-onnx+opencv+opencl/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/" rel="prev" itemprop="url" data-background-image="images&#x2F;img7.webp" title="LSTM预测电池SOH"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>深度学习</span><h3>LSTM预测电池SOH</h3></a></div><div class="item right"><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="next" itemprop="url" data-background-image="images&#x2F;img6.webp" title="Adman梯度下降"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>深度学习</span><h3>Adman梯度下降</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">第一步：安装Opencv</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">获取yolov5s.pt权值文件</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li ><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/" rel="bookmark" title="LSTM">LSTM</a></li><li ><a href="/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/" rel="bookmark" title="树莓派部署YOLOv5s">树莓派部署YOLOv5s</a></li><li  class="active"><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/" rel="bookmark" title="onnx+opencv+opencl">onnx+opencv+opencl</a></li><li ><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/" rel="bookmark" title="LSTM预测电池SOH">LSTM预测电池SOH</a></li><li ><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="bookmark" title="Adman梯度下降">Adman梯度下降</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">18</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">8</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/Window-Linux/" title="分类于Window/Linux">Window/Linux</a></div><span><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/">终端操作</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E9%A1%B9%E7%9B%AE%E5%B7%A5%E5%85%B7/" title="分类于项目工具">项目工具</a></div><span><a href="/2025/03/12/C++/2025-3-12-CMake%E4%BD%BF%E7%94%A8/">🚀 CMake项目构建</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/15/C++/2024-6-15-Socket/">Socket</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/14/C++/2025-3-14-Boost/">Boost</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/">python进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/">LSTM</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/C++/2024-6-15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/">python基本语法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/">onnx+opencv+opencl</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">131k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">1:59</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2025/03/20/深度学习/2025-3-9-onnx+opencv+opencl/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    fancybox: true,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    },
+    ignores: [
+        (uri) => uri.includes('#'),
+        (uri) => new RegExp(LOCAL.path + '$').test(uri),
+            []
+    ]
+};
+</script><script src="https://s4.zstatic.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO&#x2F;+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn&#x2F;6Z&#x2F;hRTt8+pR6L4N2" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha384-Zm+UU4tdcfAm29vg+MTbfu&#x2F;&#x2F;q5B&#x2F;lInMbMCr4T8c9rQFyOv6PlfQYpB5wItcXWe7" crossorigin="anonymous" fetchpriority="high"></script><script src="https://s4.zstatic.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" integrity="sha384-TOxsBplaL96&#x2F;QDWPIUg+ye3v89qSE3s22XNtJMmCeZEep3cVDmXy1zEfZvVv+y2m" crossorigin="anonymous" fetchpriority="high"></script><script src="/js/siteInit.js?v=0.4.25" type="module" fetchpriority="high" defer></script></body></html>

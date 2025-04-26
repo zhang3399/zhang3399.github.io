@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;onnx&#34; tag</title>
+        <link>https://zhang3399.github.io</link>
+        <description>滴答滴答滴答</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 20 Mar 2025 23:07:00 +0800</pubDate>
+        <lastBuildDate>Thu, 20 Mar 2025 23:07:00 +0800</lastBuildDate>
+        <category>Socket</category>
+        <category>CMake</category>
+        <category>多线程</category>
+        <category>I/O多路复用</category>
+        <category>TypeScript</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>python</category>
+        <category>Linux</category>
+        <category>Windows</category>
+        <category>git</category>
+        <category>python进阶</category>
+        <category>SQL</category>
+        <category>数据结构</category>
+        <category>LSTM</category>
+        <category>YOLOv5</category>
+        <category>OpenCV</category>
+        <category>ONNX</category>
+        <category>Adman梯度下降</category>
+        <category>YOLOv5s</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/</guid>
+            <title>onnx+opencv+opencl</title>
+            <link>https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/</link>
+            <category>YOLOv5</category>
+            <category>OpenCV</category>
+            <category>ONNX</category>
+            <pubDate>Thu, 20 Mar 2025 23:07:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1&gt;第一步：安装Opencv&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;安装Opencv参考链接：&lt;/strong&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_53877178/article/details/127938403&#34;&gt;安装OpenCV&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;获取yolov5s.pt权值文件&lt;/h1&gt;
+&lt;p&gt;使用的是轻量的&lt;code&gt;yolov5s&lt;/code&gt;模型,在本地训练后，通过命令发送发到树莓派上:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先查看树莓派地址：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    ifconfig  # 查看地址
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/13.webp&#34; alt=&#34;&#34;&gt;&lt;br&gt;
+连接的wify，可以看到所属的地址端口。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;将本地导出的&lt;code&gt;best.onnx&lt;/code&gt;权值文件发送到树莓派上：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;    scp best.onnx &amp;lt;用户名&amp;gt;@&amp;lt;树莓派地址&amp;gt;:&amp;lt;保存文件地址&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;推理代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;opencv2/opencv.hpp&amp;gt;
+#include &amp;lt;opencv2/dnn.hpp&amp;gt;
+#include &amp;lt;chrono&amp;gt;  // 添加时间测量头文件
+
+using namespace cv;
+using namespace cv::dnn;
+
+std::vector&amp;lt;std::string&amp;gt; classes = &amp;#123;
+	&amp;quot;defective_insulator&amp;quot;,&amp;quot;broken_defect&amp;quot;,&amp;quot;good_insulator&amp;quot;,&amp;quot;flashover_defect&amp;quot;
+&amp;#125;;
+
+int main() &amp;#123;
+	// 1. 输入图片路径
+    std::string img_path = &amp;quot;images/insulator.jpg&amp;quot;; // 输入图片路径
+    Mat frame = imread(img_path);
+    if(frame.empty()) &amp;#123;
+        std::cerr &amp;lt;&amp;lt; &amp;quot;Error: Could not read the image.&amp;quot; &amp;lt;&amp;lt; std::endl;
+        return -1;
+    &amp;#125;
+	// 2. 加载模型
+    Net net =  cv::dnn::readNetFromONNX(&amp;quot;weights/ZJ/best.onnx&amp;quot;);
+	net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
+	net.setPreferableTarget(cv::dnn::DNN_TARGET_OPENCL);
+	// 打印模型信息
+    // std::cout &amp;lt;&amp;lt; &amp;quot;Network layers:&amp;quot; &amp;lt;&amp;lt; std::endl;
+    // for (int i = 0; i &amp;lt; net.getLayerNames().size(); i++) &amp;#123;
+    //     std::cout &amp;lt;&amp;lt; net.getLayerNames()[i] &amp;lt;&amp;lt; std::endl;
+    // &amp;#125;
+	
+    if (net.empty()) &amp;#123;
+        std::cerr &amp;lt;&amp;lt; &amp;quot;Error: Could not load the neural network.&amp;quot; &amp;lt;&amp;lt; std::endl;
+        return -1;
+    &amp;#125;
+
+
+	// 3. 预处理参数设置
+    const int input_width = 512;
+    const int input_height = 512;
+    float x_factor = frame.cols / (float)input_width;  // 修改为动态计算
+    float y_factor = frame.rows / (float)input_height;
+
+
+	// 预处理计时
+	auto preprocess_start = std::chrono::high_resolution_clock::now();
+
+	// 4. 图像预处理（增加letterbox处理）
+    Mat resized;
+    int new_width, new_height;
+    if (frame.cols &amp;gt; frame.rows) &amp;#123;
+        new_width = input_width;
+        new_height = (int)(frame.rows * input_width / (float)frame.cols);
+    &amp;#125; else &amp;#123;
+        new_height = input_height;
+        new_width = (int)(frame.cols * input_height / (float)frame.rows);
+    &amp;#125;
+    resize(frame, resized, Size(new_width, new_height));
+    
+    Mat blob = blobFromImage(resized, 1/255.0, Size(input_width, input_height), Scalar(0,0,0), true, false);
+	// blob.convertTo(blob, CV_16F);  // 半精度计算
+	// 预处理计时结束
+	auto preprocess_end = std::chrono::high_resolution_clock::now();
+
+	// 推理计时
+	auto inference_start = std::chrono::high_resolution_clock::now();
+
+    net.setInput(blob);
+
+	// 5. 推理后处理
+	cv::Mat preds =net.forward();
+
+	// 推理计时结束
+	auto inference_end = std::chrono::high_resolution_clock::now();
+
+	// 后处理计时
+    auto postprocess_start = std::chrono::high_resolution_clock::now();
+
+
+	std::vector&amp;lt;int&amp;gt; class_ids;
+	std::vector&amp;lt;float&amp;gt; confidences;
+	std::vector&amp;lt;Rect&amp;gt; boxes;
+	std::cout &amp;lt;&amp;lt; &amp;quot;rows: &amp;quot;&amp;lt;&amp;lt; preds.size[1]&amp;lt;&amp;lt; &amp;quot; data: &amp;quot; &amp;lt;&amp;lt; preds.size[2] &amp;lt;&amp;lt; std::endl;
+	// cv::Mat det_output(preds.size[1], preds.size[2], CV_32F, preds.ptr&amp;lt;float&amp;gt;());
+	cv::Mat det_output = preds.reshape(1, preds.size[1]); // 避免内存复制
+	//In a typical YOLO output, the format is [x_center, y_center, width, height, object_confidence, class_score1, class_score2, ..., class_scoreN] for each bounding box. 
+	for (int i = 0; i &amp;lt; det_output.rows; i++) &amp;#123;
+		float confidence = det_output.at&amp;lt;float&amp;gt;(i, 4);
+		cv::Mat class_scores = det_output.row(i).colRange(5, 5 + classes.size());
+
+		
+		Point class_id_point;
+		double max_class_score;
+		minMaxLoc(class_scores, NULL, &amp;amp;max_class_score, NULL, &amp;amp;class_id_point);
+		int class_id = class_id_point.x; 
+
+		float final_confidence = confidence * max_class_score;
+
+		// std::cout &amp;lt;&amp;lt; &amp;quot;Final confidence: &amp;quot; &amp;lt;&amp;lt; final_confidence &amp;lt;&amp;lt; std::endl;
+
+		if (final_confidence &amp;lt; 0.45) &amp;#123;
+			continue;
+		&amp;#125;
+		
+		float cx = det_output.at&amp;lt;float&amp;gt;(i, 0);
+		float cy = det_output.at&amp;lt;float&amp;gt;(i, 1);
+		float ow = det_output.at&amp;lt;float&amp;gt;(i, 2);
+		float oh = det_output.at&amp;lt;float&amp;gt;(i, 3);
+		int x = static_cast&amp;lt;int&amp;gt;((cx - 0.5 * ow) * x_factor);
+		int y = static_cast&amp;lt;int&amp;gt;((cy - 0.5 * oh) * y_factor);
+		int width = static_cast&amp;lt;int&amp;gt;(ow * x_factor);
+		int height = static_cast&amp;lt;int&amp;gt;(oh * y_factor);
+		
+        boxes.push_back(Rect(x, y, width, height));
+        confidences.push_back(final_confidence);
+        class_ids.push_back(class_id);
+	&amp;#125;
+
+
+	std::vector&amp;lt;int&amp;gt; indices;
+	dnn::NMSBoxes(boxes, confidences, 0.6, 0.3, indices); 
+
+	// Draw the final bounding boxes
+	for (size_t i = 0; i &amp;lt; indices.size(); ++i) &amp;#123;
+		int idx = indices[i];
+		Rect box = boxes[idx];
+		cv::rectangle(frame, cv::Point(box.x, box.y), cv::Point(box.x + box.width, box.y + box.height), cv::Scalar(0, 0, 255), 2, 8);
+	
+	
+	std::string label = classes[class_ids[idx]] + &amp;quot;: &amp;quot; + std::to_string(confidences[idx]);
+	putText(frame, label.c_str(), Point(box.x, box.y - 10), FONT_HERSHEY_SIMPLEX, 0.9, Scalar(0, 255, 0), 2);
+		&amp;#125;
+
+	auto postprocess_end = std::chrono::high_resolution_clock::now();
+	
+	// 输出各阶段耗时（单位：ms）
+	float preprocess_time = std::chrono::duration_cast&amp;lt;std::chrono::milliseconds&amp;gt;(preprocess_end - preprocess_start).count();
+	float inference_time = std::chrono::duration_cast&amp;lt;std::chrono::milliseconds&amp;gt;(inference_end - inference_start).count();
+	float postprocess_time = std::chrono::duration_cast&amp;lt;std::chrono::milliseconds&amp;gt;(postprocess_end - postprocess_start).count();
+
+	// 计算总耗时（单位：ms）
+	auto duration = std::chrono::duration_cast&amp;lt;std::chrono::milliseconds&amp;gt;(postprocess_end - preprocess_start).count();
+	std::cout &amp;lt;&amp;lt; &amp;quot;预处理: &amp;quot; &amp;lt;&amp;lt; preprocess_time &amp;lt;&amp;lt; &amp;quot; ms&amp;quot; &amp;lt;&amp;lt; std::endl;
+	std::cout &amp;lt;&amp;lt; &amp;quot;推理: &amp;quot; &amp;lt;&amp;lt; inference_time &amp;lt;&amp;lt; &amp;quot; ms&amp;quot; &amp;lt;&amp;lt; std::endl; 
+	std::cout &amp;lt;&amp;lt; &amp;quot;后处理: &amp;quot; &amp;lt;&amp;lt; postprocess_time &amp;lt;&amp;lt; &amp;quot; ms&amp;quot; &amp;lt;&amp;lt; std::endl;
+	std::cout &amp;lt;&amp;lt; &amp;quot;总耗时: &amp;quot; &amp;lt;&amp;lt; duration &amp;lt;&amp;lt; &amp;quot; ms&amp;quot; &amp;lt;&amp;lt; std::endl;
+	
+	float fps = 1000.0 / duration;  // 计算FPS
+	std::cout &amp;lt;&amp;lt; &amp;quot;FPS: &amp;quot; &amp;lt;&amp;lt; fps &amp;lt;&amp;lt; std::endl;
+	// 6. 显示结果（取消视频循环）
+	imshow(&amp;quot;Object Detection&amp;quot;, frame);
+	waitKey(0);  // 改为等待按键
+
+    return 0;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
