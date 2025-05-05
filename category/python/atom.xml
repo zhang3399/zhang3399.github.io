@@ -3,7 +3,7 @@
     <id>https://zhang3399.github.io</id>
     <title>CodeVortex记事本 • Posts by &#34;python&#34; category</title>
     <link href="https://zhang3399.github.io" />
-    <updated>2021-10-06T02:00:00.000Z</updated>
+    <updated>2021-10-29T02:00:00.000Z</updated>
     <category term="Socket" />
     <category term="CMake" />
     <category term="多线程" />
@@ -24,6 +24,581 @@
     <category term="ONNX" />
     <category term="Adman梯度下降" />
     <category term="YOLOv5s" />
+    <entry>
+        <id>https://zhang3399.github.io/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/</id>
+        <title>python进程、线程、协程</title>
+        <link rel="alternate" href="https://zhang3399.github.io/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;python多线程&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;进程和线程&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;进程：是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。在早期面向进程设计的计算机结构中，进程是程序的基本执行实体；在当代面向线程设计的计算机结构中，进程是线程的容器。程序是指令、数据及其组织形式的描述，进程是程序的实体。&lt;/li&gt;
+&lt;li&gt;线程：是进程的一个实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源（如程序计数器，一组寄存器和栈），但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;进程&lt;/h1&gt;
+&lt;p&gt;含义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进程是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位，是操作系统结构的基础。&lt;/li&gt;
+&lt;li&gt;一个正在运行的程序就是一个进程，进程是系统资源分配的最小单位，是能独立运行的最小单位。&lt;br&gt;
+注意：进程可以创建多个线程，多进程也可以完成多任务&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;进程的状态&#34;&gt;进程的状态&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;就绪状态：进程已经获得除CPU外的所有必要资源，等待分配CPU。&lt;/li&gt;
+&lt;li&gt;执行状态：进程已获得CPU，正在执行。&lt;/li&gt;
+&lt;li&gt;等待（阻塞）状态：等待某些条件满足，如一个程序sleep了，此时就是等待状态。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(&#39;start&#39;) # 程序开始，处于执行状态
+
+input(&#39;&#39;) # 程序暂停，处于等待状态
+
+time.sleep(1) # 程序暂停，处于等待状态
+
+print(&#39;end&#39;) # 程序继续执行，处于执行状态
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;进程语法结构&#34;&gt;进程语法结构&lt;/h2&gt;
+&lt;p&gt;multiprocessing模块提供了Process类来代表一个进程对象。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;process类参数&lt;br&gt;
+参数：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;target&lt;/code&gt;：进程函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;args&lt;/code&gt;：传递给进程函数的参数，类型为元组&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kwargs&lt;/code&gt;：传递给进程函数的参数，类型为字典&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;process类方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;start()&lt;/code&gt;：启动进程，调用进程函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;join(timeout=None)&lt;/code&gt;：阻塞主进程，直到子进程执行完毕，timeout为等待时间，单位为秒&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;is_alive()&lt;/code&gt;：判断进程是否在执行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;terminate()&lt;/code&gt;：强制终止进程&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;close()&lt;/code&gt;：关闭进程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;常用属性&lt;br&gt;
+&lt;code&gt;name&lt;/code&gt;：当前进程名，默认为Process-1,Process-2,Process-3…&lt;br&gt;
+&lt;code&gt;pid&lt;/code&gt;：当前进程id&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import multiprocessing
+import time
+import os
+
+def sing():
+    # os.getpid()获取当前进程id
+    print(f&amp;quot;sing子进程id:&amp;#123;os.getpid()&amp;#125;&amp;quot;)
+    # os.getppid()获取当前进程的父进程id
+    print(f&amp;quot;sing子进程的父进程id:&amp;#123;os.getppid()&amp;#125;&amp;quot;)
+    print(&#39;sing&#39;)
+
+def dance():
+    # os.getpid()获取当前进程id
+    print(f&amp;quot;dance子进程id:&amp;#123;os.getpid()&amp;#125;&amp;quot;)
+    # os.getppid()获取当前进程的父进程id
+    print(f&amp;quot;sing子进程的父进程id:&amp;#123;os.getppid()&amp;#125;&amp;quot;)
+    print(&#39;dance&#39;)
+
+
+if __name__ == &#39;__main__&#39;:
+    p1 = Process(target=sing, name=&amp;quot;子进程1&amp;quot;)
+    p2 = Process(target=dance, name=&amp;quot;子进程2&amp;quot;)
+    # 开启进程
+    p1.start()
+    p2.start()
+    
+    # 访问进程属性
+    print(p1.name)
+    print(p2.name)
+    print(p1.pid)
+    print(p2.pid)
+
+    # 阻塞主进程，直到子进程执行完毕
+    p1.join()
+    p2.join()
+
+    # 判断进程是否在执行
+    print(p1.is_alive())
+    print(p2.is_alive())
+
+    # 强制终止进程
+    p1.terminate()
+    p2.terminate()
+
+    # 关闭进程
+    p1.close()
+    p2.close()
+    print(&#39;end&#39;)
+    print(f&amp;quot;主进程id:&amp;#123;os.getpid()&amp;#125;,主进程的父进程id:&amp;#123;os.getppid()&amp;#125;&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意： &lt;code&gt;cmd&lt;/code&gt; 查看进程：&lt;code&gt;tasklist&lt;/code&gt; 可以查看电脑所有进程&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;传参&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import multiprocessing
+import time
+import os
+
+def sing(name):
+    print(f&amp;quot;sing子进程id:&amp;#123;os.getpid()&amp;#125;&amp;quot;)
+    print(f&amp;quot;sing子进程的父进程id:&amp;#123;os.getppid()&amp;#125;&amp;quot;)
+    print(f&amp;quot;&amp;#123;name&amp;#125;在唱歌&amp;quot;)
+
+def dance(name):
+    print(f&amp;quot;dance子进程id:&amp;#123;os.getpid()&amp;#125;&amp;quot;)
+    print(f&amp;quot;sing子进程的父进程id:&amp;#123;os.getppid()&amp;#125;&amp;quot;)
+    print(f&amp;quot;&amp;#123;name&amp;#125;在跳舞&amp;quot;)
+
+if __name__ == &#39;__main__&#39;:
+    p1 = multiprocessing.Process(target=sing, args=(&amp;quot;张三&amp;quot;,)) # 传递参数
+    p2 = multiprocessing.Process(target=dance, kwargs=&amp;#123;&amp;quot;name&amp;quot;: &amp;quot;李四&amp;quot;&amp;#125;) # 传递参数
+    # 开启进程
+    p1.start()
+    p1.join()
+    p2.start()
+    p2.join()
+    print(&amp;quot;p1存活状态：&amp;quot;, p1.is_alive())
+    print(&amp;quot;p2存活状态：&amp;quot;, p2.is_alive())
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;进程间不共享全局变量&#34;&gt;进程间不共享全局变量&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import multiprocessing
+import time
+import os
+
+li = []
+
+def wdata():
+    for i in range(10):
+        li.append(i)
+        time.sleep(0.1)
+
+def rdata():
+    print(f&amp;quot;读取数据&amp;#123;li&amp;#125;&amp;quot;)
+
+# 1. 防止别人导入文件时执行main里面的方法
+# 2. 防止windows系统递归创建子进程
+if __name__ == &#39;__main__&#39;:
+    p1 = multiprocessing.Process(target=wdata)
+    p2 = multiprocessing.Process(target=rdata)
+    # 开启进程
+    p1.start()
+    p1.join()
+    p2.start()
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;进程间通信&#34;&gt;进程间通信&lt;/h2&gt;
+&lt;p&gt;进程间通信（Inter-Process Communication，IPC）是指进程之间进行数据交换的机制。&lt;/p&gt;
+&lt;h3 id=&#34;Queue队列&#34;&gt;Queue队列&lt;/h3&gt;
+&lt;p&gt;Queue是Python中的一种数据结构，它是一种先进先出（FIFO）的数据结构，可以用来实现进程间的通信。&lt;br&gt;
+方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Queue(maxsize=0)&lt;/code&gt;：创建一个队列对象，maxsize为队列大小，0表示队列大小无限制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;put(item, block=True, timeout=None)&lt;/code&gt;：将item放入队列，block为是否阻塞，timeout为等待时间，单位为秒&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get(block=True, timeout=None)&lt;/code&gt;：从队列中取出一个元素，block为是否阻塞，timeout为等待时间，单位为秒&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;empty()&lt;/code&gt;：判断队列是否为空&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qsize()&lt;/code&gt;：返回队列中元素个数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;full()&lt;/code&gt;：判断队列是否已满&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;初始化一个队列&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;向队列中添加元素&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+q.put(1)
+q.put(2)
+q.put(3)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;从队列中取出元素&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+q.put(1)
+
+q.get() # 获取队列中的元素，然后删除该元素
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;判断队列是否为空&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+q.put(1)
+q.put(2)
+q.put(3)
+
+q.empty() # 判断队列是否为空,为空返回True，否则返回False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;判断队列是否已满&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+q.put(1)
+q.put(2)
+q.put(3)
+
+q.full() # 判断队列是否已满,已满返回True，否则返回False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;获取队列中元素个数&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+q.put(1)
+q.put(2)
+q.put(3)
+
+q.qsize() # 获取队列中元素个数
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;阻塞和非阻塞&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Queue
+
+q = Queue(3)
+q.put(1)
+q.put(2)
+q.put(3)
+
+q.get(block=True, timeout=3) # 阻塞，等待3秒，如果3秒后队列中还有元素，则取出元素，否则抛出异常
+q.get(block=False) # 非阻塞，如果队列中有元素，则取出元素，否则抛出异常
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;进程间通信&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from multiprocessing import Process, Queue
+import time
+
+li = [&amp;quot;张三&amp;quot;, &amp;quot;李四&amp;quot;, &amp;quot;王五&amp;quot;, &amp;quot;赵六&amp;quot;]
+def wdata(q):
+    for i in li:
+        print(f&amp;quot;&amp;#123;i&amp;#125;已经被放入&amp;quot;)
+        q.put(i)
+        time.sleep(0.1)
+    print(&amp;quot;写入数据是：&amp;quot;,li)
+# 读数据
+def rdata(q):
+    while True:
+        if q.empty():
+            break
+        else:
+            print(&amp;quot;取数据:&amp;quot;,q.get())
+    print(&amp;quot;读取数据是：&amp;quot;,li)
+
+if __name__ == &#39;__main__&#39;:
+    # 创建队列
+    q = Queue()
+    p1 = Process(target=wdata, args=(q,))
+    p2 = Process(target=rdata, args=(q,))
+    p1.start()
+    p1.join()
+    p2.start()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;多线程&lt;/h1&gt;
+&lt;h2 id=&#34;多线程实现&#34;&gt;多线程实现&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;直接使用threading模块&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;target&lt;/code&gt;：线程函数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;args&lt;/code&gt;：传递给线程函数的参数，类型为元组&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kwargs&lt;/code&gt;：传递给线程函数的参数，类型为字典&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import threading
+import time
+
+def run(n):
+    print(&#39;task&#39;, n)
+    time.sleep(1)
+    print(&#39;task done&#39;, n)
+
+
+if __name__ == &#39;__main__&#39;:
+    t1 = threading.Thread(target=run, args=(&#39;t1&#39;,))
+    t2 = threading.Thread(target=run, args=(&#39;t2&#39;,))
+    # 守护线程，必须在线程启动前设置，否则无效
+    t1.setDaemon(True)
+    t2.setDaemon(True)
+    t1.start()
+    t2.start()
+    # 阻塞子线程，必须在线程启动后设置，否则无效
+    t1.join()
+    t2.join()
+    # 获取线程名字
+    print(t1.getName())
+    print(t2.getName())
+    # 更改线程名字
+    t1.setName(&#39;线程1&#39;)
+    t2.setName(&#39;线程2&#39;)
+    print(t1.getName())
+    print(t2.getName())
+    print(&#39;end&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;线程之间共享资源（全局变量）&#34;&gt;线程之间共享资源（全局变量）&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import threading
+import time
+
+num = 0
+
+def run(n):
+    global num
+    num += 1
+    print(&#39;task&#39;, n)
+    time.sleep(1)
+    print(&#39;task done&#39;, n)
+
+if __name__ == &#39;__main__&#39;:
+    t1 = threading.Thread(target=run, args=(&#39;t1&#39;,))
+    t2 = threading.Thread(target=run, args=(&#39;t2&#39;,))
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+    print(&#39;num:&#39;, num)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;资源竞争&#34;&gt;资源竞争&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import threading
+import time
+
+a = 0
+b = 1000000
+def add1():
+    for i in range(b):
+        global a
+        a += 1
+    print(&#39;add1:&#39;, a)
+
+def add2():
+    for i in range(b):
+        global a
+        a += 1
+    print(&#39;add2:&#39;, a)
+
+if __name__ == &#39;__main__&#39;:
+    t1 = threading.Thread(target=add1)
+    t2 = threading.Thread(target=add2)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+    print(&#39;a:&#39;, a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;线程同步&#34;&gt;线程同步&lt;/h2&gt;
+&lt;p&gt;两种方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;join 阻塞&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import threading
+import time
+
+a = 0
+b = 1000000
+def add1():
+    for i in range(b):
+        global a
+        a += 1
+    print(&#39;add1:&#39;, a)
+
+def add2():
+    for i in range(b):
+        global a
+        a += 1
+    print(&#39;add2:&#39;, a)
+
+
+if __name__ == &#39;__main__&#39;:
+    t1 = threading.Thread(target=add1)
+    t2 = threading.Thread(target=add2)
+    t1.start()
+    t1.join() # 阻塞t1线程,t1执行完后再执行t2
+    t2.start()
+    t2.join()
+    print(&#39;a:&#39;, a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;互斥锁&lt;br&gt;
+概念：互斥锁为资源引入了一个状态：锁定/非锁定。某个线程要更改共享数据时，先要将该资源锁定，此时其他线程不能更改；直到该线程释放资源，其他线程才能再次锁定该资源。互斥锁保证了每次只有一个线程进行写入操作，从而保证了多线程情况下数据的正确性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;acquire()&lt;/code&gt;：获取锁，如果锁已经被其他线程获取，那么调用该方法的线程会被阻塞，直到锁被释放为止&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;release()&lt;/code&gt;：释放锁&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import threading
+import time
+from threading import Lock
+a = 0
+b = 1000000
+lock = Lock()
+
+def add1():
+    lock.acquire() # 加锁
+    for i in range(b):
+        
+        global a
+        a += 1
+        
+    print(&#39;add1:&#39;, a)
+    lock.release() # 解锁
+def add2():
+    lock.acquire()
+    for i in range(b):
+        
+        global a
+        a += 1
+        
+    print(&#39;add2:&#39;, a)
+    lock.release()
+
+if __name__ == &#39;__main__&#39;:
+    t1 = threading.Thread(target=add1)
+    t2 = threading.Thread(target=add2)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+    print(&#39;a:&#39;, a)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：锁的粒度越细，性能越好，但锁的个数越多，性能越差。&lt;/p&gt;
+&lt;h1&gt;协程&lt;/h1&gt;
+&lt;p&gt;协程，又称微线程，纤程。英文名Coroutine。协程是一种用户态的轻量级线程。&lt;/p&gt;
+&lt;p&gt;协程拥有自己的CPU寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈。因此，协程能保留上一次调用时的状态，每次过程重入时，就相当于进入上一次调用的状态，换种说法：进入上一次离开时所处的逻辑流中。&lt;/p&gt;
+&lt;p&gt;协程的调用比线程的调用节省资源，因为协程不需要操作系统来进行调度，而是由程序员自己来控制协程的切换。&lt;/p&gt;
+&lt;h2 id=&#34;协程实现&#34;&gt;协程实现&lt;/h2&gt;
+&lt;h3 id=&#34;使用yield关键字&#34;&gt;使用yield关键字&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;yield&lt;/code&gt;关键字可以将一个函数变成一个生成器，生成器是一种特殊的迭代器，可以通过&lt;code&gt;next()&lt;/code&gt;函数来获取下一个值。&lt;br&gt;
+应用场景：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个线程里面IO操作比较多时，可以用协程&lt;/li&gt;
+&lt;li&gt;适合高并发处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+def task1():
+    yield &#39;a&#39;
+    yield &#39;哈哈&#39;
+def task2():
+    yield &#39;b&#39;
+    yield &#39;嘿嘿&#39;
+
+if __name__ == &#39;__main__&#39;:
+    t1 = task1()
+    t2 = task2()
+    print(next(t1))
+    print(next(t2))
+    print(next(t1))
+    print(next(t2))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;greenlet模块&#34;&gt;greenlet模块&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;greenlet&lt;/code&gt;模块是一个第三方模块，用于实现协程。&lt;br&gt;
+注意：&lt;code&gt;greenlet&lt;/code&gt;只能手动切换，当遇到IO操作时，程序会阻塞，需要手动切换到其他协程。&lt;/p&gt;
+&lt;p&gt;格式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;a = greenlet(函数名)&lt;/code&gt; 创建一个协程对象&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;xxx.switch()&lt;/code&gt; 切换到下一个协程&lt;code&gt;xxx&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from greenlet import greenlet
+
+def sing():
+    print(&amp;quot;singing&amp;quot;)
+    print(&amp;quot;singing end&amp;quot;)
+
+def dance():
+    print(&amp;quot;dancing&amp;quot;)
+    print(&amp;quot;dancing end&amp;quot;)
+
+if __name__ == &#39;__main__&#39;:
+    g1 = greenlet(sing)
+    g2 = greenlet(dance)
+    # 切换到g1
+    g1.switch()
+    # 切换到g2
+    g2.switch()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;gevent模块&#34;&gt;gevent模块&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;gevent&lt;/code&gt;模块是一个第三方模块，用于实现协程。&lt;br&gt;
+注意：&lt;code&gt;gevent&lt;/code&gt;可以自动切换，当遇到IO操作时，程序会自动切换到其他协程。&lt;br&gt;
+格式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;gevent.spawn(函数名)&lt;/code&gt; 创建一个协程对象&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gevent.sleep()&lt;/code&gt; 耗时操作&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gevent.join()&lt;/code&gt; 阻塞，等待某个协程执行完毕&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gevent.joinall()&lt;/code&gt; 等待所有协程执行完毕,再退出，参数为协程列表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import gevent
+
+def sing():
+    print(&amp;quot;在唱歌&amp;quot;)
+    gevent.sleep(2)
+    print(&amp;quot;唱歌结束&amp;quot;)
+
+def dance():
+    print(&amp;quot;在跳舞&amp;quot;)
+    gevent.sleep(3)
+    print(&amp;quot;跳舞结束&amp;quot;)
+
+if __name__ == &#39;__main__&#39;:
+    # 创建协程对象
+    g1 = gevent.spawn(sing)
+    g2 = gevent.spawn(dance)
+    # 阻塞，等待某个协程执行完毕
+    g1.join()
+    g2.join()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;gevent.joinall()&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import gevent
+
+def sing(name):
+    for i in range(3):
+        gevent.sleep(1)
+        print(f&#39;&amp;#123;name&amp;#125;在唱歌,第&amp;#123;i&amp;#125;次&#39;)
+if __name__ == &#39;__main__&#39;:
+    # 创建协程对象
+    g1 = gevent.spawn(sing, &#39;张三&#39;)
+    g2 = gevent.spawn(sing, &#39;李四&#39;)
+    # 阻塞，等待所有协程执行完毕
+    gevent.joinall([g1, g2])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;monket补丁&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作用：拥有在模块运行时替换的功能&lt;/li&gt;
+&lt;li&gt;注意：monkey.patch_all() 必须放在被打补丁的模块之前，否则无效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import gevent
+import time
+from gevent import monkey
+monkey.patch_all() # 将所有的IO操作都变成gevent的协程,即将time.sleep()替换程gevent里面实现耗时操作的gevent.sleep()代码
+
+def sing(name):
+    for i in range(3):
+        time.sleep(1)
+        print(f&#39;&amp;#123;name&amp;#125;在唱歌,第&amp;#123;i&amp;#125;次&#39;)
+if __name__ == &#39;__main__&#39;:
+    # 创建协程对象
+    g1 = gevent.spawn(sing, &#39;张三&#39;)
+    g2 = gevent.spawn(sing, &#39;李四&#39;)
+    # 阻塞，等待所有协程执行完毕
+    gevent.joinall([g1, g2])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;线程是CPU调度的基本单位，进程是资源分配的基本单位&lt;/li&gt;
+&lt;li&gt;进程、线程和协程的区别&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;进程：切换需要资源最大，效率最低&lt;/li&gt;
+&lt;li&gt;线程：切换需要资源中等，效率中等&lt;/li&gt;
+&lt;li&gt;协程：切换需要资源最小，效率最高&lt;/li&gt;
+&lt;li&gt;进程和线程是操作系统调度的，协程是程序员调度的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;多线程适合IO密集型操作，多进程适合CPU密集型操作，协程适合IO密集型操作&lt;/li&gt;
+&lt;li&gt;进程、线程和协程都可以完成多任务，根据自己实际开发需要选择使用。&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="python" />
+        <updated>2021-10-29T02:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://zhang3399.github.io/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/</id>
         <title>python进阶</title>
@@ -714,6 +1289,1038 @@ print(file.mode)
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
 file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
 print(file.closed)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;读写操作&#34;&gt;读写操作&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;读操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;read(size=-1)&lt;br&gt;
+&lt;code&gt;read(size=-1)&lt;/code&gt;: 从文件中读取size个字符，如果size未指定或为负数，则读取剩余的所有字符。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+content = file.read()
+file.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;readline(size=-1)&lt;br&gt;
+&lt;code&gt;readline(size=-1)&lt;/code&gt;: 从文件中读取一行，如果size未指定或为负数，则读取整行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+content = file.readline()
+file.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;readlines(hint=-1)&lt;br&gt;
+&lt;code&gt;readlines(hint=-1)&lt;/code&gt;: 从文件中读取所有行，返回一个列表，如果hint未指定或为负数，则读取所有行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+content = file.readlines()
+file.close()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;访问模式&#34;&gt;访问模式&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;open()&lt;/code&gt;函数的第二个参数，表示打开文件的模式，常用的模式有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;‘r’: 只读模式，如果文件不存在，会抛出异常。&lt;/li&gt;
+&lt;li&gt;‘w’: 写入模式，如果文件不存在，会创建文件；如果文件存在，会清空文件内容。&lt;/li&gt;
+&lt;li&gt;‘a’: 追加模式，如果文件不存在，会创建文件；如果文件存在，会在文件末尾追加内容。&lt;/li&gt;
+&lt;li&gt;‘b’: 二进制模式，可以与上述模式组合使用，如’rb’、‘wb’、&#39;ab’等。&lt;/li&gt;
+&lt;li&gt;‘+’:  读写模式，可以与上述模式组合使用，如’r+&#39;、‘w+’、&#39;a+&#39;等。
+&lt;ul&gt;
+&lt;li&gt;‘r+’: 读写模式，如果文件不存在，会抛出异常；如果文件存在，可以同时进行读写操作。&lt;/li&gt;
+&lt;li&gt;‘w+’: 先写再读，文件存在就重新编辑文件，不存在就创建文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;文件指针&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;文件指针：文件指针是指向文件中某个位置的指针，文件指针的初始位置为文件的开头，每次读写操作都会改变文件指针的位置。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tell()&lt;br&gt;
+&lt;code&gt;tell()&lt;/code&gt;: 返回文件指针的当前位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+print(file.tell())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;seek(offset, whence=0)&lt;br&gt;
+&lt;code&gt;seek(offset, whence=0)&lt;/code&gt;: 移动文件指针到指定的位置，&lt;code&gt;offset&lt;/code&gt;表示偏移量，&lt;code&gt;whence&lt;/code&gt;表示参考位置，默认为0作为起始位置，表示文件开头。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+file.seek(10, 0) # 将文件指针移动到第10个字符的位置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;truncate(size=None)&lt;br&gt;
+&lt;code&gt;truncate(size=None)&lt;/code&gt;: 截断文件，从文件指针的位置开始截断，截断后的文件大小为size，如果size未指定，则截断到文件指针的位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;)
+file.truncate(10) # 将文件截断到第10个字符的位置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;with open&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;with open&lt;/code&gt;语句可以自动关闭文件，不需要手动调用&lt;code&gt;close()&lt;/code&gt;方法。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;with open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;) as file:
+    content = file.read()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;编码格式&#34;&gt;编码格式&lt;/h2&gt;
+&lt;p&gt;编码格式：文件的编码格式，常用的编码格式有UTF-8、GBK等。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;file = open(&amp;quot;文件路径&amp;quot;, &amp;quot;打开模式&amp;quot;, encoding=&amp;quot;编码格式&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;导入模块&lt;/h1&gt;
+&lt;p&gt;os模块：提供了许多与操作系统交互的函数，如文件操作、目录操作、环境变量操作等。&lt;br&gt;
+import os&lt;/p&gt;
+&lt;h2 id=&#34;文件重命名&#34;&gt;文件重命名&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.rename(&amp;quot;旧文件名&amp;quot;, &amp;quot;新文件名&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.rename(&amp;quot;旧文件名.txt&amp;quot;, &amp;quot;新文件名.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;删除文件&#34;&gt;删除文件&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.remove(&amp;quot;文件名&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.remove(&amp;quot;文件名.txt&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;创建文件夹&#34;&gt;创建文件夹&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.mkdir(&amp;quot;文件夹名&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.mkdir(&amp;quot;文件夹名&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;删除文件夹&#34;&gt;删除文件夹&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.rmdir(&amp;quot;文件夹名&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.rmdir(&amp;quot;文件夹名&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;获取当前工作目录&#34;&gt;获取当前工作目录&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.getcwd()&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.getcwd()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;获取目录列表&#34;&gt;获取目录列表&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.listdir(&amp;quot;目录路径&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.listdir(&amp;quot;目录路径&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;切换目录&#34;&gt;切换目录&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.chdir(&amp;quot;目录路径&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.chdir(&amp;quot;目录路径&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;判断路径是否存在&#34;&gt;判断路径是否存在&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.path.exists(&amp;quot;路径&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.path.exists(&amp;quot;路径&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;判断是否为文件&#34;&gt;判断是否为文件&lt;/h2&gt;
+&lt;p&gt;指令：&lt;code&gt;os.path.isfile(&amp;quot;路径&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;os.path.isfile(&amp;quot;路径&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;可迭代对象Iterable&lt;/h1&gt;
+&lt;p&gt;可迭代对象：可以被for循环遍历的对象，如列表、元组、字符串、字典、集合等。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;可迭代对象的条件：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;对象实现了__iter__()方法&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;iter&lt;/strong&gt;()方法返回迭代对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;for循环工作原理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;先通过__iter__()方法获取迭代器对象的迭代器&lt;/li&gt;
+&lt;li&gt;然后通过迭代器对象的__next__()方法获取下一个元素并赋值给临时变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;isinstance()方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;判断一个对象是否是可迭代对象&lt;br&gt;
+&lt;code&gt;isinstance(o,t)&lt;/code&gt; o:要判断的对象，t:要判断的类型&lt;br&gt;
+&lt;code&gt;Iterable:&lt;/code&gt; 可迭代对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from collections.abc import Iterable
+
+# 判断一个对象是否是可迭代对象
+print(isinstance([1, 2, 3], Iterable)) # True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;可迭代对象Iterable和迭代器Iterator&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;凡是可以作用于&lt;code&gt;for&lt;/code&gt;循环的对象都是&lt;code&gt;可迭代对象&lt;/code&gt;Iterable类型；&lt;br&gt;
+凡是可以作用于&lt;code&gt;next()&lt;/code&gt;函数的对象都是&lt;code&gt;迭代器&lt;/code&gt;Iterator类型。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from collections.abc import Iterable,Iterator
+
+# 判断一个对象是否是可迭代对象
+print(isinstance([1, 2, 3], Iterable)) # True
+
+# 判断一个对象是否是迭代器
+print(isinstance(iter([1, 2, 3]), Iterator)) # True
+
+# iter()函数将可迭代对象转换为迭代器
+print(isinstance(iter([1, 2, 3]), Iterator)) # True
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可迭代对象不一定是迭代器，但迭代器一定是可迭代对象。&lt;/li&gt;
+&lt;li&gt;iter()函数可以将可迭代对象转换为迭代器。&lt;/li&gt;
+&lt;li&gt;如果一个对象拥有&lt;code&gt;__iter__()&lt;/code&gt;方法，那么它就是可迭代对象&lt;/li&gt;
+&lt;li&gt;如果一个对象拥有&lt;code&gt;__next__()&lt;/code&gt;方法，那么它就是迭代器&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dir()&lt;/code&gt;函数可以查看一个对象的所有属性和方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;迭代器协议&#34;&gt;迭代器协议&lt;/h2&gt;
+&lt;p&gt;迭代器协议：迭代器协议是指迭代器对象必须实现&lt;code&gt;__next__()&lt;/code&gt;方法，&lt;code&gt;__next__()&lt;/code&gt;方法返回下一个元素，如果没有元素了，会抛出&lt;code&gt;StopIteration&lt;/code&gt;异常。&lt;/p&gt;
+&lt;h2 id=&#34;自定义迭代器类&#34;&gt;自定义迭代器类&lt;/h2&gt;
+&lt;p&gt;两个特性：&lt;code&gt;__iter__()&lt;/code&gt;和&lt;code&gt;__next__()&lt;/code&gt;方法&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;class MyIterator:
+    def __init__(self, data):
+        self.data = data
+        self.index = 0
+
+    def __iter__(self):
+        return self # 返回迭代器对象本身
+
+    def __next__(self):
+        if self.index &amp;lt; len(self.data):
+            result = self.data[self.index]
+            self.index += 1
+            return result
+        else:
+            raise StopIteration # 抛出StopIteration异常，表示迭代结束
+
+# 使用自定义迭代器类
+my_iter = MyIterator([1, 2, 3])
+for i in my_iter:
+    print(i)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;生成器-generator&#34;&gt;生成器 generator&lt;/h2&gt;
+&lt;p&gt;python 中一边循环一边计算的机制，称为生成器（generator）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;生成器表达式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;for i in range(5)
+    print(i*5)
+
+# 等价于
+li = [i*5 for i in range(5)]
+
+gen = (i*5 for i in range(5)) # 列表推导式的[]改为( )就是生成器表达式
+print(li)
+print(gen)
+
+# 取值
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+print(next(gen))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;生成器函数&#34;&gt;生成器函数&lt;/h2&gt;
+&lt;p&gt;python中，只要函数体内部包含&lt;code&gt;yield&lt;/code&gt;关键字，那么这个函数就变成一个生成器函数，调用生成器函数会返回一个生成器对象。&lt;br&gt;
+yield关键字的作用是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类似于return,将指定值或者多个值返回给调用者&lt;/li&gt;
+&lt;li&gt;yield语句一次返回一个结果，在每个结果中间，挂起函数，执行next(),再重新从挂起处开始执行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def my_generator():
+    yield 1
+    yield 2
+    yield 3
+gen = my_generator()
+print(next(gen))
+print(next(gen))
+print(next(gen))
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+1
+2
+3
+&amp;quot;&amp;quot;&amp;quot;
+
+
+def my_generator(n):
+    li = []
+    a = 0
+    while a&amp;lt;n:
+        li.append(a)
+        a+=1
+        yield a
+    print(&amp;quot;生成器结束li:&amp;quot;,li)
+print(my_generator(5))
+for i in my_generator(5):
+    print(i)
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+生成器结束li: [0, 1, 2, 3, 4]
+0
+1
+2
+3
+4
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;三者关系：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可迭代对象：指实现了python迭代协议，可以通过for…in…循环遍历的对象,比如列表list、元组tuple、字典dict、集合set、字符串str、迭代器、生成器等。&lt;/li&gt;
+&lt;li&gt;迭代器：可以记住自己遍历位置的对象，直观体现就是可以next()函数返回值，迭代器只能往前，不能后退。（遍历完之后，再次调用next()会抛出StopIteration异常）&lt;/li&gt;
+&lt;li&gt;生成器：一种特殊的迭代器，迭代器不一定是生成器，它是python提供的通过简单方法写出的迭代器的一种手段&lt;br&gt;
+包含关系：可迭代对象（Iterable）-&amp;gt;迭代器（Iterator）-&amp;gt;生成器（Generator）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;正则表达式&lt;/h1&gt;
+&lt;p&gt;正则表达式：用于匹配字符串的规则，可以用来查找、替换、验证字符串等操作。&lt;/p&gt;
+&lt;p&gt;步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;导入re模块&lt;/li&gt;
+&lt;li&gt;使用match()函数进行匹配操作
+&lt;ul&gt;
+&lt;li&gt;re.match(pattern, string, flags=0), pattern:正则表达式，string:要匹配的字符串，flags:标志位，用于控制正则表达式的匹配方式&lt;/li&gt;
+&lt;li&gt;如果起始位置没有匹配成功，返回None&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如果上一步匹配成功，可以使用Match对象的group()方法获取匹配到的字符串&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+# 匹配字符串
+result = re.match(&amp;quot;a&amp;quot;, &amp;quot;abc&amp;quot;)
+if result:
+    print(result.group())
+else:
+    print(&amp;quot;匹配失败&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;匹配单个字符&#34;&gt;匹配单个字符&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;符号&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配除换行符以外的任意字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;转义字符，用于匹配特殊字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;[ ]&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配括号中的任意一个字符，例如[a-z]匹配任意一个小写字母&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\w&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配字母、数字、下划线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\W&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配非字母、数字、下划线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\s&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配任意空白字符，包括空格、制表符、换页符等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\S&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配非空白字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\d&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配数字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\D&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配非数字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\b&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配单词边界&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\B&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配非单词边界&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;匹配任意字符&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;.&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re1.group()) # a
+re2 = re.match(&amp;quot;1.&amp;quot;, &amp;quot;123&amp;quot;)
+print(re2.group()) # 12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;[]&lt;/code&gt;匹配括号中的任意一个字符&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+import re
+
+re1 = re.match(&amp;quot;[abc]&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re1.group()) # abc
+re2 = re.match(&amp;quot;[a-z]&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re2.group()) # none
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;**&lt;code&gt;\d&lt;/code&gt;匹配数字&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;\d&amp;quot;, &amp;quot;123&amp;quot;)
+print(re1.group()) # 1
+re2 = re.match(&amp;quot;\d&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re2.group()) # none
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;匹配多个字符&#34;&gt;匹配多个字符&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;符号&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;*&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配前面的字符0次或多次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;+&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配前面的字符1次或多次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;?&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配前面的字符0次或1次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;{m}&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配前面的字符m次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;{m,n}&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配前面的字符m到n次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;*&lt;/code&gt;匹配前面的字符0次或多次&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;a*&amp;quot;, &amp;quot;aaa&amp;quot;)
+print(re1.group()) # aaa
+re2 = re.match(&amp;quot;a*&amp;quot;, &amp;quot;b&amp;quot;)
+print(re2.group()) # b
+re3 = re.match(&amp;quot;a*&amp;quot;, &amp;quot;&amp;quot;)
+print(re3.group()) # &amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;+&lt;/code&gt;匹配前面的字符1次或多次&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;a+&amp;quot;, &amp;quot;aaa&amp;quot;)
+print(re1.group()) # aaa
+re2 = re.match(&amp;quot;a+&amp;quot;, &amp;quot;b&amp;quot;)
+print(re2.group()) # none
+re3 = re.match(&amp;quot;a+&amp;quot;, &amp;quot;&amp;quot;)
+print(re3.group()) # none
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;?&lt;/code&gt;匹配前面的字符0次或1次&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;a?&amp;quot;, &amp;quot;aaa&amp;quot;)
+print(re1.group()) # a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;匹配开头和结尾&#34;&gt;匹配开头和结尾&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;符号&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;^&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配字符串的开头&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配字符串的结尾&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;^&lt;/code&gt;匹配字符串的开头&lt;/strong&gt;&lt;br&gt;
+注意：&lt;code&gt;^&lt;/code&gt;符号在&lt;code&gt;[]&lt;/code&gt;中是取反的意思&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;^a&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re1.group()) # a
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;$&lt;/code&gt;匹配字符串的结尾&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;c$&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re1.group()) # c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;匹配分组&#34;&gt;匹配分组&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;符号&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;|&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;匹配左右任意一个表达式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(ab)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;将括号中的字符作为一个分组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;\num&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;引用分组&lt;code&gt;num&lt;/code&gt;匹配到的字符串&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(?P&lt;name&gt;…)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;分组起别名&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(?P=name)&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;引用别名为&lt;code&gt;name&lt;/code&gt;分组匹配到的字符串&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;|&lt;/code&gt;匹配左右任意一个表达式&lt;/strong&gt;&lt;br&gt;
+注意：优先从左到右匹配&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&amp;quot;a|b&amp;quot;, &amp;quot;abc&amp;quot;)
+print(re1.group()) # a
+re2 = re.match(&amp;quot;a|b&amp;quot;, &amp;quot;b&amp;quot;)
+print(re2.group()) # b
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;(ab)&lt;/code&gt;将括号中的字符作为一个分组&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&#39;\w*@(qq|163|126).com&#39;, &amp;quot;123@163.com&amp;quot;)
+print(re1.group()) # 123@163.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;\num&lt;/code&gt;引用分组num匹配到的字符串&lt;/strong&gt;&lt;br&gt;
+应用：常在匹配标签时使用，例如匹配&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;标签&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re1 = re.match(&#39;&amp;lt;(\w*)&amp;gt;\w*&amp;lt;/\\1&amp;gt;&#39;, &#39;&amp;lt;html&amp;gt;login&amp;lt;/html&amp;gt;&#39;)
+print(re1.group()) # &amp;lt;html&amp;gt;login&amp;lt;/html&amp;gt;
+
+re2 = re.match(&#39;&amp;lt;(\w*)&amp;gt;&amp;lt;(\w*)&amp;gt;.*&amp;lt;/\2&amp;gt;&amp;lt;/\1&amp;gt;&#39;, &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;login&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;)
+print(re2.group()) #
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;(?P&amp;lt;name&amp;gt;...)&lt;/code&gt;分组起别名&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;&lt;code&gt;(?P=name)&lt;/code&gt;引用别名为name分组匹配到的字符串&lt;/strong&gt;&lt;br&gt;
+使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+re2 = re.match(&#39;&amp;lt;(?P&amp;lt;l1&amp;gt;\w*)&amp;gt;&amp;lt;(?P&amp;lt;l2&amp;gt;\w*)&amp;gt;.*&amp;lt;/(?P=l2)&amp;gt;&amp;lt;/(?P=l1)&amp;gt;&#39;, &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;login&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;)
+print(re2.group()) #
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;示例：匹配网址&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+# res = re.match(&#39;www(\.)\w*\\1(com|cn|org)&#39;, &#39;www.baidu.com&#39;)
+# print(res.group()) 
+
+li = [&#39;www.baidu.com&#39;, &#39;www.google.com&#39;, &#39;www.sina.com&#39;, &#39;www.163.com&#39;, &#39;www.qq.com&#39;]
+for i in li:
+    res = re.match(&#39;www(\.)\w*\\1(com|cn|org)&#39;, i)
+    if res:
+        print(res.group()) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;高级用法&#34;&gt;高级用法&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;search()&lt;/code&gt;函数：&lt;br&gt;
+在字符串中搜索匹配的子串，返回第一个匹配的子串，如果没有匹配的子串，则返回None。&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.search(&#39;\d&#39;, &#39;abc123&#39;)
+print(res.group()) # 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;findall()&lt;/code&gt;函数：&lt;br&gt;
+在字符串中搜索匹配的子串，返回所有匹配的子串，以列表形式返回。&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.findall(&#39;\d&#39;, &#39;abc123&#39;)
+print(res) # [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;sub()&lt;/code&gt;函数：&lt;br&gt;
+在字符串中搜索匹配的子串，并替换为指定的字符串。&lt;br&gt;
+参数格式：&lt;br&gt;
+&lt;code&gt;sub(pattern, repl, string, count=0)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pattern:&lt;/code&gt;正则表达式，用于匹配子串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;repl:&lt;/code&gt;替换字符串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;string:&lt;/code&gt;要替换的字符串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;count:&lt;/code&gt;最大替换次数，0表示无限制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.sub(&#39;\d&#39;, &#39;0&#39;, &#39;abc123&#39;)
+print(res) # abc000
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;split()&lt;/code&gt;函数：&lt;br&gt;
+在字符串中搜索匹配的子串，并按照匹配的子串将字符串分割成多个子串，以列表形式返回。&lt;br&gt;
+参数格式：&lt;br&gt;
+&lt;code&gt;split(pattern, string, maxsplit=0, flags=0)&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pattern:&lt;/code&gt;正则表达式，用于匹配子串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;string:&lt;/code&gt;要替换的字符串&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;maxsplit:&lt;/code&gt;最大分割次数，0表示无限制&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;flags:&lt;/code&gt;标志位，用于控制正则表达式的匹配方式,0表示默认值&lt;br&gt;
+示例：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.split(&#39;\d&#39;, &#39;abc123&#39;)
+print(res) # [&#39;abc&#39;, &#39;&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;compile()&lt;/code&gt;函数：&lt;br&gt;
+将正则表达式编译成一个正则表达式对象，可以用于多次匹配操作。&lt;br&gt;
+参数格式：&lt;br&gt;
+compile(pattern, flags=0)&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+pattern = re.compile(&#39;\d&#39;)
+res = pattern.findall(&#39;abc123&#39;)
+print(res) # [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;贪婪匹配和懒惰匹配&#34;&gt;贪婪匹配和懒惰匹配&lt;/h2&gt;
+&lt;p&gt;贪婪匹配：尽可能多的匹配字符&lt;br&gt;
+懒惰匹配：尽可能少的匹配字符&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;贪婪匹配(默认)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.search(&#39;\d+&#39;, &#39;123456&#39;)
+print(res.group()) # 123456
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;懒惰匹配&lt;br&gt;
+使用&lt;code&gt;?&lt;/code&gt;符号，表示懒惰匹配&lt;br&gt;
+示例：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.search(&#39;\d+?&#39;, &#39;123456&#39;)
+print(res.group()) # 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;原生字符串&#34;&gt;原生字符串&lt;/h2&gt;
+&lt;p&gt;在正则表达式中，&lt;code&gt;\&lt;/code&gt;符号用于转义特殊字符，例如&lt;code&gt;\d&lt;/code&gt;表示匹配数字，&lt;code&gt;\w&lt;/code&gt;表示匹配字母或数字。&lt;br&gt;
+但是在Python中，&lt;code&gt;\&lt;/code&gt;符号也是转义字符，例如&lt;code&gt;\n&lt;/code&gt;表示换行符，&lt;code&gt;\t&lt;/code&gt;表示制表符。因此，在正则表达式中使用&lt;code&gt;\&lt;/code&gt;符号时，需要使用双反斜杠&lt;code&gt;\\&lt;/code&gt;来转义。&lt;br&gt;
+例如，&lt;code&gt;\d&lt;/code&gt;需要写成&lt;code&gt;\\d&lt;/code&gt;。&lt;br&gt;
+为了避免这种麻烦，可以使用原生字符串，即在字符串前加上&lt;code&gt;r&lt;/code&gt;或&lt;code&gt;R&lt;/code&gt;，例如&lt;code&gt;r&#39;\d&#39;&lt;/code&gt;。&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import re
+
+res = re.search(r&#39;\d+&#39;, &#39;123456&#39;)
+print(res.group()) # 123456
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：在正则表达式中，匹配字符串中的字符&lt;code&gt;\&lt;/code&gt;时，需要&lt;code&gt;\\\\&lt;/code&gt;,加入原生字符串，&lt;code&gt;\\&lt;/code&gt;代表&lt;code&gt;\&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;os模块&lt;/h1&gt;
+&lt;h2 id=&#34;os模块介绍&#34;&gt;os模块介绍&lt;/h2&gt;
+&lt;p&gt;os模块是Python标准库中的一个模块，提供了许多与&lt;code&gt;操作系统交互&lt;/code&gt;的函数。使用&lt;code&gt;os&lt;/code&gt;模块，可以执行文件和目录操作，如创建、删除、重命名文件和目录，获取文件和目录的属性等。&lt;/p&gt;
+&lt;h2 id=&#34;os模块常用函数&#34;&gt;os模块常用函数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;os.name&lt;/code&gt;：获取操作系统的名称，例如&lt;code&gt;posix&lt;/code&gt;表示&lt;code&gt;Linux&lt;/code&gt;或&lt;code&gt;Mac&lt;/code&gt; &lt;code&gt;OS&lt;/code&gt; &lt;code&gt;X&lt;/code&gt;，&lt;code&gt;nt&lt;/code&gt;表示Windows。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.name) # posix
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.getenv(key)&lt;/code&gt;：获取环境变量的值(环境变量名称)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.getenv(&#39;PATH&#39;)) # /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.split(path)&lt;/code&gt;：将路径分割成目录和文件名,以元组的形式接收，第一参数为目录，第二参数为文件名。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.split(&#39;/home/user/test.txt&#39;)) # (&#39;/home/user&#39;, &#39;test.txt&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.dirname(path)&lt;/code&gt;：获取路径中的目录名。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.dirname(&#39;/home/user/test.txt&#39;)) # /home/user
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.basename(path)&lt;/code&gt;：获取路径中的文件名。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.basename(&#39;/home/user/test.txt&#39;)) # test.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.exists(path)&lt;/code&gt;：判断路径(文件或目录)是否存在。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+
+print(os.path.exists(&#39;/home/user/test.txt&#39;)) # True
+print(os.path.exists(&#39;/home/user/test1.txt&#39;)) # False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.isfile(path)&lt;/code&gt;：判断路径是否为文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+
+print(os.path.isfile(&#39;/home/user/test.txt&#39;)) # True
+print(os.path.isfile(&#39;/home/user&#39;)) # False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.isdir(path)&lt;/code&gt;：判断路径是否为目录。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+
+print(os.path.isdir(&#39;/home/user&#39;)) # True
+print(os.path.isdir(&#39;/home/user/test.txt&#39;)) # False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.abspath(path)&lt;/code&gt;：获取绝对路径。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.abspath(&#39;test.txt&#39;)) # /home/user/test.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.isabs(path)&lt;/code&gt;：判断路径是否为绝对路径。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.isabs(&#39;/home/user/test.txt&#39;)) # True
+print(os.path.isabs(&#39;test.txt&#39;)) # False
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.join(path, *paths)&lt;/code&gt;：将多个路径组合成一个路径。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.join(&#39;/home/user/&#39;, &#39;test.txt&#39;)) # /home/user/test.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;&lt;code&gt;os.path.getsize(path)&lt;/code&gt;：获取文件大小，单位为字节。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
+print(os.path.getsize(&#39;/home/user/test.txt&#39;)) # 12345
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;sys模块&#34;&gt;sys模块&lt;/h2&gt;
+&lt;p&gt;sys模块是Python标准库中的一个模块，提供了许多与&lt;code&gt;Python解释器交互&lt;/code&gt;的函数。使用&lt;code&gt;sys&lt;/code&gt;模块，可以获取Python解释器的信息，如版本号、命令行参数等，还可以控制Python解释器的行为，如退出程序、改变标准输入输出等。&lt;/p&gt;
+&lt;h2 id=&#34;sys模块常用函数&#34;&gt;sys模块常用函数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;sys.getdefaultencoding()&lt;/code&gt;：获取Python解释器的默认编码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+print(sys.getdefaultencoding()) # utf-8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;sys.path()&lt;/code&gt;：获取Python解释器的命令行参数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+print(sys.path) # [&#39;/home/user&#39;, &#39;/usr/lib/python38.zip&#39;, &#39;/usr/lib/python3.8&#39;, &#39;/usr/lib/python3.8/lib-dynload&#39;, &#39;/usr/local/lib/python3.8/dist-packages&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;sys.platform()&lt;/code&gt;：获取Python解释器的平台信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+print(sys.platform) # linux
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;sys.version()&lt;/code&gt;：获取Python解释器的版本信息。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import sys
+print(sys.version) # 3.8.10 (default, Jun  4 2021, 15:09:15)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;time模块&lt;/h1&gt;
+&lt;p&gt;time模块是Python标准库中的一个模块，提供了许多与&lt;code&gt;时间&lt;/code&gt;相关的函数。使用&lt;code&gt;time&lt;/code&gt;模块，可以获取当前时间、格式化时间、时间戳等。&lt;/p&gt;
+&lt;p&gt;时间表示方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;时间戳：从1970年1月1日00:00:00开始计算的秒数。&lt;/li&gt;
+&lt;li&gt;时间元组：包含年、月、日、时、分、秒、星期、年中的第几天等信息的元组。&lt;/li&gt;
+&lt;li&gt;字符串时间：按照指定格式表示时间的字符串。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;time模块常用函数&#34;&gt;time模块常用函数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;time.time()&lt;/code&gt;：获取当前时间的时间戳。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(time.time()) # 1634567890.123456
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;time.localtime([secs])&lt;/code&gt;：将时间戳转换为本地时间的时间元组。&lt;br&gt;
+返回元组元素：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;索引&lt;/th&gt;
+&lt;th&gt;元素&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_year&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;年&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_mon&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;月&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_mday&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_hour&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_min&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;分&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_sec&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;秒&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_wday&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;星期几(0-6,0表示周一)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_yday&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一年中的第几天(1-366)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;tm_isdst&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否为夏令时(0-1,0表示不是)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(time.localtime()) # 2021-10-15 10:30:45
+# time.struct_time(tm_year=2021, tm_mon=10, tm_mday=15, tm_hour=10, tm_min=30, tm_sec=45, tm_wday=4, tm_yday=288, tm_isdst=0)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;time.sleep(secs)&lt;/code&gt;：暂停程序执行secs秒。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(&#39;start&#39;)
+time.sleep(5)
+print(&#39;end&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;time.asctime(time_tuple)&lt;/code&gt;：将时间元组转换为字符串时间。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(time.asctime()) # Fri Oct 15 10:30:45 2021
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;time.ctime()&lt;/code&gt;：获取当前时间的时间戳。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(time.ctime()) # Fri Oct 15 10:30:45 2021
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;time.strftime(format, time_tuple)&lt;/code&gt;：将时间元组转换为指定格式的字符串时间。&lt;br&gt;
+格式化符号：&lt;br&gt;
+|符号 | 说明 |&lt;br&gt;
+| — | — |&lt;br&gt;
+| &lt;code&gt;%Y&lt;/code&gt; | 年(4位) |&lt;br&gt;
+| &lt;code&gt;%m&lt;/code&gt; | 月(2位) |&lt;br&gt;
+| &lt;code&gt;%d&lt;/code&gt; | 日(2位) |&lt;br&gt;
+| &lt;code&gt;%H&lt;/code&gt; | 时(24小时制,2位) |&lt;br&gt;
+| &lt;code&gt;%M&lt;/code&gt; | 分(2位) |&lt;br&gt;
+| &lt;code&gt;%S&lt;/code&gt; | 秒(2位) |&lt;br&gt;
+| &lt;code&gt;%w&lt;/code&gt; | 星期几(0-6,0表示周一) |&lt;br&gt;
+| &lt;code&gt;%j&lt;/code&gt; | 一年中的第几天(1-366) |&lt;br&gt;
+| &lt;code&gt;%a&lt;/code&gt; | 星期几的简写(例如：Mon) |&lt;br&gt;
+| &lt;code&gt;%A&lt;/code&gt; | 星期几的全称(例如：Monday) |&lt;br&gt;
+| &lt;code&gt;%b&lt;/code&gt; | 月份的简写(例如：Jan) |&lt;br&gt;
+| &lt;code&gt;%B&lt;/code&gt; | 月份的全称(例如：January) |&lt;br&gt;
+| &lt;code&gt;%z&lt;/code&gt; | 时区(例如：+0800) |&lt;br&gt;
+| &lt;code&gt;%Z&lt;/code&gt; | 时区名称(例如：CST) |&lt;br&gt;
+| &lt;code&gt;%x&lt;/code&gt; | 日期的字符串表示(例如：10/15/21) |&lt;br&gt;
+| &lt;code&gt;%X&lt;/code&gt; | 时间的字符串表示(例如：10:30:45) |&lt;br&gt;
+| &lt;code&gt;%c&lt;/code&gt; | 日期和时间的字符串表示(例如：Fri Oct 15 10:30:45 2021) |&lt;br&gt;
+| &lt;code&gt;%U&lt;/code&gt; | 一年中的第几周(以周日为一周的第一天) |&lt;br&gt;
+| &lt;code&gt;%W&lt;/code&gt; | 一年中的第几周(以周一为一周的第一天) |&lt;br&gt;
+| &lt;code&gt;%V&lt;/code&gt; | 一年中的第几周(以ISO 8601标准定义的一周为一周的第一天) |&lt;br&gt;
+| &lt;code&gt;%j&lt;/code&gt; | 一年中的第几天(1-366) |&lt;br&gt;
+| &lt;code&gt;%U&lt;/code&gt; | 一年中的第几周(以周日为一周的第一天) |&lt;br&gt;
+| &lt;code&gt;%W&lt;/code&gt; | 一年中的第几周(以周一为一周的第一天) |&lt;br&gt;
+| &lt;code&gt;%V&lt;/code&gt; | 一年中的第几周(以ISO 8601标准定义的一周为一周的第一天) |&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(time.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;, time.localtime())) # 2021-10-15 10:30:45
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;time.strptime(string, format)&lt;/code&gt;：将字符串时间转换为时间元组。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+print(time.strptime(&#39;2021-10-15 10:30:45&#39;, &#39;%Y-%m-%d %H:%M:%S&#39;)) # time.struct_time(tm_year=2021, tm_mon=10, tm_mday=15, tm_hour=10, tm_min=30, tm_sec=45, tm_wday=4, tm_yday=288, tm_isdst=-1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;logging模块&lt;/h1&gt;
+&lt;p&gt;logging模块是Python标准库中的一个模块，提供了许多与&lt;code&gt;日志&lt;/code&gt;相关的函数。使用&lt;code&gt;logging&lt;/code&gt;模块，可以记录程序的运行信息，如错误、警告、调试信息等，方便程序调试和问题排查。&lt;br&gt;
+等级：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;level&lt;/th&gt;
+&lt;th&gt;等级&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;NOTSET&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;不设置级别，按照父looger的级别显示日志，如果root logger,那么会显示所有的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;DEBUG&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;调试信息，一般用于开发阶段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;INFO&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;一般信息，用于记录程序正常运行的信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;WARNING&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;警告信息，用于记录可能的问题，但不影响程序的正常运行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ERROR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;错误信息，用于记录程序运行中出现的错误，但不影响程序的继续运行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;CRITICAL(FATAL)&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;严重错误信息，用于记录程序运行中出现的严重错误，可能导致程序崩溃&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;排序：NOTSET &amp;lt; DEBUG &amp;lt; INFO &amp;lt; WARNING &amp;lt; ERROR &amp;lt; CRITICAL&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+logging.debug(&#39;debug message&#39;)
+logging.info(&#39;info message&#39;)
+logging.warning(&#39;warning message&#39;)
+logging.error(&#39;error message&#39;)
+logging.critical(&#39;critical message&#39;)
+&amp;quot;&amp;quot;&amp;quot;
+输出：
+DEBUG:root:debug message
+INFO:root:info message
+WARNING:root:warning message
+ERROR:root:error message
+CRITICAL:root:critical message
+&amp;quot;&amp;quot;&amp;quot;
+# logging默认的级别是WARNING，所以只有WARNING级别以上的日志才会被输出
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;logging模块常用函数&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;logging.basicConfig(**kwargs)&lt;/code&gt;：配置root logger的参数，设置日志级别、日志格式、日志输出位置等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;参数：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;level&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置日志级别，默认为WARNING及以上&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;format&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置日志格式，默认为’%(asctime)s - %(name)s - %(levelname)s - %(message)s’&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;datefmt&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置日期格式，默认为’%Y-%m-%d %H:%M:%S’&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置日志输出文件名，默认为None，表示输出到控制台&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;filemode&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置日志输出文件模式，默认为’a’，表示追加; &#39;w’表示覆盖&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stream&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置日志输出流，默认为sys.stderr，表示输出到控制台&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging
+logging.basicConfig(filename=&#39;log.log&#39;)
+
+logging.warning(&#39;warning message&#39;)
+logging.error(&#39;error message&#39;)
+logging.critical(&#39;critical message&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1&gt;random模块&lt;/h1&gt;
+&lt;p&gt;random模块是Python标准库中的一个模块，提供了许多与&lt;code&gt;随机数&lt;/code&gt;相关的函数。使用&lt;code&gt;random&lt;/code&gt;模块，可以生成随机数、随机选择、随机打乱等操作。&lt;/p&gt;
+&lt;h2 id=&#34;random模块常用函数&#34;&gt;random模块常用函数&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;random.random()&lt;/code&gt;：生成一个0到1之间的随机浮点数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+print(random.random()) # 0.123456789
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;random.randint(a, b)&lt;/code&gt;：生成一个a到b之间的随机整数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+print(random.randint(1, 10)) # 5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;random.choice(seq)&lt;/code&gt;：从序列seq中随机选择一个元素。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+print(random.choice([&#39;apple&#39;, &#39;banana&#39;, &#39;orange&#39;])) # apple
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;random.sample(population, k)&lt;/code&gt;：从population中随机选择k个不重复的元素，返回一个列表。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+print(random.sample([1, 2, 3, 4, 5], 3)) # [1, 2, 3]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;random.shuffle(x[, random])&lt;/code&gt;：将序列x中的元素随机打乱。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+x = [1, 2, 3, 4, 5]
+random.shuffle(x)
+print(x) # [3, 1, 5, 2, 4]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;random.uniform(a, b)&lt;/code&gt;：生成一个a到b之间的随机浮点数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+print(random.uniform(1, 10)) # 5.123456789
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;random.randrange(start, stop[, step])&lt;/code&gt;：生成一个从start到stop之间的随机整数，步长为step。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import random
+
+print(random.randrange(1, 10, 2)) # 3
 &lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="python进阶" />
