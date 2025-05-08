@@ -24,6 +24,7 @@
     <category term="ONNX" />
     <category term="Adman梯度下降" />
     <category term="YOLOv5s" />
+    <category term="pytorch" />
     <entry>
         <id>https://zhang3399.github.io/2024/06/15/C++/2024-6-15-Socket/</id>
         <title>Socket</title>

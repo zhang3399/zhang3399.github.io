@@ -27,6 +27,7 @@
         <category>ONNX</category>
         <category>Adman梯度下降</category>
         <category>YOLOv5s</category>
+        <category>pytorch</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
             <title>数据处理及内存管理</title>

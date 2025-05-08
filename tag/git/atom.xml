@@ -24,6 +24,7 @@
     <category term="ONNX" />
     <category term="Adman梯度下降" />
     <category term="YOLOv5s" />
+    <category term="pytorch" />
     <entry>
         <id>https://zhang3399.github.io/2025/02/23/linux/2025-2-23-git/</id>
         <title>git基本使用</title>

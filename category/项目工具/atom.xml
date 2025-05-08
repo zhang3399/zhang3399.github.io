@@ -24,6 +24,7 @@
     <category term="ONNX" />
     <category term="Adman梯度下降" />
     <category term="YOLOv5s" />
+    <category term="pytorch" />
     <entry>
         <id>https://zhang3399.github.io/2025/03/12/C++/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</id>
         <title>🚀 CMake项目构建</title>

@@ -1,13 +1,11 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AKVHQR3R.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-TA7VUAVB.js"></link><link rel="modulepreload" href="/js/copy-tex-ZHBKMPHU.js"></link><link rel="modulepreload" href="/js/index.esm-Y6LSXM2O.js"></link><link rel="modulepreload" href="/js/post-6XOMY7J6.js"></link><link rel="modulepreload" href="/js/quicklink-DGW6QOA6.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img3.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><meta name="keywords" content="python"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/"><title>python基本语法</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">python基本语法</h1><div class="meta"><span class="item" title="创建时间：2021-10-01 10:00:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2021-10-01T10:00:00+08:00">2021-10-01</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>18k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>16 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img3.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于python"><span itemprop="name">python<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1>变量和标识符</h1>
-<h2 id="变量">变量</h2>
-<p>变量是用于存储数据的容器，变量名可以包含字母、数字和下划线，但不能以数字开头。</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AKVHQR3R.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-TA7VUAVB.js"></link><link rel="modulepreload" href="/js/copy-tex-ZHBKMPHU.js"></link><link rel="modulepreload" href="/js/index.esm-Y6LSXM2O.js"></link><link rel="modulepreload" href="/js/post-6XOMY7J6.js"></link><link rel="modulepreload" href="/js/quicklink-DGW6QOA6.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img3.webp" as="image" fetchpriority="high"><meta name="keywords" content="python"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/"><title>python基本语法</title><meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">python基本语法</h1><div class="meta"><span class="item" title="创建时间：2021-10-01 10:00:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2021-10-01T10:00:00+08:00">2021-10-01</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>18k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>17 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img3.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/python/" itemprop="item" rel="index" title="分类于python"><span itemprop="name">python<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1 id="变量和标识符"><a href="#变量和标识符" class="headerlink" title="变量和标识符"></a>变量和标识符</h1><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量是用于存储数据的容器，变量名可以包含字母、数字和下划线，但不能以数字开头。</p>
 <pre><code class="language-python">a = 1
 b = 2
 c = a + b
 print(c)
 </code></pre>
-<h2 id="标识符">标识符</h2>
-<p>标识符是用于标识变量、函数、类、模块等的名称。标识符的命名规则如下：</p>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>标识符是用于标识变量、函数、类、模块等的名称。标识符的命名规则如下：</p>
 <ul>
 <li>标识符可以包含字母、数字和下划线，但不能以数字开头。</li>
 <li>标识符不能包含空格和特殊字符。</li>
@@ -26,25 +24,20 @@ my_variable3 = 30
 # 2my_variable = 10 # 以数字开头
 # my-variable-2 = 20 # 包含特殊字符
 # class = 10 # 是Python关键字
-
 </code></pre>
-<h1>数据类型</h1>
-<h2 id="整数">整数</h2>
-<p>整数是用于表示整数的类型，例如1、2、3等。</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h2><p>整数是用于表示整数的类型，例如1、2、3等。</p>
 <pre><code class="language-python">a = 10
 b = -20
 c = 0
 </code></pre>
-<h2 id="浮点数">浮点数</h2>
-<p>浮点数是用于表示小数的类型，例如1.0、2.5、3.14等。</p>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><p>浮点数是用于表示小数的类型，例如1.0、2.5、3.14等。</p>
 <pre><code class="language-python">a = 1.0
 b = -2.5
 c = 0.0
 </code></pre>
-<h2 id="字符串">字符串</h2>
-<p>字符串是用于表示文本的类型，例如&quot;hello&quot;、&quot;world&quot;等。</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>字符串是用于表示文本的类型，例如”hello”、”world”等。</p>
 <pre><code class="language-python">string1 = &quot;hello&quot;
-string2 = 'world'
+string2 = &#39;world&#39;
 </code></pre>
 <p>字符串常见操作：</p>
 <ol>
@@ -139,8 +132,7 @@ print(a.isdigit()) # 输出False
 print(a.isalnum()) # 输出True
 print(a.isspace()) # 输出False
 </code></pre>
-<h1>列表</h1>
-<p>列表是用于存储多个元素的有序集合，可以包含不同类型的元素。</p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>列表是用于存储多个元素的有序集合，可以包含不同类型的元素。</p>
 <pre><code class="language-python">a = [1, 2, 3, 4, 5]
 b = [&quot;hello&quot;, &quot;world&quot;]
 c = [1, &quot;hello&quot;, 3.14]
@@ -229,8 +221,7 @@ print(c) # 输出[1, 2, 3, 4, 5, 6]
 b = a.copy()
 print(b) # 输出[1, 2, 3]
 </code></pre>
-<h1>元组</h1>
-<p>元组是用于存储多个元素的有序集合，与列表类似，但元组中的元素不可修改。</p>
+<h1 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h1><p>元组是用于存储多个元素的有序集合，与列表类似，但元组中的元素不可修改。</p>
 <pre><code class="language-python">a = (1, 2, 3, 4, 5)
 b = (&quot;hello&quot;, &quot;world&quot;)
 c = (1, &quot;hello&quot;, 3.14)
@@ -264,8 +255,7 @@ print(x) # 输出1
 print(y) # 输出2
 print(z) # 输出3
 </code></pre>
-<h1>字典</h1>
-<p>字典是用于存储键值对的集合，键值对之间用冒号分隔，键值对之间用逗号分隔。</p>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><p>字典是用于存储键值对的集合，键值对之间用冒号分隔，键值对之间用逗号分隔。</p>
 <pre><code class="language-python">a = &#123;&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25, &quot;city&quot;: &quot;New York&quot;&#125;
 b = &#123;1: &quot;one&quot;, 2: &quot;two&quot;, 3: &quot;three&quot;&#125;
 </code></pre>
@@ -305,8 +295,7 @@ print(len(a)) # 输出3
 for key, value in a.items():
     print(key, value)
 </code></pre>
-<h1>集合</h1>
-<p>集合是用于存储多个元素的集合，元素不重复且无序。</p>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>集合是用于存储多个元素的集合，元素不重复且无序。</p>
 <pre><code class="language-python">a = &#123;1, 2, 3, 4, 5&#125;
 b = &#123;&quot;hello&quot;, &quot;world&quot;&#125;
 c = &#123;1, &quot;hello&quot;, 3.14&#125;
@@ -368,14 +357,11 @@ print(a - b) # 输出&#123;1, 2, 3&#125;
 b = &#123;4, 5, 6, 7, 8&#125;
 print(a ^ b) # 输出&#123;1, 2, 3, 6, 7, 8&#125;
 </code></pre>
-<h2 id="布尔值">布尔值</h2>
-<p>布尔值是用于表示真假的类型，只有两个值：True和False。</p>
+<h2 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h2><p>布尔值是用于表示真假的类型，只有两个值：True和False。</p>
 <pre><code class="language-python">a = True
 b = False
 </code></pre>
-<h1>运算符</h1>
-<h2 id="算术运算符">算术运算符</h2>
-<p>算术运算符用于执行基本的数学运算，例如加法、减法、乘法、除法等。</p>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h2 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h2><p>算术运算符用于执行基本的数学运算，例如加法、减法、乘法、除法等。</p>
 <pre><code class="language-python">a = 10
 b = 20
 c = a + b # c=30
@@ -383,10 +369,8 @@ d = a - b # d=-10
 e = a * b # e=200
 f = a / b # f=0.5
 g = a % b # g=10
-
 </code></pre>
-<h2 id="比较运算符">比较运算符</h2>
-<p>比较运算符用于比较两个值的大小关系，例如大于、小于、等于、不等于等。</p>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p>比较运算符用于比较两个值的大小关系，例如大于、小于、等于、不等于等。</p>
 <pre><code class="language-python">a = 10
 b = 20
 c = a &gt; b  # c=False
@@ -394,16 +378,14 @@ d = a &lt; b  # d=True
 e = a == b # e=False
 f = a != b # f=True
 </code></pre>
-<h2 id="逻辑运算符">逻辑运算符</h2>
-<p>逻辑运算符用于执行逻辑运算，例如与、或、非等。</p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>逻辑运算符用于执行逻辑运算，例如与、或、非等。</p>
 <pre><code class="language-python">a = True
 b = False
 c = a and b # c=False
 d = a or b  # d=True
 e = not a   # e=False
 </code></pre>
-<h2 id="赋值运算符">赋值运算符</h2>
-<p>赋值运算符用于将一个值赋给一个变量，例如等于、加等于、减等于等。</p>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><p>赋值运算符用于将一个值赋给一个变量，例如等于、加等于、减等于等。</p>
 <pre><code class="language-python">a = 10
 b = 20
 a = b # a=20
@@ -413,9 +395,55 @@ a *= b # a=400
 a /= b # a=2.0
 a %= b # a=0
 </code></pre>
-<h1>流程控制</h1>
-<h2 id="条件语句">条件语句</h2>
-<p>条件语句用于根据条件执行不同的代码块，例如if语句、if-else语句、if-elif-else语句等。</p>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>功能</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>按位与</td>
+<td>两个位都为1时，结果为1</td>
+</tr>
+<tr>
+<td>|</td>
+<td>按位或</td>
+<td>两个位都为0时，结果为0</td>
+</tr>
+<tr>
+<td>^</td>
+<td>按位异或</td>
+<td>两个位不同时，结果为1</td>
+</tr>
+<tr>
+<td>~</td>
+<td>按位取反</td>
+<td>将所有位取反</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>左移</td>
+<td>将所有位向左移动指定的位数</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>右移</td>
+<td>将所有位向右移动指定的位数</td>
+</tr>
+</tbody></table>
+<pre><code class="language-python">a = 60 # 60 = 0011 1100
+b = 13 # 13 = 0000 1101
+c = a &amp; b # c = 0000 1100 = 12
+d = a | b # d = 0011 1101 = 61
+e = a ^ b # e = 0011 0001 = 49
+f = ~a    # f = 1100 0011 = -61
+g = a &lt;&lt; 2 # g = 1111 0000 = 240
+h = a &gt;&gt; 2 # h = 0000 1111 = 15
+</code></pre>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><p>条件语句用于根据条件执行不同的代码块，例如if语句、if-else语句、if-elif-else语句等。</p>
 <pre><code class="language-python">a = 10
 b = 20
 
@@ -426,8 +454,7 @@ elif a &lt; b:
 else:
     print(&quot;a等于b&quot;)
 </code></pre>
-<h2 id="循环语句">循环语句</h2>
-<p>循环语句用于重复执行一段代码，例如for循环、while循环等。</p>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p>循环语句用于重复执行一段代码，例如for循环、while循环等。</p>
 <ul>
 <li><code>for</code>循环：用于遍历一个可迭代对象，例如<code>列表</code>、<code>元组</code>、<code>字符串</code>等。</li>
 </ul>
@@ -443,15 +470,13 @@ while a &lt; 6:
     print(a)
     a += 1
 </code></pre>
-<h1>函数</h1>
-<p>函数是一段可重复使用的代码块，可以接受参数并返回结果。</p>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数是一段可重复使用的代码块，可以接受参数并返回结果。</p>
 <pre><code class="language-python">def add(a, b):
     return a + b
 result = add(1, 2)
 print(result)
 </code></pre>
-<h2 id="函数文档字符串">函数文档字符串</h2>
-<p>函数文档字符串用于描述函数的功能和用法，可以使用三引号 <code>&quot;&quot;&quot;</code> 包围。</p>
+<h2 id="函数文档字符串"><a href="#函数文档字符串" class="headerlink" title="函数文档字符串"></a>函数文档字符串</h2><p>函数文档字符串用于描述函数的功能和用法，可以使用三引号 <code>&quot;&quot;&quot;</code> 包围。</p>
 <pre><code class="language-python">def add(a, b):
     &quot;&quot;&quot;
     This function adds two numbers.
@@ -465,8 +490,7 @@ print(result)
     &quot;&quot;&quot;
     return a + b
 </code></pre>
-<h2 id="函数参数">函数参数</h2>
-<p>函数参数用于传递数据给函数。</p>
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p>函数参数用于传递数据给函数。</p>
 <ol>
 <li>位置参数：按照参数的顺序传递参数。</li>
 </ol>
@@ -506,16 +530,14 @@ print(result) # 输出15
 fund(name=&quot;Alice&quot;, age=25, city=&quot;New York&quot;)
 </code></pre>
 <p>注意：函数接收关键字参数，使用<code>**kwargs</code>接收参数，<code>kwargs</code>是一个字典类型<code>&#123;&#125;</code>。</p>
-<h2 id="函数返回值">函数返回值</h2>
-<p>函数返回值用于返回函数执行的结果，可以使用<code>return</code>语句。</p>
+<h2 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h2><p>函数返回值用于返回函数执行的结果，可以使用<code>return</code>语句。</p>
 <pre><code class="language-python">def add(a, b):
     return a + b
 
 result = add(1, 2)
 print(result) # 输出3
 </code></pre>
-<h2 id="函数嵌套">函数嵌套</h2>
-<ol>
+<h2 id="函数嵌套"><a href="#函数嵌套" class="headerlink" title="函数嵌套"></a>函数嵌套</h2><ol>
 <li>嵌套调用</li>
 </ol>
 <p>函数嵌套调用是指在一个函数内部调用另一个函数。</p>
@@ -529,8 +551,7 @@ result = multiply(add(1, 2), 3)
 print(result) # 输出9
 </code></pre>
 <ol start="2">
-<li>嵌套定义<br>
-函数嵌套是指在一个函数内部定义另一个函数。</li>
+<li>嵌套定义<br>函数嵌套是指在一个函数内部定义另一个函数。</li>
 </ol>
 <pre><code class="language-python">def outer():
     def inner():
@@ -538,8 +559,7 @@ print(result) # 输出9
     inner()
 outer()
 </code></pre>
-<h2 id="匿名函数">匿名函数</h2>
-<p>匿名函数是指没有名字的函数，使用<code>lambda</code>关键字定义。</p>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>匿名函数是指没有名字的函数，使用<code>lambda</code>关键字定义。</p>
 <p>格式：<code>函数名 = lambda 参数列表: 表达式(返回值)</code></p>
 <ol>
 <li>无参数匿名函数</li>
@@ -571,59 +591,50 @@ print(add(1, 2, 3, 4, 5)) # 输出15
 <pre><code class="language-python">add = lambda **kwargs: sum(kwargs.values())
 print(add(a=1, b=2, c=3)) # 输出6
 </code></pre>
-<h2 id="内置函数">内置函数</h2>
-<p>内置函数是指Python语言自带的函数，例如<code>len()</code>、<code>max()</code>、<code>min()</code>等。</p>
+<h2 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h2><p>内置函数是指Python语言自带的函数，例如<code>len()</code>、<code>max()</code>、<code>min()</code>等。</p>
 <pre><code class="language-python">a = [1, 2, 3, 4, 5]
 print(len(a)) # 输出5
 print(max(a)) # 输出5
 print(min(a)) # 输出1
 </code></pre>
-<p>查看所有内置函数：<code>dir(__builtins__)</code><br>
-<code>dir</code> 函数用于返回一个列表，包含指定对象的所有属性和方法。</p>
+<p>查看所有内置函数：<code>dir(__builtins__)</code><br><code>dir</code> 函数用于返回一个列表，包含指定对象的所有属性和方法。</p>
 <pre><code class="language-python">import math
 print(dir(math))
 # 大写的为常量，小写的为函数
 </code></pre>
-<h3 id="map函数">map函数</h3>
-<p>map函数用于将一个函数应用于可迭代对象的每个元素，并返回一个迭代器。</p>
+<h3 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h3><p>map函数用于将一个函数应用于可迭代对象的每个元素，并返回一个迭代器。</p>
 <p>格式：<code>map(函数, 可迭代对象)</code></p>
 <pre><code class="language-python">a = [1, 2, 3, 4, 5]
 result = map(lambda x: x * 2, a) # 将每个元素乘以2
 print(list(result)) # 输出[2, 4, 6, 8, 10]
 </code></pre>
-<h3 id="filter函数">filter函数</h3>
-<p>filter函数用于过滤可迭代对象中的元素，并返回一个迭代器。</p>
+<h3 id="filter函数"><a href="#filter函数" class="headerlink" title="filter函数"></a>filter函数</h3><p>filter函数用于过滤可迭代对象中的元素，并返回一个迭代器。</p>
 <p>格式：<code>filter(函数, 可迭代对象)</code></p>
 <pre><code class="language-python">a = [1, 2, 3, 4, 5]
 result = filter(lambda x: x % 2 == 0, a) # 过滤出偶数
 print(list(result)) # 输出[2, 4]
 </code></pre>
-<h3 id="reduce函数">reduce函数</h3>
-<p>reduce函数用于将一个函数应用于可迭代对象的每个元素，并返回一个值。<br>
-格式：<code>reduce(函数, 可迭代对象)</code></p>
+<h3 id="reduce函数"><a href="#reduce函数" class="headerlink" title="reduce函数"></a>reduce函数</h3><p>reduce函数用于将一个函数应用于可迭代对象的每个元素，并返回一个值。<br>格式：<code>reduce(函数, 可迭代对象)</code></p>
 <pre><code class="language-python">from functools import reduce
 a = [1, 2, 3, 4, 5]
 result = reduce(lambda x, y: x + y, a) # 将每个元素相加
 print(result) # 输出15
 </code></pre>
-<h3 id="zip函数">zip函数</h3>
-<p>zip函数用于将多个可迭代对象中的元素打包成一个个元组，并返回一个迭代器。</p>
+<h3 id="zip函数"><a href="#zip函数" class="headerlink" title="zip函数"></a>zip函数</h3><p>zip函数用于将多个可迭代对象中的元素打包成一个个元组，并返回一个迭代器。</p>
 <p>格式：<code>zip(可迭代对象1, 可迭代对象2, ...)</code></p>
 <pre><code class="language-python">a = [1, 2, 3]
-b = ['a', 'b', 'c']
+b = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 result = zip(a, b) # 将每个元素打包成元组
-print(list(result)) # 输出[(1, 'a'), (2, 'b'), (3, 'c')]
+print(list(result)) # 输出[(1, &#39;a&#39;), (2, &#39;b&#39;), (3, &#39;c&#39;)]
 </code></pre>
-<h3 id="拆包">拆包</h3>
-<p>对于函数中的多个返回数据，去掉元组，列表或者字典的括号，直接赋值给多个变量。</p>
+<h3 id="拆包"><a href="#拆包" class="headerlink" title="拆包"></a>拆包</h3><p>对于函数中的多个返回数据，去掉元组，列表或者字典的括号，直接赋值给多个变量。</p>
 <pre><code class="language-python">arr = [1, 2, 3]
 a, b, c = arr
 print(a) # 输出1
 print(b) # 输出2
 print(c) # 输出3
 </code></pre>
-<h2 id="闭包">闭包</h2>
-<p>闭包是指在一个函数内部定义另一个函数，并且内部函数可以访问外部函数的变量。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指在一个函数内部定义另一个函数，并且内部函数可以访问外部函数的变量。</p>
 <pre><code class="language-python">def outer():
     x = 10
     def inner():
@@ -632,8 +643,7 @@ print(c) # 输出3
 closure = outer()
 closure() # 输出10
 </code></pre>
-<h1>作用域</h1>
-<p>作用域是指变量可访问的范围，分为全局作用域和局部作用域。</p>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>作用域是指变量可访问的范围，分为全局作用域和局部作用域。</p>
 <ol>
 <li>全局作用域：在函数外部定义的变量，可以在整个程序中访问。</li>
 </ol>
@@ -665,8 +675,7 @@ print(result) # 输出15
 print(a) # 输出15
 </code></pre>
 <p>局部变量<code>a</code>升级为全局变量，可以在函数外部访问。</p>
-<h1>异常</h1>
-<p>异常是指程序运行过程中出现的错误。</p>
+<h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>异常是指程序运行过程中出现的错误。</p>
 <p>异常种类：</p>
 <table>
 <thead>
@@ -675,8 +684,7 @@ print(a) # 输出15
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>ZeroDivisionError</code></td>
 <td>除数为0</td>
 </tr>
@@ -744,10 +752,8 @@ print(a) # 输出15
 <td><code>Exception</code></td>
 <td>所有异常的基类</td>
 </tr>
-</tbody>
-</table>
-<h2 id="捕获异常。">捕获异常。</h2>
-<ul>
+</tbody></table>
+<h2 id="捕获异常。"><a href="#捕获异常。" class="headerlink" title="捕获异常。"></a>捕获异常。</h2><ul>
 <li>格式一：<code>try-except</code></li>
 </ul>
 <pre><code class="language-python">try:
@@ -795,10 +801,8 @@ else:
 finally:
     # 无论是否出现异常都会执行的代码
 </code></pre>
-<h2 id="抛出异常">抛出异常</h2>
-<p>使用<code>raise</code>关键字抛出异常。</p>
-<p>格式：<code>raise 异常类型(异常信息)</code><br>
-示例：</p>
+<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><p>使用<code>raise</code>关键字抛出异常。</p>
+<p>格式：<code>raise 异常类型(异常信息)</code><br>示例：</p>
 <pre><code class="language-python">def divide(a, b):
     if b == 0:
         raise ZeroDivisionError(&quot;除数不能为0&quot;)
@@ -808,15 +812,12 @@ try:
 except ZeroDivisionError as e:
     print(e)
 </code></pre>
-<h1>模块</h1>
-<p>模块是包含一组函数、类和变量的文件，可以导入到其他文件中使用。</p>
-<h2 id="内置模块">内置模块</h2>
-<p>Python内置了一些模块，可以直接使用，例如<code>math</code>、<code>random</code>、<code>datetime</code>等。</p>
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><p>模块是包含一组函数、类和变量的文件，可以导入到其他文件中使用。</p>
+<h2 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h2><p>Python内置了一些模块，可以直接使用，例如<code>math</code>、<code>random</code>、<code>datetime</code>等。</p>
 <pre><code class="language-python">import math
 print(math.sqrt(16)) # 输出4.0
 </code></pre>
-<h2 id="第三方模块（第三方库）">第三方模块（第三方库）</h2>
-<p>第三方模块是指由其他开发者编写的模块，需要先安装才能使用。</p>
+<h2 id="第三方模块（第三方库）"><a href="#第三方模块（第三方库）" class="headerlink" title="第三方模块（第三方库）"></a>第三方模块（第三方库）</h2><p>第三方模块是指由其他开发者编写的模块，需要先安装才能使用。</p>
 <p>安装第三方模块：使用<code>pip</code>命令安装。</p>
 <pre><code class="language-python">pip install 模块名
 </code></pre>
@@ -827,11 +828,9 @@ print(math.sqrt(16)) # 输出4.0
 <pre><code class="language-python">import math
 print(math.sqrt(16)) # 输出4.0
 </code></pre>
-<h2 id="自定义模块">自定义模块</h2>
-<p>自定义模块是指用户自己编写的模块，需要先定义一个<code>.py</code>文件，然后在其他文件中导入使用。</p>
+<h2 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h2><p>自定义模块是指用户自己编写的模块，需要先定义一个<code>.py</code>文件，然后在其他文件中导入使用。</p>
 <p>注意：自定义模块的文件名不能与Python内置模块的文件名相同。</p>
-<h2 id="导入模块">导入模块</h2>
-<ol>
+<h2 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h2><ol>
 <li>导入模块：使用<code>import</code>关键字导入。</li>
 </ol>
 <pre><code class="language-python">import 模块名
@@ -860,25 +859,19 @@ print(sqrt(16)) # 输出4.0
 <pre><code class="language-python">from math import pi
 print(pi) # 输出3.141592653589793
 </code></pre>
-<h2 id="起别名">起别名</h2>
-<h3 id="模块起别名">模块起别名</h3>
-<p>使用<code>as</code>关键字给模块起别名。</p>
+<h2 id="起别名"><a href="#起别名" class="headerlink" title="起别名"></a>起别名</h2><h3 id="模块起别名"><a href="#模块起别名" class="headerlink" title="模块起别名"></a>模块起别名</h3><p>使用<code>as</code>关键字给模块起别名。</p>
 <p>语法：<code>import 模块名 as 别名</code></p>
 <pre><code class="language-python">import math as m
 print(m.sqrt(16)) # 输出4.0
 </code></pre>
-<h3 id="功能起别名">功能起别名</h3>
-<p>使用<code>as</code>关键字给功能起别名。</p>
+<h3 id="功能起别名"><a href="#功能起别名" class="headerlink" title="功能起别名"></a>功能起别名</h3><p>使用<code>as</code>关键字给功能起别名。</p>
 <p>语法：<code>from 模块名 import 功能 as 别名</code></p>
 <pre><code class="language-python">from math import sqrt as s
 print(s(16)) # 输出4.0
 </code></pre>
 <p>注意：导入多个功能时，可以使用‘，’隔开，后面功能也可以使用取别名：<code>from math import sqrt as s, pi as p</code></p>
-<h2 id="内置全局变量">内置全局变量</h2>
-<p>语法：<br>
-if <strong>name</strong> == “<strong>main</strong>”:</p>
-<p>作用：用来控制py文件在不同应用场景下执行不同的逻辑,当模块被直接运行时，<code>__name__</code>的值为<code>&quot;__main__&quot;</code>，当模块被导入时，<code>__name__</code>的值为模块名。<br>
-例如：</p>
+<h2 id="内置全局变量"><a href="#内置全局变量" class="headerlink" title="内置全局变量"></a>内置全局变量</h2><p>语法：<br>if <strong>name</strong> &#x3D;&#x3D; “<strong>main</strong>“:</p>
+<p>作用：用来控制py文件在不同应用场景下执行不同的逻辑,当模块被直接运行时，<code>__name__</code>的值为<code>&quot;__main__&quot;</code>，当模块被导入时，<code>__name__</code>的值为模块名。<br>例如：</p>
 <pre><code class="language-python">if __name__ == &quot;__main__&quot;:
     print(&quot;直接运行&quot;)
 else:
@@ -891,10 +884,8 @@ else:
 <pre><code class="language-shell">被导入
 </code></pre>
 <p>总结：导入不会执行<code>if __name__ == &quot;__main__&quot;:</code>下的代码，只有直接运行该文件才会执行<code>if __name__ == &quot;__main__&quot;:</code>下的代码。</p>
-<h2 id="包">包</h2>
-<p>包是指包含一组模块的文件夹，文件夹中必须包含一个<code>__init__.py</code>文件，用于标识该文件夹是一个包。</p>
-<h3 id="init-py"><strong>init</strong>.py</h3>
-<p>使用包：使用<code>import 包名.模块名</code>导入。</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>包是指包含一组模块的文件夹，文件夹中必须包含一个<code>__init__.py</code>文件，用于标识该文件夹是一个包。</p>
+<h3 id="init-py"><a href="#init-py" class="headerlink" title="init.py"></a><strong>init</strong>.py</h3><p>使用包：使用<code>import 包名.模块名</code>导入。</p>
 <pre><code class="language-python">import mypackage.mymodule
 print(mypackage.mymodule.myfunction())
 </code></pre>
@@ -917,8 +908,7 @@ print(myvariable)
 </code></pre>
 <p>使用包中的所有变量：使用<code>from 包名.模块名 import *</code>导入。</p>
 <p>注意：导包会默认执行<code>__init__.py </code>文件中的代码。</p>
-<h3 id="all"><strong>all</strong></h3>
-<p><code>__all__</code>是一个列表，用于指定包中可以被导入的模块。</p>
+<h3 id="all"><a href="#all" class="headerlink" title="all"></a><strong>all</strong></h3><p><code>__all__</code>是一个列表，用于指定包中可以被导入的模块。</p>
 <p>语法：<code>__all__ = [&quot;模块名1&quot;, &quot;模块名2&quot;, ...]</code></p>
 <p>示例：</p>
 <pre><code class="language-python"># mypackage/__init__.py
@@ -928,9 +918,7 @@ __all__ = [&quot;mymodule1&quot;, &quot;mymodule2&quot;]
 <pre><code class="language-python">from mypackage import mymodule1
 print(mymodule1.myfunction())
 </code></pre>
-<h2 id="闭包-2">闭包</h2>
-<p>闭包是指在一个函数内部定义的函数，它可以访问外部函数的局部变量。<br>
-实现：</p>
+<h2 id="闭包-1"><a href="#闭包-1" class="headerlink" title="闭包"></a>闭包</h2><p>闭包是指在一个函数内部定义的函数，它可以访问外部函数的局部变量。<br>实现：</p>
 <ol>
 <li>函数嵌套（内部函数定义在外部函数内部）</li>
 <li>内部函数访问外部函数的局部变量</li>
@@ -954,8 +942,7 @@ my_function = outer_function()
 my_function() # 输出10
 </code></pre>
 <p>注意：闭包可以访问外部函数的局部变量，但是不能修改外部函数的局部变量。</p>
-<h3 id="函数引用">函数引用</h3>
-<p>函数引用是指将函数赋值给一个变量，然后通过变量调用函数。</p>
+<h3 id="函数引用"><a href="#函数引用" class="headerlink" title="函数引用"></a>函数引用</h3><p>函数引用是指将函数赋值给一个变量，然后通过变量调用函数。</p>
 <p>语法：</p>
 <pre><code class="language-python">变量 = 函数名
 变量()
@@ -967,8 +954,7 @@ my_function() # 输出10
 my_function_ref = my_function
 my_function_ref() # 输出Hello, World!
 </code></pre>
-<h3 id="闭包变量">闭包变量</h3>
-<p>闭包变量是指在闭包中使用的变量，闭包变量实际上只有一份，每次开启内函数都是在使用同一份闭包变量。</p>
+<h3 id="闭包变量"><a href="#闭包变量" class="headerlink" title="闭包变量"></a>闭包变量</h3><p>闭包变量是指在闭包中使用的变量，闭包变量实际上只有一份，每次开启内函数都是在使用同一份闭包变量。</p>
 <pre><code class="language-python">def outer_function(n):
     print(&quot;outer_function:&quot;, n)
     def inner_function(m):
@@ -980,8 +966,7 @@ out = outer_function(10) # outer_function: 10
 out(20) # inner_function: 20
 print(out(20)) # inner_function: 20 30
 </code></pre>
-<h2 id="装饰器">装饰器</h2>
-<p>作用：在不修改原有函数代码的情况下，给函数增加新的功能。</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>作用：在不修改原有函数代码的情况下，给函数增加新的功能。</p>
 <ol>
 <li>标准装饰器</li>
 </ol>
@@ -1060,9 +1045,8 @@ def send(name):
     print(&quot;发送邮件给&quot;, name)
 send(&quot;张三&quot;)
 </code></pre>
-<p>注意：Python 的装饰器应用顺序是 ​<code>​自底向上​​</code> 的，即靠近<code>函数定义</code>的装饰器（<code>@outer_function2</code>）先被应用，外层装饰器（<code>@outer_function1</code>）后应用。<br>
-以上可以看做： <code>send = outer_function1(outer_function2(send))</code></p>
-<div class="tags"><a href="/tags/python/" rel="tag"><i class="ic i-tag"></i>python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-04-09 19:34:11" itemprop="dateModified" datetime="2025-04-09T19:34:11+08:00">2025-04-09</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" title="python基本语法">https://zhang3399.github.io/2021/10/01/python/2023-10-12-python基础/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"></div><div class="item right"><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="next" itemprop="url" data-background-image="images&#x2F;img5.webp" title="python进阶"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>python</span><h3>python进阶</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">变量和标识符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">标识符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">整数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.3.</span> <span class="toc-text">字符串</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">元组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">字典</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%80%BC"><span class="toc-number">6.1.</span> <span class="toc-text">布尔值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.2.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.3.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.4.</span> <span class="toc-text">赋值运算符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">8.1.</span> <span class="toc-text">条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">8.2.</span> <span class="toc-text">循环语句</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">9.1.</span> <span class="toc-text">函数文档字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">9.2.</span> <span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">9.3.</span> <span class="toc-text">函数返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%B5%8C%E5%A5%97"><span class="toc-number">9.4.</span> <span class="toc-text">函数嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">9.5.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.</span> <span class="toc-text">内置函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#map%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.1.</span> <span class="toc-text">map函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.2.</span> <span class="toc-text">filter函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.3.</span> <span class="toc-text">reduce函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.4.</span> <span class="toc-text">zip函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%86%E5%8C%85"><span class="toc-number">9.6.5.</span> <span class="toc-text">拆包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">9.7.</span> <span class="toc-text">闭包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%E3%80%82"><span class="toc-number">11.1.</span> <span class="toc-text">捕获异常。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">11.2.</span> <span class="toc-text">抛出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97"><span class="toc-number">12.1.</span> <span class="toc-text">内置模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%EF%BC%88%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%89"><span class="toc-number">12.2.</span> <span class="toc-text">第三方模块（第三方库）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="toc-number">12.3.</span> <span class="toc-text">自定义模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="toc-number">12.4.</span> <span class="toc-text">导入模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">12.5.</span> <span class="toc-text">起别名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">12.5.1.</span> <span class="toc-text">模块起别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">12.5.2.</span> <span class="toc-text">功能起别名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">12.6.</span> <span class="toc-text">内置全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85"><span class="toc-number">12.7.</span> <span class="toc-text">包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#init-py"><span class="toc-number">12.7.1.</span> <span class="toc-text">init.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#all"><span class="toc-number">12.7.2.</span> <span class="toc-text">all</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85-2"><span class="toc-number">12.8.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8"><span class="toc-number">12.8.1.</span> <span class="toc-text">函数引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E5%8F%98%E9%87%8F"><span class="toc-number">12.8.2.</span> <span class="toc-text">闭包变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-number">12.9.</span> <span class="toc-text">装饰器</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li  class="active"><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" rel="bookmark" title="python基本语法">python基本语法</a></li><li ><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="bookmark" title="python进阶">python进阶</a></li><li ><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/" rel="bookmark" title="python进程、线程、协程">python进程、线程、协程</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">19</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">8</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/">python基本语法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/">onnx+opencv+opencl</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/">python进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/">LSTM</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/TypeScript/" title="分类于TypeScript">TypeScript</a></div><span><a href="/2025/01/20/JS/2025-2-23-TypeScript/">TypeScript学习</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/">LSTM预测电池SOH</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Lambda 表达式</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/git/" title="分类于git">git</a></div><span><a href="/2025/02/23/linux/2025-2-23-git/">git基本使用</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">159k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:24</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+<p>注意：Python 的装饰器应用顺序是 ​<code>​自底向上​​</code> 的，即靠近<code>函数定义</code>的装饰器（<code>@outer_function2</code>）先被应用，外层装饰器（<code>@outer_function1</code>）后应用。<br>以上可以看做： <code>send = outer_function1(outer_function2(send))</code></p>
+<div class="tags"><a href="/tags/python/" rel="tag"><i class="ic i-tag"></i>python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-05-06 00:40:18" itemprop="dateModified" datetime="2025-05-06T00:40:18+08:00">2025-05-06</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" title="python基本语法">https://zhang3399.github.io/2021/10/01/python/2023-10-12-python基础/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"></div><div class="item right"><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="next" itemprop="url" data-background-image="images&#x2F;img6.webp" title="python进阶"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>python</span><h3>python进阶</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">1.</span> <span class="toc-text">变量和标识符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">标识符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0"><span class="toc-number">2.1.</span> <span class="toc-text">整数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">浮点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.3.</span> <span class="toc-text">字符串</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%97%E8%A1%A8"><span class="toc-number">3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%83%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">元组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E5%85%B8"><span class="toc-number">5.</span> <span class="toc-text">字典</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">6.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%80%BC"><span class="toc-number">6.1.</span> <span class="toc-text">布尔值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.</span> <span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.1.</span> <span class="toc-text">算术运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.2.</span> <span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.3.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">7.4.</span> <span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">7.5.</span> <span class="toc-text">位运算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">8.1.</span> <span class="toc-text">条件语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">8.2.</span> <span class="toc-text">循环语句</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-number">9.</span> <span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%96%87%E6%A1%A3%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">9.1.</span> <span class="toc-text">函数文档字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-number">9.2.</span> <span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">9.3.</span> <span class="toc-text">函数返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%B5%8C%E5%A5%97"><span class="toc-number">9.4.</span> <span class="toc-text">函数嵌套</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0"><span class="toc-number">9.5.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.</span> <span class="toc-text">内置函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#map%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.1.</span> <span class="toc-text">map函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#filter%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.2.</span> <span class="toc-text">filter函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.3.</span> <span class="toc-text">reduce函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip%E5%87%BD%E6%95%B0"><span class="toc-number">9.6.4.</span> <span class="toc-text">zip函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%86%E5%8C%85"><span class="toc-number">9.6.5.</span> <span class="toc-text">拆包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">9.7.</span> <span class="toc-text">闭包</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">10.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8"><span class="toc-number">11.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8%E3%80%82"><span class="toc-number">11.1.</span> <span class="toc-text">捕获异常。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-number">11.2.</span> <span class="toc-text">抛出异常</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97"><span class="toc-number">12.</span> <span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97"><span class="toc-number">12.1.</span> <span class="toc-text">内置模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%EF%BC%88%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%89"><span class="toc-number">12.2.</span> <span class="toc-text">第三方模块（第三方库）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="toc-number">12.3.</span> <span class="toc-text">自定义模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="toc-number">12.4.</span> <span class="toc-text">导入模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">12.5.</span> <span class="toc-text">起别名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">12.5.1.</span> <span class="toc-text">模块起别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">12.5.2.</span> <span class="toc-text">功能起别名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">12.6.</span> <span class="toc-text">内置全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85"><span class="toc-number">12.7.</span> <span class="toc-text">包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#init-py"><span class="toc-number">12.7.1.</span> <span class="toc-text">init.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#all"><span class="toc-number">12.7.2.</span> <span class="toc-text">all</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85-1"><span class="toc-number">12.8.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%95%E7%94%A8"><span class="toc-number">12.8.1.</span> <span class="toc-text">函数引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85%E5%8F%98%E9%87%8F"><span class="toc-number">12.8.2.</span> <span class="toc-text">闭包变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-number">12.9.</span> <span class="toc-text">装饰器</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li  class="active"><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/" rel="bookmark" title="python基本语法">python基本语法</a></li><li ><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="bookmark" title="python进阶">python进阶</a></li><li ><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/" rel="bookmark" title="python进程、线程、协程">python进程、线程、协程</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">20</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">9</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">21</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/">python基本语法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/TypeScript/" title="分类于TypeScript">TypeScript</a></div><span><a href="/2025/01/20/JS/2025-2-23-TypeScript/">TypeScript学习</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/git/" title="分类于git">git</a></div><span><a href="/2025/02/23/linux/2025-2-23-git/">git基本使用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/14/C++/2025-3-14-Boost/">Boost</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-onnx+opencv+opencl/">onnx+opencv+opencl</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/">python进程、线程、协程</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Window-Linux/" title="分类于Window/Linux">Window/Linux</a></div><span><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/">终端操作</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">164k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:29</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
     ispost: true,
     path: `2021/10/01/python/2023-10-12-python基础/`,
     favicon: {

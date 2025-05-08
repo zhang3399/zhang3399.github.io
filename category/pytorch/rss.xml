@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;pytorch&#34; category</title>
+        <link>https://zhang3399.github.io</link>
+        <description>滴答滴答滴答</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 23 Feb 2025 01:39:00 +0800</pubDate>
+        <lastBuildDate>Sun, 23 Feb 2025 01:39:00 +0800</lastBuildDate>
+        <category>Socket</category>
+        <category>CMake</category>
+        <category>多线程</category>
+        <category>I/O多路复用</category>
+        <category>TypeScript</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>python</category>
+        <category>Linux</category>
+        <category>Windows</category>
+        <category>git</category>
+        <category>python进阶</category>
+        <category>SQL</category>
+        <category>数据结构</category>
+        <category>LSTM</category>
+        <category>YOLOv5</category>
+        <category>OpenCV</category>
+        <category>ONNX</category>
+        <category>Adman梯度下降</category>
+        <category>YOLOv5s</category>
+        <category>pytorch</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2025/02/23/Pytorch/2025-5-7-pytorch/</guid>
+            <title>Dataset</title>
+            <link>https://zhang3399.github.io/2025/02/23/Pytorch/2025-5-7-pytorch/</link>
+            <category>pytorch</category>
+            <pubDate>Sun, 23 Feb 2025 01:39:00 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;p&gt;Pytorch Dataset 类: &lt;a href=&#34;https://pytorch.org/docs/stable/data.html#torch.utils.data.Dataset&#34;&gt;https://pytorch.org/docs/stable/data.html#torch.utils.data.Dataset&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;Dataset&#34;&gt;&lt;a href=&#34;#Dataset&#34; class=&#34;headerlink&#34; title=&#34;Dataset&#34;&gt;&lt;/a&gt;Dataset&lt;/h1&gt;&lt;p&gt;导入： &lt;code&gt;from torch.utils.data import Dataset&lt;/code&gt;,需要继承Dataset类，并实现&lt;code&gt;__len__&lt;/code&gt;和&lt;code&gt;__getitem__&lt;/code&gt;方法&lt;br&gt;例如：&lt;code&gt;简单制作图像数据集&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from torch.utils.data import Dataset
+from PIL import Image
+import os
+
+
+class MyData(Dataset):
+    def __init__(self, root_dir, label_dir):
+        # root_dir: 数据集的根目录
+        self.root_dir = root_dir
+        # label_dir: 数据集的子目录
+        self.label_dir = label_dir
+        # 获取子目录中的所有文件名
+        self.path = os.path.join(self.root_dir, self.label_dir)
+        self.img_path = os.listdir(self.path)
+
+    # 重写__getitem__方法:根据索引返回图像和标签
+    def __getitem__(self, idx):
+        img_name = self.img_path[idx]
+        # img_item_path: 数据集的完整路径
+        img_item_path = os.path.join(self.root_dir, self.label_dir, img_name)
+        img = Image.open(img_item_path)
+        label = self.label_dir
+        return img, label
+
+    # 重写__len__方法:返回数据集的大小
+    def __len__(self):
+        return len(self.img_path)
+
+root_dir = &amp;quot;dataset/train&amp;quot;
+ants_label_dir = &amp;quot;ants&amp;quot;
+beens_label_dir = &amp;quot;bees&amp;quot;
+ants_dataset = MyData(root_dir, ants_label_dir)
+bees_dataset = MyData(root_dir, beens_label_dir)
+# 合并数据集
+train_dataset = ants_dataset + bees_dataset
+# 显示数据集图片
+Image.show(train_dataset[0])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;Tensorboard使用&#34;&gt;&lt;a href=&#34;#Tensorboard使用&#34; class=&#34;headerlink&#34; title=&#34;Tensorboard使用&#34;&gt;&lt;/a&gt;Tensorboard使用&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Tensorboard: &lt;a href=&#34;https://pytorch.org/docs/stable/tensorboard.html&#34;&gt;https://pytorch.org/docs/stable/tensorboard.html&lt;/a&gt;&lt;br&gt;Tensorboard是一个可视化工具，可以用于可视化训练过程中的各种指标，如损失函数、准确率等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a href=&#34;#安装&#34; class=&#34;headerlink&#34; title=&#34;安装&#34;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pip install tensorboard
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;使用&#34;&gt;&lt;a href=&#34;#使用&#34; class=&#34;headerlink&#34; title=&#34;使用&#34;&gt;&lt;/a&gt;使用&lt;/h2&gt;&lt;p&gt;函数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;add_scalar(tag, scalar_value, global_step=None, walltime=None)&lt;/code&gt;:记录标量数据&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tag&lt;/code&gt;:数据的标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scalar_value&lt;/code&gt;:标量值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;global_step&lt;/code&gt;:全局步数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;walltime&lt;/code&gt;:时间戳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add_scalars(main_tag, tag_scalar_dict, global_step=None, walltime=None)&lt;/code&gt;:记录多个标量数据&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;main_tag&lt;/code&gt;:主标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tag_scalar_dict&lt;/code&gt;:标签和标量值的字典&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;global_step&lt;/code&gt;:全局步数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;walltime&lt;/code&gt;:时间戳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add_image(tag, img_tensor, global_step=None, walltime=None, dataformats=&amp;#39;CHW&amp;#39;)&lt;/code&gt;:记录图像数据&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tag&lt;/code&gt;:数据的标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;img_tensor&lt;/code&gt;:图像数据&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;global_step&lt;/code&gt;:全局步数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;walltime&lt;/code&gt;:时间戳&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dataformats&lt;/code&gt;:图像数据的格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add_images(tag, img_tensor, global_step=None, walltime=None, dataformats=&amp;#39;NCHW&amp;#39;)&lt;/code&gt;:记录多个图像数据&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tag&lt;/code&gt;:数据的标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;img_tensor&lt;/code&gt;:图像数据&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;global_step&lt;/code&gt;:全局步数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;walltime&lt;/code&gt;:时间戳&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dataformats&lt;/code&gt;:图像数据的格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add_histogram(tag, values, global_step=None, bins=&amp;#39;tensorflow&amp;#39;, walltime=None, max_bins=None)&lt;/code&gt;:记录直方图数据&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tag&lt;/code&gt;:数据的标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;values&lt;/code&gt;:直方图数据&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;global_step&lt;/code&gt;:全局步数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bins&lt;/code&gt;:直方图的分箱方式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;walltime&lt;/code&gt;:时间戳&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;max_bins&lt;/code&gt;:最大分箱数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;add_pr_curve(tag, labels, predictions, global_step=None, num_thresholds=101, weights=None, walltime=None)&lt;/code&gt;:记录PR曲线数据&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tag&lt;/code&gt;:数据的标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;labels&lt;/code&gt;:真实标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;predictions&lt;/code&gt;:预测值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;global_step&lt;/code&gt;:全局步数&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;num_thresholds&lt;/code&gt;:阈值数量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weights&lt;/code&gt;:权重&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;walltime&lt;/code&gt;:时间戳&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from torch.utils.tensorboard import SummaryWriter
+
+# 创建SummaryWriter对象
+writer = SummaryWriter(&amp;quot;logs&amp;quot;)
+
+# 训练过程中记录数据
+for i in range(100):
+    writer.add_scalar(&amp;quot;Loss/train&amp;quot;, i, i)# 标签名 x轴值 y轴值
+
+# 关闭SummaryWriter对象
+writer.close()
+
+# 官方示例
+&amp;quot;&amp;quot;&amp;quot;
+Examples::
+
+    from torch.utils.tensorboard import SummaryWriter
+    writer = SummaryWriter()
+    x = range(100)
+    for i in x:
+        writer.add_scalar(&amp;#39;y=2x&amp;#39;, i * 2, i)
+    writer.close()
+
+Expected result:
+
+.. image:: _static/img/tensorboard/add_scalar.png
+    :scale: 50 %
+
+&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;启动&#34;&gt;&lt;a href=&#34;#启动&#34; class=&#34;headerlink&#34; title=&#34;启动&#34;&gt;&lt;/a&gt;启动&lt;/h2&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;tensorboard --logdir=logs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;访问&#34;&gt;&lt;a href=&#34;#访问&#34; class=&#34;headerlink&#34; title=&#34;访问&#34;&gt;&lt;/a&gt;访问&lt;/h2&gt;&lt;p&gt;打开浏览器，输入&lt;code&gt;http://localhost:6006&lt;/code&gt;即可访问Tensorboard&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

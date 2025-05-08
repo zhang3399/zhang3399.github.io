@@ -27,6 +27,7 @@
         <category>ONNX</category>
         <category>Adman梯度下降</category>
         <category>YOLOv5s</category>
+        <category>pytorch</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
             <title>Lambda 表达式</title>

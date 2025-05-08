@@ -24,6 +24,7 @@
     <category term="ONNX" />
     <category term="Adman梯度下降" />
     <category term="YOLOv5s" />
+    <category term="pytorch" />
     <entry>
         <id>https://zhang3399.github.io/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/</id>
         <title>python进程、线程、协程</title>
@@ -603,16 +604,13 @@ if __name__ == &#39;__main__&#39;:
         <id>https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/</id>
         <title>python基本语法</title>
         <link rel="alternate" href="https://zhang3399.github.io/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/"/>
-        <content type="html">&lt;h1&gt;变量和标识符&lt;/h1&gt;
-&lt;h2 id=&#34;变量&#34;&gt;变量&lt;/h2&gt;
-&lt;p&gt;变量是用于存储数据的容器，变量名可以包含字母、数字和下划线，但不能以数字开头。&lt;/p&gt;
+        <content type="html">&lt;h1 id=&#34;变量和标识符&#34;&gt;&lt;a href=&#34;#变量和标识符&#34; class=&#34;headerlink&#34; title=&#34;变量和标识符&#34;&gt;&lt;/a&gt;变量和标识符&lt;/h1&gt;&lt;h2 id=&#34;变量&#34;&gt;&lt;a href=&#34;#变量&#34; class=&#34;headerlink&#34; title=&#34;变量&#34;&gt;&lt;/a&gt;变量&lt;/h2&gt;&lt;p&gt;变量是用于存储数据的容器，变量名可以包含字母、数字和下划线，但不能以数字开头。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 1
 b = 2
 c = a + b
 print(c)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;标识符&#34;&gt;标识符&lt;/h2&gt;
-&lt;p&gt;标识符是用于标识变量、函数、类、模块等的名称。标识符的命名规则如下：&lt;/p&gt;
+&lt;h2 id=&#34;标识符&#34;&gt;&lt;a href=&#34;#标识符&#34; class=&#34;headerlink&#34; title=&#34;标识符&#34;&gt;&lt;/a&gt;标识符&lt;/h2&gt;&lt;p&gt;标识符是用于标识变量、函数、类、模块等的名称。标识符的命名规则如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;标识符可以包含字母、数字和下划线，但不能以数字开头。&lt;/li&gt;
 &lt;li&gt;标识符不能包含空格和特殊字符。&lt;/li&gt;
@@ -631,25 +629,20 @@ my_variable3 = 30
 # 2my_variable = 10 # 以数字开头
 # my-variable-2 = 20 # 包含特殊字符
 # class = 10 # 是Python关键字
-
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;数据类型&lt;/h1&gt;
-&lt;h2 id=&#34;整数&#34;&gt;整数&lt;/h2&gt;
-&lt;p&gt;整数是用于表示整数的类型，例如1、2、3等。&lt;/p&gt;
+&lt;h1 id=&#34;数据类型&#34;&gt;&lt;a href=&#34;#数据类型&#34; class=&#34;headerlink&#34; title=&#34;数据类型&#34;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;h2 id=&#34;整数&#34;&gt;&lt;a href=&#34;#整数&#34; class=&#34;headerlink&#34; title=&#34;整数&#34;&gt;&lt;/a&gt;整数&lt;/h2&gt;&lt;p&gt;整数是用于表示整数的类型，例如1、2、3等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 10
 b = -20
 c = 0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;浮点数&#34;&gt;浮点数&lt;/h2&gt;
-&lt;p&gt;浮点数是用于表示小数的类型，例如1.0、2.5、3.14等。&lt;/p&gt;
+&lt;h2 id=&#34;浮点数&#34;&gt;&lt;a href=&#34;#浮点数&#34; class=&#34;headerlink&#34; title=&#34;浮点数&#34;&gt;&lt;/a&gt;浮点数&lt;/h2&gt;&lt;p&gt;浮点数是用于表示小数的类型，例如1.0、2.5、3.14等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 1.0
 b = -2.5
 c = 0.0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;字符串&#34;&gt;字符串&lt;/h2&gt;
-&lt;p&gt;字符串是用于表示文本的类型，例如&amp;quot;hello&amp;quot;、&amp;quot;world&amp;quot;等。&lt;/p&gt;
+&lt;h2 id=&#34;字符串&#34;&gt;&lt;a href=&#34;#字符串&#34; class=&#34;headerlink&#34; title=&#34;字符串&#34;&gt;&lt;/a&gt;字符串&lt;/h2&gt;&lt;p&gt;字符串是用于表示文本的类型，例如”hello”、”world”等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;string1 = &amp;quot;hello&amp;quot;
-string2 = &#39;world&#39;
+string2 = &amp;#39;world&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;字符串常见操作：&lt;/p&gt;
 &lt;ol&gt;
@@ -744,8 +737,7 @@ print(a.isdigit()) # 输出False
 print(a.isalnum()) # 输出True
 print(a.isspace()) # 输出False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;列表&lt;/h1&gt;
-&lt;p&gt;列表是用于存储多个元素的有序集合，可以包含不同类型的元素。&lt;/p&gt;
+&lt;h1 id=&#34;列表&#34;&gt;&lt;a href=&#34;#列表&#34; class=&#34;headerlink&#34; title=&#34;列表&#34;&gt;&lt;/a&gt;列表&lt;/h1&gt;&lt;p&gt;列表是用于存储多个元素的有序集合，可以包含不同类型的元素。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = [1, 2, 3, 4, 5]
 b = [&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;]
 c = [1, &amp;quot;hello&amp;quot;, 3.14]
@@ -834,8 +826,7 @@ print(c) # 输出[1, 2, 3, 4, 5, 6]
 b = a.copy()
 print(b) # 输出[1, 2, 3]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;元组&lt;/h1&gt;
-&lt;p&gt;元组是用于存储多个元素的有序集合，与列表类似，但元组中的元素不可修改。&lt;/p&gt;
+&lt;h1 id=&#34;元组&#34;&gt;&lt;a href=&#34;#元组&#34; class=&#34;headerlink&#34; title=&#34;元组&#34;&gt;&lt;/a&gt;元组&lt;/h1&gt;&lt;p&gt;元组是用于存储多个元素的有序集合，与列表类似，但元组中的元素不可修改。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = (1, 2, 3, 4, 5)
 b = (&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;)
 c = (1, &amp;quot;hello&amp;quot;, 3.14)
@@ -869,8 +860,7 @@ print(x) # 输出1
 print(y) # 输出2
 print(z) # 输出3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;字典&lt;/h1&gt;
-&lt;p&gt;字典是用于存储键值对的集合，键值对之间用冒号分隔，键值对之间用逗号分隔。&lt;/p&gt;
+&lt;h1 id=&#34;字典&#34;&gt;&lt;a href=&#34;#字典&#34; class=&#34;headerlink&#34; title=&#34;字典&#34;&gt;&lt;/a&gt;字典&lt;/h1&gt;&lt;p&gt;字典是用于存储键值对的集合，键值对之间用冒号分隔，键值对之间用逗号分隔。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = &amp;#123;&amp;quot;name&amp;quot;: &amp;quot;Alice&amp;quot;, &amp;quot;age&amp;quot;: 25, &amp;quot;city&amp;quot;: &amp;quot;New York&amp;quot;&amp;#125;
 b = &amp;#123;1: &amp;quot;one&amp;quot;, 2: &amp;quot;two&amp;quot;, 3: &amp;quot;three&amp;quot;&amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
@@ -910,8 +900,7 @@ print(len(a)) # 输出3
 for key, value in a.items():
     print(key, value)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;集合&lt;/h1&gt;
-&lt;p&gt;集合是用于存储多个元素的集合，元素不重复且无序。&lt;/p&gt;
+&lt;h1 id=&#34;集合&#34;&gt;&lt;a href=&#34;#集合&#34; class=&#34;headerlink&#34; title=&#34;集合&#34;&gt;&lt;/a&gt;集合&lt;/h1&gt;&lt;p&gt;集合是用于存储多个元素的集合，元素不重复且无序。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = &amp;#123;1, 2, 3, 4, 5&amp;#125;
 b = &amp;#123;&amp;quot;hello&amp;quot;, &amp;quot;world&amp;quot;&amp;#125;
 c = &amp;#123;1, &amp;quot;hello&amp;quot;, 3.14&amp;#125;
@@ -973,14 +962,11 @@ print(a - b) # 输出&amp;#123;1, 2, 3&amp;#125;
 b = &amp;#123;4, 5, 6, 7, 8&amp;#125;
 print(a ^ b) # 输出&amp;#123;1, 2, 3, 6, 7, 8&amp;#125;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;布尔值&#34;&gt;布尔值&lt;/h2&gt;
-&lt;p&gt;布尔值是用于表示真假的类型，只有两个值：True和False。&lt;/p&gt;
+&lt;h2 id=&#34;布尔值&#34;&gt;&lt;a href=&#34;#布尔值&#34; class=&#34;headerlink&#34; title=&#34;布尔值&#34;&gt;&lt;/a&gt;布尔值&lt;/h2&gt;&lt;p&gt;布尔值是用于表示真假的类型，只有两个值：True和False。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = True
 b = False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;运算符&lt;/h1&gt;
-&lt;h2 id=&#34;算术运算符&#34;&gt;算术运算符&lt;/h2&gt;
-&lt;p&gt;算术运算符用于执行基本的数学运算，例如加法、减法、乘法、除法等。&lt;/p&gt;
+&lt;h1 id=&#34;运算符&#34;&gt;&lt;a href=&#34;#运算符&#34; class=&#34;headerlink&#34; title=&#34;运算符&#34;&gt;&lt;/a&gt;运算符&lt;/h1&gt;&lt;h2 id=&#34;算术运算符&#34;&gt;&lt;a href=&#34;#算术运算符&#34; class=&#34;headerlink&#34; title=&#34;算术运算符&#34;&gt;&lt;/a&gt;算术运算符&lt;/h2&gt;&lt;p&gt;算术运算符用于执行基本的数学运算，例如加法、减法、乘法、除法等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 10
 b = 20
 c = a + b # c=30
@@ -988,10 +974,8 @@ d = a - b # d=-10
 e = a * b # e=200
 f = a / b # f=0.5
 g = a % b # g=10
-
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;比较运算符&#34;&gt;比较运算符&lt;/h2&gt;
-&lt;p&gt;比较运算符用于比较两个值的大小关系，例如大于、小于、等于、不等于等。&lt;/p&gt;
+&lt;h2 id=&#34;比较运算符&#34;&gt;&lt;a href=&#34;#比较运算符&#34; class=&#34;headerlink&#34; title=&#34;比较运算符&#34;&gt;&lt;/a&gt;比较运算符&lt;/h2&gt;&lt;p&gt;比较运算符用于比较两个值的大小关系，例如大于、小于、等于、不等于等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 10
 b = 20
 c = a &amp;gt; b  # c=False
@@ -999,16 +983,14 @@ d = a &amp;lt; b  # d=True
 e = a == b # e=False
 f = a != b # f=True
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;逻辑运算符&#34;&gt;逻辑运算符&lt;/h2&gt;
-&lt;p&gt;逻辑运算符用于执行逻辑运算，例如与、或、非等。&lt;/p&gt;
+&lt;h2 id=&#34;逻辑运算符&#34;&gt;&lt;a href=&#34;#逻辑运算符&#34; class=&#34;headerlink&#34; title=&#34;逻辑运算符&#34;&gt;&lt;/a&gt;逻辑运算符&lt;/h2&gt;&lt;p&gt;逻辑运算符用于执行逻辑运算，例如与、或、非等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = True
 b = False
 c = a and b # c=False
 d = a or b  # d=True
 e = not a   # e=False
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;赋值运算符&#34;&gt;赋值运算符&lt;/h2&gt;
-&lt;p&gt;赋值运算符用于将一个值赋给一个变量，例如等于、加等于、减等于等。&lt;/p&gt;
+&lt;h2 id=&#34;赋值运算符&#34;&gt;&lt;a href=&#34;#赋值运算符&#34; class=&#34;headerlink&#34; title=&#34;赋值运算符&#34;&gt;&lt;/a&gt;赋值运算符&lt;/h2&gt;&lt;p&gt;赋值运算符用于将一个值赋给一个变量，例如等于、加等于、减等于等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 10
 b = 20
 a = b # a=20
@@ -1018,9 +1000,55 @@ a *= b # a=400
 a /= b # a=2.0
 a %= b # a=0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;流程控制&lt;/h1&gt;
-&lt;h2 id=&#34;条件语句&#34;&gt;条件语句&lt;/h2&gt;
-&lt;p&gt;条件语句用于根据条件执行不同的代码块，例如if语句、if-else语句、if-elif-else语句等。&lt;/p&gt;
+&lt;h2 id=&#34;位运算&#34;&gt;&lt;a href=&#34;#位运算&#34; class=&#34;headerlink&#34; title=&#34;位运算&#34;&gt;&lt;/a&gt;位运算&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;符号&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;规则&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&amp;amp;&lt;/td&gt;
+&lt;td&gt;按位与&lt;/td&gt;
+&lt;td&gt;两个位都为1时，结果为1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;|&lt;/td&gt;
+&lt;td&gt;按位或&lt;/td&gt;
+&lt;td&gt;两个位都为0时，结果为0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;^&lt;/td&gt;
+&lt;td&gt;按位异或&lt;/td&gt;
+&lt;td&gt;两个位不同时，结果为1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;~&lt;/td&gt;
+&lt;td&gt;按位取反&lt;/td&gt;
+&lt;td&gt;将所有位取反&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;&amp;lt;&lt;/td&gt;
+&lt;td&gt;左移&lt;/td&gt;
+&lt;td&gt;将所有位向左移动指定的位数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;右移&lt;/td&gt;
+&lt;td&gt;将所有位向右移动指定的位数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 60 # 60 = 0011 1100
+b = 13 # 13 = 0000 1101
+c = a &amp;amp; b # c = 0000 1100 = 12
+d = a | b # d = 0011 1101 = 61
+e = a ^ b # e = 0011 0001 = 49
+f = ~a    # f = 1100 0011 = -61
+g = a &amp;lt;&amp;lt; 2 # g = 1111 0000 = 240
+h = a &amp;gt;&amp;gt; 2 # h = 0000 1111 = 15
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;流程控制&#34;&gt;&lt;a href=&#34;#流程控制&#34; class=&#34;headerlink&#34; title=&#34;流程控制&#34;&gt;&lt;/a&gt;流程控制&lt;/h1&gt;&lt;h2 id=&#34;条件语句&#34;&gt;&lt;a href=&#34;#条件语句&#34; class=&#34;headerlink&#34; title=&#34;条件语句&#34;&gt;&lt;/a&gt;条件语句&lt;/h2&gt;&lt;p&gt;条件语句用于根据条件执行不同的代码块，例如if语句、if-else语句、if-elif-else语句等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = 10
 b = 20
 
@@ -1031,8 +1059,7 @@ elif a &amp;lt; b:
 else:
     print(&amp;quot;a等于b&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;循环语句&#34;&gt;循环语句&lt;/h2&gt;
-&lt;p&gt;循环语句用于重复执行一段代码，例如for循环、while循环等。&lt;/p&gt;
+&lt;h2 id=&#34;循环语句&#34;&gt;&lt;a href=&#34;#循环语句&#34; class=&#34;headerlink&#34; title=&#34;循环语句&#34;&gt;&lt;/a&gt;循环语句&lt;/h2&gt;&lt;p&gt;循环语句用于重复执行一段代码，例如for循环、while循环等。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;for&lt;/code&gt;循环：用于遍历一个可迭代对象，例如&lt;code&gt;列表&lt;/code&gt;、&lt;code&gt;元组&lt;/code&gt;、&lt;code&gt;字符串&lt;/code&gt;等。&lt;/li&gt;
 &lt;/ul&gt;
@@ -1048,15 +1075,13 @@ while a &amp;lt; 6:
     print(a)
     a += 1
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;函数&lt;/h1&gt;
-&lt;p&gt;函数是一段可重复使用的代码块，可以接受参数并返回结果。&lt;/p&gt;
+&lt;h1 id=&#34;函数&#34;&gt;&lt;a href=&#34;#函数&#34; class=&#34;headerlink&#34; title=&#34;函数&#34;&gt;&lt;/a&gt;函数&lt;/h1&gt;&lt;p&gt;函数是一段可重复使用的代码块，可以接受参数并返回结果。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def add(a, b):
     return a + b
 result = add(1, 2)
 print(result)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;函数文档字符串&#34;&gt;函数文档字符串&lt;/h2&gt;
-&lt;p&gt;函数文档字符串用于描述函数的功能和用法，可以使用三引号 &lt;code&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/code&gt; 包围。&lt;/p&gt;
+&lt;h2 id=&#34;函数文档字符串&#34;&gt;&lt;a href=&#34;#函数文档字符串&#34; class=&#34;headerlink&#34; title=&#34;函数文档字符串&#34;&gt;&lt;/a&gt;函数文档字符串&lt;/h2&gt;&lt;p&gt;函数文档字符串用于描述函数的功能和用法，可以使用三引号 &lt;code&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/code&gt; 包围。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def add(a, b):
     &amp;quot;&amp;quot;&amp;quot;
     This function adds two numbers.
@@ -1070,8 +1095,7 @@ print(result)
     &amp;quot;&amp;quot;&amp;quot;
     return a + b
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;函数参数&#34;&gt;函数参数&lt;/h2&gt;
-&lt;p&gt;函数参数用于传递数据给函数。&lt;/p&gt;
+&lt;h2 id=&#34;函数参数&#34;&gt;&lt;a href=&#34;#函数参数&#34; class=&#34;headerlink&#34; title=&#34;函数参数&#34;&gt;&lt;/a&gt;函数参数&lt;/h2&gt;&lt;p&gt;函数参数用于传递数据给函数。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;位置参数：按照参数的顺序传递参数。&lt;/li&gt;
 &lt;/ol&gt;
@@ -1111,16 +1135,14 @@ print(result) # 输出15
 fund(name=&amp;quot;Alice&amp;quot;, age=25, city=&amp;quot;New York&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;注意：函数接收关键字参数，使用&lt;code&gt;**kwargs&lt;/code&gt;接收参数，&lt;code&gt;kwargs&lt;/code&gt;是一个字典类型&lt;code&gt;&amp;#123;&amp;#125;&lt;/code&gt;。&lt;/p&gt;
-&lt;h2 id=&#34;函数返回值&#34;&gt;函数返回值&lt;/h2&gt;
-&lt;p&gt;函数返回值用于返回函数执行的结果，可以使用&lt;code&gt;return&lt;/code&gt;语句。&lt;/p&gt;
+&lt;h2 id=&#34;函数返回值&#34;&gt;&lt;a href=&#34;#函数返回值&#34; class=&#34;headerlink&#34; title=&#34;函数返回值&#34;&gt;&lt;/a&gt;函数返回值&lt;/h2&gt;&lt;p&gt;函数返回值用于返回函数执行的结果，可以使用&lt;code&gt;return&lt;/code&gt;语句。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def add(a, b):
     return a + b
 
 result = add(1, 2)
 print(result) # 输出3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;函数嵌套&#34;&gt;函数嵌套&lt;/h2&gt;
-&lt;ol&gt;
+&lt;h2 id=&#34;函数嵌套&#34;&gt;&lt;a href=&#34;#函数嵌套&#34; class=&#34;headerlink&#34; title=&#34;函数嵌套&#34;&gt;&lt;/a&gt;函数嵌套&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;嵌套调用&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;函数嵌套调用是指在一个函数内部调用另一个函数。&lt;/p&gt;
@@ -1134,8 +1156,7 @@ result = multiply(add(1, 2), 3)
 print(result) # 输出9
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;嵌套定义&lt;br&gt;
-函数嵌套是指在一个函数内部定义另一个函数。&lt;/li&gt;
+&lt;li&gt;嵌套定义&lt;br&gt;函数嵌套是指在一个函数内部定义另一个函数。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def outer():
     def inner():
@@ -1143,8 +1164,7 @@ print(result) # 输出9
     inner()
 outer()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;匿名函数&#34;&gt;匿名函数&lt;/h2&gt;
-&lt;p&gt;匿名函数是指没有名字的函数，使用&lt;code&gt;lambda&lt;/code&gt;关键字定义。&lt;/p&gt;
+&lt;h2 id=&#34;匿名函数&#34;&gt;&lt;a href=&#34;#匿名函数&#34; class=&#34;headerlink&#34; title=&#34;匿名函数&#34;&gt;&lt;/a&gt;匿名函数&lt;/h2&gt;&lt;p&gt;匿名函数是指没有名字的函数，使用&lt;code&gt;lambda&lt;/code&gt;关键字定义。&lt;/p&gt;
 &lt;p&gt;格式：&lt;code&gt;函数名 = lambda 参数列表: 表达式(返回值)&lt;/code&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;无参数匿名函数&lt;/li&gt;
@@ -1176,59 +1196,50 @@ print(add(1, 2, 3, 4, 5)) # 输出15
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;add = lambda **kwargs: sum(kwargs.values())
 print(add(a=1, b=2, c=3)) # 输出6
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;内置函数&#34;&gt;内置函数&lt;/h2&gt;
-&lt;p&gt;内置函数是指Python语言自带的函数，例如&lt;code&gt;len()&lt;/code&gt;、&lt;code&gt;max()&lt;/code&gt;、&lt;code&gt;min()&lt;/code&gt;等。&lt;/p&gt;
+&lt;h2 id=&#34;内置函数&#34;&gt;&lt;a href=&#34;#内置函数&#34; class=&#34;headerlink&#34; title=&#34;内置函数&#34;&gt;&lt;/a&gt;内置函数&lt;/h2&gt;&lt;p&gt;内置函数是指Python语言自带的函数，例如&lt;code&gt;len()&lt;/code&gt;、&lt;code&gt;max()&lt;/code&gt;、&lt;code&gt;min()&lt;/code&gt;等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = [1, 2, 3, 4, 5]
 print(len(a)) # 输出5
 print(max(a)) # 输出5
 print(min(a)) # 输出1
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;查看所有内置函数：&lt;code&gt;dir(__builtins__)&lt;/code&gt;&lt;br&gt;
-&lt;code&gt;dir&lt;/code&gt; 函数用于返回一个列表，包含指定对象的所有属性和方法。&lt;/p&gt;
+&lt;p&gt;查看所有内置函数：&lt;code&gt;dir(__builtins__)&lt;/code&gt;&lt;br&gt;&lt;code&gt;dir&lt;/code&gt; 函数用于返回一个列表，包含指定对象的所有属性和方法。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
 print(dir(math))
 # 大写的为常量，小写的为函数
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;map函数&#34;&gt;map函数&lt;/h3&gt;
-&lt;p&gt;map函数用于将一个函数应用于可迭代对象的每个元素，并返回一个迭代器。&lt;/p&gt;
+&lt;h3 id=&#34;map函数&#34;&gt;&lt;a href=&#34;#map函数&#34; class=&#34;headerlink&#34; title=&#34;map函数&#34;&gt;&lt;/a&gt;map函数&lt;/h3&gt;&lt;p&gt;map函数用于将一个函数应用于可迭代对象的每个元素，并返回一个迭代器。&lt;/p&gt;
 &lt;p&gt;格式：&lt;code&gt;map(函数, 可迭代对象)&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = [1, 2, 3, 4, 5]
 result = map(lambda x: x * 2, a) # 将每个元素乘以2
 print(list(result)) # 输出[2, 4, 6, 8, 10]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;filter函数&#34;&gt;filter函数&lt;/h3&gt;
-&lt;p&gt;filter函数用于过滤可迭代对象中的元素，并返回一个迭代器。&lt;/p&gt;
+&lt;h3 id=&#34;filter函数&#34;&gt;&lt;a href=&#34;#filter函数&#34; class=&#34;headerlink&#34; title=&#34;filter函数&#34;&gt;&lt;/a&gt;filter函数&lt;/h3&gt;&lt;p&gt;filter函数用于过滤可迭代对象中的元素，并返回一个迭代器。&lt;/p&gt;
 &lt;p&gt;格式：&lt;code&gt;filter(函数, 可迭代对象)&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = [1, 2, 3, 4, 5]
 result = filter(lambda x: x % 2 == 0, a) # 过滤出偶数
 print(list(result)) # 输出[2, 4]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;reduce函数&#34;&gt;reduce函数&lt;/h3&gt;
-&lt;p&gt;reduce函数用于将一个函数应用于可迭代对象的每个元素，并返回一个值。&lt;br&gt;
-格式：&lt;code&gt;reduce(函数, 可迭代对象)&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;reduce函数&#34;&gt;&lt;a href=&#34;#reduce函数&#34; class=&#34;headerlink&#34; title=&#34;reduce函数&#34;&gt;&lt;/a&gt;reduce函数&lt;/h3&gt;&lt;p&gt;reduce函数用于将一个函数应用于可迭代对象的每个元素，并返回一个值。&lt;br&gt;格式：&lt;code&gt;reduce(函数, 可迭代对象)&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from functools import reduce
 a = [1, 2, 3, 4, 5]
 result = reduce(lambda x, y: x + y, a) # 将每个元素相加
 print(result) # 输出15
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;zip函数&#34;&gt;zip函数&lt;/h3&gt;
-&lt;p&gt;zip函数用于将多个可迭代对象中的元素打包成一个个元组，并返回一个迭代器。&lt;/p&gt;
+&lt;h3 id=&#34;zip函数&#34;&gt;&lt;a href=&#34;#zip函数&#34; class=&#34;headerlink&#34; title=&#34;zip函数&#34;&gt;&lt;/a&gt;zip函数&lt;/h3&gt;&lt;p&gt;zip函数用于将多个可迭代对象中的元素打包成一个个元组，并返回一个迭代器。&lt;/p&gt;
 &lt;p&gt;格式：&lt;code&gt;zip(可迭代对象1, 可迭代对象2, ...)&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;a = [1, 2, 3]
-b = [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+b = [&amp;#39;a&amp;#39;, &amp;#39;b&amp;#39;, &amp;#39;c&amp;#39;]
 result = zip(a, b) # 将每个元素打包成元组
-print(list(result)) # 输出[(1, &#39;a&#39;), (2, &#39;b&#39;), (3, &#39;c&#39;)]
+print(list(result)) # 输出[(1, &amp;#39;a&amp;#39;), (2, &amp;#39;b&amp;#39;), (3, &amp;#39;c&amp;#39;)]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;拆包&#34;&gt;拆包&lt;/h3&gt;
-&lt;p&gt;对于函数中的多个返回数据，去掉元组，列表或者字典的括号，直接赋值给多个变量。&lt;/p&gt;
+&lt;h3 id=&#34;拆包&#34;&gt;&lt;a href=&#34;#拆包&#34; class=&#34;headerlink&#34; title=&#34;拆包&#34;&gt;&lt;/a&gt;拆包&lt;/h3&gt;&lt;p&gt;对于函数中的多个返回数据，去掉元组，列表或者字典的括号，直接赋值给多个变量。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;arr = [1, 2, 3]
 a, b, c = arr
 print(a) # 输出1
 print(b) # 输出2
 print(c) # 输出3
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;闭包&#34;&gt;闭包&lt;/h2&gt;
-&lt;p&gt;闭包是指在一个函数内部定义另一个函数，并且内部函数可以访问外部函数的变量。&lt;/p&gt;
+&lt;h2 id=&#34;闭包&#34;&gt;&lt;a href=&#34;#闭包&#34; class=&#34;headerlink&#34; title=&#34;闭包&#34;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;p&gt;闭包是指在一个函数内部定义另一个函数，并且内部函数可以访问外部函数的变量。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def outer():
     x = 10
     def inner():
@@ -1237,8 +1248,7 @@ print(c) # 输出3
 closure = outer()
 closure() # 输出10
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;作用域&lt;/h1&gt;
-&lt;p&gt;作用域是指变量可访问的范围，分为全局作用域和局部作用域。&lt;/p&gt;
+&lt;h1 id=&#34;作用域&#34;&gt;&lt;a href=&#34;#作用域&#34; class=&#34;headerlink&#34; title=&#34;作用域&#34;&gt;&lt;/a&gt;作用域&lt;/h1&gt;&lt;p&gt;作用域是指变量可访问的范围，分为全局作用域和局部作用域。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;全局作用域：在函数外部定义的变量，可以在整个程序中访问。&lt;/li&gt;
 &lt;/ol&gt;
@@ -1270,8 +1280,7 @@ print(result) # 输出15
 print(a) # 输出15
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;局部变量&lt;code&gt;a&lt;/code&gt;升级为全局变量，可以在函数外部访问。&lt;/p&gt;
-&lt;h1&gt;异常&lt;/h1&gt;
-&lt;p&gt;异常是指程序运行过程中出现的错误。&lt;/p&gt;
+&lt;h1 id=&#34;异常&#34;&gt;&lt;a href=&#34;#异常&#34; class=&#34;headerlink&#34; title=&#34;异常&#34;&gt;&lt;/a&gt;异常&lt;/h1&gt;&lt;p&gt;异常是指程序运行过程中出现的错误。&lt;/p&gt;
 &lt;p&gt;异常种类：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -1280,8 +1289,7 @@ print(a) # 输出15
 &lt;th&gt;描述&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
+&lt;tbody&gt;&lt;tr&gt;
 &lt;td&gt;&lt;code&gt;ZeroDivisionError&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;除数为0&lt;/td&gt;
 &lt;/tr&gt;
@@ -1349,10 +1357,8 @@ print(a) # 输出15
 &lt;td&gt;&lt;code&gt;Exception&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;所有异常的基类&lt;/td&gt;
 &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;捕获异常。&#34;&gt;捕获异常。&lt;/h2&gt;
-&lt;ul&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h2 id=&#34;捕获异常。&#34;&gt;&lt;a href=&#34;#捕获异常。&#34; class=&#34;headerlink&#34; title=&#34;捕获异常。&#34;&gt;&lt;/a&gt;捕获异常。&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;格式一：&lt;code&gt;try-except&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;try:
@@ -1400,10 +1406,8 @@ else:
 finally:
     # 无论是否出现异常都会执行的代码
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;抛出异常&#34;&gt;抛出异常&lt;/h2&gt;
-&lt;p&gt;使用&lt;code&gt;raise&lt;/code&gt;关键字抛出异常。&lt;/p&gt;
-&lt;p&gt;格式：&lt;code&gt;raise 异常类型(异常信息)&lt;/code&gt;&lt;br&gt;
-示例：&lt;/p&gt;
+&lt;h2 id=&#34;抛出异常&#34;&gt;&lt;a href=&#34;#抛出异常&#34; class=&#34;headerlink&#34; title=&#34;抛出异常&#34;&gt;&lt;/a&gt;抛出异常&lt;/h2&gt;&lt;p&gt;使用&lt;code&gt;raise&lt;/code&gt;关键字抛出异常。&lt;/p&gt;
+&lt;p&gt;格式：&lt;code&gt;raise 异常类型(异常信息)&lt;/code&gt;&lt;br&gt;示例：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def divide(a, b):
     if b == 0:
         raise ZeroDivisionError(&amp;quot;除数不能为0&amp;quot;)
@@ -1413,15 +1417,12 @@ try:
 except ZeroDivisionError as e:
     print(e)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1&gt;模块&lt;/h1&gt;
-&lt;p&gt;模块是包含一组函数、类和变量的文件，可以导入到其他文件中使用。&lt;/p&gt;
-&lt;h2 id=&#34;内置模块&#34;&gt;内置模块&lt;/h2&gt;
-&lt;p&gt;Python内置了一些模块，可以直接使用，例如&lt;code&gt;math&lt;/code&gt;、&lt;code&gt;random&lt;/code&gt;、&lt;code&gt;datetime&lt;/code&gt;等。&lt;/p&gt;
+&lt;h1 id=&#34;模块&#34;&gt;&lt;a href=&#34;#模块&#34; class=&#34;headerlink&#34; title=&#34;模块&#34;&gt;&lt;/a&gt;模块&lt;/h1&gt;&lt;p&gt;模块是包含一组函数、类和变量的文件，可以导入到其他文件中使用。&lt;/p&gt;
+&lt;h2 id=&#34;内置模块&#34;&gt;&lt;a href=&#34;#内置模块&#34; class=&#34;headerlink&#34; title=&#34;内置模块&#34;&gt;&lt;/a&gt;内置模块&lt;/h2&gt;&lt;p&gt;Python内置了一些模块，可以直接使用，例如&lt;code&gt;math&lt;/code&gt;、&lt;code&gt;random&lt;/code&gt;、&lt;code&gt;datetime&lt;/code&gt;等。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
 print(math.sqrt(16)) # 输出4.0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;第三方模块（第三方库）&#34;&gt;第三方模块（第三方库）&lt;/h2&gt;
-&lt;p&gt;第三方模块是指由其他开发者编写的模块，需要先安装才能使用。&lt;/p&gt;
+&lt;h2 id=&#34;第三方模块（第三方库）&#34;&gt;&lt;a href=&#34;#第三方模块（第三方库）&#34; class=&#34;headerlink&#34; title=&#34;第三方模块（第三方库）&#34;&gt;&lt;/a&gt;第三方模块（第三方库）&lt;/h2&gt;&lt;p&gt;第三方模块是指由其他开发者编写的模块，需要先安装才能使用。&lt;/p&gt;
 &lt;p&gt;安装第三方模块：使用&lt;code&gt;pip&lt;/code&gt;命令安装。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;pip install 模块名
 &lt;/code&gt;&lt;/pre&gt;
@@ -1432,11 +1433,9 @@ print(math.sqrt(16)) # 输出4.0
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math
 print(math.sqrt(16)) # 输出4.0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;自定义模块&#34;&gt;自定义模块&lt;/h2&gt;
-&lt;p&gt;自定义模块是指用户自己编写的模块，需要先定义一个&lt;code&gt;.py&lt;/code&gt;文件，然后在其他文件中导入使用。&lt;/p&gt;
+&lt;h2 id=&#34;自定义模块&#34;&gt;&lt;a href=&#34;#自定义模块&#34; class=&#34;headerlink&#34; title=&#34;自定义模块&#34;&gt;&lt;/a&gt;自定义模块&lt;/h2&gt;&lt;p&gt;自定义模块是指用户自己编写的模块，需要先定义一个&lt;code&gt;.py&lt;/code&gt;文件，然后在其他文件中导入使用。&lt;/p&gt;
 &lt;p&gt;注意：自定义模块的文件名不能与Python内置模块的文件名相同。&lt;/p&gt;
-&lt;h2 id=&#34;导入模块&#34;&gt;导入模块&lt;/h2&gt;
-&lt;ol&gt;
+&lt;h2 id=&#34;导入模块&#34;&gt;&lt;a href=&#34;#导入模块&#34; class=&#34;headerlink&#34; title=&#34;导入模块&#34;&gt;&lt;/a&gt;导入模块&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;导入模块：使用&lt;code&gt;import&lt;/code&gt;关键字导入。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import 模块名
@@ -1465,25 +1464,19 @@ print(sqrt(16)) # 输出4.0
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from math import pi
 print(pi) # 输出3.141592653589793
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;起别名&#34;&gt;起别名&lt;/h2&gt;
-&lt;h3 id=&#34;模块起别名&#34;&gt;模块起别名&lt;/h3&gt;
-&lt;p&gt;使用&lt;code&gt;as&lt;/code&gt;关键字给模块起别名。&lt;/p&gt;
+&lt;h2 id=&#34;起别名&#34;&gt;&lt;a href=&#34;#起别名&#34; class=&#34;headerlink&#34; title=&#34;起别名&#34;&gt;&lt;/a&gt;起别名&lt;/h2&gt;&lt;h3 id=&#34;模块起别名&#34;&gt;&lt;a href=&#34;#模块起别名&#34; class=&#34;headerlink&#34; title=&#34;模块起别名&#34;&gt;&lt;/a&gt;模块起别名&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;as&lt;/code&gt;关键字给模块起别名。&lt;/p&gt;
 &lt;p&gt;语法：&lt;code&gt;import 模块名 as 别名&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import math as m
 print(m.sqrt(16)) # 输出4.0
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;功能起别名&#34;&gt;功能起别名&lt;/h3&gt;
-&lt;p&gt;使用&lt;code&gt;as&lt;/code&gt;关键字给功能起别名。&lt;/p&gt;
+&lt;h3 id=&#34;功能起别名&#34;&gt;&lt;a href=&#34;#功能起别名&#34; class=&#34;headerlink&#34; title=&#34;功能起别名&#34;&gt;&lt;/a&gt;功能起别名&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;as&lt;/code&gt;关键字给功能起别名。&lt;/p&gt;
 &lt;p&gt;语法：&lt;code&gt;from 模块名 import 功能 as 别名&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from math import sqrt as s
 print(s(16)) # 输出4.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;注意：导入多个功能时，可以使用‘，’隔开，后面功能也可以使用取别名：&lt;code&gt;from math import sqrt as s, pi as p&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;内置全局变量&#34;&gt;内置全局变量&lt;/h2&gt;
-&lt;p&gt;语法：&lt;br&gt;
-if &lt;strong&gt;name&lt;/strong&gt; == “&lt;strong&gt;main&lt;/strong&gt;”:&lt;/p&gt;
-&lt;p&gt;作用：用来控制py文件在不同应用场景下执行不同的逻辑,当模块被直接运行时，&lt;code&gt;__name__&lt;/code&gt;的值为&lt;code&gt;&amp;quot;__main__&amp;quot;&lt;/code&gt;，当模块被导入时，&lt;code&gt;__name__&lt;/code&gt;的值为模块名。&lt;br&gt;
-例如：&lt;/p&gt;
+&lt;h2 id=&#34;内置全局变量&#34;&gt;&lt;a href=&#34;#内置全局变量&#34; class=&#34;headerlink&#34; title=&#34;内置全局变量&#34;&gt;&lt;/a&gt;内置全局变量&lt;/h2&gt;&lt;p&gt;语法：&lt;br&gt;if &lt;strong&gt;name&lt;/strong&gt; &amp;#x3D;&amp;#x3D; “&lt;strong&gt;main&lt;/strong&gt;“:&lt;/p&gt;
+&lt;p&gt;作用：用来控制py文件在不同应用场景下执行不同的逻辑,当模块被直接运行时，&lt;code&gt;__name__&lt;/code&gt;的值为&lt;code&gt;&amp;quot;__main__&amp;quot;&lt;/code&gt;，当模块被导入时，&lt;code&gt;__name__&lt;/code&gt;的值为模块名。&lt;br&gt;例如：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;if __name__ == &amp;quot;__main__&amp;quot;:
     print(&amp;quot;直接运行&amp;quot;)
 else:
@@ -1496,10 +1489,8 @@ else:
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;被导入
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;总结：导入不会执行&lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt;下的代码，只有直接运行该文件才会执行&lt;code&gt;if __name__ == &amp;quot;__main__&amp;quot;:&lt;/code&gt;下的代码。&lt;/p&gt;
-&lt;h2 id=&#34;包&#34;&gt;包&lt;/h2&gt;
-&lt;p&gt;包是指包含一组模块的文件夹，文件夹中必须包含一个&lt;code&gt;__init__.py&lt;/code&gt;文件，用于标识该文件夹是一个包。&lt;/p&gt;
-&lt;h3 id=&#34;init-py&#34;&gt;&lt;strong&gt;init&lt;/strong&gt;.py&lt;/h3&gt;
-&lt;p&gt;使用包：使用&lt;code&gt;import 包名.模块名&lt;/code&gt;导入。&lt;/p&gt;
+&lt;h2 id=&#34;包&#34;&gt;&lt;a href=&#34;#包&#34; class=&#34;headerlink&#34; title=&#34;包&#34;&gt;&lt;/a&gt;包&lt;/h2&gt;&lt;p&gt;包是指包含一组模块的文件夹，文件夹中必须包含一个&lt;code&gt;__init__.py&lt;/code&gt;文件，用于标识该文件夹是一个包。&lt;/p&gt;
+&lt;h3 id=&#34;init-py&#34;&gt;&lt;a href=&#34;#init-py&#34; class=&#34;headerlink&#34; title=&#34;init.py&#34;&gt;&lt;/a&gt;&lt;strong&gt;init&lt;/strong&gt;.py&lt;/h3&gt;&lt;p&gt;使用包：使用&lt;code&gt;import 包名.模块名&lt;/code&gt;导入。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import mypackage.mymodule
 print(mypackage.mymodule.myfunction())
 &lt;/code&gt;&lt;/pre&gt;
@@ -1522,8 +1513,7 @@ print(myvariable)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;使用包中的所有变量：使用&lt;code&gt;from 包名.模块名 import *&lt;/code&gt;导入。&lt;/p&gt;
 &lt;p&gt;注意：导包会默认执行&lt;code&gt;__init__.py &lt;/code&gt;文件中的代码。&lt;/p&gt;
-&lt;h3 id=&#34;all&#34;&gt;&lt;strong&gt;all&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;__all__&lt;/code&gt;是一个列表，用于指定包中可以被导入的模块。&lt;/p&gt;
+&lt;h3 id=&#34;all&#34;&gt;&lt;a href=&#34;#all&#34; class=&#34;headerlink&#34; title=&#34;all&#34;&gt;&lt;/a&gt;&lt;strong&gt;all&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;__all__&lt;/code&gt;是一个列表，用于指定包中可以被导入的模块。&lt;/p&gt;
 &lt;p&gt;语法：&lt;code&gt;__all__ = [&amp;quot;模块名1&amp;quot;, &amp;quot;模块名2&amp;quot;, ...]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# mypackage/__init__.py
@@ -1533,9 +1523,7 @@ __all__ = [&amp;quot;mymodule1&amp;quot;, &amp;quot;mymodule2&amp;quot;]
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from mypackage import mymodule1
 print(mymodule1.myfunction())
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;闭包-2&#34;&gt;闭包&lt;/h2&gt;
-&lt;p&gt;闭包是指在一个函数内部定义的函数，它可以访问外部函数的局部变量。&lt;br&gt;
-实现：&lt;/p&gt;
+&lt;h2 id=&#34;闭包-1&#34;&gt;&lt;a href=&#34;#闭包-1&#34; class=&#34;headerlink&#34; title=&#34;闭包&#34;&gt;&lt;/a&gt;闭包&lt;/h2&gt;&lt;p&gt;闭包是指在一个函数内部定义的函数，它可以访问外部函数的局部变量。&lt;br&gt;实现：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;函数嵌套（内部函数定义在外部函数内部）&lt;/li&gt;
 &lt;li&gt;内部函数访问外部函数的局部变量&lt;/li&gt;
@@ -1559,8 +1547,7 @@ my_function = outer_function()
 my_function() # 输出10
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;注意：闭包可以访问外部函数的局部变量，但是不能修改外部函数的局部变量。&lt;/p&gt;
-&lt;h3 id=&#34;函数引用&#34;&gt;函数引用&lt;/h3&gt;
-&lt;p&gt;函数引用是指将函数赋值给一个变量，然后通过变量调用函数。&lt;/p&gt;
+&lt;h3 id=&#34;函数引用&#34;&gt;&lt;a href=&#34;#函数引用&#34; class=&#34;headerlink&#34; title=&#34;函数引用&#34;&gt;&lt;/a&gt;函数引用&lt;/h3&gt;&lt;p&gt;函数引用是指将函数赋值给一个变量，然后通过变量调用函数。&lt;/p&gt;
 &lt;p&gt;语法：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;变量 = 函数名
 变量()
@@ -1572,8 +1559,7 @@ my_function() # 输出10
 my_function_ref = my_function
 my_function_ref() # 输出Hello, World!
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;闭包变量&#34;&gt;闭包变量&lt;/h3&gt;
-&lt;p&gt;闭包变量是指在闭包中使用的变量，闭包变量实际上只有一份，每次开启内函数都是在使用同一份闭包变量。&lt;/p&gt;
+&lt;h3 id=&#34;闭包变量&#34;&gt;&lt;a href=&#34;#闭包变量&#34; class=&#34;headerlink&#34; title=&#34;闭包变量&#34;&gt;&lt;/a&gt;闭包变量&lt;/h3&gt;&lt;p&gt;闭包变量是指在闭包中使用的变量，闭包变量实际上只有一份，每次开启内函数都是在使用同一份闭包变量。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def outer_function(n):
     print(&amp;quot;outer_function:&amp;quot;, n)
     def inner_function(m):
@@ -1585,8 +1571,7 @@ out = outer_function(10) # outer_function: 10
 out(20) # inner_function: 20
 print(out(20)) # inner_function: 20 30
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;装饰器&#34;&gt;装饰器&lt;/h2&gt;
-&lt;p&gt;作用：在不修改原有函数代码的情况下，给函数增加新的功能。&lt;/p&gt;
+&lt;h2 id=&#34;装饰器&#34;&gt;&lt;a href=&#34;#装饰器&#34; class=&#34;headerlink&#34; title=&#34;装饰器&#34;&gt;&lt;/a&gt;装饰器&lt;/h2&gt;&lt;p&gt;作用：在不修改原有函数代码的情况下，给函数增加新的功能。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;标准装饰器&lt;/li&gt;
 &lt;/ol&gt;
@@ -1665,8 +1650,7 @@ def send(name):
     print(&amp;quot;发送邮件给&amp;quot;, name)
 send(&amp;quot;张三&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;注意：Python 的装饰器应用顺序是 ​&lt;code&gt;​自底向上​​&lt;/code&gt; 的，即靠近&lt;code&gt;函数定义&lt;/code&gt;的装饰器（&lt;code&gt;@outer_function2&lt;/code&gt;）先被应用，外层装饰器（&lt;code&gt;@outer_function1&lt;/code&gt;）后应用。&lt;br&gt;
-以上可以看做： &lt;code&gt;send = outer_function1(outer_function2(send))&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;注意：Python 的装饰器应用顺序是 ​&lt;code&gt;​自底向上​​&lt;/code&gt; 的，即靠近&lt;code&gt;函数定义&lt;/code&gt;的装饰器（&lt;code&gt;@outer_function2&lt;/code&gt;）先被应用，外层装饰器（&lt;code&gt;@outer_function1&lt;/code&gt;）后应用。&lt;br&gt;以上可以看做： &lt;code&gt;send = outer_function1(outer_function2(send))&lt;/code&gt;&lt;/p&gt;
 </content>
         <category term="python" />
         <updated>2021-10-01T02:00:00.000Z</updated>
