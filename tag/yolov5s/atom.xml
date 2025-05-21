@@ -5,24 +5,23 @@
     <link href="https://zhang3399.github.io" />
     <updated>2025-03-09T15:07:00.000Z</updated>
     <category term="多线程" />
+    <category term="I/O多路复用" />
     <category term="Socket" />
-    <category term="git" />
     <category term="CMake" />
+    <category term="git" />
+    <category term="TypeScript" />
+    <category term="Docker" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="pytorch" />
     <category term="Linux" />
     <category term="Windows" />
-    <category term="I/O多路复用" />
-    <category term="pytorch" />
-    <category term="Boost" />
+    <category term="tensoRT" />
+    <category term="数据结构" />
     <category term="python" />
-    <category term="Lambda 表达式" />
     <category term="python进阶" />
-    <category term="TypeScript" />
     <category term="SQL" />
     <category term="LSTM" />
-    <category term="YOLOv5" />
-    <category term="OpenCV" />
-    <category term="ONNX" />
-    <category term="数据结构" />
     <category term="YOLOv5s" />
     <category term="Adman梯度下降" />
     <entry>
@@ -30,76 +29,271 @@
         <title>树莓派部署YOLOv5s</title>
         <link rel="alternate" href="https://zhang3399.github.io/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/"/>
         <content type="html">&lt;blockquote&gt;
-&lt;p&gt;​&lt;strong&gt;环境配置方式&lt;/strong&gt;：🚀 整个过程采用远程的方式，记录树莓派部署 &lt;code&gt;YOLOv5s&lt;/code&gt;  的过程。&lt;/p&gt;
+&lt;p&gt;​&lt;strong&gt;环境配置方式&lt;/strong&gt;：🚀 整个过程采用远程的方式，记录树莓派部署&lt;code&gt;YOLOv5s&lt;/code&gt;的过程。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;准备：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;树莓派 5-4B&lt;/li&gt;
-&lt;li&gt;树莓派系统（安装的官方 64 位系统）&lt;/li&gt;
-&lt;li&gt;USB 摄像头&lt;/li&gt;
+&lt;li&gt;树莓派5-4B&lt;/li&gt;
+&lt;li&gt;树莓派系统（安装的官方64位系统）&lt;/li&gt;
+&lt;li&gt;USB摄像头&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;获取yolov5spt权值文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取yolov5spt权值文件&#34;&gt;#&lt;/a&gt; 获取 yolov5s.pt 权值文件&lt;/h1&gt;
-&lt;p&gt;使用的是轻量的 &lt;code&gt;yolov5s&lt;/code&gt;  模型，在本地训练后，通过命令发送发到树莓派上:&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id=&#34;获取yolov5spt权值文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取yolov5spt权值文件&#34;&gt;&lt;/a&gt; 获取yolov5s.pt权值文件&lt;/h1&gt;
+&lt;p&gt;使用的是轻量的&lt;code&gt;yolov5s&lt;/code&gt;模型,在本地训练后，通过命令发送发到树莓派上:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;首先查看树莓派地址：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 查看地址&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/13.webp&#34; alt=&#34;&#34;&gt;&lt;br&gt;
-连接的 wify，可以看到所属的地址端口。&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    ifconfig  &lt;span class=&#34;hljs-comment&#34;&gt;# 查看地址&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/13.webp&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;
+连接的wify，可以看到所属的地址端口。&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;将本地训练好的 &lt;code&gt;yolov5s.pt&lt;/code&gt;  权值文件发送到树莓派上：&lt;/li&gt;
+&lt;li&gt;将本地训练好的&lt;code&gt;yolov5s.pt&lt;/code&gt;权值文件发送到树莓派上：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;scp&lt;/span&gt; yolov5s.pt &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;用户名&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;@&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;树莓派地址&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;:&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;保存文件地址&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr&gt;
-&lt;h1 id=&#34;树莓派环境搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#树莓派环境搭建&#34;&gt;#&lt;/a&gt; 树莓派环境搭建&lt;/h1&gt;
-&lt;p&gt;本打算参考其他博主的方法，将 &lt;code&gt;pt&lt;/code&gt;  权值文件转为 &lt;code&gt;ONNX&lt;/code&gt;  再利用 &lt;code&gt;OpenVINO&lt;/code&gt;  转为 IR 模型部署到树莓派上。&lt;/p&gt;
-&lt;p&gt;在本地成功得到 &lt;code&gt;IR&lt;/code&gt;  模型后，树莓派配置 &lt;code&gt;OpenVINO&lt;/code&gt;  环境加速推理时，遇到问题有点多😤，准备有空再进行尝试。&lt;/p&gt;
-&lt;p&gt;树莓派中运行 yolov5s 的环境使用 &lt;code&gt;Anaconda&lt;/code&gt;  配置和管理，步骤如下：&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    scp yolov5s.pt &amp;lt;用户名&amp;gt;@&amp;lt;树莓派地址&amp;gt;:&amp;lt;保存文件地址&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h1 id=&#34;树莓派环境搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#树莓派环境搭建&#34;&gt;&lt;/a&gt; 树莓派环境搭建&lt;/h1&gt;
+&lt;p&gt;本打算参考其他博主的方法，将&lt;code&gt;pt&lt;/code&gt;权值文件转为&lt;code&gt;ONNX&lt;/code&gt;再利用&lt;code&gt;OpenVINO&lt;/code&gt;转为IR模型部署到树莓派上。&lt;/p&gt;
+&lt;p&gt;在本地成功得到&lt;code&gt;IR&lt;/code&gt;模型后，树莓派配置&lt;code&gt;OpenVINO&lt;/code&gt;环境加速推理时，遇到问题有点多😤，准备有空再进行尝试。&lt;/p&gt;
+&lt;p&gt;树莓派中运行yolov5s的环境使用&lt;code&gt;Anaconda&lt;/code&gt;配置和管理，步骤如下：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;安装 Anaconda&lt;/li&gt;
+&lt;li&gt;安装Anaconda&lt;/li&gt;
 &lt;li&gt;创建虚拟环境&lt;/li&gt;
-&lt;li&gt;下载 yolov5 源码&lt;/li&gt;
+&lt;li&gt;下载yolov5源码&lt;/li&gt;
 &lt;li&gt;安装依赖库&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
-&lt;li&gt;安装 Anaconda🌱&lt;br&gt;
-下载并安装 Anaconda 以管理 Python 环境，分别在终端执行：&lt;/li&gt;
+&lt;li&gt;安装Anaconda🌱&lt;br /&gt;
+下载并安装Anaconda以管理Python环境,分别在终端执行：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;wget&lt;/span&gt; https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;bash&lt;/span&gt; Anaconda3-2021.05-Linux-x86_64.sh&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;创建虚拟环境并安装 YOLOv5 🌱&lt;/li&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
+bash Anaconda3-2021.05-Linux-x86_64.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;创建虚拟环境并安装YOLOv5 🌱&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;conda create &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt; yolov5 &lt;span class=&#34;token assign-left variable&#34;&gt;python&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3.9&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-y&lt;/span&gt;                &lt;span class=&#34;token comment&#34;&gt;# 创建名为 yolov5 的虚拟环境，并指定 Python 版本为 3.9&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    conda activate yolov5                               &lt;span class=&#34;token comment&#34;&gt;# 激活虚拟环境&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/ultralytics/yolov5.git &lt;span class=&#34;token comment&#34;&gt;# 克隆 YOLOv5 源码&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; yolov5&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    pip &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-r&lt;/span&gt; requirements.txt                     &lt;span class=&#34;token comment&#34;&gt;# 安装 YOLOv5 所需的依赖库&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr&gt;
-&lt;h1 id=&#34;检测图片&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#检测图片&#34;&gt;#&lt;/a&gt; 检测图片&lt;/h1&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    conda create -n yolov5 python=3.9 -y                &lt;span class=&#34;hljs-comment&#34;&gt;# 创建名为yolov5的虚拟环境，并指定Python版本为3.9&lt;/span&gt;
+    conda activate yolov5                               &lt;span class=&#34;hljs-comment&#34;&gt;# 激活虚拟环境&lt;/span&gt;
+    git &lt;span class=&#34;hljs-built_in&#34;&gt;clone&lt;/span&gt; https://github.com/ultralytics/yolov5.git &lt;span class=&#34;hljs-comment&#34;&gt;# 克隆YOLOv5源码&lt;/span&gt;
+    &lt;span class=&#34;hljs-built_in&#34;&gt;cd&lt;/span&gt; yolov5
+    pip install -r requirements.txt                     &lt;span class=&#34;hljs-comment&#34;&gt;# 安装YOLOv5所需的依赖库&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr /&gt;
+&lt;h1 id=&#34;检测图片&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#检测图片&#34;&gt;&lt;/a&gt; 检测图片&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;运行程序🌱&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python detect.py &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--weights&lt;/span&gt; yolov5s.pt &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;# 没有准备可省略该行，自动下载官方权值文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--img&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;320&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;              &lt;span class=&#34;token comment&#34;&gt;# 指定图片大小，压缩图片，加快检测速度，但是清晰度降低&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--source&lt;/span&gt; /image/1.jpg &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 指定图片路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--device&lt;/span&gt; cpu &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;           &lt;span class=&#34;token comment&#34;&gt;# 使用 cpu 进行推理&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;使用的 cpu 进行推理，速度较慢，看资料显示树莓派也是有 GPU 的，但是因为树莓派 GPU 的算力太低，所以还是使用 cpu 进行推理，如果想使用 GPU 进行推理，需要安装 &lt;code&gt;CUDA&lt;/code&gt; ，而且树莓派安装 &lt;code&gt;CUDA&lt;/code&gt;  比较麻烦。&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    python detect.py \
+    --weights yolov5s.pt \   &lt;span class=&#34;hljs-comment&#34;&gt;# 没有准备可省略该行，自动下载官方权值文件&lt;/span&gt;
+    --img 320 \              &lt;span class=&#34;hljs-comment&#34;&gt;# 指定图片大小，压缩图片，加快检测速度，但是清晰度降低&lt;/span&gt;
+    --&lt;span class=&#34;hljs-built_in&#34;&gt;source&lt;/span&gt; /image/1.jpg \  &lt;span class=&#34;hljs-comment&#34;&gt;# 指定图片路径&lt;/span&gt;
+    --device cpu \           &lt;span class=&#34;hljs-comment&#34;&gt;# 使用cpu进行推理&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用的cpu进行推理，速度较慢，看资料显示树莓派也是有GPU的，但是因为树莓派GPU的算力太低，所以还是使用cpu进行推理，如果想使用GPU进行推理，需要安装&lt;code&gt;CUDA&lt;/code&gt;，而且树莓派安装&lt;code&gt;CUDA&lt;/code&gt;比较麻烦。&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;检测效果如下🌱：&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/12.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&#34;开启摄像头实时检测&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开启摄像头实时检测&#34;&gt;#&lt;/a&gt; 开启摄像头实时检测&lt;/h1&gt;
-&lt;p&gt;🍋检测视频流，遇到无法弹出实时检测界面，这让之前的工作毫无成就感😳，之后通过安装 &lt;code&gt;lightdm&lt;/code&gt;  来解决的。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;lightdm&lt;/code&gt;  能够提供图形界面服务，使  &lt;code&gt;OpenCV&lt;/code&gt;   &lt;code&gt;cv2.imshow()&lt;/code&gt;  能通过  &lt;code&gt;VNC&lt;/code&gt;  的虚拟显示端口渲染窗口。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/12.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1 id=&#34;开启摄像头实时检测&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#开启摄像头实时检测&#34;&gt;&lt;/a&gt; 开启摄像头实时检测&lt;/h1&gt;
+&lt;p&gt;🍋检测视频流，遇到无法弹出实时检测界面，这让之前的工作毫无成就感😳，之后通过安装&lt;code&gt;lightdm&lt;/code&gt;来解决的。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lightdm&lt;/code&gt; 能够提供图形界面服务，使 &lt;code&gt;OpenCV&lt;/code&gt; &lt;code&gt;cv2.imshow()&lt;/code&gt; 能通过 &lt;code&gt;VNC&lt;/code&gt; 的虚拟显示端口渲染窗口。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;安装 &lt;code&gt;lightdm&lt;/code&gt; 🌱&lt;/li&gt;
+&lt;li&gt;安装&lt;code&gt;lightdm&lt;/code&gt;🌱&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; lightdm                &lt;span class=&#34;token comment&#34;&gt;# 安装图形界面管理器&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; dpkg-reconfigure lightdm          &lt;span class=&#34;token comment&#34;&gt;# 绑定显示服务到 VNC&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl restart lightdm          &lt;span class=&#34;token comment&#34;&gt;# 重启服务使配置生效&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;查看摄像头🌱&lt;br&gt;
-使用 &lt;code&gt;v4l2-ctl&lt;/code&gt;  指令查看所有视频设备&lt;/li&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    &lt;span class=&#34;hljs-built_in&#34;&gt;sudo&lt;/span&gt; apt install lightdm                &lt;span class=&#34;hljs-comment&#34;&gt;# 安装图形界面管理器&lt;/span&gt;
+    &lt;span class=&#34;hljs-built_in&#34;&gt;sudo&lt;/span&gt; dpkg-reconfigure lightdm          &lt;span class=&#34;hljs-comment&#34;&gt;# 绑定显示服务到 VNC&lt;/span&gt;
+    &lt;span class=&#34;hljs-built_in&#34;&gt;sudo&lt;/span&gt; systemctl restart lightdm          &lt;span class=&#34;hljs-comment&#34;&gt;# 重启服务使配置生效&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;查看摄像头🌱&lt;br /&gt;
+使用&lt;code&gt;v4l2-ctl&lt;/code&gt;指令查看所有视频设备&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;v4l2-ctl --list-devices&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/11.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;可以看到识别到的 USB 摄像头 &lt;code&gt;/dev/video0&lt;/code&gt; 、 &lt;code&gt;/dev/video1&lt;/code&gt; ，使用 &lt;code&gt;0&lt;/code&gt;  作为 &lt;code&gt;source&lt;/code&gt;  参数。&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    v4l2-ctl --list-devices
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/11.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;可以看到识别到的USB摄像头&lt;code&gt;/dev/video0&lt;/code&gt;、&lt;code&gt;/dev/video1&lt;/code&gt;，使用&lt;code&gt;0&lt;/code&gt;作为&lt;code&gt;source&lt;/code&gt;参数。&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;运行程序🌱&lt;/li&gt;
 &lt;/ol&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;python detect.py &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--weights&lt;/span&gt; yolov5s.pt &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--source&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;             &lt;span class=&#34;token comment&#34;&gt;# 使用摄像头（0 表示第一个摄像头）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    --view-img &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;             &lt;span class=&#34;token comment&#34;&gt;# 启用实时画面显示 --img-size 320&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token parameter variable&#34;&gt;--device&lt;/span&gt; cpu&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    python detect.py \
+    --weights yolov5s.pt \
+    --&lt;span class=&#34;hljs-built_in&#34;&gt;source&lt;/span&gt; 0 \             &lt;span class=&#34;hljs-comment&#34;&gt;# 使用摄像头（0 表示第一个摄像头）&lt;/span&gt;
+    --view-img \             &lt;span class=&#34;hljs-comment&#34;&gt;# 启用实时画面显示--img-size 320&lt;/span&gt;
+    --device cpu
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;检测效果如下🌱：&lt;/li&gt;
 &lt;/ol&gt;
 &lt;video width=&#34;100%&#34; controls loading=&#34;lazy&#34;&gt;
   &lt;source src=&#34;/videos/2.mp4&#34; type=&#34;video/mp4&#34;&gt;
 &lt;/video&gt;
-&lt;p&gt;🍀最终，通过远程的方式，在树莓派上成功部署了 &lt;code&gt;yolov5s&lt;/code&gt;  模型，实现了实时检测的功能。检测速度差不多 8-9 帧 /s，后续会尝试加速推理。&lt;/p&gt;
+&lt;p&gt;🍀由于树莓派不支持GPU，所以速度并不快，检测速度差不多8-9帧/s。&lt;br /&gt;
+下面尝试使用&lt;code&gt;OpenCV&lt;/code&gt;的&lt;code&gt;dnn&lt;/code&gt;模块进行推理，将模型转为&lt;code&gt;ONNX&lt;/code&gt;格式，再使用&lt;code&gt;OpenCV&lt;/code&gt;进行推理，速度会快很多。&lt;/p&gt;
+&lt;h1 id=&#34;onnx推理c&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#onnx推理c&#34;&gt;&lt;/a&gt; onnx推理（C++）&lt;/h1&gt;
+&lt;h2 id=&#34;安装opencv&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装opencv&#34;&gt;&lt;/a&gt; 安装Opencv&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;安装Opencv参考链接：&lt;/strong&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_53877178/article/details/127938403&#34;&gt;安装OpenCV&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;获取yolov5spt权值文件-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#获取yolov5spt权值文件-2&#34;&gt;&lt;/a&gt; 获取yolov5s.pt权值文件&lt;/h2&gt;
+&lt;p&gt;将&lt;code&gt;yolov5s.pt&lt;/code&gt;权值文件转为&lt;code&gt;ONNX&lt;/code&gt;格式，并导出为&lt;code&gt;best.onnx&lt;/code&gt;权值文件。&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;bash&#34;&gt;    python export.py --weights weights/best.pt --include onnx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;编写推理代码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#编写推理代码&#34;&gt;&lt;/a&gt; 编写推理代码&lt;/h2&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;lt;opencv2/opencv.hpp&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;lt;opencv2/dnn.hpp&amp;gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;lt;chrono&amp;gt;&lt;/span&gt;  &lt;span class=&#34;hljs-comment&#34;&gt;// 添加时间测量头文件&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&#34;hljs-keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;namespace&lt;/span&gt; cv;
+&lt;span class=&#34;hljs-keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;namespace&lt;/span&gt; cv::dnn;
+
+std::vector&amp;lt;std::string&amp;gt; classes = &amp;#123;
+	&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;defective_insulator&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;broken_defect&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;good_insulator&amp;quot;&lt;/span&gt;,&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;flashover_defect&amp;quot;&lt;/span&gt;
+&amp;#125;;
+
+&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 1. 输入图片路径&lt;/span&gt;
+    std::string img_path = &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;images/insulator.jpg&amp;quot;&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// 输入图片路径&lt;/span&gt;
+    Mat frame = &lt;span class=&#34;hljs-built_in&#34;&gt;imread&lt;/span&gt;(img_path);
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt;(frame.&lt;span class=&#34;hljs-built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        std::cerr &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Error: Could not read the image.&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; std::endl;
+        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;;
+    &amp;#125;
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 2. 加载模型&lt;/span&gt;
+    Net net =  cv::dnn::&lt;span class=&#34;hljs-built_in&#34;&gt;readNetFromONNX&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;weights/ZJ/best.onnx&amp;quot;&lt;/span&gt;);
+	net.&lt;span class=&#34;hljs-built_in&#34;&gt;setPreferableBackend&lt;/span&gt;(cv::dnn::DNN_BACKEND_OPENCV);
+	net.&lt;span class=&#34;hljs-built_in&#34;&gt;setPreferableTarget&lt;/span&gt;(cv::dnn::DNN_TARGET_OPENCL);
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 打印模型信息&lt;/span&gt;
+    &lt;span class=&#34;hljs-comment&#34;&gt;// std::cout &amp;lt;&amp;lt; &amp;quot;Network layers:&amp;quot; &amp;lt;&amp;lt; std::endl;&lt;/span&gt;
+    &lt;span class=&#34;hljs-comment&#34;&gt;// for (int i = 0; i &amp;lt; net.getLayerNames().size(); i++) &amp;#123;&lt;/span&gt;
+    &lt;span class=&#34;hljs-comment&#34;&gt;//     std::cout &amp;lt;&amp;lt; net.getLayerNames()[i] &amp;lt;&amp;lt; std::endl;&lt;/span&gt;
+    &lt;span class=&#34;hljs-comment&#34;&gt;// &amp;#125;&lt;/span&gt;
+	
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (net.&lt;span class=&#34;hljs-built_in&#34;&gt;empty&lt;/span&gt;()) &amp;#123;
+        std::cerr &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Error: Could not load the neural network.&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; std::endl;
+        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;-1&lt;/span&gt;;
+    &amp;#125;
+
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 3. 预处理参数设置&lt;/span&gt;
+    &lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; input_width = &lt;span class=&#34;hljs-number&#34;&gt;512&lt;/span&gt;;
+    &lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; input_height = &lt;span class=&#34;hljs-number&#34;&gt;512&lt;/span&gt;;
+    &lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; x_factor = frame.cols / (&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;)input_width;  &lt;span class=&#34;hljs-comment&#34;&gt;// 修改为动态计算&lt;/span&gt;
+    &lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; y_factor = frame.rows / (&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;)input_height;
+
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 预处理计时&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; preprocess_start = std::chrono::high_resolution_clock::&lt;span class=&#34;hljs-built_in&#34;&gt;now&lt;/span&gt;();
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 4. 图像预处理（增加letterbox处理）&lt;/span&gt;
+    Mat resized;
+    &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; new_width, new_height;
+    &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (frame.cols &amp;gt; frame.rows) &amp;#123;
+        new_width = input_width;
+        new_height = (&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;)(frame.rows * input_width / (&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;)frame.cols);
+    &amp;#125; &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; &amp;#123;
+        new_height = input_height;
+        new_width = (&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;)(frame.cols * input_height / (&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;)frame.rows);
+    &amp;#125;
+    &lt;span class=&#34;hljs-built_in&#34;&gt;resize&lt;/span&gt;(frame, resized, &lt;span class=&#34;hljs-built_in&#34;&gt;Size&lt;/span&gt;(new_width, new_height));
+    
+    Mat blob = &lt;span class=&#34;hljs-built_in&#34;&gt;blobFromImage&lt;/span&gt;(resized, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;/&lt;span class=&#34;hljs-number&#34;&gt;255.0&lt;/span&gt;, &lt;span class=&#34;hljs-built_in&#34;&gt;Size&lt;/span&gt;(input_width, input_height), &lt;span class=&#34;hljs-built_in&#34;&gt;Scalar&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;,&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;), &lt;span class=&#34;hljs-literal&#34;&gt;true&lt;/span&gt;, &lt;span class=&#34;hljs-literal&#34;&gt;false&lt;/span&gt;);
+	&lt;span class=&#34;hljs-comment&#34;&gt;// blob.convertTo(blob, CV_16F);  // 半精度计算&lt;/span&gt;
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 预处理计时结束&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; preprocess_end = std::chrono::high_resolution_clock::&lt;span class=&#34;hljs-built_in&#34;&gt;now&lt;/span&gt;();
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 推理计时&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; inference_start = std::chrono::high_resolution_clock::&lt;span class=&#34;hljs-built_in&#34;&gt;now&lt;/span&gt;();
+
+    net.&lt;span class=&#34;hljs-built_in&#34;&gt;setInput&lt;/span&gt;(blob);
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 5. 推理后处理&lt;/span&gt;
+	cv::Mat preds =net.forward();
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 推理计时结束&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; inference_end = std::chrono::high_resolution_clock::&lt;span class=&#34;hljs-built_in&#34;&gt;now&lt;/span&gt;();
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 后处理计时&lt;/span&gt;
+    &lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; postprocess_start = std::chrono::high_resolution_clock::&lt;span class=&#34;hljs-built_in&#34;&gt;now&lt;/span&gt;();
+
+
+	std::vector&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;&amp;gt; class_ids;
+	std::vector&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;&amp;gt; confidences;
+	std::vector&amp;lt;Rect&amp;gt; boxes;
+	std::cout &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;rows: &amp;quot;&lt;/span&gt;&amp;lt;&amp;lt; preds.size[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;]&amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; data: &amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; preds.size[&lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;] &amp;lt;&amp;lt; std::endl;
+	&lt;span class=&#34;hljs-comment&#34;&gt;// cv::Mat det_output(preds.size[1], preds.size[2], CV_32F, preds.ptr&amp;lt;float&amp;gt;());&lt;/span&gt;
+	cv::Mat det_output = preds.&lt;span class=&#34;hljs-built_in&#34;&gt;reshape&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, preds.size[&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;]); &lt;span class=&#34;hljs-comment&#34;&gt;// 避免内存复制&lt;/span&gt;
+	&lt;span class=&#34;hljs-comment&#34;&gt;//In a typical YOLO output, the format is [x_center, y_center, width, height, object_confidence, class_score1, class_score2, ..., class_scoreN] for each bounding box. &lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; i = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; i &amp;lt; det_output.rows; i++) &amp;#123;
+		&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; confidence = det_output.&lt;span class=&#34;hljs-built_in&#34;&gt;at&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;&amp;gt;(i, &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;);
+		cv::Mat class_scores = det_output.&lt;span class=&#34;hljs-built_in&#34;&gt;row&lt;/span&gt;(i).&lt;span class=&#34;hljs-built_in&#34;&gt;colRange&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;5&lt;/span&gt; + classes.&lt;span class=&#34;hljs-built_in&#34;&gt;size&lt;/span&gt;());
+
+		
+		Point class_id_point;
+		&lt;span class=&#34;hljs-type&#34;&gt;double&lt;/span&gt; max_class_score;
+		&lt;span class=&#34;hljs-built_in&#34;&gt;minMaxLoc&lt;/span&gt;(class_scores, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &amp;amp;max_class_score, &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;, &amp;amp;class_id_point);
+		&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; class_id = class_id_point.x; 
+
+		&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; final_confidence = confidence * max_class_score;
+
+		&lt;span class=&#34;hljs-comment&#34;&gt;// std::cout &amp;lt;&amp;lt; &amp;quot;Final confidence: &amp;quot; &amp;lt;&amp;lt; final_confidence &amp;lt;&amp;lt; std::endl;&lt;/span&gt;
+
+		&lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (final_confidence &amp;lt; &lt;span class=&#34;hljs-number&#34;&gt;0.45&lt;/span&gt;) &amp;#123;
+			&lt;span class=&#34;hljs-keyword&#34;&gt;continue&lt;/span&gt;;
+		&amp;#125;
+		
+		&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; cx = det_output.&lt;span class=&#34;hljs-built_in&#34;&gt;at&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;&amp;gt;(i, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);
+		&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; cy = det_output.&lt;span class=&#34;hljs-built_in&#34;&gt;at&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;&amp;gt;(i, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;);
+		&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; ow = det_output.&lt;span class=&#34;hljs-built_in&#34;&gt;at&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;&amp;gt;(i, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;);
+		&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; oh = det_output.&lt;span class=&#34;hljs-built_in&#34;&gt;at&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt;&amp;gt;(i, &lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;);
+		&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; x = &lt;span class=&#34;hljs-built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;&amp;gt;((cx - &lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt; * ow) * x_factor);
+		&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; y = &lt;span class=&#34;hljs-built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;&amp;gt;((cy - &lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt; * oh) * y_factor);
+		&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; width = &lt;span class=&#34;hljs-built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;&amp;gt;(ow * x_factor);
+		&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; height = &lt;span class=&#34;hljs-built_in&#34;&gt;static_cast&lt;/span&gt;&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;&amp;gt;(oh * y_factor);
+		
+        boxes.&lt;span class=&#34;hljs-built_in&#34;&gt;push_back&lt;/span&gt;(&lt;span class=&#34;hljs-built_in&#34;&gt;Rect&lt;/span&gt;(x, y, width, height));
+        confidences.&lt;span class=&#34;hljs-built_in&#34;&gt;push_back&lt;/span&gt;(final_confidence);
+        class_ids.&lt;span class=&#34;hljs-built_in&#34;&gt;push_back&lt;/span&gt;(class_id);
+	&amp;#125;
+
+
+	std::vector&amp;lt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;&amp;gt; indices;
+	dnn::&lt;span class=&#34;hljs-built_in&#34;&gt;NMSBoxes&lt;/span&gt;(boxes, confidences, &lt;span class=&#34;hljs-number&#34;&gt;0.6&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0.3&lt;/span&gt;, indices); 
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// Draw the final bounding boxes&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;hljs-type&#34;&gt;size_t&lt;/span&gt; i = &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;; i &amp;lt; indices.&lt;span class=&#34;hljs-built_in&#34;&gt;size&lt;/span&gt;(); ++i) &amp;#123;
+		&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; idx = indices[i];
+		Rect box = boxes[idx];
+		cv::&lt;span class=&#34;hljs-built_in&#34;&gt;rectangle&lt;/span&gt;(frame, cv::&lt;span class=&#34;hljs-built_in&#34;&gt;Point&lt;/span&gt;(box.x, box.y), cv::&lt;span class=&#34;hljs-built_in&#34;&gt;Point&lt;/span&gt;(box.x + box.width, box.y + box.height), cv::&lt;span class=&#34;hljs-built_in&#34;&gt;Scalar&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;255&lt;/span&gt;), &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;8&lt;/span&gt;);
+	
+	
+	std::string label = classes[class_ids[idx]] + &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;: &amp;quot;&lt;/span&gt; + std::&lt;span class=&#34;hljs-built_in&#34;&gt;to_string&lt;/span&gt;(confidences[idx]);
+	&lt;span class=&#34;hljs-built_in&#34;&gt;putText&lt;/span&gt;(frame, label.&lt;span class=&#34;hljs-built_in&#34;&gt;c_str&lt;/span&gt;(), &lt;span class=&#34;hljs-built_in&#34;&gt;Point&lt;/span&gt;(box.x, box.y - &lt;span class=&#34;hljs-number&#34;&gt;10&lt;/span&gt;), FONT_HERSHEY_SIMPLEX, &lt;span class=&#34;hljs-number&#34;&gt;0.9&lt;/span&gt;, &lt;span class=&#34;hljs-built_in&#34;&gt;Scalar&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;255&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;), &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;);
+		&amp;#125;
+
+	&lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; postprocess_end = std::chrono::high_resolution_clock::&lt;span class=&#34;hljs-built_in&#34;&gt;now&lt;/span&gt;();
+	
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 输出各阶段耗时（单位：ms）&lt;/span&gt;
+	&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; preprocess_time = std::chrono::&lt;span class=&#34;hljs-built_in&#34;&gt;duration_cast&lt;/span&gt;&amp;lt;std::chrono::milliseconds&amp;gt;(preprocess_end - preprocess_start).&lt;span class=&#34;hljs-built_in&#34;&gt;count&lt;/span&gt;();
+	&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; inference_time = std::chrono::&lt;span class=&#34;hljs-built_in&#34;&gt;duration_cast&lt;/span&gt;&amp;lt;std::chrono::milliseconds&amp;gt;(inference_end - inference_start).&lt;span class=&#34;hljs-built_in&#34;&gt;count&lt;/span&gt;();
+	&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; postprocess_time = std::chrono::&lt;span class=&#34;hljs-built_in&#34;&gt;duration_cast&lt;/span&gt;&amp;lt;std::chrono::milliseconds&amp;gt;(postprocess_end - postprocess_start).&lt;span class=&#34;hljs-built_in&#34;&gt;count&lt;/span&gt;();
+
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 计算总耗时（单位：ms）&lt;/span&gt;
+	&lt;span class=&#34;hljs-keyword&#34;&gt;auto&lt;/span&gt; duration = std::chrono::&lt;span class=&#34;hljs-built_in&#34;&gt;duration_cast&lt;/span&gt;&amp;lt;std::chrono::milliseconds&amp;gt;(postprocess_end - preprocess_start).&lt;span class=&#34;hljs-built_in&#34;&gt;count&lt;/span&gt;();
+	std::cout &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;预处理: &amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; preprocess_time &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; ms&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; std::endl;
+	std::cout &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;推理: &amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; inference_time &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; ms&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; std::endl; 
+	std::cout &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;后处理: &amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; postprocess_time &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; ms&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; std::endl;
+	std::cout &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;总耗时: &amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; duration &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot; ms&amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; std::endl;
+	
+	&lt;span class=&#34;hljs-type&#34;&gt;float&lt;/span&gt; fps = &lt;span class=&#34;hljs-number&#34;&gt;1000.0&lt;/span&gt; / duration;  &lt;span class=&#34;hljs-comment&#34;&gt;// 计算FPS&lt;/span&gt;
+	std::cout &amp;lt;&amp;lt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;FPS: &amp;quot;&lt;/span&gt; &amp;lt;&amp;lt; fps &amp;lt;&amp;lt; std::endl;
+	&lt;span class=&#34;hljs-comment&#34;&gt;// 6. 显示结果（取消视频循环）&lt;/span&gt;
+	&lt;span class=&#34;hljs-built_in&#34;&gt;imshow&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;Object Detection&amp;quot;&lt;/span&gt;, frame);
+	&lt;span class=&#34;hljs-built_in&#34;&gt;waitKey&lt;/span&gt;(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;);  &lt;span class=&#34;hljs-comment&#34;&gt;// 改为等待按键&lt;/span&gt;
+
+    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
 </content>
         <category term="YOLOv5s" />
         <updated>2025-03-09T15:07:00.000Z</updated>
