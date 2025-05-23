@@ -1,120 +1,303 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AL5WQPTK.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-SR33XTKU.js"></link><link rel="modulepreload" href="/js/copy-tex-EAGIDQKO.js"></link><link rel="modulepreload" href="/js/index.esm-XBDAFSMH.js"></link><link rel="modulepreload" href="/js/post-ZHOSWJII.js"></link><link rel="modulepreload" href="/js/quicklink-6NPM2Y2I.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><meta name="keywords" content="Linux,"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/"><title>终端操作</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">终端操作</h1><div class="meta"><span class="item" title="创建时间：2024-03-29 10:00:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2024-03-29T10:00:00+08:00">2024-03-29</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>2.7k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>2 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/Window-Linux/" itemprop="item" rel="index" title="分类于Window/Linux"><span itemprop="name">Window/Linux<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1 id="进程管理"><a class="markdownIt-Anchor" href="#进程管理"></a> 进程管理</h1>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="stylesheet" href="/css/app.css?v=0.4.25"><link rel="modulepreload" href="/js/chunk-AL5WQPTK.js"></link><link rel="modulepreload" href="/js/chunk-D4ZSMMI3.js"></link><link rel="modulepreload" href="/js/chunk-SR33XTKU.js"></link><link rel="modulepreload" href="/js/copy-tex-EAGIDQKO.js"></link><link rel="modulepreload" href="/js/index.esm-XBDAFSMH.js"></link><link rel="modulepreload" href="/js/post-ZHOSWJII.js"></link><link rel="modulepreload" href="/js/quicklink-6NPM2Y2I.js"></link><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img3.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img4.webp" as="image" fetchpriority="high"><meta name="keywords" content="Linux,"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/"><title>终端操作</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">终端操作</h1><div class="meta"><span class="item" title="创建时间：2024-03-29 10:00:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2024-03-29T10:00:00+08:00">2024-03-29</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>2.7k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>2 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img3.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img4.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/Window-Linux/" itemprop="item" rel="index" title="分类于Window/Linux"><span itemprop="name">Window/Linux<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1 id="进程管理"><a class="markdownIt-Anchor" href="#进程管理">#</a> 进程管理</h1>
 <p><strong>Windows</strong></p>
-<pre class="highlight"><code class="powerShell"><span class="hljs-comment"># 查找进程 PID</span>
-tasklist | findstr <span class="hljs-string">&quot;uvicorn&quot;</span>
-<span class="hljs-comment"># 终止进程（将 12345 替换为实际 PID）</span>
-taskkill /F /PID <span class="hljs-number">12345</span>
+<pre><code class="language-powerShell"># 查找进程 PID
+tasklist | findstr &quot;uvicorn&quot;
+# 终止进程（将 12345 替换为实际 PID）
+taskkill /F /PID 12345
 </code></pre>
 <p><strong>Linux</strong></p>
-<pre class="highlight"><code class="bash"><span class="hljs-comment"># 查找进程 PID</span>
-ps -ef | grep <span class="hljs-string">&quot;python&quot;</span>
-<span class="hljs-comment"># 终止进程（将 12345 替换为实际 PID）</span>
-<span class="hljs-built_in">kill</span> -9 12345
-</code></pre>
-<h1 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作"></a> 文件操作</h1>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 查找进程 PID</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">ps</span> <span class="token parameter variable">-ef</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"python"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 终止进程（将 12345 替换为实际 PID）</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">kill</span> <span class="token parameter variable">-9</span> <span class="token number">12345</span></pre></td></tr></table></figure><h1 id="文件操作"><a class="markdownIt-Anchor" href="#文件操作">#</a> 文件操作</h1>
 <p><strong>Windows</strong></p>
-<pre class="highlight"><code class="powershell"><span class="hljs-comment"># 查找文件</span>
-<span class="hljs-built_in">dir</span> /s /p <span class="hljs-string">&quot;C:\Users\用户名\Downloads\*.pdf&quot;</span>
-<span class="hljs-comment"># 删除文件</span>
-<span class="hljs-built_in">del</span> /s /q <span class="hljs-string">&quot;C:\Users\用户名\Downloads\*.pdf&quot;</span>
-</code></pre>
-<p><strong>Linux</strong></p>
-<pre class="highlight"><code class="bash"><span class="hljs-comment"># 查找文件</span>
-find /home/用户名/Downloads -name <span class="hljs-string">&quot;*.pdf&quot;</span>
-<span class="hljs-comment"># 删除文件</span>
-<span class="hljs-built_in">rm</span> -rf /home/用户名/Downloads/*.pdf
-</code></pre>
-<h1 id="解压文件"><a class="markdownIt-Anchor" href="#解压文件"></a> 解压文件</h1>
+<figure class="highlight powershell"><figcaption data-lang="PowerShell"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 查找文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">dir</span> <span class="token operator">/</span>s <span class="token operator">/</span>p <span class="token string">"C:\Users\用户名\Downloads\*.pdf"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 删除文件</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">del</span> <span class="token operator">/</span>s <span class="token operator">/</span>q <span class="token string">"C:\Users\用户名\Downloads\*.pdf"</span></pre></td></tr></table></figure><p><strong>Linux</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 查找文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">find</span> /home/用户名/Downloads <span class="token parameter variable">-name</span> <span class="token string">"*.pdf"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 删除文件</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">rm</span> <span class="token parameter variable">-rf</span> /home/用户名/Downloads/*.pdf</pre></td></tr></table></figure><h1 id="解压文件"><a class="markdownIt-Anchor" href="#解压文件">#</a> 解压文件</h1>
 <p><strong>Windows</strong></p>
-<pre class="highlight"><code class="powershell"><span class="hljs-comment"># 解压 zip 文件</span>
-expand <span class="hljs-string">&quot;C:\Users\用户名\Downloads\file.zip&quot;</span> <span class="hljs-string">&quot;C:\Users\用户名\Downloads\file&quot;</span>
-<span class="hljs-comment"># 解压 rar 文件</span>
-rar x <span class="hljs-string">&quot;C:\Users\用户名\Downloads\file.rar&quot;</span> <span class="hljs-string">&quot;C:\Users\用户名\Downloads\file&quot;</span>
-</code></pre>
-<p><strong>Linux</strong></p>
-<pre class="highlight"><code class="bash"><span class="hljs-comment"># 解压 zip 文件</span>
-unzip <span class="hljs-string">&quot;file.zip&quot;</span> -d <span class="hljs-string">&quot;file&quot;</span>
-<span class="hljs-comment"># 解压 rar 文件</span>
-unrar x <span class="hljs-string">&quot;file.rar&quot;</span> <span class="hljs-string">&quot;file&quot;</span>
-</code></pre>
-<h1 id="移动文件"><a class="markdownIt-Anchor" href="#移动文件"></a> 移动文件</h1>
+<figure class="highlight powershell"><figcaption data-lang="PowerShell"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 解压 zip 文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre>expand <span class="token string">"C:\Users\用户名\Downloads\file.zip"</span> <span class="token string">"C:\Users\用户名\Downloads\file"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 解压 rar 文件</span></pre></td></tr><tr><td data-num="4"></td><td><pre>rar x <span class="token string">"C:\Users\用户名\Downloads\file.rar"</span> <span class="token string">"C:\Users\用户名\Downloads\file"</span></pre></td></tr></table></figure><p><strong>Linux</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 解压 zip 文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">unzip</span> <span class="token string">"file.zip"</span> <span class="token parameter variable">-d</span> <span class="token string">"file"</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 解压 rar 文件</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token function">unrar</span> x <span class="token string">"file.rar"</span> <span class="token string">"file"</span></pre></td></tr></table></figure><h1 id="移动文件"><a class="markdownIt-Anchor" href="#移动文件">#</a> 移动文件</h1>
 <p><strong>Windows</strong></p>
-<pre class="highlight"><code class="powershell"><span class="hljs-comment"># 移动文件</span>
-<span class="hljs-built_in">move</span> <span class="hljs-string">&quot;C:\Users\用户名\Downloads\file&quot;</span> <span class="hljs-string">&quot;C:\Users\用户名\Documents&quot;</span>
-</code></pre>
-<p><strong>Linux</strong></p>
-<pre class="highlight"><code class="bash"><span class="hljs-comment"># 移动文件</span>
-<span class="hljs-built_in">mv</span> <span class="hljs-string">&quot;file&quot;</span> <span class="hljs-string">&quot;Documents&quot;</span>
-</code></pre>
-<p><strong>Linux常用指令</strong></p>
+<figure class="highlight powershell"><figcaption data-lang="PowerShell"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 移动文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">move</span> <span class="token string">"C:\Users\用户名\Downloads\file"</span> <span class="token string">"C:\Users\用户名\Documents"</span></pre></td></tr></table></figure><p><strong>Linux</strong></p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 移动文件</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">mv</span> <span class="token string">"file"</span> <span class="token string">"Documents"</span></pre></td></tr></table></figure><p><strong>Linux 常用指令</strong></p>
 <ol>
-<li>
-<p>文件目录类<br />
-|格式|示例|说明|<br />
-|:—😐:—😐:—😐<br />
-|<code>ls</code>|<code>ls -l</code>|列出目录内容|<br />
-|<code>cd</code>|<code>cd Documents</code>|切换目录|<br />
-|<code>pwd</code>|<code>pwd</code>|显示当前目录|<br />
-|<code>mkdir</code>|<code>mkdir new_folder</code>|创建新目录|<br />
-|<code>rmdir</code>|<code>rmdir empty_folder</code>|删除空目录|<br />
-|<code>rm</code>|<code>rm file</code>|删除文件|<br />
-|<code>cp</code>|<code>cp file1 file2</code>|复制文件|<br />
-|<code>mv</code>|<code>mv file1 file2</code>|移动或重命名文件|<br />
-|<code>find</code>|<code>find . -name &quot;*.txt&quot;</code>|查找文件|<br />
-|<code>grep</code>|<code>grep &quot;text&quot; file.txt</code>|在文件中查找文本|<br />
-|<code>cat</code>|<code>cat file.txt</code>|显示文件内容|<br />
-|<code>more</code>|<code>more file.txt</code>|逐页显示文件内容|<br />
-|<code>less</code>|<code>less file.txt</code>|逐页显示文件内容，可向上翻页|<br />
-|<code>head</code>|<code>head -n 10 file.txt</code>|显示文件前 10 行|<br />
-|<code>tail</code>|<code>tail -n 10 file.txt</code>|显示文件后 10 行|<br />
-|<code>chmod</code>|<code>chmod 755 file</code>|更改文件权限|<br />
-|<code>chown</code>|<code>chown user:group file</code>|更改文件所有者|<br />
-|<code>tar</code>|<code>tar -cvf archive.tar file1 file2</code>|创建 tar 归档文件|<br />
-|<code>gzip</code>|<code>gzip file</code>|压缩文件|<br />
-|<code>gunzip</code>|<code>gunzip file.gz</code>|解压 gzip 压缩文件|<br />
-|<code>zip</code>|<code>zip archive.zip file1 file2</code>|创建 zip 压缩文件|<br />
-|<code>unzip</code>|<code>unzip archive.zip</code>|解压 zip 压缩文件|<br />
-|<code>mv</code>|<code>mv file1 file2</code>|移动或重命名文件|</p>
-</li>
-<li>
-<p>系统管理类<br />
-|格式|示例|说明|<br />
-|:—😐:—😐:—😐<br />
-|<code>ps</code>|<code>ps -ef</code>|显示当前进程|<br />
-|<code>top</code>|<code>top</code>|实时显示系统资源使用情况|<br />
-|<code>kill</code>|<code>kill -9 12345</code>|终止进程|<br />
-|<code>free</code>|<code>free -h</code>|显示内存使用情况|<br />
-|<code>df</code>|<code>df -h</code>|显示磁盘使用情况|<br />
-|<code>du</code>|<code>du -sh /path/to/directory</code>|显示目录大小|<br />
-|<code>scp</code>|<code>scp file user@hostname:/path/to/destination</code>|远程复制文件|<br />
-|<code>wget</code>|<code>wget http://example.com/file</code>|下载文件|<br />
-|<code>curl</code>|<code>curl -O http://example.com/file</code>|下载文件|<br />
-|<code>apt</code>|<code>apt-get install package</code>|安装软件包|</p>
-</li>
-<li>
-<p>用户管理类<br />
-|格式|示例|说明|<br />
-|:—😐:—😐:—😐<br />
-|<code>who</code>|<code>who</code>|显示当前登录用户|<br />
-|<code>w</code>|<code>w</code>|显示当前登录用户及其活动|<br />
-|<code>id</code>|<code>id user</code>|显示用户信息|<br />
-|<code>useradd</code>|<code>useradd newuser</code>|创建新用户|<br />
-|<code>userdel</code>|<code>userdel newuser</code>|删除用户|<br />
-|<code>passwd</code>|<code>passwd user</code>|更改用户密码|<br />
-|<code>su</code>|<code>su - user</code>|切换用户|</p>
-</li>
-<li>
-<p>网络管理类<br />
-|格式|示例|说明|<br />
-|:—😐:—😐:—😐<br />
-|<code>ifconfig</code>|<code>ifconfig</code>|显示网络接口信息|<br />
-|<code>ping</code>|<code>ping www.google.com</code>|测试网络连接|<br />
-|<code>traceroute</code>|<code>traceroute www.google.com</code>|追踪网络路径|<br />
-|<code>netstat</code>|<code>netstat -an</code>|显示网络连接|<br />
-|<code>ssh</code>|<code>ssh user@hostname</code>|远程登录|</p>
-</li>
+<li>文件目录类</li>
 </ol>
-<div class="tags"><a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i>Linux</a><a href="/tags/Windows/" rel="tag"><i class="ic i-tag"></i>Windows</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-04-10 21:37:38" itemprop="dateModified" datetime="2025-04-10T21:37:38+08:00">2025-04-10</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/" title="终端操作">https://zhang3399.github.io/2024/03/29/linux/2024-6-15-终端操作/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/" rel="prev" itemprop="url" data-background-image="images&#x2F;img3.webp" title="python进程、线程、协程"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>python</span><h3>python进程、线程、协程</h3></a></div><div class="item right"><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/" rel="next" itemprop="url" data-background-image="images&#x2F;img6.webp" title="LSTM"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>深度学习</span><h3>LSTM</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text"> 进程管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text"> 文件操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text"> 解压文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> 移动文件</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li  class="active"><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/" rel="bookmark" title="终端操作">终端操作</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">21</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">10</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/%E5%B7%A5%E5%85%B7/" title="分类于工具">工具</a></div><span><a href="/2025/02/23/Tool/2025-2-23-git/">git基本使用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于数据库">数据库</a></div><span><a href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93/2023-10-12-SQL/">SQL</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/pytorch/" title="分类于pytorch">pytorch</a></div><span><a href="/2025/02/23/Pytorch/2025-5-7-pytorch/">pytorch</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/">python进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Lambda 表达式</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/C++/2024-6-15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/">I/O多路复用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/">LSTM预测电池SOH</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">194k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:56</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>ls</code></td>
+<td style="text-align:center"><code>ls -l</code></td>
+<td style="text-align:center">列出目录内容</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>cd</code></td>
+<td style="text-align:center"><code>cd Documents</code></td>
+<td style="text-align:center">切换目录</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>pwd</code></td>
+<td style="text-align:center"><code>pwd</code></td>
+<td style="text-align:center">显示当前目录</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>mkdir</code></td>
+<td style="text-align:center"><code>mkdir new_folder</code></td>
+<td style="text-align:center">创建新目录</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>rmdir</code></td>
+<td style="text-align:center"><code>rmdir empty_folder</code></td>
+<td style="text-align:center">删除空目录</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>rm</code></td>
+<td style="text-align:center"><code>rm file</code></td>
+<td style="text-align:center">删除文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>cp</code></td>
+<td style="text-align:center"><code>cp file1 file2</code></td>
+<td style="text-align:center">复制文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>mv</code></td>
+<td style="text-align:center"><code>mv file1 file2</code></td>
+<td style="text-align:center">移动或重命名文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>find</code></td>
+<td style="text-align:center"><code>find . -name &quot;*.txt&quot;</code></td>
+<td style="text-align:center">查找文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>grep</code></td>
+<td style="text-align:center"><code>grep &quot;text&quot; file.txt</code></td>
+<td style="text-align:center">在文件中查找文本</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>cat</code></td>
+<td style="text-align:center"><code>cat file.txt</code></td>
+<td style="text-align:center">显示文件内容</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>more</code></td>
+<td style="text-align:center"><code>more file.txt</code></td>
+<td style="text-align:center">逐页显示文件内容</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>less</code></td>
+<td style="text-align:center"><code>less file.txt</code></td>
+<td style="text-align:center">逐页显示文件内容，可向上翻页</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>head</code></td>
+<td style="text-align:center"><code>head -n 10 file.txt</code></td>
+<td style="text-align:center">显示文件前 10 行</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>tail</code></td>
+<td style="text-align:center"><code>tail -n 10 file.txt</code></td>
+<td style="text-align:center">显示文件后 10 行</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>chmod</code></td>
+<td style="text-align:center"><code>chmod 755 file</code></td>
+<td style="text-align:center">更改文件权限</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>chown</code></td>
+<td style="text-align:center"><code>chown user:group file</code></td>
+<td style="text-align:center">更改文件所有者</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>tar</code></td>
+<td style="text-align:center"><code>tar -cvf archive.tar file1 file2</code></td>
+<td style="text-align:center">创建 tar 归档文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>gzip</code></td>
+<td style="text-align:center"><code>gzip file</code></td>
+<td style="text-align:center">压缩文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>gunzip</code></td>
+<td style="text-align:center"><code>gunzip file.gz</code></td>
+<td style="text-align:center">解压 gzip 压缩文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>zip</code></td>
+<td style="text-align:center"><code>zip archive.zip file1 file2</code></td>
+<td style="text-align:center">创建 zip 压缩文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>unzip</code></td>
+<td style="text-align:center"><code>unzip archive.zip</code></td>
+<td style="text-align:center">解压 zip 压缩文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>mv</code></td>
+<td style="text-align:center"><code>mv file1 file2</code></td>
+<td style="text-align:center">移动或重命名文件</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>系统管理类</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>ps</code></td>
+<td style="text-align:center"><code>ps -ef</code></td>
+<td style="text-align:center">显示当前进程</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>top</code></td>
+<td style="text-align:center"><code>top</code></td>
+<td style="text-align:center">实时显示系统资源使用情况</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>kill</code></td>
+<td style="text-align:center"><code>kill -9 12345</code></td>
+<td style="text-align:center">终止进程</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>free</code></td>
+<td style="text-align:center"><code>free -h</code></td>
+<td style="text-align:center">显示内存使用情况</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>df</code></td>
+<td style="text-align:center"><code>df -h</code></td>
+<td style="text-align:center">显示磁盘使用情况</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>du</code></td>
+<td style="text-align:center"><code>du -sh /path/to/directory</code></td>
+<td style="text-align:center">显示目录大小</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>scp</code></td>
+<td style="text-align:center"><code>scp file user@hostname:/path/to/destination</code></td>
+<td style="text-align:center">远程复制文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>wget</code></td>
+<td style="text-align:center"><code>wget http://example.com/file</code></td>
+<td style="text-align:center">下载文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>curl</code></td>
+<td style="text-align:center"><code>curl -O http://example.com/file</code></td>
+<td style="text-align:center">下载文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>apt</code></td>
+<td style="text-align:center"><code>apt-get install package</code></td>
+<td style="text-align:center">安装软件包</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>用户管理类</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>who</code></td>
+<td style="text-align:center"><code>who</code></td>
+<td style="text-align:center">显示当前登录用户</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>w</code></td>
+<td style="text-align:center"><code>w</code></td>
+<td style="text-align:center">显示当前登录用户及其活动</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>id</code></td>
+<td style="text-align:center"><code>id user</code></td>
+<td style="text-align:center">显示用户信息</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>useradd</code></td>
+<td style="text-align:center"><code>useradd newuser</code></td>
+<td style="text-align:center">创建新用户</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>userdel</code></td>
+<td style="text-align:center"><code>userdel newuser</code></td>
+<td style="text-align:center">删除用户</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>passwd</code></td>
+<td style="text-align:center"><code>passwd user</code></td>
+<td style="text-align:center">更改用户密码</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>su</code></td>
+<td style="text-align:center"><code>su - user</code></td>
+<td style="text-align:center">切换用户</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>网络管理类</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">示例</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>ifconfig</code></td>
+<td style="text-align:center"><code>ifconfig</code></td>
+<td style="text-align:center">显示网络接口信息</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ping</code></td>
+<td style="text-align:center"><code>ping www.google.com</code></td>
+<td style="text-align:center">测试网络连接</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>traceroute</code></td>
+<td style="text-align:center"><code>traceroute www.google.com</code></td>
+<td style="text-align:center">追踪网络路径</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>netstat</code></td>
+<td style="text-align:center"><code>netstat -an</code></td>
+<td style="text-align:center">显示网络连接</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>ssh</code></td>
+<td style="text-align:center"><code>ssh user@hostname</code></td>
+<td style="text-align:center">远程登录</td>
+</tr>
+</tbody>
+</table>
+<div class="tags"><a href="/tags/Linux/" rel="tag"><i class="ic i-tag"></i>Linux</a><a href="/tags/Windows/" rel="tag"><i class="ic i-tag"></i>Windows</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-04-10 21:37:38" itemprop="dateModified" datetime="2025-04-10T21:37:38+08:00">2025-04-10</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" data-src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" data-src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/" title="终端操作">https://zhang3399.github.io/2024/03/29/linux/2024-6-15-终端操作/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/" rel="prev" itemprop="url" data-background-image="images&#x2F;img7.webp" title="python进程、线程、协程"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>python</span><h3>python进程、线程、协程</h3></a></div><div class="item right"><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/" rel="next" itemprop="url" data-background-image="images&#x2F;img1.webp" title="LSTM"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>深度学习</span><h3>LSTM</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text"> 进程管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text"> 文件操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text"> 解压文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text"> 移动文件</span></a></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li  class="active"><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/" rel="bookmark" title="终端操作">终端操作</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">21</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">10</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">20</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/zi_Fei_yang" class="item csdn" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;zi_Fei_yang"><i class="ic i-csdn"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2021/10/29/python/2023-10-16-python%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/19/C++/2025-3-19-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Lambda 表达式</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E5%B7%A5%E5%85%B7/" title="分类于工具">工具</a></div><span><a href="/2025/02/23/Tool/2025-2-23-git/">git基本使用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2024/04/10/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2024-4-18-LSTM/">LSTM</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/tensoRT/" title="分类于tensoRT">tensoRT</a></div><span><a href="/2025/05/16/tensoRT/2025-5-16-tensoRT%E5%AE%89%E8%A3%85/">tensoRT安装</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/TypeScript/" title="分类于TypeScript">TypeScript</a></div><span><a href="/2025/01/20/JS/2025-2-23-TypeScript/">TypeScript学习</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于数据库">数据库</a></div><span><a href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93/2023-10-12-SQL/">SQL</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/Window-Linux/" title="分类于Window/Linux">Window/Linux</a></div><span><a href="/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/">终端操作</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/01/python/2023-10-12-python%E5%9F%BA%E7%A1%80/">python基本语法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2025/03/14/C++/2025-3-14-Boost/">Boost</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">194k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">2:56</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
     ispost: true,
     path: `2024/03/29/linux/2024-6-15-终端操作/`,
     favicon: {
