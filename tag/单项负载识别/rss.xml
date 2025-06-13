@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;单项负载识别&#34; tag</title>
+        <link>https://zhang3399.github.io</link>
+        <description>滴答滴答滴答</description>
+        <language>zh-CN</language>
+        <pubDate>Fri, 13 Jun 2025 10:00:00 +0800</pubDate>
+        <lastBuildDate>Fri, 13 Jun 2025 10:00:00 +0800</lastBuildDate>
+        <category>TypeScript</category>
+        <category>md图标</category>
+        <category>CMake</category>
+        <category>git</category>
+        <category>pytorch</category>
+        <category>Docker</category>
+        <category>tensoRT</category>
+        <category>Socket</category>
+        <category>多线程</category>
+        <category>LoRA</category>
+        <category>Linux</category>
+        <category>Windows</category>
+        <category>I/O多路复用</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>python</category>
+        <category>python进阶</category>
+        <category>数据结构</category>
+        <category>LSTM</category>
+        <category>Adman梯度下降</category>
+        <category>YOLOv5s</category>
+        <category>单项负载识别</category>
+        <category>SQL</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2025/06/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-6-13-%E5%8D%95%E9%A1%B9%E8%B4%9F%E8%BD%BD%E8%AF%86%E5%88%AB/</guid>
+            <title>单项负载识别</title>
+            <link>https://zhang3399.github.io/2025/06/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-6-13-%E5%8D%95%E9%A1%B9%E8%B4%9F%E8%BD%BD%E8%AF%86%E5%88%AB/</link>
+            <category>单项负载识别</category>
+            <pubDate>Fri, 13 Jun 2025 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/zhang3399/Single-phase_load_recognition&#34;&gt;https://github.com/zhang3399/Single-phase_load_recognition&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;项目简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目简介&#34;&gt;&lt;/a&gt; 项目简介&lt;/h1&gt;
+&lt;p&gt;在一个单相电力线上，对电压电流数据进行录波，从波形数据上提取有效信息，通过建模-训练的方式，识别出电力线上正在使用的电器有哪些。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;utils/datasets.py&lt;/code&gt;: 将数据集处理为输入特征和学习标签&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;utils/models.py&lt;/code&gt;: 定义LSTM模型&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config/params.py&lt;/code&gt;: 配置模型参数，存储路径，识别目标等&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;results/train.py&lt;/code&gt;: 训练模型,验证集识别效果&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;predict.py&lt;/code&gt;: 使用训练好的模型进行预测&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;数据集说明&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据集说明&#34;&gt;&lt;/a&gt; 数据集说明&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;使用公开数据集：NILM国内电器设备数据，下载地址：&lt;a href=&#34;https://gitcode.com/Universal-Tool/47e33/?utm_source=article_gitcode_universal&amp;amp;index=top&amp;amp;type=card&#34;&gt;https://gitcode.com/Universal-Tool/47e33/?utm_source=article_gitcode_universal&amp;amp;index=top&amp;amp;type=card&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;数据集结构：一个Excel文件包含多张表，每张表记录一个设备的电压、电流等以及操作状态记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;数据集包含了以下核心结构：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;设备信息：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;设备ID&lt;/th&gt;
+&lt;th&gt;设备类型&lt;/th&gt;
+&lt;th&gt;工作参数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;YD1&lt;/td&gt;
+&lt;td&gt;奥克斯风扇&lt;/td&gt;
+&lt;td&gt;220V, 60W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;YD2&lt;/td&gt;
+&lt;td&gt;美的微波炉&lt;/td&gt;
+&lt;td&gt;220V, 输入1150W, 输出700W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;YD11&lt;/td&gt;
+&lt;td&gt;创维电视机&lt;/td&gt;
+&lt;td&gt;220V, 50Hz, 150W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;​​设备监测数据：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;单位&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;time&lt;/td&gt;
+&lt;td&gt;年月日时分秒&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ic&lt;/td&gt;
+&lt;td&gt;电流值&lt;/td&gt;
+&lt;td&gt;0.001 A&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Uc&lt;/td&gt;
+&lt;td&gt;电压值&lt;/td&gt;
+&lt;td&gt;0.1 V&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PC&lt;/td&gt;
+&lt;td&gt;有功功率&lt;/td&gt;
+&lt;td&gt;0.0001kW&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;周波数据：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;time&lt;/td&gt;
+&lt;td&gt;年月日时分秒&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IC001&lt;/td&gt;
+&lt;td&gt;电流周波第1采样点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UC128&lt;/td&gt;
+&lt;td&gt;电压周波第128采样点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;​谐波数据​​&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;单位&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;time&lt;/td&gt;
+&lt;td&gt;年月日时分秒&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IC02&lt;/td&gt;
+&lt;td&gt;2次电流谐波含有率&lt;/td&gt;
+&lt;td&gt;%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UC51&lt;/td&gt;
+&lt;td&gt;2次电压谐波含有率&lt;/td&gt;
+&lt;td&gt;%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;用电设备操作记录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;序号&lt;/th&gt;
+&lt;th&gt;时间&lt;/th&gt;
+&lt;th&gt;设备&lt;/th&gt;
+&lt;th&gt;工作状态&lt;/th&gt;
+&lt;th&gt;操作&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;2019-01-01 00:00:00&lt;/td&gt;
+&lt;td&gt;YD1&lt;/td&gt;
+&lt;td&gt;开启&lt;/td&gt;
+&lt;td&gt;启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;2019-01-01 00:00:30&lt;/td&gt;
+&lt;td&gt;YD1&lt;/td&gt;
+&lt;td&gt;关闭&lt;/td&gt;
+&lt;td&gt;关闭&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;2019-01-01 00:00:00&lt;/td&gt;
+&lt;td&gt;YD1&lt;/td&gt;
+&lt;td&gt;1档&lt;/td&gt;
+&lt;td&gt;启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;2019-01-01 00:00:30&lt;/td&gt;
+&lt;td&gt;YD1&lt;/td&gt;
+&lt;td&gt;2档&lt;/td&gt;
+&lt;td&gt;关闭&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;td&gt;…&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;数据预处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据预处理&#34;&gt;&lt;/a&gt; 数据预处理&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;处理流程&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;mermaid&#34;&gt;graph TB
+    A[原始Excel] --&amp;gt; B[时间对齐]
+    B --&amp;gt; C[状态标签编码]
+    C --&amp;gt; D[特征工程]
+    D --&amp;gt; E[训练/测试集分割]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关键处理步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;时间对齐​​：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;python&#34;&gt;start_times = [
+    df_device[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;].&lt;span class=&#34;hljs-built_in&#34;&gt;min&lt;/span&gt;(),
+    df_wave[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;].&lt;span class=&#34;hljs-built_in&#34;&gt;min&lt;/span&gt;(),
+]
+end_times = [
+    df_device[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;].&lt;span class=&#34;hljs-built_in&#34;&gt;max&lt;/span&gt;(),
+    df_wave[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;].&lt;span class=&#34;hljs-built_in&#34;&gt;max&lt;/span&gt;(),
+]
+&lt;span class=&#34;hljs-comment&#34;&gt;# 最晚开始时间和最早结束时间&lt;/span&gt;
+common_start = &lt;span class=&#34;hljs-built_in&#34;&gt;max&lt;/span&gt;(start_times)
+common_end = &lt;span class=&#34;hljs-built_in&#34;&gt;min&lt;/span&gt;(end_times)
+&lt;span class=&#34;hljs-comment&#34;&gt;# 裁剪设备、周波、谐波表到共同时间范围&lt;/span&gt;
+df_device = df_device[(df_device[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;] &amp;gt;= common_start) &amp;amp; (df_device[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;] &amp;lt;= common_end)]
+df_wave = df_wave[(df_wave[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;] &amp;gt;= common_start) &amp;amp; (df_wave[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;time&amp;#x27;&lt;/span&gt;] &amp;lt;= common_end)]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;状态标签编码:(二分类与多分类)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title function_&#34;&gt;createLabel&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;df, output_path=&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;device_encoders.json&amp;#x27;&lt;/span&gt;, multi_class=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;&lt;/span&gt;):
+    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;
+    创建设备状态标签并保存映射关系
+    参数:
+        df: 包含设备状态的DataFrame
+        output_path: 映射关系保存路径
+        multi_class: 是否使用多分类（默认True）
+    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    device_cols = [col &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; col &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; df.columns &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; col.startswith(&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;YD&amp;#x27;&lt;/span&gt;)]
+    device_encoders = &amp;#123;&amp;#125;
+
+    &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; device &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; device_cols:
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 获取设备的所有状态&lt;/span&gt;
+        states = &lt;span class=&#34;hljs-built_in&#34;&gt;sorted&lt;/span&gt;(df[device].dropna().unique())
+        state_count = &lt;span class=&#34;hljs-built_in&#34;&gt;len&lt;/span&gt;(states)
+
+        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; multi_class &lt;span class=&#34;hljs-keyword&#34;&gt;and&lt;/span&gt; state_count &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;:
+            &lt;span class=&#34;hljs-comment&#34;&gt;# 多分类映射：为每个状态分配唯一整数&lt;/span&gt;
+            mapping = &amp;#123;state: i &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; i, state &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;enumerate&lt;/span&gt;(states)&amp;#125;
+            &lt;span class=&#34;hljs-built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;device&amp;#125;&lt;/span&gt; 状态(&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;state_count&amp;#125;&lt;/span&gt;种): &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;states&amp;#125;&lt;/span&gt; → 编码: &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;mapping&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;)
+
+            &lt;span class=&#34;hljs-comment&#34;&gt;# 创建多分类标签列&lt;/span&gt;
+            df[&lt;span class=&#34;hljs-string&#34;&gt;f&amp;#x27;is_&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;device&amp;#125;&lt;/span&gt;&amp;#x27;&lt;/span&gt;] = df[device].&lt;span class=&#34;hljs-built_in&#34;&gt;map&lt;/span&gt;(mapping).fillna(-&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;).astype(&lt;span class=&#34;hljs-built_in&#34;&gt;int&lt;/span&gt;)
+        &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt;:
+            &lt;span class=&#34;hljs-comment&#34;&gt;# 二分类映射：关闭→0，其他→1&lt;/span&gt;
+            mapping = &amp;#123;state: (&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;str&lt;/span&gt;(state).strip().lower() == &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;关闭&amp;quot;&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;) &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; state &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; states&amp;#125;
+            &lt;span class=&#34;hljs-built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;device&amp;#125;&lt;/span&gt; 状态(&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;state_count&amp;#125;&lt;/span&gt;种): &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;states&amp;#125;&lt;/span&gt; → 二值编码: &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;mapping&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;)
+
+            &lt;span class=&#34;hljs-comment&#34;&gt;# 创建二分类标签列&lt;/span&gt;
+            df[&lt;span class=&#34;hljs-string&#34;&gt;f&amp;#x27;is_&lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;device&amp;#125;&lt;/span&gt;&amp;#x27;&lt;/span&gt;] = df[device].&lt;span class=&#34;hljs-built_in&#34;&gt;map&lt;/span&gt;(mapping).fillna(-&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;).astype(&lt;span class=&#34;hljs-built_in&#34;&gt;int&lt;/span&gt;)
+
+        device_encoders[device] = mapping
+
+    &lt;span class=&#34;hljs-comment&#34;&gt;# 保存映射关系为JSON格式&lt;/span&gt;
+    &lt;span class=&#34;hljs-keyword&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;open&lt;/span&gt;(output_path, &lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;w&amp;#x27;&lt;/span&gt;, encoding=&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;utf-8&amp;#x27;&lt;/span&gt;) &lt;span class=&#34;hljs-keyword&#34;&gt;as&lt;/span&gt; f:
+        json.dump(device_encoders, f, ensure_ascii=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;, indent=&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;)
+
+    &lt;span class=&#34;hljs-built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;hljs-string&#34;&gt;f&amp;quot;映射关系已保存到 &lt;span class=&#34;hljs-subst&#34;&gt;&amp;#123;output_path&amp;#125;&lt;/span&gt;&amp;quot;&lt;/span&gt;)
+    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; df
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;二分类映射关系：&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;json&#34;&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;YD10&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;1档冷风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;1档热风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;2档冷风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;2档热风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;关闭&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;
+    &lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;YD11&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;关闭&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;打开&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#125;&lt;/span&gt;
+    ...
+&lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#125;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;多分类映射关系：&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;json&#34;&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#123;&lt;/span&gt;
+    &lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;YD10&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;1档冷风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;1档热风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;2档冷风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;2档热风&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;关闭&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;
+    &lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;YD11&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;关闭&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;hljs-attr&#34;&gt;&amp;quot;打开&amp;quot;&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#125;&lt;/span&gt;
+    ....
+&lt;span class=&#34;hljs-punctuation&#34;&gt;&amp;#125;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;特征工程：&lt;br /&gt;
+对电压、电流、周波和谐波数据与设备状态之间的相关性分析：&lt;br /&gt;
+分析结果保存在根目录下，考虑问题场景是基于电压电流，识别运行设备，只使用开源数据集的电压电流特征数据作为特征序列。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;模型搭建&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#模型搭建&#34;&gt;&lt;/a&gt; 模型搭建&lt;/h1&gt;
+&lt;p&gt;考虑电压电流数据呈时间连续，设备启停在过往与当前时刻的电压电流具有相应的特征变化，因此采用时序模型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;LSTM&lt;/code&gt;：长短期记忆网络，擅长处理时间序列数据，能够捕捉时间序列中的长期依赖关系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;识别方式&lt;/code&gt;：采用&lt;code&gt;i~j&lt;/code&gt;组时间序列电流电压数据，识别第&lt;code&gt;j&lt;/code&gt;组时间序列下的电器状态,&lt;code&gt;i~j&lt;/code&gt;由&lt;code&gt;params.py&lt;/code&gt;参数&lt;code&gt;WINDOW_SIZE&lt;/code&gt;值控制，即&lt;code&gt;滑动窗口&lt;/code&gt;,LSTM模型学习步长。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;模型训练&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#模型训练&#34;&gt;&lt;/a&gt; 模型训练&lt;/h2&gt;
+&lt;p&gt;训练说明：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;二分类
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;datahandl.py&lt;/code&gt;处理：将&lt;code&gt;df = createLabel(df, multi_class=False)&lt;/code&gt; 改为&lt;code&gt;multi_class=False&lt;/code&gt;，将状态标签编码为二分类标签。&lt;/li&gt;
+&lt;li&gt;执行&lt;code&gt;train.py&lt;/code&gt;：训练完成后，模型保存在&lt;code&gt;results/train&lt;/code&gt;文件中,可执行&lt;code&gt;predict.py&lt;/code&gt;进行推理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多分类
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;datahandl.py&lt;/code&gt;处理：将&lt;code&gt;df = createLabel(df, multi_class=True)&lt;/code&gt; 改为&lt;code&gt;multi_class=True&lt;/code&gt;，将状态标签编码为多分类标签。&lt;/li&gt;
+&lt;li&gt;执行&lt;code&gt;train_plus.py&lt;/code&gt;：可以训练，但是目前由于数据量不足，泛化能力较差，推理模块&lt;code&gt;predict_plus.py&lt;/code&gt;暂时未实现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;方案一：&lt;/strong&gt; （二分类模型如下）&lt;/p&gt;
+&lt;p&gt;模型为每个设备配置一个输出头，预测该设备是否在运行。&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title class_&#34;&gt;ApplianceLSTM&lt;/span&gt;(nn.Module):
+    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;多输出电器状态识别LSTM模型&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title function_&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, input_size, hidden_size, num_layers, num_outputs&lt;/span&gt;):
+        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(ApplianceLSTM, &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;).__init__()
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 减少隐藏层大小和层数&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size = hidden_size
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers = &lt;span class=&#34;hljs-built_in&#34;&gt;min&lt;/span&gt;(num_layers, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)  &lt;span class=&#34;hljs-comment&#34;&gt;# 限制层数&lt;/span&gt;
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# LSTM层 - 添加dropout&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.lstm = nn.LSTM(
+            input_size,
+            &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size,
+            &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers,
+            batch_first=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;,
+            bidirectional=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;,  &lt;span class=&#34;hljs-comment&#34;&gt;# 移除双向结构减少复杂度&lt;/span&gt;
+            dropout=&lt;span class=&#34;hljs-number&#34;&gt;0.3&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;hljs-comment&#34;&gt;# 层间dropout&lt;/span&gt;
+        )
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 简化全连接层&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.fc = nn.Sequential(
+            nn.Linear(&lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size, &lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;),
+            nn.ReLU(),
+            nn.Dropout(&lt;span class=&#34;hljs-number&#34;&gt;0.4&lt;/span&gt;),  &lt;span class=&#34;hljs-comment&#34;&gt;# 增加dropout比例&lt;/span&gt;
+            nn.LayerNorm(&lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;),  &lt;span class=&#34;hljs-comment&#34;&gt;# 添加批归一化&lt;/span&gt;
+            nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;),
+            nn.ReLU()
+        )
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 共享特征提取，独立输出层&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.output_layers = nn.ModuleList([
+            nn.Sequential(
+                nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;),
+                nn.Sigmoid()
+            ) &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; _ &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;range&lt;/span&gt;(num_outputs)
+        ])
+    &lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title function_&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, x&lt;/span&gt;):
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 初始化隐藏状态&lt;/span&gt;
+        h0 = torch.zeros(&lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers, x.size(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;), &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size).to(x.device)
+        c0 = torch.zeros(&lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers, x.size(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;), &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size).to(x.device)
+        &lt;span class=&#34;hljs-comment&#34;&gt;# LSTM前向传播&lt;/span&gt;
+        out, _ = &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.lstm(x, (h0, c0))
+        out = out[:, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, :]  &lt;span class=&#34;hljs-comment&#34;&gt;# 只取最后一个时间步的输出&lt;/span&gt;
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 通过全连接层&lt;/span&gt;
+        out = &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.fc(out)
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 每个电器一个输出头&lt;/span&gt;
+        outputs = [output_layer(out) &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; output_layer &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.output_layers]
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 合并输出为 [batch_size, num_outputs]&lt;/span&gt;
+        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; torch.cat(outputs, dim=&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;方案二：（多输出头的多类别预测）&lt;br /&gt;
+模型为每个设备配置一个输出头，并根据设备状态数量，设计对应的输出维度。&lt;/p&gt;
+&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;python&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title class_&#34;&gt;ApplianceLSTM_plus&lt;/span&gt;(nn.Module):
+    &lt;span class=&#34;hljs-string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;支持不同设备不同状态数的多输出LSTM模型&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title function_&#34;&gt;__init__&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, input_size, hidden_size, num_layers, states_per_device&lt;/span&gt;):
+        &lt;span class=&#34;hljs-built_in&#34;&gt;super&lt;/span&gt;(ApplianceLSTM, &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;).__init__()
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size = hidden_size
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers = &lt;span class=&#34;hljs-built_in&#34;&gt;min&lt;/span&gt;(num_layers, &lt;span class=&#34;hljs-number&#34;&gt;2&lt;/span&gt;)
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.states_per_device = states_per_device  &lt;span class=&#34;hljs-comment&#34;&gt;# 每个设备的状态数列表&lt;/span&gt;
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# LSTM层&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.lstm = nn.LSTM(
+            input_size,
+            hidden_size,
+            num_layers,
+            batch_first=&lt;span class=&#34;hljs-literal&#34;&gt;True&lt;/span&gt;,
+            bidirectional=&lt;span class=&#34;hljs-literal&#34;&gt;False&lt;/span&gt;,
+            dropout=&lt;span class=&#34;hljs-number&#34;&gt;0.3&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; num_layers &amp;gt; &lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;
+        )
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 共享的全连接层&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.fc = nn.Sequential(
+            nn.Linear(hidden_size, &lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;),
+            nn.ReLU(),
+            nn.Dropout(&lt;span class=&#34;hljs-number&#34;&gt;0.5&lt;/span&gt;),
+            nn.LayerNorm(&lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;),
+            nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;32&lt;/span&gt;, &lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;),
+            nn.ReLU()
+        )
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 为每个设备创建独立的输出层（状态数不同）&lt;/span&gt;
+        &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.output_layers = nn.ModuleList([
+            nn.Linear(&lt;span class=&#34;hljs-number&#34;&gt;16&lt;/span&gt;, states) &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; states &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.states_per_device
+        ])
+
+    &lt;span class=&#34;hljs-keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;hljs-title function_&#34;&gt;forward&lt;/span&gt;(&lt;span class=&#34;hljs-params&#34;&gt;self, x&lt;/span&gt;):
+        h0 = torch.zeros(&lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers, x.size(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;), &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size).to(x.device)
+        c0 = torch.zeros(&lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.num_layers, x.size(&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;), &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.hidden_size).to(x.device)
+
+        out, _ = &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.lstm(x, (h0, c0))
+        out = out[:, -&lt;span class=&#34;hljs-number&#34;&gt;1&lt;/span&gt;, :]  &lt;span class=&#34;hljs-comment&#34;&gt;# 取最后一个时间步的输出&lt;/span&gt;
+        out = &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.fc(out)
+
+        &lt;span class=&#34;hljs-comment&#34;&gt;# 每个设备独立输出（列表形式，每个元素对应一个设备的logits）&lt;/span&gt;
+        outputs = [layer(out) &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; layer &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.output_layers]
+        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; outputs
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

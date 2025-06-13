@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;md图标&#34; tag</title>
+        <link>https://zhang3399.github.io</link>
+        <description>滴答滴答滴答</description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 01 Jan 2024 10:00:00 +0800</pubDate>
+        <lastBuildDate>Mon, 01 Jan 2024 10:00:00 +0800</lastBuildDate>
+        <category>TypeScript</category>
+        <category>md图标</category>
+        <category>CMake</category>
+        <category>git</category>
+        <category>pytorch</category>
+        <category>Docker</category>
+        <category>tensoRT</category>
+        <category>Socket</category>
+        <category>多线程</category>
+        <category>LoRA</category>
+        <category>Linux</category>
+        <category>Windows</category>
+        <category>I/O多路复用</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>python</category>
+        <category>python进阶</category>
+        <category>数据结构</category>
+        <category>LSTM</category>
+        <category>Adman梯度下降</category>
+        <category>YOLOv5s</category>
+        <category>单项负载识别</category>
+        <category>SQL</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2024/01/01/Tool/2024-1-1-md%E5%9B%BE%E6%A0%87/</guid>
+            <title>md图标</title>
+            <link>https://zhang3399.github.io/2024/01/01/Tool/2024-1-1-md%E5%9B%BE%E6%A0%87/</link>
+            <category>md图标</category>
+            <pubDate>Mon, 01 Jan 2024 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;图标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#图标&#34;&gt;&lt;/a&gt; 图标&lt;/h1&gt;
+&lt;h2 id=&#34;字符图标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#字符图标&#34;&gt;&lt;/a&gt; 字符图标&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;样式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字符&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;样式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字符&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;样式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;字符&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;©&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;copy&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;®&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;reg&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;™&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;trade&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;¥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;yen&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;£&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;pound&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;€&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;euro&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;¢&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;cent&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;£&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;iexcl&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;¿&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;iquest&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;§&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;sect&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;¶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;para&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;¡&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;&amp;amp;iexcl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;彩色图标&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#彩色图标&#34;&gt;&lt;/a&gt; 彩色图标&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;样式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;样式&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;样式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😀 😃 🥰 😍 😘&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😚 😋 😛 😝 😜&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😎 😏 😒 😞 😔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😟 😕 🙁 ☹️ 😣&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😖 😫 😩 😤 😠&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😡 😤 😈 👿&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;👹 👺 👻 👽 👾&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;👿 💀 👽 👾 💩&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;💋 💦 💧 💨 💦&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🌿 🍃 🌾 🍀 🍁 🍂 🍄&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🍇 🍈 🍉 🍊 🍋 🍌 🍍 🍎&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🍏 🍐 🍑 🍒 🍓 🍅 🍆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🐋 🐬 🐶 🐱 🐭 🐹 🐰 🐻&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🐼 🐨 🐯 🦁 🐮 🐷 🐽 🐸&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🐵 🐴 🐔 🐧 🐦 🐣 🐤 🐥&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❤️ ✨ ⭐  💔 💕 💖&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;💝 💗 💘  💚 💛&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;💞 💟 💡 💢 💣&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🛨 🛩 🛪&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🛫 🛬&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🛴 🛵 🛶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❎ ✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❌ ✓&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❗❓ ❕❔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛪ ⛺ ⛲ ⛵ 🚀&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚁 🚂 🚃 🚄 🚅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚆 🚇 🚈 🚉 🚊&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚋 🚌 🚍 🚎 🚏&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚐 🚑 🚒 🚓 🚔&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚕 🚖 🚗 🚘 🚙&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚚 🚛 🚜 🚲 🚳&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚴 🚵 🚶 🚷 🚸&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚹 🚺 🚻 🚼 🚽&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🚾 🛀 🛁 🛂 🛃&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🛄 🛅 🛠 🛡 🛢&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🛣 🛤 🛥 🛦 🛧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❗ ❕ ❖&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❗ ❕ ❖&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;❗ ❕ ❖&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;➕ ➖ ➗ ➘ ➙ ➚ ➛ ➜ ➝&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;➞ ➟ ➠ ➡ ➢ ➣ ➤ ➥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;➦ ➧ ➨ ➩ ➪ ➫&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 0️⃣ 🔟&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔡 🔠 🔞&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔣 🔤 🔢&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔦 🔧 🔨 🔩&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔪 🔫 🔬 🔭&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔮 🔯 🔰&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔱 🔲 🔳 🔴&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔵 🔶 🔷 🔸&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔹 🔺 🔻&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🔼 🔽 ⬆️ ⬇️&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⬅️ ⮕ ⬌ ⬍&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⬎ ⬏ ⬐ ⬑&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚪ ⚫ ⬜ ⬛&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⬤ ⬣ ⬢ ⬡&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⬠ ⬡ ⬢ ⬣&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚰ ⚱ ⚲ ⚳&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚴ ⚵ ⚶ ⚷&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚸ ⚹ ⚺ ⚻&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚼ ⚽ ⚾ ⛀&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛁ ⛂ ⛃ ⛄&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛅ ⛆ ⛇ ⛈&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛉ ⛊ ⛋ ⛌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛍ ⛎ ⛏ ⛐&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛑ ⛒ ⛓ ⛔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛕ ⛖ ⛗ ⛘&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛙ ⛚ ⛛ ⛜&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛝ ⛞ ⛟ ⛠&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛡ ⛢ ⛣ ⛤&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛥ ⛦ ⛧ ⛨&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛩ ⛪ ⛫ ⛬&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛭ ⛮ ⛯ ⛰&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛱ ⛲ ⛳ ⛴&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛵ ⛶ ⛷ ⛸&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛹ ⛺ ⛻ ⛼&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⛽ ⛾ ⛿ ⚀&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚁ ⚂ ⚃ ⚄&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚅ ⚆ ⚇ ⚈&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚉ ⚊ ⚋ ⚌&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;⚍ ⚎ ⚏ ⚐&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
