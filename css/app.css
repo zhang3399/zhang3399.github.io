@@ -2947,17 +2947,17 @@ use.stop-animation {
   top: -10%;
   left: -10%;
 }
-.social .item.github::before {
+.social .item.g::before {
+  background-color: thu;
+}
+.social .item.g i {
+  color: thu;
+}
+.social .item.h::before {
   background-color: #191717;
 }
-.social .item.github i {
+.social .item.h i {
   color: #191717;
-}
-.social .item.csdn::before {
-  background-color: #ff0000;
-}
-.social .item.csdn i {
-  color: #ff0000;
 }
 .social .item:focus i,
 .social .item:hover i {
@@ -3257,9 +3257,6 @@ use.stop-animation {
 .md .exturl .ic {
   font-size: 0.875em;
   margin-left: 0.25rem;
-}
-.md .katex-html {
-  display: none !important;
 }
 .md .button {
   margin-top: 2.5rem;

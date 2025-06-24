@@ -7,29 +7,29 @@
         <language>zh-CN</language>
         <pubDate>Sat, 08 Jun 2024 10:00:00 +0800</pubDate>
         <lastBuildDate>Sat, 08 Jun 2024 10:00:00 +0800</lastBuildDate>
-        <category>Socket</category>
-        <category>多线程</category>
-        <category>Boost</category>
         <category>I/O多路复用</category>
-        <category>TypeScript</category>
-        <category>md图标</category>
+        <category>多线程</category>
+        <category>Socket</category>
+        <category>Boost</category>
         <category>Lambda 表达式</category>
+        <category>TypeScript</category>
         <category>pytorch</category>
-        <category>git</category>
-        <category>LoRA</category>
-        <category>CMake</category>
-        <category>Docker</category>
         <category>Linux</category>
         <category>Windows</category>
-        <category>tensoRT</category>
-        <category>图像处理</category>
+        <category>git</category>
+        <category>md图标</category>
         <category>python</category>
-        <category>数据结构</category>
+        <category>Docker</category>
+        <category>CMake</category>
         <category>python进阶</category>
-        <category>SQL</category>
+        <category>tensoRT</category>
+        <category>LoRA</category>
+        <category>图像处理</category>
+        <category>数据结构</category>
         <category>LSTM</category>
-        <category>Adman梯度下降</category>
+        <category>SQL</category>
         <category>YOLOv5s</category>
+        <category>Adman梯度下降</category>
         <category>单项负载识别</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</guid>
@@ -37,34 +37,51 @@
             <link>https://zhang3399.github.io/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</link>
             <category>数据结构</category>
             <pubDate>Sat, 08 Jun 2024 10:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;数据处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据处理&#34;&gt;&lt;/a&gt; 数据处理&lt;/h1&gt;
-&lt;h2 id=&#34;大小端转换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#大小端转换&#34;&gt;&lt;/a&gt; 大小端转换&lt;/h2&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;数据处理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据处理&#34;&gt;#&lt;/a&gt; 数据处理&lt;/h1&gt;
+&lt;h2 id=&#34;大小端转换&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#大小端转换&#34;&gt;#&lt;/a&gt; 大小端转换&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;大端和小端是指字节序的存储方式，大端是指高位字节存储在低地址，小端是指低位字节存储在低地址。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol&gt;
-&lt;li&gt;基本定义与存储方式&lt;br /&gt;
+&lt;li&gt;基本定义与存储方式&lt;br&gt;
 &lt;strong&gt;大端模式&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;高位字节存放在低地址上，低位字节存放在高地址上。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;0x12345678&lt;/code&gt;在内存中的存储方式为：&lt;code&gt;低地址--&amp;gt; 0x12 0x34 0x56 0x78 --&amp;gt;高地址&lt;/code&gt;&lt;br /&gt;
+&lt;li&gt;&lt;code&gt;0x12345678&lt;/code&gt;  在内存中的存储方式为： &lt;code&gt;低地址--&amp;gt; 0x12 0x34 0x56 0x78 --&amp;gt;高地址&lt;/code&gt; &lt;br&gt;
 &lt;strong&gt;小端模式&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;高位字节存放在高地址上，低位字节存放在低地址上。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;0x12345678&lt;/code&gt;在内存中的存储方式为： &lt;code&gt;低地址--&amp;gt;  0x78 0x56 0x34 0x12  --&amp;gt;高地址&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;0x12345678&lt;/code&gt;  在内存中的存储方式为：  &lt;code&gt;低地址--&amp;gt;  0x78 0x56 0x34 0x12  --&amp;gt;高地址&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;直观对比​（以&lt;code&gt;0x1234&lt;/code&gt;为例）：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;|内存地址	|大端模式|	小端模式|&lt;br /&gt;
-|–|----|----|----|&lt;br /&gt;
-|0x4000	|0x12	|0x34|&lt;br /&gt;
-|0x4001	|0x34	|0x12|&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;直观对比​（以 &lt;code&gt;0x1234&lt;/code&gt;  为例）：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;内存地址&lt;/th&gt;
+&lt;th&gt;大端模式&lt;/th&gt;
+&lt;th&gt;小端模式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0x4000&lt;/td&gt;
+&lt;td&gt;0x12&lt;/td&gt;
+&lt;td&gt;0x34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0x4001&lt;/td&gt;
+&lt;td&gt;0x34&lt;/td&gt;
+&lt;td&gt;0x12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;设计原因与应用场景&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;为何存在两种模式？&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;硬件差异：&lt;/strong&gt; 不同处理器架构对多字节数据的处理逻辑不同。例如，x86架构（如Intel/AMD CPU）采用小端模式，而PowerPC、MIPS等处理器多采用大端模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;硬件差异：&lt;/strong&gt; 不同处理器架构对多字节数据的处理逻辑不同。例如，x86 架构（如 Intel/AMD CPU）采用小端模式，而 PowerPC、MIPS 等处理器多采用大端模式。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;​效率考量：&lt;/strong&gt; 小端模式在强制类型转换时无需调整字节顺序（直接截取低地址数据即可），而大端模式便于快速判断符号位（符号位位于低地址）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;&lt;/p&gt;
@@ -72,8 +89,8 @@
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;网络通信&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;网络传输：&lt;/strong&gt; TCP/IP协议规定数据传输采用大端模式(网络字节序)，因此小端设备需通过&lt;code&gt;htonl()&lt;/code&gt;等函数转换字节序传输。&lt;/li&gt;
-&lt;li&gt;例如，发送&lt;code&gt;0x12345678&lt;/code&gt;时，小端设备需先转换为大端模式&lt;code&gt;0x78563412&lt;/code&gt;再传输，接收后需转回小端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络传输：&lt;/strong&gt; TCP/IP 协议规定数据传输采用大端模式 (网络字节序)，因此小端设备需通过 &lt;code&gt;htonl()&lt;/code&gt;  等函数转换字节序传输。&lt;/li&gt;
+&lt;li&gt;例如，发送 &lt;code&gt;0x12345678&lt;/code&gt;  时，小端设备需先转换为大端模式 &lt;code&gt;0x78563412&lt;/code&gt;  再传输，接收后需转回小端。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -84,81 +101,80 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;判断当前系统的字节序&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;判断当前系统的字节序&lt;/strong&gt;&lt;br&gt;
 可通过以下方法检测当前系统是大端还是小端：&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;**联合体法：**利用联合体的内存共享特性读取多字节数据的首字节。&lt;/li&gt;
+&lt;li&gt;** 联合体法：** 利用联合体的内存共享特性读取多字节数据的首字节。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;
-&lt;span class=&#34;hljs-meta&#34;&gt;#&lt;span class=&#34;hljs-keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;hljs-string&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&#34;hljs-keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;hljs-keyword&#34;&gt;namespace&lt;/span&gt; std;
-
-&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-type&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;isLittleEndian&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;
-
-    &lt;span class=&#34;hljs-keyword&#34;&gt;union&lt;/span&gt; &amp;#123; 
-        &lt;span class=&#34;hljs-type&#34;&gt;uint32_t&lt;/span&gt; i; 
-        &lt;span class=&#34;hljs-type&#34;&gt;uint8_t&lt;/span&gt; c[&lt;span class=&#34;hljs-number&#34;&gt;4&lt;/span&gt;]; 
-    &amp;#125; test = &amp;#123;&lt;span class=&#34;hljs-number&#34;&gt;0x01020304&lt;/span&gt;&amp;#125;;
-
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; test.c[&lt;span class=&#34;hljs-number&#34;&gt;0&lt;/span&gt;] == &lt;span class=&#34;hljs-number&#34;&gt;0x04&lt;/span&gt;; &lt;span class=&#34;hljs-comment&#34;&gt;// 若为小端，则首字节为0x04&lt;/span&gt;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;**宏定义法：**利用宏定义计算多字节数据的值。&lt;br /&gt;
-使用__BYTE_ORDER宏（Linux/Unix）或std::endian::native（C++20）直接判断&lt;/li&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;iostream&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;namespace&lt;/span&gt; std&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;isLittleEndian&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;union&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;uint32_t&lt;/span&gt; i&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;uint8_t&lt;/span&gt; c&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; test &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0x01020304&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; test&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;c&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x04&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;// 若为小端，则首字节为 0x04&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;** 宏定义法：** 利用宏定义计算多字节数据的值。&lt;br&gt;
+使用__BYTE_ORDER 宏（Linux/Unix）或 std::endian::native（C++20）直接判断&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol start=&#34;4&#34;&gt;
 &lt;li&gt;&lt;strong&gt;字节序转换函数&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;大端转小端：&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;uint16_t ntohs(uint16_t netshort);&lt;/code&gt;：将16位无符号整数从网络字节序转换为主机字节序。(windows下为&lt;code&gt;htons&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;uint32_t ntohl(uint32_t netlong);&lt;/code&gt;：将32位无符号整数从网络字节序转换为主机字节序。(windows下为&lt;code&gt;htonl&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uint16_t ntohs(uint16_t netshort);&lt;/code&gt; ：将 16 位无符号整数从网络字节序转换为主机字节序。(windows 下为 &lt;code&gt;htons&lt;/code&gt; )&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uint32_t ntohl(uint32_t netlong);&lt;/code&gt; ：将 32 位无符号整数从网络字节序转换为主机字节序。(windows 下为 &lt;code&gt;htonl&lt;/code&gt; )&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;小端转大端：&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;uint16_t htons(uint16_t hostshort);&lt;/code&gt;：将16位无符号整数从主机字节序转换到网络字节序。(windows下为&lt;code&gt;ntohs&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uint16_t htons(uint16_t hostshort);&lt;/code&gt; ：将 16 位无符号整数从主机字节序转换到网络字节序。(windows 下为 &lt;code&gt;ntohs&lt;/code&gt; )&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;野指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#野指针&#34;&gt;&lt;/a&gt; 野指针&lt;/h1&gt;
+&lt;h1 id=&#34;野指针&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#野指针&#34;&gt;#&lt;/a&gt; 野指针&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;指向无效内存地址（如未初始化、已释放或越界的内存）的指针，访问时可能导致程序崩溃或数据损坏&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;* p;  
-*p = &lt;span class=&#34;hljs-number&#34;&gt;10&lt;/span&gt;;  &lt;span class=&#34;hljs-comment&#34;&gt;// p 未初始化，指向随机地址（野指针）  &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;野指针的常见成因:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;|场景	|描述	|示例|&lt;br /&gt;
-|–|----|----|----|&lt;br /&gt;
-|​未初始化指针	|指针变量未赋初值，默认指向随机内存区域| &lt;code&gt;int* p&lt;/code&gt; ;（未初始化为 NULL 或有效地址）|&lt;br /&gt;
-|​释放后未置空	|&lt;code&gt;free&lt;/code&gt; 或 &lt;code&gt;delete&lt;/code&gt; 后未将指针设为 &lt;code&gt;NULL&lt;/code&gt;，仍指向已释放内存| &lt;code&gt;free(p)&lt;/code&gt; ; 后未执行 &lt;code&gt;p = NULL&lt;/code&gt;;|&lt;br /&gt;
-|​越界访问	|指针操作超出变量作用域（如返回局部变量地址）|	函数返回栈内存指针导致后续访问失效|&lt;/p&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; p&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;p &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;//p 未初始化，指向随机地址（野指针）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;野指针的常见成因:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;th&gt;示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;​未初始化指针&lt;/td&gt;
+&lt;td&gt;指针变量未赋初值，默认指向随机内存区域&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;int* p&lt;/code&gt;  ;（未初始化为 NULL 或有效地址）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;​释放后未置空&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;free&lt;/code&gt;  或  &lt;code&gt;delete&lt;/code&gt;  后未将指针设为  &lt;code&gt;NULL&lt;/code&gt; ，仍指向已释放内存&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;free(p)&lt;/code&gt;  ; 后未执行  &lt;code&gt;p = NULL&lt;/code&gt; ;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;​越界访问&lt;/td&gt;
+&lt;td&gt;指针操作超出变量作用域（如返回局部变量地址）&lt;/td&gt;
+&lt;td&gt;函数返回栈内存指针导致后续访问失效&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;规避野指针的最佳实践&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;初始化与置空
 &lt;ul&gt;
-&lt;li&gt;**初始化：**在声明指针时立即赋初值，避免指向随机内存。&lt;/li&gt;
+&lt;li&gt;** 初始化：** 在声明指针时立即赋初值，避免指向随机内存。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;* p = &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;;  &lt;span class=&#34;hljs-comment&#34;&gt;// 初始化为 NULL  &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;**置空：**释放内存后立即将指针置为 &lt;code&gt;NULL&lt;/code&gt;，防止重复释放或访问已释放内存。&lt;/li&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; p &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 初始化为 NULL&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;** 置空：** 释放内存后立即将指针置为  &lt;code&gt;NULL&lt;/code&gt; ，防止重复释放或访问已释放内存。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;free&lt;/span&gt;(p);  
-p = &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;;    
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;free&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;p&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;p &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
 &lt;li&gt;作用域与生命周期管理
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;作用域：&lt;/strong&gt; 确保指针操作在变量有效作用域内，避免返回局部变量地址。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;边界检查：&lt;/strong&gt; 访问数组元素时进行边界检查，防止越界访问。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;智能指针：&lt;/strong&gt; 使用智能指针（如 &lt;code&gt;std::unique_ptr&lt;/code&gt;、&lt;code&gt;std::shared_ptr&lt;/code&gt;）自动管理内存，避免手动释放内存带来的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能指针：&lt;/strong&gt; 使用智能指针（如  &lt;code&gt;std::unique_ptr&lt;/code&gt; 、 &lt;code&gt;std::shared_ptr&lt;/code&gt; ）自动管理内存，避免手动释放内存带来的问题。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;多线程环境下的防御措施
@@ -169,62 +185,34 @@ p = &lt;span class=&#34;hljs-literal&#34;&gt;NULL&lt;/span&gt;;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;拷贝构造与运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造与运算符重载&#34;&gt;&lt;/a&gt; 拷贝构造与运算符重载&lt;/h1&gt;
+&lt;h1 id=&#34;拷贝构造与运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造与运算符重载&#34;&gt;#&lt;/a&gt; 拷贝构造与运算符重载&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;拷贝构造函数和赋值运算符重载是C++中用于对象复制的两种机制，它们在对象创建和赋值时非常重要。&lt;/p&gt;
+&lt;p&gt;拷贝构造函数和赋值运算符重载是 C++ 中用于对象复制的两种机制，它们在对象创建和赋值时非常重要。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;拷贝构造函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数&#34;&gt;&lt;/a&gt; 拷贝构造函数&lt;/h2&gt;
+&lt;h2 id=&#34;拷贝构造函数&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数&#34;&gt;#&lt;/a&gt; 拷贝构造函数&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;拷贝构造函数&lt;/strong&gt;是一种特殊的构造函数，用于创建一个新对象，并将另一个对象的值复制到新对象中。它的定义形式如下：&lt;/p&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-built_in&#34;&gt;ClassName&lt;/span&gt;(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; ClassName&amp;amp; other);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其中，&lt;code&gt;ClassName&lt;/code&gt;是类名，&lt;code&gt;other&lt;/code&gt;是另一个对象，类型为&lt;code&gt;ClassName&lt;/code&gt;的引用。&lt;/p&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ClassName&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; ClassName&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中， &lt;code&gt;ClassName&lt;/code&gt;  是类名， &lt;code&gt;other&lt;/code&gt;  是另一个对象，类型为 &lt;code&gt;ClassName&lt;/code&gt;  的引用。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;拷贝构造函数的用途：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;对象初始化：&lt;/strong&gt; 当使用一个已存在的对象来初始化另一个对象时，拷贝构造函数会被调用。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;ClassName obj1;
-ClassName obj2 = obj1;  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用拷贝构造函数&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34;&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName obj1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName obj2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; obj1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 调用拷贝构造函数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;strong&gt;函数参数传递：&lt;/strong&gt; 当将一个对象作为函数参数传递时，拷贝构造函数会被调用。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;&lt;span class=&#34;hljs-type&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;hljs-title&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;(ClassName obj)&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    &lt;span class=&#34;hljs-comment&#34;&gt;// ...&lt;/span&gt;
-&amp;#125;
-
-ClassName obj1;
-&lt;span class=&#34;hljs-built_in&#34;&gt;func&lt;/span&gt;(obj1);  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用拷贝构造函数&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;3&#34;&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;ClassName obj&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// ...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName obj1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;obj1&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 调用拷贝构造函数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;&lt;strong&gt;函数返回值：&lt;/strong&gt; 当一个函数返回一个对象时，拷贝构造函数会被调用。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;ClassName &lt;span class=&#34;hljs-title&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    ClassName obj;  &lt;span class=&#34;hljs-comment&#34;&gt;// ...&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; obj;  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用拷贝构造函数&lt;/span&gt;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;赋值运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#赋值运算符重载&#34;&gt;&lt;/a&gt; 赋值运算符重载&lt;/h2&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName &lt;span class=&#34;token function&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ClassName obj&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// ...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; obj&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 调用拷贝构造函数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;赋值运算符重载&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#赋值运算符重载&#34;&gt;#&lt;/a&gt; 赋值运算符重载&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;赋值运算符重载&lt;/strong&gt;是一种运算符重载，用于将一个对象的值赋给另一个对象。它的定义形式如下：&lt;/p&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;ClassName&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;=(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; ClassName&amp;amp; other);
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其中，&lt;code&gt;ClassName&lt;/code&gt;是类名，&lt;code&gt;other&lt;/code&gt;是另一个对象，类型为&lt;code&gt;ClassName&lt;/code&gt;的引用。&lt;/p&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; ClassName&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中， &lt;code&gt;ClassName&lt;/code&gt;  是类名， &lt;code&gt;other&lt;/code&gt;  是另一个对象，类型为 &lt;code&gt;ClassName&lt;/code&gt;  的引用。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;赋值运算符重载的用途：&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;对象赋值：&lt;/strong&gt; 当使用一个已存在的对象来赋值给另一个对象时，赋值运算符重载会被调用。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;ClassName obj1;
-ClassName obj2;
-obj2 = obj1;  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用赋值运算符重载&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34;&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName obj1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName obj2&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;obj2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; obj1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 调用赋值运算符重载&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;strong&gt;函数返回值：&lt;/strong&gt; 当一个函数返回一个对象时，赋值运算符重载会被调用。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-function&#34;&gt;ClassName &lt;span class=&#34;hljs-title&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;hljs-params&#34;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;
-    ClassName obj;  &lt;span class=&#34;hljs-comment&#34;&gt;// ...&lt;/span&gt;
-    &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; obj;  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用赋值运算符重载&lt;/span&gt;
-&amp;#125;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;拷贝构造函数与赋值运算符重载的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数与赋值运算符重载的区别&#34;&gt;&lt;/a&gt; 拷贝构造函数与赋值运算符重载的区别&lt;/h2&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClassName &lt;span class=&#34;token function&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ClassName obj&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// ...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; obj&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 调用赋值运算符重载&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;拷贝构造函数与赋值运算符重载的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数与赋值运算符重载的区别&#34;&gt;#&lt;/a&gt; 拷贝构造函数与赋值运算符重载的区别&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;调用时机：&lt;/strong&gt;&lt;/p&gt;
@@ -236,83 +224,45 @@ obj2 = obj1;  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用赋值运算符�
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;参数类型：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;拷贝构造函数的参数类型为&lt;code&gt;const ClassName&amp;amp;&lt;/code&gt;，表示引用另一个对象。   - 赋值运算符重载的参数类型为&lt;code&gt;const ClassName&amp;amp;&lt;/code&gt;，表示引用另一个对象。&lt;/li&gt;
-&lt;li&gt;例如，拷贝构造函数的参数类型为&lt;code&gt;const ClassName&amp;amp;&lt;/code&gt;，表示引用另一个对象；赋值运算符重载的参数类型为&lt;code&gt;const ClassName&amp;amp;&lt;/code&gt;，表示引用另一个对象。&lt;/li&gt;
+&lt;li&gt;拷贝构造函数的参数类型为 &lt;code&gt;const ClassName&amp;amp;&lt;/code&gt; ，表示引用另一个对象。   - 赋值运算符重载的参数类型为 &lt;code&gt;const ClassName&amp;amp;&lt;/code&gt; ，表示引用另一个对象。&lt;/li&gt;
+&lt;li&gt;例如，拷贝构造函数的参数类型为 &lt;code&gt;const ClassName&amp;amp;&lt;/code&gt; ，表示引用另一个对象；赋值运算符重载的参数类型为 &lt;code&gt;const ClassName&amp;amp;&lt;/code&gt; ，表示引用另一个对象。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;返回值类型：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;拷贝构造函数的返回值类型为&lt;code&gt;ClassName&lt;/code&gt;，表示返回新对象。   - 赋值运算符重载的返回值类型为&lt;code&gt;ClassName&amp;amp;&lt;/code&gt;，表示返回对象的引用。&lt;/li&gt;
+&lt;li&gt;拷贝构造函数的返回值类型为 &lt;code&gt;ClassName&lt;/code&gt; ，表示返回新对象。   - 赋值运算符重载的返回值类型为 &lt;code&gt;ClassName&amp;amp;&lt;/code&gt; ，表示返回对象的引用。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;拷贝构造函数与赋值运算符重载的示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数与赋值运算符重载的示例&#34;&gt;&lt;/a&gt; 拷贝构造函数与赋值运算符重载的示例&lt;/h2&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title class_&#34;&gt;MyClass&lt;/span&gt; &amp;#123;
-&lt;span class=&#34;hljs-keyword&#34;&gt;public&lt;/span&gt;:
-    &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; data;
-
-    &lt;span class=&#34;hljs-comment&#34;&gt;// 拷贝构造函数&lt;/span&gt;
-    &lt;span class=&#34;hljs-built_in&#34;&gt;MyClass&lt;/span&gt;(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; MyClass&amp;amp; other) &amp;#123;
-        data = other.data;
-    &amp;#125;
-
-    &lt;span class=&#34;hljs-comment&#34;&gt;// 赋值运算符重载&lt;/span&gt;
-    MyClass&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;=(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; MyClass&amp;amp; other) &amp;#123;
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;hljs-keyword&#34;&gt;this&lt;/span&gt; != &amp;amp;other) &amp;#123;
-            data = other.data;
-        &amp;#125;
-        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; *&lt;span class=&#34;hljs-keyword&#34;&gt;this&lt;/span&gt;;
-    &amp;#125;
-&amp;#125;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;拷贝构造函数与赋值运算符重载的最佳实践&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数与赋值运算符重载的最佳实践&#34;&gt;&lt;/a&gt; 拷贝构造函数与赋值运算符重载的最佳实践&lt;/h2&gt;
+&lt;h2 id=&#34;拷贝构造函数与赋值运算符重载的示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数与赋值运算符重载的示例&#34;&gt;#&lt;/a&gt; 拷贝构造函数与赋值运算符重载的示例&lt;/h2&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;MyClass&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 拷贝构造函数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;MyClass&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        data &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 赋值运算符重载&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            data &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;拷贝构造函数与赋值运算符重载的最佳实践&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#拷贝构造函数与赋值运算符重载的最佳实践&#34;&gt;#&lt;/a&gt; 拷贝构造函数与赋值运算符重载的最佳实践&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;避免浅拷贝：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免浅拷贝，即直接复制指针而不是复制指针指向的内容。如果需要复制指针指向的内容，可以使用深拷贝。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免循环引用：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免循环引用，即两个对象相互引用对方。如果需要相互引用，可以使用智能指针（如&lt;code&gt;std::shared_ptr&lt;/code&gt;）来管理对象的生命周期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免内存泄漏：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免内存泄漏，即释放内存后未将指针置为&lt;code&gt;NULL&lt;/code&gt;。如果需要释放内存，应将指针置为&lt;code&gt;NULL&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免异常安全：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应确保异常安全，即当异常发生时，对象的状态应保持不变。可以使用RAII（Resource Acquisition Is Initialization）模式来确保资源正确释放。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免未定义行为：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免未定义行为，即访问未初始化的指针或释放已释放的内存。可以使用断言（assert）来检测指针是否为&lt;code&gt;NULL&lt;/code&gt;，或使用智能指针来管理内存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免循环引用：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免循环引用，即两个对象相互引用对方。如果需要相互引用，可以使用智能指针（如 &lt;code&gt;std::shared_ptr&lt;/code&gt; ）来管理对象的生命周期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免内存泄漏：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免内存泄漏，即释放内存后未将指针置为 &lt;code&gt;NULL&lt;/code&gt; 。如果需要释放内存，应将指针置为 &lt;code&gt;NULL&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免异常安全：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应确保异常安全，即当异常发生时，对象的状态应保持不变。可以使用 RAII（Resource Acquisition Is Initialization）模式来确保资源正确释放。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免未定义行为：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免未定义行为，即访问未初始化的指针或释放已释放的内存。可以使用断言（assert）来检测指针是否为 &lt;code&gt;NULL&lt;/code&gt; ，或使用智能指针来管理内存。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;避免性能问题：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免性能问题，即复制大量数据或进行复杂的操作。可以使用移动语义（move semantics）来优化性能。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;避免代码重复：&lt;/strong&gt; 在拷贝构造函数和赋值运算符重载中，应避免代码重复，即重复编写相同的代码。可以使用模板函数或模板类来减少代码重复。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h1 id=&#34;浅拷贝与深拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝与深拷贝&#34;&gt;&lt;/a&gt; 浅拷贝与深拷贝&lt;/h1&gt;
-&lt;h2 id=&#34;浅拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝&#34;&gt;&lt;/a&gt; 浅拷贝&lt;/h2&gt;
+&lt;h1 id=&#34;浅拷贝与深拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝与深拷贝&#34;&gt;#&lt;/a&gt; 浅拷贝与深拷贝&lt;/h1&gt;
+&lt;h2 id=&#34;浅拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝&#34;&gt;#&lt;/a&gt; 浅拷贝&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;仅复制对象的顶层结构（如指针或引用），底层数据仍共享同一内存地址。修改拷贝后的对象会影响原对象&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;场景&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;默认拷贝构造函数：C++ 中类未重写拷贝构造函数时，默认进行浅拷贝。&lt;/li&gt;
-&lt;li&gt;​数组/结构体赋值：直接复制数组或结构体时，引用类型成员共享地址&lt;/li&gt;
+&lt;li&gt;​数组 / 结构体赋值：直接复制数组或结构体时，引用类型成员共享地址&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;风险&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;**​数据竞争：**多线程环境下共享数据可能引发不一致问题。&lt;/li&gt;
-&lt;li&gt;**​双重释放：**若共享内存被多次释放，可能导致内存泄漏或崩溃&lt;/li&gt;
+&lt;li&gt;**​数据竞争：** 多线程环境下共享数据可能引发不一致问题。&lt;/li&gt;
+&lt;li&gt;**​双重释放：** 若共享内存被多次释放，可能导致内存泄漏或崩溃&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;浅拷贝的示例代码如下：&lt;/p&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title class_&#34;&gt;MyClass&lt;/span&gt; &amp;#123;
-&lt;span class=&#34;hljs-keyword&#34;&gt;public&lt;/span&gt;:
-    &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; data;
-    &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;* ptr;
-
-    &lt;span class=&#34;hljs-built_in&#34;&gt;MyClass&lt;/span&gt;(&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; value) : &lt;span class=&#34;hljs-built_in&#34;&gt;data&lt;/span&gt;(value), &lt;span class=&#34;hljs-built_in&#34;&gt;ptr&lt;/span&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;int&lt;/span&gt;(value)) &amp;#123;&amp;#125;
-
-    &lt;span class=&#34;hljs-comment&#34;&gt;// 浅拷贝构造函数&lt;/span&gt;
-    &lt;span class=&#34;hljs-built_in&#34;&gt;MyClass&lt;/span&gt;(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; MyClass&amp;amp; other) : &lt;span class=&#34;hljs-built_in&#34;&gt;data&lt;/span&gt;(other.data), &lt;span class=&#34;hljs-built_in&#34;&gt;ptr&lt;/span&gt;(other.ptr) &amp;#123;&amp;#125;
-
-    &lt;span class=&#34;hljs-comment&#34;&gt;// 浅拷贝赋值运算符重载&lt;/span&gt;
-    MyClass&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;=(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; MyClass&amp;amp; other) &amp;#123;
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;hljs-keyword&#34;&gt;this&lt;/span&gt; != &amp;amp;other) &amp;#123;
-            data = other.data;
-            ptr = other.ptr;
-        &amp;#125;
-        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; *&lt;span class=&#34;hljs-keyword&#34;&gt;this&lt;/span&gt;;
-    &amp;#125;
-&amp;#125;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;深拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#深拷贝&#34;&gt;&lt;/a&gt; 深拷贝&lt;/h2&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;MyClass&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; ptr&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;MyClass&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ptr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 浅拷贝构造函数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;MyClass&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ptr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;ptr&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 浅拷贝赋值运算符重载&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            data &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            ptr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;ptr&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;深拷贝&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#深拷贝&#34;&gt;#&lt;/a&gt; 深拷贝&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;复制对象的顶层结构及底层数据，确保拷贝后的对象与原对象完全独立。修改拷贝后的对象不会影响原对象&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -332,28 +282,7 @@ obj2 = obj1;  &lt;span class=&#34;hljs-comment&#34;&gt;// 调用赋值运算符�
 &lt;li&gt;&lt;strong&gt;性能开销：&lt;/strong&gt; 深拷贝需要复制大量数据，可能导致性能开销。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;深拷贝的示例代码如下：&lt;/p&gt;
-&lt;pre class=&#34;highlight&#34;&gt;&lt;code class=&#34;cpp&#34;&gt;&lt;span class=&#34;hljs-keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;hljs-title class_&#34;&gt;MyClass&lt;/span&gt; &amp;#123;
-&lt;span class=&#34;hljs-keyword&#34;&gt;public&lt;/span&gt;:
-    &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; data;
-    &lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt;* ptr;
-
-    &lt;span class=&#34;hljs-built_in&#34;&gt;MyClass&lt;/span&gt;(&lt;span class=&#34;hljs-type&#34;&gt;int&lt;/span&gt; value) : &lt;span class=&#34;hljs-built_in&#34;&gt;data&lt;/span&gt;(value), &lt;span class=&#34;hljs-built_in&#34;&gt;ptr&lt;/span&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;int&lt;/span&gt;(value)) &amp;#123;&amp;#125;
-
-    &lt;span class=&#34;hljs-comment&#34;&gt;// 深拷贝构造函数&lt;/span&gt;
-    &lt;span class=&#34;hljs-built_in&#34;&gt;MyClass&lt;/span&gt;(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; MyClass&amp;amp; other) : &lt;span class=&#34;hljs-built_in&#34;&gt;data&lt;/span&gt;(other.data), &lt;span class=&#34;hljs-built_in&#34;&gt;ptr&lt;/span&gt;(&lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;int&lt;/span&gt;(*other.ptr)) &amp;#123;&amp;#125;
-
-    &lt;span class=&#34;hljs-comment&#34;&gt;// 深拷贝赋值运算符重载&lt;/span&gt;
-    MyClass&amp;amp; &lt;span class=&#34;hljs-keyword&#34;&gt;operator&lt;/span&gt;=(&lt;span class=&#34;hljs-type&#34;&gt;const&lt;/span&gt; MyClass&amp;amp; other) &amp;#123;
-        &lt;span class=&#34;hljs-keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;hljs-keyword&#34;&gt;this&lt;/span&gt; != &amp;amp;other) &amp;#123;
-            data = other.data;
-            &lt;span class=&#34;hljs-keyword&#34;&gt;delete&lt;/span&gt; ptr;  &lt;span class=&#34;hljs-comment&#34;&gt;// 释放原指针指向的内存&lt;/span&gt;
-            ptr = &lt;span class=&#34;hljs-keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;hljs-built_in&#34;&gt;int&lt;/span&gt;(*other.ptr);  &lt;span class=&#34;hljs-comment&#34;&gt;// 分配新内存并复制数据&lt;/span&gt;
-        &amp;#125;
-        &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; *&lt;span class=&#34;hljs-keyword&#34;&gt;this&lt;/span&gt;;
-    &amp;#125;
-&amp;#125;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;浅拷贝与深拷贝的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝与深拷贝的区别&#34;&gt;&lt;/a&gt; 浅拷贝与深拷贝的区别&lt;/h2&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;MyClass&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; ptr&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;MyClass&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ptr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;value&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 深拷贝构造函数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;MyClass&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ptr&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;ptr&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;// 深拷贝赋值运算符重载&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;operator&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; MyClass&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            data &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;data&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;delete&lt;/span&gt; ptr&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 释放原指针指向的内存&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            ptr &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;other&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;ptr&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;// 分配新内存并复制数据&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;浅拷贝与深拷贝的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#浅拷贝与深拷贝的区别&#34;&gt;#&lt;/a&gt; 浅拷贝与深拷贝的区别&lt;/h2&gt;
 &lt;p&gt;| 特性  | 浅拷贝  | 深拷贝   |&lt;/p&gt;
 &lt;p&gt;| :---- | :----- | :------ |&lt;/p&gt;
 &lt;p&gt;| 复制方式 | 复制顶层结构，共享底层数据 | 复制顶层结构及底层数据，独立内存 |&lt;/p&gt;
