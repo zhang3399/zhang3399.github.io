@@ -4,30 +4,30 @@
     <title>CodeVortex记事本 • Posts by &#34;单项负载识别&#34; tag</title>
     <link href="https://zhang3399.github.io" />
     <updated>2025-06-13T02:00:00.000Z</updated>
-    <category term="TypeScript" />
-    <category term="md图标" />
-    <category term="CMake" />
-    <category term="git" />
-    <category term="pytorch" />
-    <category term="Docker" />
-    <category term="tensoRT" />
     <category term="Socket" />
     <category term="多线程" />
-    <category term="LoRA" />
+    <category term="TypeScript" />
+    <category term="Boost" />
+    <category term="I/O多路复用" />
+    <category term="Lambda 表达式" />
+    <category term="pytorch" />
+    <category term="md图标" />
+    <category term="CMake" />
+    <category term="Docker" />
+    <category term="git" />
+    <category term="图像处理" />
     <category term="Linux" />
     <category term="Windows" />
-    <category term="I/O多路复用" />
-    <category term="Boost" />
-    <category term="Lambda 表达式" />
+    <category term="tensoRT" />
     <category term="python" />
     <category term="python进阶" />
-    <category term="数据结构" />
+    <category term="LoRA" />
     <category term="LSTM" />
-    <category term="Adman梯度下降" />
+    <category term="SQL" />
     <category term="YOLOv5s" />
     <category term="单项负载识别" />
-    <category term="SQL" />
-    <category term="图像处理" />
+    <category term="数据结构" />
+    <category term="Adman梯度下降" />
     <entry>
         <id>https://zhang3399.github.io/2025/06/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-6-13-%E5%8D%95%E9%A1%B9%E8%B4%9F%E8%BD%BD%E8%AF%86%E5%88%AB/</id>
         <title>单项负载识别</title>
@@ -452,6 +452,8 @@ df_wave = df_wave[(df_wave[&lt;span class=&#34;hljs-string&#34;&gt;&amp;#x27;tim
         outputs = [layer(out) &lt;span class=&#34;hljs-keyword&#34;&gt;for&lt;/span&gt; layer &lt;span class=&#34;hljs-keyword&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;hljs-variable language_&#34;&gt;self&lt;/span&gt;.output_layers]
         &lt;span class=&#34;hljs-keyword&#34;&gt;return&lt;/span&gt; outputs
 &lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;推理结果&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#推理结果&#34;&gt;&lt;/a&gt; 推理结果&lt;/h2&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; data-src=&#34;/images/soh_trend_comparison.webp&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 </content>
         <category term="单项负载识别" />
         <updated>2025-06-13T02:00:00.000Z</updated>
