@@ -9,28 +9,28 @@
         <lastBuildDate>Wed, 18 Jun 2025 10:00:00 +0800</lastBuildDate>
         <category>Socket</category>
         <category>多线程</category>
-        <category>TypeScript</category>
         <category>Boost</category>
         <category>I/O多路复用</category>
+        <category>TypeScript</category>
+        <category>md图标</category>
         <category>Lambda 表达式</category>
         <category>pytorch</category>
-        <category>md图标</category>
+        <category>git</category>
+        <category>LoRA</category>
         <category>CMake</category>
         <category>Docker</category>
-        <category>git</category>
-        <category>图像处理</category>
         <category>Linux</category>
         <category>Windows</category>
         <category>tensoRT</category>
+        <category>图像处理</category>
         <category>python</category>
+        <category>数据结构</category>
         <category>python进阶</category>
-        <category>LoRA</category>
-        <category>LSTM</category>
         <category>SQL</category>
+        <category>LSTM</category>
+        <category>Adman梯度下降</category>
         <category>YOLOv5s</category>
         <category>单项负载识别</category>
-        <category>数据结构</category>
-        <category>Adman梯度下降</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/</guid>
             <title>位姿矫正</title>
