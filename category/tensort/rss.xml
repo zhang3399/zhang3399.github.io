@@ -30,6 +30,7 @@
         <category>YOLOv5s</category>
         <category>单项负载识别</category>
         <category>SQL</category>
+        <category>图像处理</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/05/16/tensoRT/2025-5-16-tensoRT%E5%AE%89%E8%A3%85/</guid>
             <title>tensoRT安装</title>

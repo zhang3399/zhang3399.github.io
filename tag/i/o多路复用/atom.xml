@@ -27,6 +27,7 @@
     <category term="YOLOv5s" />
     <category term="单项负载识别" />
     <category term="SQL" />
+    <category term="图像处理" />
     <entry>
         <id>https://zhang3399.github.io/2024/08/08/C++/2024-8-8-IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</id>
         <title>I/O多路复用</title>

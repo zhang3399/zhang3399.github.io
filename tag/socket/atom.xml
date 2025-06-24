@@ -27,6 +27,7 @@
     <category term="YOLOv5s" />
     <category term="单项负载识别" />
     <category term="SQL" />
+    <category term="图像处理" />
     <entry>
         <id>https://zhang3399.github.io/2024/06/15/C++/2024-6-15-Socket/</id>
         <title>Socket</title>

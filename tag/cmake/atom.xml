@@ -27,6 +27,7 @@
     <category term="YOLOv5s" />
     <category term="单项负载识别" />
     <category term="SQL" />
+    <category term="图像处理" />
     <entry>
         <id>https://zhang3399.github.io/2025/03/12/Tool/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</id>
         <title>🚀 CMake项目构建</title>

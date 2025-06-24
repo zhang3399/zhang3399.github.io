@@ -30,6 +30,7 @@
         <category>YOLOv5s</category>
         <category>单项负载识别</category>
         <category>SQL</category>
+        <category>图像处理</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/06/01/%E5%A4%A7%E6%A8%A1%E5%9E%8B/2025-6-1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83LoRA/</guid>
             <title>大模型微调LoRA</title>

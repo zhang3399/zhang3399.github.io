@@ -30,6 +30,7 @@
         <category>YOLOv5s</category>
         <category>单项负载识别</category>
         <category>SQL</category>
+        <category>图像处理</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/</guid>
             <title>LSTM预测电池SOH</title>

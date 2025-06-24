@@ -27,6 +27,7 @@
     <category term="YOLOv5s" />
     <category term="单项负载识别" />
     <category term="SQL" />
+    <category term="图像处理" />
     <entry>
         <id>https://zhang3399.github.io/2025/05/22/Tool/2025-5-22-Docker/</id>
         <title>Docker</title>
