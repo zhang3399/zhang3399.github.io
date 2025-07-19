@@ -1,0 +1,407 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhang3399.github.io</id>
+    <title>CodeVortex记事本 • Posts by &#34;cmake&#34; tag</title>
+    <link href="https://zhang3399.github.io" />
+    <updated>2025-03-12T07:26:00.000Z</updated>
+    <category term="Socket" />
+    <category term="TypeScript" />
+    <category term="多线程" />
+    <category term="I/O多路复用" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="md图标" />
+    <category term="python" />
+    <category term="git" />
+    <category term="pytorch" />
+    <category term="Docker" />
+    <category term="CMake" />
+    <category term="Linux" />
+    <category term="Windows" />
+    <category term="python进阶" />
+    <category term="曲率" />
+    <category term="tensoRT" />
+    <category term="SQL" />
+    <category term="数据结构" />
+    <category term="图像处理" />
+    <category term="LoRA" />
+    <category term="3D" />
+    <category term="LSTM" />
+    <category term="YOLOv5s" />
+    <category term="Adman梯度下降" />
+    <category term="单项负载识别" />
+    <entry>
+        <id>https://zhang3399.github.io/2025/03/12/Tool/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</id>
+        <title>🚀 CMake项目构建</title>
+        <link rel="alternate" href="https://zhang3399.github.io/2025/03/12/Tool/2025-3-12-CMake%E4%BD%BF%E7%94%A8/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;​&lt;strong&gt;编译环境&lt;/strong&gt;：在 Wiondows 下，使用 VScode+WSL2+Ubuntu20.04+GCC 编译器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;核心命令&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#核心命令&#34;&gt;#&lt;/a&gt; 核心命令&lt;/h1&gt;
+&lt;h2 id=&#34;项目配置&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目配置&#34;&gt;#&lt;/a&gt; 项目配置&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;cmake_minimum_required&lt;/code&gt;   指定 &lt;code&gt;CMake&lt;/code&gt;  的最小版本要求&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;cmake_minimum_required&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;VERSION&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3.10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt; &lt;code&gt;project&lt;/code&gt;   定义项目名称，并可以指定项目使用的编程语言、web 主页地址、项目版本号等&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;project&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyProject &lt;span class=&#34;token property&#34;&gt;VERSION&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1.0&lt;/span&gt; LANGUAGES CXX&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;set&lt;/code&gt;  设置变量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#方式 1 各源文件剪枝空格间隔，并赋值给 SOURCE（变量名任取，不要重复即可）变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;SOURCES&lt;/span&gt; main.cpp foo.cpp bar.cpp&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#方式 2 各源文件 “；” 间隔&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;SOURCES&lt;/span&gt; main.cpp;foo.cpp;bar.cpp&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 使用变量，采用 $&amp;#123;&amp;#125; 方式&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;add_executable&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyExecutable &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;SOURCES&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt;指定使用 &lt;code&gt;c++&lt;/code&gt;  标准&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;命令行编译时使用 c++ 标准，通过 &lt;code&gt;-std=c++11&lt;/code&gt;  格式指定&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;g++  &lt;span class=&#34;token parameter variable&#34;&gt;-std&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;c++11 &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; demo main.cpp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt;通过 &lt;code&gt;set&lt;/code&gt;  命令指定&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CMake 文件指定 c++ 标准&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_CXX_STANDARD&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;strong&gt;通过 &lt;code&gt;project&lt;/code&gt;  命令指定&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;project&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyProject &lt;span class=&#34;token property&#34;&gt;VERSION&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1.0&lt;/span&gt; LANGUAGES CXX &lt;span class=&#34;token property&#34;&gt;CXX_STANDARD&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;11&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;C++&lt;/code&gt;  标准对应有宏 &lt;code&gt;-DCMAKE_CXX_STANDARD&lt;/code&gt; ，通过 &lt;code&gt;cmake&lt;/code&gt;  命令指定&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token parameter variable&#34;&gt;-DCMAKE_CXX_STANDARD&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;11&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 注意，.. 表示上一级目录，指定到 CMakeLists.txt 所在的目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;变量名&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CMAKE_SOURCE_DIR&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;CMakeLists.txt&lt;/code&gt;  所在的目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CMAKE_BINARY_DIR&lt;/td&gt;
+&lt;td&gt;构建目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CMAKE_CURRENT_SOURCE_DIR&lt;/td&gt;
+&lt;td&gt;当前 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  所在的目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CMAKE_CURRENT_BINARY_DIR&lt;/td&gt;
+&lt;td&gt;当前构建目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CMAKE_CURRENT_LIST_DIR&lt;/td&gt;
+&lt;td&gt;当前 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  所在的目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PROJECT_SOURCE_DIR&lt;/td&gt;
+&lt;td&gt;表示项目根目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PROJECT_BINARY_DIR&lt;/td&gt;
+&lt;td&gt;表示项目构建目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PROJECT_NAME&lt;/td&gt;
+&lt;td&gt;表示项目名称&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CMAKE_CXX_STANDARD&lt;/td&gt;
+&lt;td&gt;表示 C++ 标准&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;文件管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件管理&#34;&gt;#&lt;/a&gt; 文件管理&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;指定输出路径&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在 CMake 中指定可执行程序输出的路径，也有对应的宏，叫做 &lt;code&gt;EXECUTABLE_OUTPUT_PATH&lt;/code&gt; ，可通过 &lt;code&gt;set&lt;/code&gt;  命令指定，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;HOME /home/zhang/Linux&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;EXECUTABLE_OUTPUT_PATH&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;HOME&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/bin&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;第一行：定义一个变量存储一个路径&lt;/li&gt;
+&lt;li&gt;第二行：将拼接好的路径赋值给 &lt;code&gt;EXECUTABLE_OUTPUT_PATH&lt;/code&gt;  变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;strong&gt;搜索文件&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;aux_source_group&lt;/code&gt;  查找 &lt;code&gt;某路径&lt;/code&gt; 下的 &lt;code&gt;所有源文件&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;aux_source_group&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Source Files&#34;&lt;/span&gt; variable&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Source Files&lt;/code&gt; ：表示搜索的文件所在的目录名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;variable&lt;/code&gt; ：将 &lt;code&gt;Source Files&lt;/code&gt;  目录下搜索到的源文件列表赋值给 &lt;code&gt;variable&lt;/code&gt;  变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;aux_source_group&lt;/code&gt;  查找文件&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# aux_source_group($&amp;#123;PROJECT_SOURCE_DIR&amp;#125;/src SRC_LIST)  &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;aux_source_group&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_CURRENT_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/src SRC_LIST&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PROJECT_SOURCE_DIR&lt;/code&gt; ：表示项目根目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMAKE_CURRENT_SOURCE_DIR&lt;/code&gt; ：表示当前 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  所在的目录&lt;br&gt;
+搜索 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  所在的目录 &lt;code&gt;src&lt;/code&gt;  下所有源文件，并将结果赋值给 &lt;code&gt;SRC_LIST&lt;/code&gt;  变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;file&lt;/code&gt;  查找文件&lt;/strong&gt;&lt;br&gt;
+使用 &lt;code&gt;file&lt;/code&gt;  命令，查找某路径下的 &lt;code&gt;某格式文件&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;GLOB/GLOB_RECURSE 变量名 要搜索文件路径和文件类型&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GLOB&lt;/code&gt; ：表示搜索指定目录下所有文件，将满足条件的文件列表赋值给变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GLOB_RECURSE&lt;/code&gt; ：表示递归搜索指定目录下所有文件，将满足条件的文件列表赋值给变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;strong&gt;包含头文件&lt;/strong&gt;&lt;br&gt;
+在编译项目源文件时，需要将源文件对应的头文件包含进来，cmake 提供了 &lt;code&gt;include_directories&lt;/code&gt;  命令，用于指定头文件的搜索路径：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;include_directories&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;headpath&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr&gt;
+&lt;h1 id=&#34;构建控制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#构建控制&#34;&gt;#&lt;/a&gt; 构建控制&lt;/h1&gt;
+&lt;h2 id=&#34;编译选项&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#编译选项&#34;&gt;#&lt;/a&gt; 编译选项&lt;/h2&gt;
+&lt;p&gt;在 CMake 中，可以通过 &lt;code&gt;option&lt;/code&gt;  命令来定义编译选项，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;option&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;USE_OPENMP &lt;span class=&#34;token string&#34;&gt;&#34;Use OpenMP for parallelization&#34;&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;ON&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;USE_OPENMP&lt;/code&gt; ：表示编译选项的名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Use OpenMP for parallelization&lt;/code&gt; ：表示编译选项的描述&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;链接控制&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#链接控制&#34;&gt;#&lt;/a&gt; 链接控制&lt;/h2&gt;
+&lt;p&gt;在 CMake 中，可以通过 &lt;code&gt;target_link_libraries&lt;/code&gt;  命令来指定链接库，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;target_link_libraries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;TARGET&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;  &lt;span class=&#34;token namespace&#34;&gt;PRIVATE&lt;/span&gt; MyLibrary&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TARGET&lt;/code&gt; ：需要链接库的目标&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;PRIVATE&lt;/code&gt; ：表示链接库的作用域，可以是 &lt;code&gt;PRIVATE&lt;/code&gt; 、 &lt;code&gt;PUBLIC&lt;/code&gt; 、 &lt;code&gt;INTERFACE&lt;/code&gt;  之一&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;工程实践&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#工程实践&#34;&gt;#&lt;/a&gt; 工程实践&lt;/h1&gt;
+&lt;h2 id=&#34;标准结构&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#标准结构&#34;&gt;#&lt;/a&gt; 标准结构&lt;/h2&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# CMakeLists.txt&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;cmake_minimum_required&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;VERSION&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3.10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;project&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyProject LANGUAGES CXX&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 添加源文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;SOURCES&lt;/span&gt; main.cpp foo.cpp bar.cpp&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;add_executable&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyExecutable &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token property&#34;&gt;SOURCES&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 添加头文件搜索路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;include_directories&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/include&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 添加链接库&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;target_link_libraries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyExecutable &lt;span class=&#34;token namespace&#34;&gt;PRIVATE&lt;/span&gt; MyLibrary&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;构建流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#构建流程&#34;&gt;#&lt;/a&gt; 构建流程&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; build&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;cmake &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;make&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr&gt;
+&lt;h1 id=&#34;动静态库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#动静态库&#34;&gt;#&lt;/a&gt; 动静态库&lt;/h1&gt;
+&lt;h2 id=&#34;生成静态库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#生成静态库&#34;&gt;#&lt;/a&gt; 生成静态库&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;add_library&lt;/code&gt;  命令用于创建库，其语法如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 静态库&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;add_library&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyLibrary &lt;span class=&#34;token namespace&#34;&gt;STATIC&lt;/span&gt; [源文件&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;] [源文件&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;]&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 动态库&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;add_library&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;MyLibrary &lt;span class=&#34;token namespace&#34;&gt;SHARED&lt;/span&gt;  [源文件&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;] [源文件&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;]&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;MyLibrary&lt;/code&gt;  为生成 &lt;code&gt;动静态&lt;/code&gt; 的 &lt;code&gt;库名&lt;/code&gt; ，完整动静态文件名包含三部分： &lt;code&gt;lib&lt;/code&gt; + &lt;code&gt;库名&lt;/code&gt;  + &lt;code&gt;扩展名&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SHARED&lt;/code&gt; ：表示生成动态库，动态库扩展名为 &lt;code&gt;.so&lt;/code&gt; (Linux)、 &lt;code&gt;dll&lt;/code&gt; (Windows)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;STATIC&lt;/code&gt; ：表示生成静态库，静态库扩展名为 &lt;code&gt;.a&lt;/code&gt; (Linux)、 &lt;code&gt;lib&lt;/code&gt; (Windows)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;静态库&lt;/code&gt; 默认不具有可执行权限，所以指定静态库路径的时候不可以使用 &lt;code&gt;EXECUTABLE_OUTPUT_PATH&lt;/code&gt; ，而应该使用 &lt;code&gt;LIBRARY_OUTPUT_PATH&lt;/code&gt; ，这个宏对于动态库和静态库都有效。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;类别&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;编译&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;静态库&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;编译时链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;动态库&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;运行时链接&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;使用动静态库&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用动静态库&#34;&gt;#&lt;/a&gt; 使用动静态库&lt;/h2&gt;
+&lt;p&gt;链接&lt;strong&gt;动静态&lt;/strong&gt;库，需要使用 &lt;code&gt;link_libraries&lt;/code&gt;  命令&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;link_libraries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;static lib&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; [&amp;lt;static lib&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;...]&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;参数1&lt;/code&gt;  指定要链接静态库的名字，可以是文件全名，也可以是文件名（不带 &lt;code&gt;lib&lt;/code&gt;  前缀和扩展名 &lt;code&gt;.a&lt;/code&gt; ）&lt;br&gt;
+ &lt;code&gt;参数2&lt;/code&gt;  要链接的其他静态库的名字&lt;/p&gt;
+&lt;p&gt;** 注意：** 如果该静态库不是系统提供的（自己制作或第三方提供静态库）可能出现找不到的情况，需要指定静态库的路径&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;link_directories&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;path&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;参数&lt;/code&gt;  指定静态库的路径&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;target_link_libraries&lt;/code&gt;  用于将动态库链接到目标可执行文件（因此位于 &lt;code&gt;add_executable&lt;/code&gt;  或 &lt;code&gt;add_library&lt;/code&gt;  命令之后）&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;target_link_libraries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;target&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; [&lt;span class=&#34;token namespace&#34;&gt;PRIVATE&lt;/span&gt;|&lt;span class=&#34;token namespace&#34;&gt;PUBLIC&lt;/span&gt;|&lt;span class=&#34;token namespace&#34;&gt;INTERFACE&lt;/span&gt;] &amp;lt;item&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;...&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;&amp;lt;target&amp;gt;&lt;/code&gt; ：表示目标可执行文件或库的名称&lt;br&gt;
+ &lt;code&gt;[PRIVATE|PUBLIC|INTERFACE]&lt;/code&gt; ：表示链接库的访问权限，默认为 &lt;code&gt;PUBLIC&lt;/code&gt; , 可以是 &lt;code&gt;PRIVATE&lt;/code&gt; 、 &lt;code&gt;PUBLIC&lt;/code&gt; 、 &lt;code&gt;INTERFACE&lt;/code&gt;  之一&lt;br&gt;
+ &lt;code&gt;&amp;lt;item&amp;gt;&lt;/code&gt; ：表示要链接的库的名称，可以是库的名称，也可以是库的路径&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;动态库&lt;/code&gt; ：具有传递性，即链接动态库的库，也会链接动态库所依赖的动态库，例如：如果 &lt;code&gt;动态库A&lt;/code&gt;  链接 &lt;code&gt;动态库B、C&lt;/code&gt; ， &lt;code&gt;动态库D&lt;/code&gt;  链接 &lt;code&gt;动态库A&lt;/code&gt; ，此时链接 &lt;code&gt;动态库D&lt;/code&gt;  相当于链接了 &lt;code&gt;动态库B、C&lt;/code&gt;  中定义的方法。&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;target_link_libraries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;A B C&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;target_link_libraries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;D A&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;权限&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;描述&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;PRIVATE&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;private 后面的库仅被 link 前面的 target 中，并且终结掉，第三方库不能感知&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;PUBLIC&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;public 后面的库会被 link 到前面的 target 中，并且里面的符号会被导出，提供给第三方&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;INTERFACE&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;interface 后面引入的库不会被连接到前面的 target 中，只会导出符号&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;进阶技巧&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#进阶技巧&#34;&gt;#&lt;/a&gt; 进阶技巧&lt;/h1&gt;
+&lt;h2 id=&#34;条件判断&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#条件判断&#34;&gt;#&lt;/a&gt; 条件判断&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;if&lt;/code&gt; &lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;EXISTS &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/include&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;include_directories&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/include&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;endif&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt; &lt;code&gt;elseif&lt;/code&gt; &lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;EXISTS &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/include&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;include_directories&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;/include&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;foreach&lt;/code&gt;  命令用于循环&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;foreach&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;loop_var&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &amp;lt;items&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &amp;lt;commands&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;endforeach&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;&amp;lt;loop_var&amp;gt;&lt;/code&gt; ：表示循环变量&lt;/p&gt;
+&lt;h2 id=&#34;日志&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#日志&#34;&gt;#&lt;/a&gt; 日志&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;message&lt;/code&gt;  命令用于输出日志信息，其语法如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;mode&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;message to display&#34;&lt;/span&gt; ...&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;&amp;lt;mode&amp;gt;&lt;/code&gt; ：表示输出信息的模式，可以是 &lt;code&gt;（空）&lt;/code&gt; 、 &lt;code&gt;STATUS&lt;/code&gt; 、 &lt;code&gt;WARNING&lt;/code&gt; 、 &lt;code&gt;AUTHOR_WARNING&lt;/code&gt; 、 &lt;code&gt;SEND_ERROR&lt;/code&gt; 、 &lt;code&gt;FATAL_ERROR&lt;/code&gt; 、 &lt;code&gt;DEPRECATION&lt;/code&gt;  之一&lt;br&gt;
+ &lt;code&gt;&amp;quot;message to display&amp;quot;&lt;/code&gt; ：表示要输出的信息&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;模式&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;输出信息&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;(空)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出重要信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;STATUS&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出普通信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;WARNING&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出警告信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;AUTHOR_WARNING&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出作者警告信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SEND_ERROR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出错误信息，继续执行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;FATAL_ERROR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出错误信息，终止执行&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;DEPRECATION&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;输出弃用信息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;CMake 命令行工具会在 stdout 上显示 STATUS 消息，在 stderr 上显示其他消息。CMake GUI 工具会在消息窗口中显示所有消息。&lt;/p&gt;
+&lt;h2 id=&#34;变量操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#变量操作&#34;&gt;#&lt;/a&gt; 变量操作&lt;/h2&gt;
+&lt;p&gt;有时候项目源文件比较多并且不再同一目录下，这些源文件需要一起编译生成可执行文件，我们可以通过 &lt;code&gt;file&lt;/code&gt;  命令对各自目录下的源文件进行搜索，最后还需要做一个字符串拼接操作，关于字符串拼接可以使用 &lt;code&gt;set&lt;/code&gt;  命令也可以使用 &lt;code&gt;list&lt;/code&gt;  命令。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;set&lt;/code&gt;  命令&lt;/strong&gt;&lt;br&gt;
+ &lt;code&gt;set&lt;/code&gt;  命令用于设置变量的值，其语法如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 取出 $&amp;#123;&amp;#125; 中变量的字符串 ---&gt; 拼接字符串 ---&gt; 赋值给变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;变量名&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;变量名&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;变量名&lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;... &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 将 string1 string2... 的字符串拼接 ---&gt; 赋值给变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&amp;lt;变量名&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; string1 string2... &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;set 实际是字符串拼接，该命令是将 &lt;code&gt;变量名1&lt;/code&gt; 、 &lt;code&gt;变量名2&lt;/code&gt; … 的值进行拼接并赋值给 &lt;code&gt;变量名&lt;/code&gt; ，如果 &lt;code&gt;变量名&lt;/code&gt; 已经存在，则覆盖其值，如果 &lt;code&gt;变量名&lt;/code&gt; 不存在，则创建该变量。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;list&lt;/code&gt;  命令&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;字符串拼接&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;APPEND &amp;lt;list&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; [args...]&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;APPEND&lt;/code&gt; ：将 &lt;code&gt;args&lt;/code&gt;  字符串依次添加到 &lt;code&gt;list&lt;/code&gt;  的末尾， &lt;code&gt;APPEND&lt;/code&gt;  之后写法与 &lt;code&gt;set&lt;/code&gt;  一致，与 &lt;code&gt;set&lt;/code&gt;  命令不同的是， &lt;code&gt;list&lt;/code&gt;  命令不会覆盖 &lt;code&gt;list&lt;/code&gt;  的值，而是将 &lt;code&gt;args&lt;/code&gt;  字符串依次添加到 &lt;code&gt;list&lt;/code&gt;  的末尾。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;字符串移除&lt;/strong&gt;&lt;br&gt;
+当通过 &lt;code&gt;file&lt;/code&gt;  查找某个目录下的所有源文件时，其中有些使我们不需要的，例如下面的 main.cpp&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ tree&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;├── add.cpp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;├── div.cpp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;├── main.cpp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;├── mult.cpp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;└── sub.cpp&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其中 &lt;code&gt;main&lt;/code&gt;  是测试文件，如果我们想把计算器相关的源文件生成动态库给别人使用，只需要 &lt;code&gt;add.cpp&lt;/code&gt; 、 &lt;code&gt;div.cpp&lt;/code&gt; 、 &lt;code&gt;mult.cpp&lt;/code&gt; 、 &lt;code&gt;sub.cpp&lt;/code&gt;  这四个文件，那么我们可以通过 &lt;code&gt;list&lt;/code&gt;  命令将 &lt;code&gt;main.cpp&lt;/code&gt;  移除。&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;REMOVE_ITEM &amp;lt;list&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; [value...]&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;REMOVE_ITEM&lt;/code&gt; ：将 &lt;code&gt;list&lt;/code&gt;  中所有 &lt;code&gt;value&lt;/code&gt;  字符串移除。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;字符串查找&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;FIND &amp;lt;list&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &amp;lt;value&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &amp;lt;variable&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;FIND&lt;/code&gt; ：在 &lt;code&gt;list&lt;/code&gt;  中查找 &lt;code&gt;value&lt;/code&gt;  字符串，如果找到，则将 &lt;code&gt;value&lt;/code&gt;  字符串在 &lt;code&gt;list&lt;/code&gt;  中的索引赋值给 &lt;code&gt;variable&lt;/code&gt; ，如果未找到，则将 &lt;code&gt;-1&lt;/code&gt;  赋值给 &lt;code&gt;variable&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;字符串替换&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;REPLACE &amp;lt;list&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &amp;lt;value&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt; &amp;lt;newvalue&lt;span class=&#34;token punctuation&#34;&gt;&gt;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;REPLACE&lt;/code&gt; ：将 &lt;code&gt;list&lt;/code&gt;  中所有 &lt;code&gt;value&lt;/code&gt;  字符串替换为 &lt;code&gt;newvalue&lt;/code&gt;  字符串。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;命令&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;描述&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;使用示例&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APPEND&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 args 添加到列表的末尾&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(APPEND &amp;lt;list&amp;gt; [args...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APPEND_STRING&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 args 添加到列表的末尾&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(APPEND_STRING &amp;lt;list&amp;gt; [args...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;APPEND_UNIQUE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 args 添加到列表的末尾，如果 args 已经存在，则不添加&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(APPEND_UNIQUE &amp;lt;list&amp;gt; [args...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;CLEAR&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;清除列表&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(CLEAR &amp;lt;list&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;GET&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;获取列表中的元素&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(GET &amp;lt;list&amp;gt; [&amp;lt;index&amp;gt;...]  [&amp;lt;output variable&amp;gt;...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;INSERT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;在 &lt;code&gt;列表&lt;/code&gt; 中的 &lt;code&gt;某一位置&lt;/code&gt; 插入 (&lt;em&gt;索引前插入&lt;/em&gt;) &lt;code&gt;元素&lt;/code&gt; 得到 &lt;code&gt;新字符串&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(INSERT &amp;lt;list&amp;gt; &amp;lt;index&amp;gt; [&amp;lt;index&amp;gt;...] [&amp;lt;output variable&amp;gt;...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;LENGTH&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;获取列表的长度并赋值给 &lt;code&gt;变量&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(LENGTH &amp;lt;list&amp;gt; &amp;lt;variable&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;POP_BACK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除 &lt;code&gt;列表&lt;/code&gt; 中的最后一个元素获取 &lt;code&gt;新字符串&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(POP_BACK &amp;lt;list&amp;gt; [&amp;lt;output variable&amp;gt;...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;POP_FRONT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除 &lt;code&gt;列表&lt;/code&gt; 中的第一个元素获取 &lt;code&gt;新字符串&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(POP_FRONT &amp;lt;list&amp;gt; [&amp;lt;output variable&amp;gt;...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;PREPEND&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 args 添加到列表的开头&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(PREPEND &amp;lt;list&amp;gt; [args...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;REMOVE_AT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除 &lt;code&gt;列表&lt;/code&gt; 中的 &lt;code&gt;某一位置&lt;/code&gt; 的元素获取 &lt;code&gt;新字符串&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(REMOVE_AT &amp;lt;list&amp;gt; [&amp;lt;index&amp;gt;...] [&amp;lt;output variable&amp;gt;...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;REMOVE_ITEM&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除 &lt;code&gt;列表&lt;/code&gt; 中所有 &lt;code&gt;value&lt;/code&gt;  字符串&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(REMOVE_ITEM &amp;lt;list&amp;gt; [value...])&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;REMOVE_DUPLICATES&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;删除 &lt;code&gt;列表&lt;/code&gt; 中重复的元素&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(REMOVE_DUPLICATES &amp;lt;list&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;JOIN&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 &lt;code&gt;列表&lt;/code&gt; 中的元素用 &lt;code&gt;连接符&lt;/code&gt; 连接成一个 &lt;code&gt;新字符串&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(JOIN &amp;lt;list&amp;gt; &amp;lt;glue&amp;gt; &amp;lt;output variable&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;REVERSE&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 &lt;code&gt;列表&lt;/code&gt; 中的元素反转&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(REVERSE &amp;lt;list&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;SORT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;将 &lt;code&gt;列表&lt;/code&gt; 中的元素排序&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;list(SORT &amp;lt;list&amp;gt;)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;宏定义&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#宏定义&#34;&gt;#&lt;/a&gt; 宏定义&lt;/h2&gt;
+&lt;p&gt;在程序测试中，我们经常需要定义一些宏，例如 &lt;code&gt;DEBUG&lt;/code&gt; ，通过这些宏来控制程序是否打印调试信息&lt;/p&gt;
+&lt;figure class=&#34;highlight cpp&#34;&gt;&lt;figcaption data-lang=&#34;C++&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;iostream&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;token macro-name&#34;&gt;DEBUG&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; n &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;ifdef&lt;/span&gt; &lt;span class=&#34;token expression&#34;&gt;DEBUG&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      std&lt;span class=&#34;token double-colon punctuation&#34;&gt;::&lt;/span&gt;cout &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;debug n=&#34;&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; n &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; std&lt;span class=&#34;token double-colon punctuation&#34;&gt;::&lt;/span&gt;endl&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;程序通过 &lt;code&gt;#ifdef DEBUG&lt;/code&gt;  判断 &lt;code&gt;DEBUG&lt;/code&gt;  是否被定义，如果被定义，则打印调试信息。如果没有被定义，则不打印调试信息，该端代码相当于被注释掉了，因此无法看到日志输出。&lt;/p&gt;
+&lt;p&gt;为了使得 &lt;code&gt;c++&lt;/code&gt;  测试更加方便，我们可以不在代码中定义宏，在 &lt;code&gt;g++/gcc&lt;/code&gt;  命令中定义宏，例如&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;g++ &lt;span class=&#34;token parameter variable&#34;&gt;-DDEBUG&lt;/span&gt; main.cpp &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;g++/gcc&lt;/code&gt;  命令通过 &lt;code&gt;-D&lt;/code&gt;  指定定义宏的名字，这样在代码中就可以使用 &lt;code&gt;DEBUG&lt;/code&gt;  宏了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;CMake&lt;/code&gt;  中使用 &lt;code&gt;add_definitions&lt;/code&gt;  定义宏&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;add_definitions&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;-DDEBUG&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;add_definitions&lt;/code&gt;  命令用于定义宏，其中 &lt;code&gt;-D&lt;/code&gt;  是 &lt;code&gt;g++/gcc&lt;/code&gt;  命令的参数， &lt;code&gt;DEBUG&lt;/code&gt;  是宏的名字。&lt;/p&gt;
+&lt;h2 id=&#34;嵌套cmake&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#嵌套cmake&#34;&gt;#&lt;/a&gt; 嵌套 CMake&lt;/h2&gt;
+&lt;p&gt;在 Linux 的目录是树状结构，所以嵌套 CMake 也是树状结构，最顶层的 CMakeLists.txt 文件称为 &lt;code&gt;根节点&lt;/code&gt; ，其他 CMakeLists.txt 文件称为 &lt;code&gt;子节点&lt;/code&gt; 。需要了解关于 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  的几个信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;根节点的 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  中定义变量全局有效。&lt;/li&gt;
+&lt;li&gt;父节点的 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  中定义的变量，子节点可以访问。&lt;/li&gt;
+&lt;li&gt;子节点的 &lt;code&gt;CMakeLists.txt&lt;/code&gt;  中定义的变量，父节点无法访问。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;添加子目录&lt;/strong&gt;&lt;br&gt;
+ CMake 中父子节点是如何建立的？&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;add_subdirectory&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;source_dir [binary_dir] [&lt;span class=&#34;token property&#34;&gt;EXCLUDE_FROM_ALL&lt;/span&gt;]&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;source_dir&lt;/code&gt; : 子目录的路径，&lt;br&gt;
+ &lt;code&gt;binary_dir&lt;/code&gt; : 指定输出文件的路径，一般不需要指定，默认即可。&lt;br&gt;
+ &lt;code&gt;EXCLUDE_FROM_ALL&lt;/code&gt; : 在子路径下的目标默认不会被包含到父路径的 &lt;code&gt;ALL&lt;/code&gt;  目标中，并且也会排除在 IDE 工程文件之外。用户必须显式构建在子路径下的目标。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;获取父目录的路径&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight cmake&#34;&gt;&lt;figcaption data-lang=&#34;CMake&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;get_filename_component&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;PARENT_DIR &lt;span class=&#34;token punctuation&#34;&gt;$&amp;#123;&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;CMAKE_CURRENT_SOURCE_DIR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; PATH&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;code&gt;get_filename_component&lt;/code&gt;  命令用于获取文件路径，其中 &lt;code&gt;PARENT_DIR&lt;/code&gt;  是变量名， &lt;code&gt;$&amp;#123;CMAKE_CURRENT_SOURCE_DIR&amp;#125;&lt;/code&gt;  是当前目录的路径， &lt;code&gt;PATH&lt;/code&gt;  表示获取路径。&lt;/p&gt;
+</content>
+        <category term="CMake" />
+        <updated>2025-03-12T07:26:00.000Z</updated>
+    </entry>
+</feed>

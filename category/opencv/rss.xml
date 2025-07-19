@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;opencv&#34; category</title>
+        <link>https://zhang3399.github.io</link>
+        <description>滴答滴答滴答</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 18 Jun 2025 10:00:00 +0800</pubDate>
+        <lastBuildDate>Wed, 18 Jun 2025 10:00:00 +0800</lastBuildDate>
+        <category>Socket</category>
+        <category>TypeScript</category>
+        <category>多线程</category>
+        <category>I/O多路复用</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>md图标</category>
+        <category>python</category>
+        <category>git</category>
+        <category>pytorch</category>
+        <category>Docker</category>
+        <category>CMake</category>
+        <category>Linux</category>
+        <category>Windows</category>
+        <category>python进阶</category>
+        <category>曲率</category>
+        <category>tensoRT</category>
+        <category>SQL</category>
+        <category>数据结构</category>
+        <category>图像处理</category>
+        <category>LoRA</category>
+        <category>3D</category>
+        <category>LSTM</category>
+        <category>YOLOv5s</category>
+        <category>Adman梯度下降</category>
+        <category>单项负载识别</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/</guid>
+            <title>位姿矫正</title>
+            <link>https://zhang3399.github.io/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/</link>
+            <category>图像处理</category>
+            <pubDate>Wed, 18 Jun 2025 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;滤波片位姿矫正系统-工业视觉检测&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#滤波片位姿矫正系统-工业视觉检测&#34;&gt;#&lt;/a&gt; 滤波片位姿矫正系统 - 工业视觉检测&lt;/h1&gt;
+&lt;p&gt;基于计算机视觉的滤波片位姿检测与矫正系统，用于工业生产中滤波片安装位置的自动化检测与调整建议。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/images/%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A31.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;项目简介&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#项目简介&#34;&gt;#&lt;/a&gt; 项目简介&lt;/h2&gt;
+&lt;p&gt;本项目是一个基于 PyQt5 和 OpenCV 的工业视觉应用，主要用于检测滤波片在安装过程中的位姿偏差（包括旋转角度和中心偏移），并提供矫正建议。系统通过图像处理算法提取滤波片轮廓，计算其相对于标准位置的偏差。&lt;/p&gt;
+&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/zhang3399/Pose_correction.git&#34;&gt;https://github.com/zhang3399/Pose_correction.git&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;核心功能&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#核心功能&#34;&gt;#&lt;/a&gt; 核心功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🖼️ ​​图像导入与处理​​：支持多种图像格式导入，实时显示处理结果&lt;/li&gt;
+&lt;li&gt;📊 ​​参数化控制​​：可调节 CLAHE 对比度限制、双边滤波参数、Canny 边缘检测阈值等&lt;/li&gt;
+&lt;li&gt;📐 ​​位姿精确测量​​：
+&lt;ul&gt;
+&lt;li&gt;旋转角度检测&lt;/li&gt;
+&lt;li&gt;X/Y 轴中心偏移量计算&lt;/li&gt;
+&lt;li&gt;自动判定位姿是否合格&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;🛠️ ​​多步骤可视化​​：完整展示从原始图像到位姿分析的整个处理流程&lt;/li&gt;
+&lt;li&gt;📋 ​​结果可视化​​：在图像上直接标注检测结果和建议&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;操作指南&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#操作指南&#34;&gt;#&lt;/a&gt; 操作指南&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;导入图像​​：点击 &amp;quot;导入图像&amp;quot; 按钮选择滤波片图像&lt;/li&gt;
+&lt;li&gt;调整参数​​：根据图像质量微调处理参数&lt;/li&gt;
+&lt;li&gt;​执行检测​​：点击 &amp;quot;执行位姿检测&amp;quot; 开始分析&lt;/li&gt;
+&lt;li&gt;​查看结果​​：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;原始图像标签页：查看原始输入&lt;/li&gt;
+&lt;li&gt;处理结果标签页：查看位姿分析结果&lt;/li&gt;
+&lt;li&gt;处理步骤标签页：查看完整的处理流程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;位姿检测流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#位姿检测流程&#34;&gt;#&lt;/a&gt; 位姿检测流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;图像预处理：
+&lt;ul&gt;
+&lt;li&gt;灰度转换&lt;/li&gt;
+&lt;li&gt;CLAHE 局部对比度增强&lt;/li&gt;
+&lt;li&gt;双边滤波去噪&lt;/li&gt;
+&lt;li&gt;形态学开运算去除小噪声&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;边缘检测：
+&lt;ul&gt;
+&lt;li&gt;使用 Canny 算法提取图像边缘&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;轮廓分析：
+&lt;ul&gt;
+&lt;li&gt;查找所有轮廓&lt;/li&gt;
+&lt;li&gt;筛选出面积大于阈值的最大轮廓（假设为滤波片轮廓）&lt;/li&gt;
+&lt;li&gt;计算最小外接矩形&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;位姿计算：
+&lt;ul&gt;
+&lt;li&gt;从外接矩形获取旋转角度&lt;/li&gt;
+&lt;li&gt;计算轮廓中心与图像中心的偏移量&lt;/li&gt;
+&lt;li&gt;调整角度表示为更直观的 0°-90° 范围&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/images/%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3.webp&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

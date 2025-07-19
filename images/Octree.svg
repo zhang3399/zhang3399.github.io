@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 Octree.svg 页-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1.26987in" height="1.18796in"
+		viewBox="0 0 91.431 85.5328" xml:space="preserve" color-interpolation-filters="sRGB" class="st7">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#8ea9db;stroke:#c7c8c8;stroke-width:0.25}
+		.st2 {fill:#3359a2;stroke:#c7c8c8;stroke-width:0.25}
+		.st3 {fill:#4672c4;stroke:#c7c8c8;stroke-width:0.25}
+		.st4 {fill:#c8ddf0;stroke:#c7c8c8;stroke-width:0.25}
+		.st5 {fill:#72a8da;stroke:#c7c8c8;stroke-width:0.25}
+		.st6 {fill:#9cc3e5;stroke:#c7c8c8;stroke-width:0.25}
+		.st7 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<g id="group28-1" transform="translate(8.82428,-8.60583)" v:mID="28" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.28</title>
+			<g id="shape29-2" v:mID="29" v:groupContext="shape">
+				<title>工作表.29</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape30-4" v:mID="30" v:groupContext="shape">
+				<title>工作表.30</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape28-6" v:mID="28" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group31-8" transform="translate(45.7428,-8.60583)" v:mID="31" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.31</title>
+			<g id="shape32-9" v:mID="32" v:groupContext="shape">
+				<title>工作表.32</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape33-11" v:mID="33" v:groupContext="shape">
+				<title>工作表.33</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape31-13" v:mID="31" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group22-15" transform="translate(8.82428,-42.6845)" v:mID="22" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体</title>
+			<g id="shape23-16" v:mID="23" v:groupContext="shape">
+				<title>工作表.23</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape24-18" v:mID="24" v:groupContext="shape">
+				<title>工作表.24</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape22-20" v:mID="22" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group25-22" transform="translate(45.7428,-42.6845)" v:mID="25" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.25</title>
+			<g id="shape26-23" v:mID="26" v:groupContext="shape">
+				<title>工作表.26</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape27-25" v:mID="27" v:groupContext="shape">
+				<title>工作表.27</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape25-27" v:mID="25" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group82-29" transform="translate(0.25,-0.25)" v:mID="82" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.82</title>
+			<g id="shape83-30" v:mID="83" v:groupContext="shape">
+				<title>工作表.83</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape84-32" v:mID="84" v:groupContext="shape">
+				<title>工作表.84</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape82-34" v:mID="82" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group85-36" transform="translate(37.1685,-0.25)" v:mID="85" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.85</title>
+			<g id="shape86-37" v:mID="86" v:groupContext="shape">
+				<title>工作表.86</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape87-39" v:mID="87" v:groupContext="shape">
+				<title>工作表.87</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape85-41" v:mID="85" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group88-43" transform="translate(0.25,-34.3286)" v:mID="88" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.88</title>
+			<g id="shape89-44" v:mID="89" v:groupContext="shape">
+				<title>工作表.89</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M0 51.45 L36.92 51.45 L45.44 42.93 L8.52 42.93 L0 51.45 Z" class="st1"/>
+			</g>
+			<g id="shape90-46" v:mID="90" v:groupContext="shape">
+				<title>工作表.90</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.47331439522317):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#4672c4)"/>
+				</v:userDefs>
+				<path d="M36.92 85.53 L45.44 77.01 L45.44 42.93 L36.92 51.45 L36.92 85.53 Z" class="st2"/>
+			</g>
+			<g id="shape88-48" v:mID="88" v:groupContext="groupContent">
+				<rect x="0" y="51.4541" width="36.9185" height="34.0786" class="st3"/>
+			</g>
+		</g>
+		<g id="group313-50" transform="translate(59.7948,-38.9776)" v:mID="313" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.313</title>
+			<g id="shape314-51" v:mID="314" v:groupContext="shape">
+				<title>工作表.314</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.88 L18.68 68.88 L22.84 64.71 L4.16 64.71 L0 68.88 Z" class="st4"/>
+			</g>
+			<g id="shape315-53" v:mID="315" v:groupContext="shape">
+				<title>工作表.315</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.68 85.53 L22.84 81.37 L22.84 64.71 L18.68 68.88 L18.68 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape313-55" v:mID="313" v:groupContext="groupContent">
+				<rect x="0" y="68.8768" width="18.6753" height="16.6559" class="st6"/>
+			</g>
+		</g>
+		<g id="group340-57" transform="translate(41.6905,-38.9776)" v:mID="340" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.340</title>
+			<g id="shape341-58" v:mID="341" v:groupContext="shape">
+				<title>工作表.341</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.88 L18.68 68.88 L22.84 64.71 L4.16 64.71 L0 68.88 Z" class="st4"/>
+			</g>
+			<g id="shape342-60" v:mID="342" v:groupContext="shape">
+				<title>工作表.342</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.68 85.53 L22.84 81.37 L22.84 64.71 L18.68 68.88 L18.68 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape340-62" v:mID="340" v:groupContext="groupContent">
+				<rect x="0" y="68.8768" width="18.6753" height="16.6559" class="st6"/>
+			</g>
+		</g>
+		<g id="group343-64" transform="translate(37.5126,-34.4863)" v:mID="343" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.343</title>
+			<g id="shape344-65" v:mID="344" v:groupContext="shape">
+				<title>工作表.344</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.88 L18.68 68.88 L22.84 64.71 L4.16 64.71 L0 68.88 Z" class="st4"/>
+			</g>
+			<g id="shape345-67" v:mID="345" v:groupContext="shape">
+				<title>工作表.345</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.68 85.53 L22.84 81.37 L22.84 64.71 L18.68 68.88 L18.68 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape343-69" v:mID="343" v:groupContext="groupContent">
+				<rect x="0" y="68.8768" width="18.6753" height="16.6559" class="st6"/>
+			</g>
+		</g>
+		<g id="group346-71" transform="translate(41.6905,-55.3759)" v:mID="346" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.346</title>
+			<g id="shape347-72" v:mID="347" v:groupContext="shape">
+				<title>工作表.347</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.29 L18.53 68.29 L22.84 63.98 L4.31 63.98 L0 68.29 Z" class="st4"/>
+			</g>
+			<g id="shape348-74" v:mID="348" v:groupContext="shape">
+				<title>工作表.348</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.53 85.53 L22.84 81.22 L22.84 63.98 L18.53 68.29 L18.53 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape346-76" v:mID="346" v:groupContext="groupContent">
+				<rect x="0" y="68.2919" width="18.529" height="17.2408" class="st6"/>
+			</g>
+		</g>
+		<g id="group349-78" transform="translate(37.5126,-51.198)" v:mID="349" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.349</title>
+			<g id="shape350-79" v:mID="350" v:groupContext="shape">
+				<title>工作表.350</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.29 L18.53 68.29 L22.84 63.98 L4.31 63.98 L0 68.29 Z" class="st4"/>
+			</g>
+			<g id="shape351-81" v:mID="351" v:groupContext="shape">
+				<title>工作表.351</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.53 85.53 L22.84 81.22 L22.84 63.98 L18.53 68.29 L18.53 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape349-83" v:mID="349" v:groupContext="groupContent">
+				<rect x="0" y="68.2919" width="18.529" height="17.2408" class="st6"/>
+			</g>
+		</g>
+		<g id="group316-85" transform="translate(55.6169,-34.4863)" v:mID="316" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.316</title>
+			<g id="shape317-86" v:mID="317" v:groupContext="shape">
+				<title>工作表.317</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.88 L18.68 68.88 L22.84 64.71 L4.16 64.71 L0 68.88 Z" class="st4"/>
+			</g>
+			<g id="shape318-88" v:mID="318" v:groupContext="shape">
+				<title>工作表.318</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23133236879285):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.68 85.53 L22.84 81.37 L22.84 64.71 L18.68 68.88 L18.68 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape316-90" v:mID="316" v:groupContext="groupContent">
+				<rect x="0" y="68.8768" width="18.6753" height="16.6559" class="st6"/>
+			</g>
+		</g>
+		<g id="group322-92" transform="translate(59.7948,-55.3759)" v:mID="322" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.322</title>
+			<g id="shape323-93" v:mID="323" v:groupContext="shape">
+				<title>工作表.323</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.29 L18.53 68.29 L22.84 63.98 L4.31 63.98 L0 68.29 Z" class="st4"/>
+			</g>
+			<g id="shape324-95" v:mID="324" v:groupContext="shape">
+				<title>工作表.324</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.53 85.53 L22.84 81.22 L22.84 63.98 L18.53 68.29 L18.53 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape322-97" v:mID="322" v:groupContext="groupContent">
+				<rect x="0" y="68.2919" width="18.529" height="17.2408" class="st6"/>
+			</g>
+		</g>
+		<g id="group325-99" transform="translate(55.6169,-51.198)" v:mID="325" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>立方体.325</title>
+			<g id="shape326-100" v:mID="326" v:groupContext="shape">
+				<title>工作表.326</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M0 68.29 L18.53 68.29 L22.84 63.98 L4.31 63.98 L0 68.29 Z" class="st4"/>
+			</g>
+			<g id="shape327-102" v:mID="327" v:groupContext="shape">
+				<title>工作表.327</title>
+				<v:userDefs>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.94488188976378):24"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="ControlHeight" v:prompt="" v:val="VT0(0.23945610605779):1"/>
+					<v:ud v:nameU="FillForegnd" v:prompt="" v:val="VT5(#9cc3e5)"/>
+				</v:userDefs>
+				<path d="M18.53 85.53 L22.84 81.22 L22.84 63.98 L18.53 68.29 L18.53 85.53 Z" class="st5"/>
+			</g>
+			<g id="shape325-104" v:mID="325" v:groupContext="groupContent">
+				<rect x="0" y="68.2919" width="18.529" height="17.2408" class="st6"/>
+			</g>
+		</g>
+	</g>
+</svg>

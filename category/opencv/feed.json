@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "CodeVortex记事本 • All posts by \"opencv\" category",
+    "description": "滴答滴答滴答",
+    "home_page_url": "https://zhang3399.github.io",
+    "items": [
+        {
+            "id": "https://zhang3399.github.io/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/",
+            "url": "https://zhang3399.github.io/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/",
+            "title": "位姿矫正",
+            "date_published": "2025-06-18T02:00:00.000Z",
+            "content_html": "<h1 id=\"滤波片位姿矫正系统-工业视觉检测\"><a class=\"markdownIt-Anchor\" href=\"#滤波片位姿矫正系统-工业视觉检测\">#</a> 滤波片位姿矫正系统 - 工业视觉检测</h1>\n<p>基于计算机视觉的滤波片位姿检测与矫正系统，用于工业生产中滤波片安装位置的自动化检测与调整建议。</p>\n<p><img loading=\"lazy\" src=\"/images/%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A31.webp\" alt=\"\"></p>\n<h2 id=\"项目简介\"><a class=\"markdownIt-Anchor\" href=\"#项目简介\">#</a> 项目简介</h2>\n<p>本项目是一个基于 PyQt5 和 OpenCV 的工业视觉应用，主要用于检测滤波片在安装过程中的位姿偏差（包括旋转角度和中心偏移），并提供矫正建议。系统通过图像处理算法提取滤波片轮廓，计算其相对于标准位置的偏差。</p>\n<p>项目地址：<a href=\"https://github.com/zhang3399/Pose_correction.git\">https://github.com/zhang3399/Pose_correction.git</a></p>\n<h2 id=\"核心功能\"><a class=\"markdownIt-Anchor\" href=\"#核心功能\">#</a> 核心功能</h2>\n<ul>\n<li>🖼️ ​​图像导入与处理​​：支持多种图像格式导入，实时显示处理结果</li>\n<li>📊 ​​参数化控制​​：可调节 CLAHE 对比度限制、双边滤波参数、Canny 边缘检测阈值等</li>\n<li>📐 ​​位姿精确测量​​：\n<ul>\n<li>旋转角度检测</li>\n<li>X/Y 轴中心偏移量计算</li>\n<li>自动判定位姿是否合格</li>\n</ul>\n</li>\n<li>🛠️ ​​多步骤可视化​​：完整展示从原始图像到位姿分析的整个处理流程</li>\n<li>📋 ​​结果可视化​​：在图像上直接标注检测结果和建议</li>\n</ul>\n<h2 id=\"操作指南\"><a class=\"markdownIt-Anchor\" href=\"#操作指南\">#</a> 操作指南</h2>\n<ol>\n<li>导入图像​​：点击 &quot;导入图像&quot; 按钮选择滤波片图像</li>\n<li>调整参数​​：根据图像质量微调处理参数</li>\n<li>​执行检测​​：点击 &quot;执行位姿检测&quot; 开始分析</li>\n<li>​查看结果​​：</li>\n</ol>\n<ul>\n<li>原始图像标签页：查看原始输入</li>\n<li>处理结果标签页：查看位姿分析结果</li>\n<li>处理步骤标签页：查看完整的处理流程</li>\n</ul>\n<h2 id=\"位姿检测流程\"><a class=\"markdownIt-Anchor\" href=\"#位姿检测流程\">#</a> 位姿检测流程</h2>\n<ol>\n<li>图像预处理：\n<ul>\n<li>灰度转换</li>\n<li>CLAHE 局部对比度增强</li>\n<li>双边滤波去噪</li>\n<li>形态学开运算去除小噪声</li>\n</ul>\n</li>\n<li>边缘检测：\n<ul>\n<li>使用 Canny 算法提取图像边缘</li>\n</ul>\n</li>\n<li>轮廓分析：\n<ul>\n<li>查找所有轮廓</li>\n<li>筛选出面积大于阈值的最大轮廓（假设为滤波片轮廓）</li>\n<li>计算最小外接矩形</li>\n</ul>\n</li>\n<li>位姿计算：\n<ul>\n<li>从外接矩形获取旋转角度</li>\n<li>计算轮廓中心与图像中心的偏移量</li>\n<li>调整角度表示为更直观的 0°-90° 范围</li>\n</ul>\n</li>\n</ol>\n<p><img loading=\"lazy\" src=\"/images/%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3.webp\" alt=\"\"></p>\n",
+            "tags": [
+                "图像处理"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhang3399.github.io</id>
+    <title>CodeVortex记事本 • Posts by &#34;git&#34; tag</title>
+    <link href="https://zhang3399.github.io" />
+    <updated>2025-02-22T17:39:00.000Z</updated>
+    <category term="Socket" />
+    <category term="TypeScript" />
+    <category term="多线程" />
+    <category term="I/O多路复用" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="md图标" />
+    <category term="python" />
+    <category term="git" />
+    <category term="pytorch" />
+    <category term="Docker" />
+    <category term="CMake" />
+    <category term="Linux" />
+    <category term="Windows" />
+    <category term="python进阶" />
+    <category term="曲率" />
+    <category term="tensoRT" />
+    <category term="SQL" />
+    <category term="数据结构" />
+    <category term="图像处理" />
+    <category term="LoRA" />
+    <category term="3D" />
+    <category term="LSTM" />
+    <category term="YOLOv5s" />
+    <category term="Adman梯度下降" />
+    <category term="单项负载识别" />
+    <entry>
+        <id>https://zhang3399.github.io/2025/02/23/Tool/2025-2-23-git/</id>
+        <title>git基本使用</title>
+        <link rel="alternate" href="https://zhang3399.github.io/2025/02/23/Tool/2025-2-23-git/"/>
+        <content type="html">&lt;h1 id=&#34;git基本使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#git基本使用&#34;&gt;#&lt;/a&gt; git 基本使用&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;git clone 拉取仓库项目&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/xxx/xxx.git  &lt;span class=&#34;token comment&#34;&gt;#拉取所有分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-a&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;#查看所有分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout &lt;span class=&#34;token parameter variable&#34;&gt;-b&lt;/span&gt; main  &lt;span class=&#34;token comment&#34;&gt;#切换到 main 分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; pull origin main  &lt;span class=&#34;token comment&#34;&gt;#拉取远程仓库 main 分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;git add 添加文件到暂存区（一般修改后执行）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; filename  &lt;span class=&#34;token comment&#34;&gt;#修改&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 或者添加所有文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;#&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;git commit 提交文件到本地仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; commit &lt;span class=&#34;token parameter variable&#34;&gt;-m&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;提交信息&#34;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;#补充修改日志信息&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;git push 推送文件到远程仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push origin main  &lt;span class=&#34;token comment&#34;&gt;#推送到远程仓库 main 分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;git pull 拉取远程仓库文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; pull origin main  &lt;span class=&#34;token comment&#34;&gt;#拉取远程仓库 main 分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;git status 查看当前状态&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; status  &lt;span class=&#34;token comment&#34;&gt;#查看当前状态&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;git branch 查看分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch  &lt;span class=&#34;token comment&#34;&gt;#查看本地分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-r&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;#查看远程分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-a&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;#查看所有分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;git checkout 切换分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout main  &lt;span class=&#34;token comment&#34;&gt;#切换到 main 分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;git merge 合并分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; merge feature/new-dashboard  &lt;span class=&#34;token comment&#34;&gt;#合并 feature/new-dashboard 分支到当前分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;git branch -d 删除分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; feature/new-dashboard  &lt;span class=&#34;token comment&#34;&gt;#删除 feature/new-dashboard 分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;git log 查看提交记录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; log  &lt;span class=&#34;token comment&#34;&gt;#查看提交记录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;git reset 回退版本&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; reset &lt;span class=&#34;token parameter variable&#34;&gt;--hard&lt;/span&gt; HEAD^  &lt;span class=&#34;token comment&#34;&gt;#回退到上一个版本&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; reset &lt;span class=&#34;token parameter variable&#34;&gt;--hard&lt;/span&gt; HEAD~100  &lt;span class=&#34;token comment&#34;&gt;#回退到前 100 个版本&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#流程&#34;&gt;#&lt;/a&gt; 📌流程&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;克隆仓库并初始化&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 克隆仓库到本地（仅检出主分支）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; clone https://github.com/xxx/xxx.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;cd&lt;/span&gt; xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看所有分支（包括远程分支）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-a&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;创建并切换到功能分支&lt;br&gt;
+&lt;strong&gt;创建并切换到新分支（推荐命名格式：feature/xxx）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout &lt;span class=&#34;token parameter variable&#34;&gt;-b&lt;/span&gt; feature/new-dashboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;分支命名建议	示例&lt;br&gt;
+新功能	 &lt;code&gt;feature/payment-success&lt;/code&gt; &lt;br&gt;
+Bug 修复	 &lt;code&gt;bugfix/validate-input&lt;/code&gt; &lt;br&gt;
+ 紧急修复	 &lt;code&gt;hotfix/ssl-issue&lt;/code&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;开发并提交代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 添加修改文件到暂存区&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#提交代码（遵循 Conventional Commits 规范）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; commit &lt;span class=&#34;token parameter variable&#34;&gt;-m&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;feat: add user dashboard&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;推送功能分支到远程仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 绑定并推送分支（首次推送必须加 - u）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push &lt;span class=&#34;token parameter variable&#34;&gt;-u&lt;/span&gt; origin feature/new-dashboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;切回主分支并同步最新代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 切换到主分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 拉取远程主分支更新&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; pull origin main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;合并功能分支到主分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 合并本地分支到主分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; merge feature/new-dashboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# ⚠️ 冲突处理：&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 手动编辑冲突文件后执行：&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; conflicted-file.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; commit &lt;span class=&#34;token parameter variable&#34;&gt;-m&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Resolve merge conflicts&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;提交合并后的主分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 推送主分支更新&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push origin main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;. 删除本地功能分支（可选）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; feature/new-dashboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;🔐 关键细节与最佳实践&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分支命名规范（必须遵守）&lt;br&gt;
+分支类型	命名规则	示例&lt;br&gt;
+新功能	 &lt;code&gt;feature/&lt;/code&gt;  + 功能描述	 &lt;code&gt;feature/new-dashboard&lt;/code&gt; &lt;br&gt;
+Bug 修复	 &lt;code&gt;bugfix/&lt;/code&gt;  + 问题 ID	 &lt;code&gt;bugfix/INPUT-123&lt;/code&gt; &lt;br&gt;
+ 紧急修复	 &lt;code&gt;hotfix/&lt;/code&gt;  + 问题描述	 &lt;code&gt;hotfix/ssl-issue&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;提交信息规范（必须遵守）&lt;br&gt;
+类型	前缀	示例&lt;br&gt;
+新增功能	 &lt;code&gt;feat:&lt;/code&gt; 	 &lt;code&gt;feat: add login button&lt;/code&gt; &lt;br&gt;
+ 修复 Bug	 &lt;code&gt;fix:&lt;/code&gt; 	 &lt;code&gt;fix: resolve auth bug&lt;/code&gt; &lt;br&gt;
+ 代码重构	 &lt;code&gt;refactor:&lt;/code&gt;   &lt;code&gt;refactor/api-response&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;拉取最新代码（推荐操作）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 在功能分支开发时定期同步主分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout feature/new-dashboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; pull origin main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;使用 Pull Request 流程（团队协作必备）&lt;br&gt;
+在  &lt;code&gt;GitHub&lt;/code&gt;  创建  &lt;code&gt;PR&lt;/code&gt; &lt;br&gt;
+ 添加描述和关联  &lt;code&gt;Issue&lt;/code&gt; &lt;br&gt;
+ 等待  &lt;code&gt;Code Review&lt;/code&gt;  和测试通过&lt;br&gt;
+合并到主分支后删除功能分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;🎯 流程图解&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+-----------------------------+        +-----------------------------+
+|        GitHub 主分支 (main)      |        |        GitHub 主分支 (main)      |
++-----------------------------+        +-----------------------------+
+          ↓ (clone/pull)            ↗ (PR合并)          ↓ (clone/pull)
++-----------------------------+        +-----------------------------+
+| 本地仓库 (main)              |        | 本地仓库 (main)              |
++-----------------------------+        +-----------------------------+
+          ↓ (checkout -b)         ↗ (merge)          ↓ (checkout -b)
++-----------------------------+        +-----------------------------+
+| 本地功能分支 (feature/new-dashboard) |      | 本地功能分支 (feature/new-dashboard) |
++-----------------------------+        +-----------------------------+
+          ↓ (commit)             ↗ (push)          ↓ (commit)
++-----------------------------+        +-----------------------------+
+| GitHub 功能分支              |        | GitHub 功能分支              |
++-----------------------------+        +-----------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关键节点：克隆仓库、创建功能分支、合并到主分支、推送主分支&lt;br&gt;
+推荐路径：主流程（↓ → ↗ → ↓）｜合并路径（↗）&lt;br&gt;
+&lt;strong&gt;⚠️ 常见错误与解决方案&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;合并冲突&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 手动解决冲突后标记为已解决&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; conflicted-file.txt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; commit &lt;span class=&#34;token parameter variable&#34;&gt;-m&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;Resolve merge conflicts&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;忘记关联远程分支&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 推送时首次绑定远程分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push &lt;span class=&#34;token parameter variable&#34;&gt;-u&lt;/span&gt; origin feature/new-dashboard&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;主分支落后于远程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 合并前必须拉取最新代码&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; pull origin main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;回滚&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#回滚&#34;&gt;#&lt;/a&gt; 回滚&lt;/h1&gt;
+&lt;p&gt;Step 1 查看提交历史&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; log&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Step 2 切换到需要回滚的分支&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Step 3 回滚到指定提交&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; reset &lt;span class=&#34;token parameter variable&#34;&gt;--hard&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;commit-hash&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 也可以 --hard HEAD^   回退上一版本，也可以用 HEAD~1   --hard HEAD^^ 回退上两个版本，也可以用 HEAD~2 表示&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Step 4 强制推送回滚后的代码到远程仓库&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push &lt;span class=&#34;token parameter variable&#34;&gt;-f&lt;/span&gt; origin main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;总结&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 📝总结&lt;/h1&gt;
+&lt;p&gt;核心原则：隔离开发、频繁同步、明确沟通&lt;br&gt;
+推荐工具： &lt;code&gt;GitHub PR&lt;/code&gt; 、 &lt;code&gt;GitLab Merge Request&lt;/code&gt; &lt;br&gt;
+ 进阶学习： &lt;code&gt;Git Flow&lt;/code&gt;  工作流、 &lt;code&gt;GitHub Actions&lt;/code&gt; &lt;br&gt;
+ 文档特点：&lt;/p&gt;
+&lt;p&gt;通过加粗 / 列表 / 代码块实现逻辑分层&lt;br&gt;
+使用表格清晰展示规范要求&lt;br&gt;
+流程图解采用 &lt;code&gt;ASCII&lt;/code&gt;  字符图形化关键路径&lt;br&gt;
+错误提示突出显示高频问题解决方案&lt;br&gt;
+ &lt;code&gt;🔗&lt;/code&gt;  相关链接&lt;br&gt;
+ &lt;code&gt;Conventional Commits&lt;/code&gt;  规范&lt;br&gt;
+ &lt;code&gt;Git Flow&lt;/code&gt;  工作流&lt;br&gt;
+ &lt;code&gt;GitHub Actions&lt;/code&gt;  自动化&lt;/p&gt;
+&lt;p&gt;➕ &lt;strong&gt;Pull request&lt;/strong&gt;  使用 (合并分支)&lt;/p&gt;
+&lt;p&gt;Step 1 克隆仓库或更新本地仓库至最新代码&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; pull origin main         &lt;span class=&#34;token comment&#34;&gt;# 从远程仓库的 main 分支拉取最新的代码&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Step 2 切换到拉取请求的目标分支（基础分支）&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; checkout main   &lt;span class=&#34;token comment&#34;&gt;# 切换到主分支（默认的基础分支）&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Step 3 将功能分支合并到基础分支&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; merge new-feature &lt;span class=&#34;token comment&#34;&gt;# 将新功能分支（new-feature）合并到当前主分支&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;Step 4 推送合并后的代码到远程仓库&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push &lt;span class=&#34;token parameter variable&#34;&gt;-u&lt;/span&gt; origin main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;补充：&lt;/strong&gt;&lt;br&gt;
+删除本地分支&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; branch &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; new-feature&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;删除远程分支&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; push origin &lt;span class=&#34;token parameter variable&#34;&gt;--delete&lt;/span&gt; new-feature&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;补充：&lt;/strong&gt;&lt;br&gt;
+推荐练习 git 网站：&lt;br&gt;
+&lt;a href=&#34;https://learngitbranching.js.org/?locale=en_US&#34;&gt;https://learngitbranching.js.org/?locale=en_US&lt;/a&gt;&lt;/p&gt;
+</content>
+        <category term="git" />
+        <updated>2025-02-22T17:39:00.000Z</updated>
+    </entry>
+</feed>

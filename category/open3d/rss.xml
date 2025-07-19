@@ -1,0 +1,479 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>CodeVortex记事本 • Posts by &#34;open3d&#34; category</title>
+        <link>https://zhang3399.github.io</link>
+        <description>滴答滴答滴答</description>
+        <language>zh-CN</language>
+        <pubDate>Sat, 12 Jul 2025 10:00:00 +0800</pubDate>
+        <lastBuildDate>Sat, 12 Jul 2025 10:00:00 +0800</lastBuildDate>
+        <category>Socket</category>
+        <category>TypeScript</category>
+        <category>多线程</category>
+        <category>I/O多路复用</category>
+        <category>Boost</category>
+        <category>Lambda 表达式</category>
+        <category>md图标</category>
+        <category>python</category>
+        <category>git</category>
+        <category>pytorch</category>
+        <category>Docker</category>
+        <category>CMake</category>
+        <category>Linux</category>
+        <category>Windows</category>
+        <category>python进阶</category>
+        <category>曲率</category>
+        <category>tensoRT</category>
+        <category>SQL</category>
+        <category>数据结构</category>
+        <category>图像处理</category>
+        <category>LoRA</category>
+        <category>3D</category>
+        <category>LSTM</category>
+        <category>YOLOv5s</category>
+        <category>Adman梯度下降</category>
+        <category>单项负载识别</category>
+        <item>
+            <guid isPermalink="true">https://zhang3399.github.io/2025/07/12/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-7-12-Open3D/</guid>
+            <title>Open3D</title>
+            <link>https://zhang3399.github.io/2025/07/12/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-7-12-Open3D/</link>
+            <category>3D</category>
+            <pubDate>Sat, 12 Jul 2025 10:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;3d文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3d文件&#34;&gt;#&lt;/a&gt; 3D 文件&lt;/h1&gt;
+&lt;h2 id=&#34;点云文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#点云文件&#34;&gt;#&lt;/a&gt; 点云文件&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;点云文件是一种用于存储点云数据的文件格式。通常包括点云的坐标、颜色等信息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;默认情况下，Open3D 支持以下点云文件格式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Format&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;xyz&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;纯文本格式，每行包含一个点的坐标（x, y, z）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;xyzn&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;纯文本格式，每行包含一个点的坐标（x, y, z）和法线（nx, ny, nz）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;xyzrgb&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;纯文本格式，每行包含一个点的坐标（x, y, z）和颜色（r, g, b）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pcd&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;PCD 文件格式，由 PCL（Point Cloud Library）定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ply&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;PLY 文件格式，由 PLY（Polygon File Format）定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;obj&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;OBJ 文件格式，由 3D 建模软件定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;o3d.io.read_point_cloud(pcd,format)&lt;/code&gt;  函数未指定 &lt;code&gt;format&lt;/code&gt;  参数时，Open3D 会根据文件扩展名自动推断文件格式。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 读取点云文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;path_to_point_cloud_file.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 显示点云&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;网格文件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#网格文件&#34;&gt;#&lt;/a&gt; 网格文件&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;网格文件是一种用于存储三维网格数据的文件格式。通常包含多边形、顶点、法线、纹理等信息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;默认情况下，Open3D 支持以下网格文件格式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件后缀&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ply&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;PLY 文件格式，由 PLY（Polygon File Format）定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;obj&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;OBJ 文件格式，由 3D 建模软件定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;stl&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;STL 文件格式，由 STL（Stereolithography）定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;off&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;OFF 文件格式，由 OFF（Object File Format）定义&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;o3d.io.read_triangle_mesh(mesh,format)&lt;/code&gt;  函数未指定 &lt;code&gt;format&lt;/code&gt;  参数时，Open3D 会根据文件扩展名自动推断文件格式。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 读取网格文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;mesh &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_triangle_mesh&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;path_to_mesh_file.ply&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 显示网格&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;mesh&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;文件内容&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#文件内容&#34;&gt;#&lt;/a&gt; 文件内容&lt;/h2&gt;
+&lt;h3 id=&#34;pcd&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#pcd&#34;&gt;#&lt;/a&gt; PCD&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PCD 文件是一种常用的点云文件格式，由 PCL（Point Cloud Library）定义。PCD 文件可以包含点云的坐标、颜色、法线等信息。每个 PCD 文件都包含一个文件头且以 ASCII 编码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;PCD 文件头的具体内容如下：&lt;br&gt;
+&lt;strong&gt;VERSION&lt;/strong&gt;&lt;br&gt;
+ 指定 PCD 文件的版本，目前支持 PCD_V0.7 和 PCD_V0.7_BINARY 两种版本。&lt;br&gt;
+&lt;strong&gt;FIELDS&lt;/strong&gt;&lt;br&gt;
+ 指定点云数据中包含的字段，每个字段用空格分隔。&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段内容&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;FIELDS x y z&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;x&lt;/code&gt; 、 &lt;code&gt;y&lt;/code&gt; 、 &lt;code&gt;z&lt;/code&gt;  三个坐标字段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;FIELDS x y z rgb&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;x&lt;/code&gt; 、 &lt;code&gt;y&lt;/code&gt; 、 &lt;code&gt;z&lt;/code&gt;  三个坐标字段 +  &lt;code&gt;rgb&lt;/code&gt;  颜色字段（深度相机）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;FIELDS x y z normal_x normal_y normal_z&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;x&lt;/code&gt; 、 &lt;code&gt;y&lt;/code&gt; 、 &lt;code&gt;z&lt;/code&gt;  三个坐标字段 +  &lt;code&gt;normal_x&lt;/code&gt; 、 &lt;code&gt;normal_y&lt;/code&gt; 、 &lt;code&gt;normal_z&lt;/code&gt;  三个法线字段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;FIELDS j1 j2 j3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;j1&lt;/code&gt; 、 &lt;code&gt;j2&lt;/code&gt; 、 &lt;code&gt;j3&lt;/code&gt;  三个字段（例如激光雷达）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;SIZE&lt;/strong&gt;&lt;br&gt;
+ 指定每个维度的大小&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIZE 4 4 4&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;每个字段大小为 4 字节&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SIZE 4 4 4 4&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;每个字段大小为 4 字节&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;TYPE&lt;/strong&gt;&lt;br&gt;
+ 指定每个字段的类型，每个字段用空格分隔。&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TYPE F F F&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;每个字段类型为浮点型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TYPE U U U&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;每个字段类型为无符号整型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;TYPE I I I&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;每个字段类型为有符号整型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;COUNT&lt;/strong&gt;&lt;br&gt;
+ 指定每个维度的元素数量，每个字段用空格分隔。例如，x 数据通常有 1 个元素，但像 VFH 这样的特征描述符有 308 个元素。&lt;br&gt;
+&lt;strong&gt;WIDTH&lt;/strong&gt;&lt;br&gt;
+ 指定点云数据的宽度，表示点云数据中点的数量。&lt;br&gt;
+&lt;strong&gt;HEIGHT&lt;/strong&gt;&lt;br&gt;
+ 指定点云数据的高度，表示点云数据中点的数量。&lt;br&gt;
+&lt;strong&gt;VIEWPOINT&lt;/strong&gt;&lt;br&gt;
+ 为数据集中的点指定采集视点。这可能会在以后用于构建不同坐标系之间的变换，或用于帮助处理需要一致方向的特征，如曲面法线。&lt;br&gt;
+它由平移（tx-ty-tz）加上旋转四元数（qw-qx-qy-qz）组成。默认值为：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;VIEWPOINT &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;POINTS&lt;/strong&gt;&lt;br&gt;
+ 指定点云数据中点的数量。&lt;br&gt;
+&lt;strong&gt;DATA&lt;/strong&gt;&lt;br&gt;
+ 指定点云数据的存储方式自版本 0.7 起，支持三种数据类型： &lt;code&gt;ascii&lt;/code&gt; 、 &lt;code&gt;binary&lt;/code&gt;  和 &lt;code&gt;binary_compressed&lt;/code&gt; 。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ascii&lt;/code&gt;  每一行代表一个点的属性，由于是 &lt;code&gt;ascii&lt;/code&gt;  码因此可以直接阅读，缺点就是占用空间大，空的点用 &lt;code&gt;NaN&lt;/code&gt;  表示&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;binary&lt;/code&gt;  其中数据是 &lt;code&gt;pcl::PointCloud.points&lt;/code&gt;  数组 / 向量的完整内存副本。在 Linux 系统上，我们使用 &lt;code&gt;mmap/munmap&lt;/code&gt;  操作对数据进行最快的读 / 写访问。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;binary_compressed&lt;/code&gt;  该文件（头部之后的所有内容）以一个 32 位无符号二进制数开始，该二进制数指定以压缩形式存在的数据的字节大小。接下来是另一个 32 位无符号二进制数，该二进制数指定未压缩数据的字节大小。然后是压缩后的数据。压缩和解压缩都使用 &lt;code&gt;Marc Lehmann&lt;/code&gt;  的 &lt;code&gt;LZF&lt;/code&gt;  算法。该算法在压缩率方面表现一般，但是速度非常快。对于典型的点云，压缩后的数据大小为原始大小的 30% 到 60%。在压缩之前，数据会被重新排序以改善压缩效果，从标准的结构数组布局变为数组结构布局。例如，一个包含三个点和 &lt;code&gt;x&lt;/code&gt; 、 &lt;code&gt;y&lt;/code&gt; 、 &lt;code&gt;z&lt;/code&gt;  字段的云将从 &lt;code&gt;xyzxyzxyz&lt;/code&gt;  重新排序为 &lt;code&gt;xxxyyyzzz&lt;/code&gt; 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;完整实例：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# PCD 文件头&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;VERSION .7&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;FIELDS x y z&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;SIZE &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;TYPE F F F&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;COUNT &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;WIDTH &lt;span class=&#34;token number&#34;&gt;27895&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;HEIGHT &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;VIEWPOINT &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;POINTS &lt;span class=&#34;token number&#34;&gt;27895&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;DATA ascii&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;4.5875902&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;37.243198&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;46.776299&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;3.7279501&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;37.171902&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;46.5345&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;2.84834&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;37.056301&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;46.309101&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;ply&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ply&#34;&gt;#&lt;/a&gt; PLY&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PLY 文件是一种常用的多边形文件格式，由 PLY（Polygon File Format）定义。PLY 文件可以包含多边形、顶点、法线、颜色等信息。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;文件头&lt;/strong&gt;&lt;br&gt;
+ PLY 文件头包含以下信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件格式： &lt;code&gt;format ascii 1.0&lt;/code&gt;  或  &lt;code&gt;format binary_little_endian 1.0&lt;/code&gt;  或  &lt;code&gt;format binary_big_endian 1.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;元素类型： &lt;code&gt;element vertex 1000&lt;/code&gt;  或  &lt;code&gt;element face 1000&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;属性： &lt;code&gt;property float x&lt;/code&gt;  或  &lt;code&gt;property float y&lt;/code&gt;  或  &lt;code&gt;property float z&lt;/code&gt;  或  &lt;code&gt;property uchar red&lt;/code&gt;  或  &lt;code&gt;property uchar green&lt;/code&gt;  或  &lt;code&gt;property uchar blue&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;结束： &lt;code&gt;end_header&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ply&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表示文件格式为 PLY。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;format&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定文件格式，可以是  &lt;code&gt;ascii&lt;/code&gt; 、 &lt;code&gt;binary_little_endian&lt;/code&gt;  或  &lt;code&gt;binary_big_endian&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;comment&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表示注释，可以包含任何文本。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;element&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定元素类型，可以是  &lt;code&gt;vertex&lt;/code&gt;  或  &lt;code&gt;face&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;property&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;指定属性，可以是  &lt;code&gt;float&lt;/code&gt; 、 &lt;code&gt;int&lt;/code&gt; 、 &lt;code&gt;uchar&lt;/code&gt;  等。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;end_header&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;表示文件头结束。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;完整实例&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ply&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;format&lt;/span&gt; binary_little_endian &lt;span class=&#34;token number&#34;&gt;1.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;comment VCGLIB generated&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;element vertex &lt;span class=&#34;token number&#34;&gt;15934&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property double x&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property double y&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property double z&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property uchar red&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property uchar green&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property uchar blue&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property uchar alpha&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;element face &lt;span class=&#34;token number&#34;&gt;31390&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;property list uchar int vertex_indices&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;end_header&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# vertex&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;-0.015828&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.011844&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;-0.015828&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.011844&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;255&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# face (三点索引构成面)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;4&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;6&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;open3d&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#open3d&#34;&gt;#&lt;/a&gt; Open3D&lt;/h1&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h2&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pip &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; open3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;读取点云&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#读取点云&#34;&gt;#&lt;/a&gt; 读取点云&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;o3d.io.read_point_cloud&lt;/code&gt;  函数可以读取点云文件，并返回一个  &lt;code&gt;open3d.geometry.PointCloud&lt;/code&gt;  对象。&lt;br&gt;
+函数定义如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;read_point_cloud&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;filename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;auto&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; remove_nan_points&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; remove_infinite_points&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; print_progress&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token triple-quoted-string string&#34;&gt;&#34;&#34;&#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    read_point_cloud(filename: os.PathLike, format: str = &#39;auto&#39;, remove_nan_points: bool = False, remove_infinite_points: bool = False, print_progress: bool = False) -&gt; open3d.cpu.pybind.geometry.PointCloud&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Function to read PointCloud from file&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Args:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        filename (os.PathLike): Path to file.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        format (str, optional, default=&#39;auto&#39;): The format of the input file. When not specified or set as ``auto``, the format is inferred from file extension name.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        remove_nan_points (bool, optional, default=False): If true, all points that include a NaN are removed from the PointCloud.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        remove_infinite_points (bool, optional, default=False): If true, all points that include an infinite value are removed from the PointCloud.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        print_progress (bool, optional, default=False): If set to true a progress bar is visualized in the console&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Returns:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        open3d.cpu.pybind.geometry.PointCloud&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &#34;&#34;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;点云文件的路径。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;format&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;点云文件的格式，默认为  &lt;code&gt;auto&lt;/code&gt; ，表示自动检测文件格式，支持 &lt;code&gt;pcd&lt;/code&gt; 、 &lt;code&gt;ply&lt;/code&gt; 、 &lt;code&gt;xyz&lt;/code&gt;  等格式。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;remove_nan_points&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否移除包含  &lt;code&gt;NaN&lt;/code&gt;  值的点，默认为  &lt;code&gt;False&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;remove_infinite_points&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否移除包含  &lt;code&gt;Inf&lt;/code&gt;  值的点，默认为  &lt;code&gt;False&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;print_progress&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否打印读取进度，默认为  &lt;code&gt;False&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;test.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;写入点云&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#写入点云&#34;&gt;#&lt;/a&gt; 写入点云&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;o3d.io.write_point_cloud&lt;/code&gt;  函数可以写入点云文件，并返回一个  &lt;code&gt;open3d.geometry.PointCloud&lt;/code&gt;  对象。&lt;br&gt;
+函数定义如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;write_point_cloud&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;filename&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; pointcloud&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token builtin&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;auto&#39;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; write_ascii&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; compressed&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; print_progress&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# real signature unknown; restored from __doc__&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token triple-quoted-string string&#34;&gt;&#34;&#34;&#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    write_point_cloud(filename: os.PathLike, pointcloud: open3d.cpu.pybind.geometry.PointCloud, format: str = &#39;auto&#39;, write_ascii: bool = False, compressed: bool = False, print_progress: bool = False) -&gt; bool&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Function to write PointCloud to file&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Args:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        filename (os.PathLike): Path to file.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        pointcloud (open3d.cpu.pybind.geometry.PointCloud): The ``PointCloud`` object for I/O&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        format (str, optional, default=&#39;auto&#39;): The format of the input file. When not specified or set as ``auto``, the format is inferred from file extension name.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        write_ascii (bool, optional, default=False): Set to ``True`` to output in ascii format, otherwise binary format will be used.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        compressed (bool, optional, default=False): Set to ``True`` to write in compressed format.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        print_progress (bool, optional, default=False): If set to true a progress bar is visualized in the console&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Returns:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        bool&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &#34;&#34;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;filename&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;点云文件的路径。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;pointcloud&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;要写入的点云对象。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;format&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;点云文件的格式，默认为  &lt;code&gt;auto&lt;/code&gt; ，表示自动检测文件格式。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;write_ascii&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否以 ASCII 格式写入，默认为  &lt;code&gt;False&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;compressed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否以压缩格式写入，默认为  &lt;code&gt;False&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;print_progress&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否打印写入进度，默认为  &lt;code&gt;False&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;write_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;test.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; pcd&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;显示点云&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#显示点云&#34;&gt;#&lt;/a&gt; 显示点云&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;o3d.visualization.draw_geometries&lt;/code&gt;  函数可以显示点云。&lt;/p&gt;
+&lt;p&gt;函数定义如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;draw_geometries&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;geometry_list&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; open3d_cpu_pybind_geometry_Geometry&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;args&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;**&lt;/span&gt;kwargs&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token triple-quoted-string string&#34;&gt;&#34;&#34;&#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    draw_geometries(geometry_list: list[open3d.cpu.pybind.geometry.Geometry], window_name: str = &#39;Open3D&#39;, width: int = 1920, height: int = 1080, left: int = 50, top: int = 50, point_show_normal: bool = False, mesh_show_wireframe: bool = False, mesh_show_back_face: bool = False, lookat: Optional[numpy.ndarray[numpy.float64[3, 1]]] = None, up: Optional[numpy.ndarray[numpy.float64[3, 1]]] = None, front: Optional[numpy.ndarray[numpy.float64[3, 1]]] = None, zoom: Optional[float] = None) -&gt; None&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Function to draw a list of geometry::Geometry objects&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Args:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        geometry_list (list[open3d.cpu.pybind.geometry.Geometry]): List of geometries to be visualized.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        window_name (str, optional, default=&#39;Open3D&#39;): The displayed title of the visualization window.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        width (int, optional, default=1920): The width of the visualization window.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        height (int, optional, default=1080): The height of the visualization window.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        left (int, optional, default=50): The left margin of the visualization window.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        top (int, optional, default=50): The top margin of the visualization window.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        point_show_normal (bool, optional, default=False): Visualize point normals if set to true.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        mesh_show_wireframe (bool, optional, default=False): Visualize mesh wireframe if set to true.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        mesh_show_back_face (bool, optional, default=False): Visualize also the back face of the mesh triangles.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        lookat (Optional[numpy.ndarray[numpy.float64[3, 1]]], optional, default=None): The lookat vector of the camera.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        up (Optional[numpy.ndarray[numpy.float64[3, 1]]], optional, default=None): The up vector of the camera.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        front (Optional[numpy.ndarray[numpy.float64[3, 1]]], optional, default=None): The front vector of the camera.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        zoom (Optional[float], optional, default=None): The zoom of the camera.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Returns:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        None&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &#34;&#34;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;geometry_list&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;要显示的几何对象列表。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;window_name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;窗口标题，默认为 “Open3D”。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;width&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;窗口宽度，默认为 1920。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;height&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;窗口高度，默认为 1080。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;left&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;窗口左边界，默认为 50。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;top&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;窗口上边界，默认为 50。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;point_show_normal&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否显示点法线，默认为 False, 如果为 True，需要事先计算点云法线&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mesh_show_wireframe&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否显示网格线框，默认为 False。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mesh_show_back_face&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否显示网格背面，默认为 False。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;lookat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;相机观察点，默认为 None。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;up&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;相机上方向，默认为 None。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;front&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;相机前方向，默认为 None。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zoom&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;相机缩放比例，默认为 None。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;test.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; window_name&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Open3D&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;kdtree&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#kdtree&#34;&gt;#&lt;/a&gt; KDTree&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;o3d.geometry.KDTreeFlann&lt;/code&gt;  是 Open3D 中用于实现 k-d 树的类。k-d 树是一种用于多维空间中快速搜索最近邻点的数据结构。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;o3d.geometry.KDTreeFlann&lt;/code&gt; : k-d 树类，用于实现 k-d 树。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;search_knn_vector_3d&lt;/code&gt; ：在点云中搜索指定点的 k 个最近邻点。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;search_radius_vector_3d&lt;/code&gt; ：在点云中搜索指定点半径内的所有点。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;search_hybrid_vector_3d&lt;/code&gt; ：在点云中搜索指定点 k 个最近邻点和半径内的所有点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;cat.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd_tree &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;geometry&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;KDTreeFlann&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 将点云设置为灰色&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;paint_uniform_color&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 搜索某点的 K 个最近邻点&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;k &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;num_k&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; idx&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; _&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pcd_tree&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;search_knn_vector_3d&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;points&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; k&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;np&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;asarray&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;colors&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;idx&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 将最近邻点的颜色设置为红色&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;所得K邻域点索引点数为：&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; num_k&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 搜索每个点半径为 r 的所有点&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;_&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; idx&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; _&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pcd_tree&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;search_radius_vector_3d&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;points&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;500&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; r&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;np&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;asarray&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;colors&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;idx&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 将半径内的点的颜色设置为绿色&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 搜索每个点的 k 个最近邻点和半径为 r 的所有点&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;k &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;10&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;r &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0.1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;_&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; idx_knn&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; _&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pcd_tree&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;search_hybrid_vector_3d&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;points&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; k&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; r&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;np&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;asarray&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;colors&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;idx&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;# 将半径内的点的颜色设置为蓝色&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; window_name&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Open3D&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;octree&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#octree&#34;&gt;#&lt;/a&gt; Octree&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;八叉树（Octree）是一种用于三维空间中的数据结构，它将空间划分为 8 个子空间，每个子空间再继续划分，直到达到指定的深度。八叉树可以用于点云数据的快速搜索和可视化，例如最近邻搜索、空间分割等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/images/Octree.svg&#34; alt=&#34;八叉树&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;o3d.geometry.Octree(max_depth=int)&lt;/code&gt; : 八叉树类，用于实现八叉树。
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;max_depth&lt;/code&gt; ：八叉树的最大深度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;convert_from_point_cloud&lt;/code&gt; ：将点云转换为八叉树。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;cat.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 创建八叉树&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;octree &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;geometry&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;Octree&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;max_depth&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 将点云转换为八叉树&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;octree&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;convert_from_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;octree&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;体素栅格构建 Octree&lt;/strong&gt;&lt;br&gt;
+ 使用  &lt;code&gt;create_from_voxel_grid&lt;/code&gt;  方法从体素栅格创建八叉树。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; numpy &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; np&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;cat.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 创建一个体素栅格&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;voxel_grid &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;geometry&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;VoxelGrid&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;create_from_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; voxel_size&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0.05&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 创建八叉树&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;octree &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;geometry&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;Octree&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;max_depth&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token comment&#34;&gt;# max_depth: 八叉树的最大深度&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;octree&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;convert_from_voxel_grid&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;voxel_grid&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;octree&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt; &lt;code&gt;K-D树&lt;/code&gt; 和 &lt;code&gt;八叉树&lt;/code&gt; 具体适用场景分析&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;K-D 树的优势场景&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;高维数据处理&lt;/li&gt;
+&lt;li&gt;高效的最近邻搜索&lt;/li&gt;
+&lt;li&gt;范围查询&lt;/li&gt;
+&lt;li&gt;低内存占用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;八叉树的优势场景&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;纯 3D 空间的均匀划分&lt;/li&gt;
+&lt;li&gt;体素化与多分辨率处理&lt;/li&gt;
+&lt;li&gt;碰撞检测与空间占用查询&lt;/li&gt;
+&lt;li&gt;点云压缩与降采样&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;实际应用中的选择策略&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;优先使用 K-D 树的情况：
+&lt;ul&gt;
+&lt;li&gt;需频繁进行最近邻搜索（如 ICP 配准、法线估计）；&lt;/li&gt;
+&lt;li&gt;点云包含非空间维度信息（如颜色、强度）；&lt;/li&gt;
+&lt;li&gt;数据分布不均匀，需要自适应划分提高搜索效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;优先使用八叉树的情况：
+&lt;ul&gt;
+&lt;li&gt;处理纯 3D 空间数据，且需要快速划分空间（如体素化、空间索引）；&lt;/li&gt;
+&lt;li&gt;涉及多分辨率分析或三维重建；&lt;/li&gt;
+&lt;li&gt;需要高效的碰撞检测或空间占用查询。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;混合使用的场景：
+&lt;ul&gt;
+&lt;li&gt;在复杂任务中，两者可结合使用。例如：&lt;/li&gt;
+&lt;li&gt;先用八叉树进行粗粒度空间划分，再对每个叶节点内的点构建 K-D 树进行精细搜索；&lt;/li&gt;
+&lt;li&gt;在实时 SLAM 系统中，用八叉树管理全局地图的空间索引，用 K-D 树进行局部点云的特征匹配。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;K-D树&lt;/code&gt; 更适合处理高维数据和非均匀分布的点云，在最近邻搜索和范围查询中表现优异；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;八叉树&lt;/code&gt; 则在纯 3D 空间划分、体素化和多分辨率处理中具有天然优势。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

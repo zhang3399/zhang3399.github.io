@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhang3399.github.io</id>
+    <title>CodeVortex记事本 • Posts by &#34;机器视觉&#34; category</title>
+    <link href="https://zhang3399.github.io" />
+    <updated>2025-05-25T02:00:00.000Z</updated>
+    <category term="Socket" />
+    <category term="TypeScript" />
+    <category term="多线程" />
+    <category term="I/O多路复用" />
+    <category term="Boost" />
+    <category term="Lambda 表达式" />
+    <category term="md图标" />
+    <category term="python" />
+    <category term="git" />
+    <category term="pytorch" />
+    <category term="Docker" />
+    <category term="CMake" />
+    <category term="Linux" />
+    <category term="Windows" />
+    <category term="python进阶" />
+    <category term="曲率" />
+    <category term="tensoRT" />
+    <category term="SQL" />
+    <category term="数据结构" />
+    <category term="图像处理" />
+    <category term="LoRA" />
+    <category term="3D" />
+    <category term="LSTM" />
+    <category term="YOLOv5s" />
+    <category term="Adman梯度下降" />
+    <category term="单项负载识别" />
+    <entry>
+        <id>https://zhang3399.github.io/2025/05/25/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-5-25-%E7%9B%B8%E6%9C%BA%E9%80%89%E5%9E%8B/</id>
+        <title>相机选型</title>
+        <link rel="alternate" href="https://zhang3399.github.io/2025/05/25/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-5-25-%E7%9B%B8%E6%9C%BA%E9%80%89%E5%9E%8B/"/>
+        <content type="html">&lt;h1 id=&#34;相机选型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#相机选型&#34;&gt;#&lt;/a&gt; 相机选型&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;相机选型：需求→相机→镜头&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;相机&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#相机&#34;&gt;#&lt;/a&gt; 相机&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;步骤 1&lt;/strong&gt;：定义应用需求（视场是起点）&lt;br&gt;
+先明确 3 个核心需求（决定后续所有参数）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视场（FOV）：要拍摄的物体最大尺寸（如检测 300mm×220mm 的零件）。&lt;/li&gt;
+&lt;li&gt;检测精度：每个像素代表的实际尺寸（如 0.1mm / 像素，决定相机分辨率）。&lt;/li&gt;
+&lt;li&gt;工作距离（WD）：镜头到物体的距离（如 500mm，受安装空间限制）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;步骤 2&lt;/strong&gt;：选型相机（确定传感器，关键桥梁）&lt;br&gt;
+相机的核心是传感器，需通过需求推导 2 个参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分辨率：像素数 = 精度视场边长&lt;br&gt;
+（例：视场短边 220mm，精度 0.1mm → 220/0.1=2200 像素；需预留畸变空间，一般让图像占传感器靶面 70~80%，故实际像素数需≥2200/0.75≈2933 像素）。&lt;/li&gt;
+&lt;li&gt;传感器靶面尺寸：&lt;br&gt;
+筛选相机时，优先匹配像素数和靶面尺寸（如 1/1.7&amp;quot; 传感器对应 6.4mm×4.8mm，支持 4000×3036 像素）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;视场和精度决定相机分辨率，进而筛选传感器，相机选型先于镜头（因为镜头参数依赖传感器）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;步骤 3&lt;/strong&gt;：选型镜头（计算焦距，依赖相机）&lt;br&gt;
+用步骤 2 确定的传感器尺寸（S）、步骤 1 的视场（FOV）和工作距离（WD），代入公式计算焦距：f=S×WD / FOV&lt;br&gt;
+（例：传感器短边 4.8mm，WD=500mm，FOV 短边 293.3mm → f≈293.34.8×500≈8.2mm，选 8mm 或 12mm 标准焦距镜头，再反向验证工作距离是否符合）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;镜头焦距的计算必须基于相机的传感器尺寸，因此镜头选型依赖相机。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;视场预留冗余：实际视场建议比物体尺寸大 10~20%（应对安装误差、物体偏移）。&lt;/li&gt;
+&lt;li&gt;传感器优先选 “小靶面 + 高分辨率”：在满足像素数的前提下，小靶面相机更便宜，且镜头选择更灵活（短焦距即可覆盖大视场）。&lt;/li&gt;
+&lt;li&gt;焦距选标准值：计算值若为 8.2mm，优先选 8mm 或 12mm（标准焦距镜头更易采购，成本更低），再微调工作距离适配。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;镜头分类：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;标准镜头：焦距与视场匹配，适合近距离、小视场。&lt;/li&gt;
+&lt;li&gt;长焦镜头：焦距远大于视场，适合远距离、大视场。&lt;/li&gt;
+&lt;li&gt;短焦镜头：焦距远小于视场，适合近距离、大视场。&lt;/li&gt;
+&lt;li&gt;超广角镜头：视场远大于焦距，适合近距离、超大视场。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;光圈&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#光圈&#34;&gt;#&lt;/a&gt; 光圈&lt;/h2&gt;
+&lt;p&gt;光圈是镜头的重要参数，影响图像的亮度和景深。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;光圈大小：光圈越大，光线越多，图像越亮，景深越浅。&lt;/li&gt;
+&lt;li&gt;光圈数值：F 数越大，光圈越小，光线越少，图像越暗，景深越深。&lt;/li&gt;
+&lt;li&gt;光圈计算：光圈数值 = F 数 = 焦距 / 光圈直径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;光源&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#光源&#34;&gt;#&lt;/a&gt; 光源&lt;/h2&gt;
+&lt;p&gt;光源是图像质量的关键因素，需根据相机和镜头的参数选择合适的光源。&lt;br&gt;
+&lt;strong&gt;形状&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;环形低角度光源：适合检测物体表面纹理，如划痕、凹凸、边缘等。&lt;/li&gt;
+&lt;li&gt;平行光源：适合检测物体表面颜色，如颜色差异、阴影等。&lt;/li&gt;
+&lt;li&gt;点光源：适合检测物体表面形状，如尺寸、角度等。&lt;/li&gt;
+&lt;li&gt;碗状漫反射光源：不会有阴影。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;位置&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;亮视野：反射光直接进入相机视野。&lt;/li&gt;
+&lt;li&gt;暗视野：零散的反射光进入相机视野。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="图像处理" />
+        <updated>2025-05-25T02:00:00.000Z</updated>
+    </entry>
+</feed>
