@@ -7,32 +7,32 @@
         <language>zh-CN</language>
         <pubDate>Thu, 20 Mar 2025 23:07:00 +0800</pubDate>
         <lastBuildDate>Thu, 20 Mar 2025 23:07:00 +0800</lastBuildDate>
-        <category>Socket</category>
-        <category>多线程</category>
         <category>I/O多路复用</category>
-        <category>TypeScript</category>
+        <category>多线程</category>
+        <category>Socket</category>
         <category>Boost</category>
-        <category>md图标</category>
-        <category>Lambda 表达式</category>
         <category>pytorch</category>
-        <category>Docker</category>
-        <category>CMake</category>
-        <category>tensoRT</category>
-        <category>git</category>
+        <category>Lambda 表达式</category>
+        <category>TypeScript</category>
         <category>Linux</category>
         <category>Windows</category>
+        <category>md图标</category>
+        <category>git</category>
+        <category>CMake</category>
         <category>python</category>
-        <category>python进阶</category>
-        <category>曲率</category>
-        <category>图像处理</category>
-        <category>3D</category>
+        <category>Docker</category>
         <category>LoRA</category>
-        <category>SQL</category>
+        <category>曲率</category>
+        <category>tensoRT</category>
+        <category>python进阶</category>
+        <category>图像处理</category>
         <category>数据结构</category>
+        <category>3D</category>
+        <category>SQL</category>
         <category>LSTM</category>
         <category>Adman梯度下降</category>
-        <category>单项负载识别</category>
         <category>YOLOv5s</category>
+        <category>单项负载识别</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/03/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-20-LSTM%E9%A2%84%E6%B5%8B%E7%94%B5%E6%B1%A0SOH/</guid>
             <title>LSTM预测电池SOH</title>

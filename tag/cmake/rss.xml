@@ -7,32 +7,32 @@
         <language>zh-CN</language>
         <pubDate>Wed, 12 Mar 2025 15:26:00 +0800</pubDate>
         <lastBuildDate>Wed, 12 Mar 2025 15:26:00 +0800</lastBuildDate>
-        <category>Socket</category>
-        <category>多线程</category>
         <category>I/O多路复用</category>
-        <category>TypeScript</category>
+        <category>多线程</category>
+        <category>Socket</category>
         <category>Boost</category>
-        <category>md图标</category>
-        <category>Lambda 表达式</category>
         <category>pytorch</category>
-        <category>Docker</category>
-        <category>CMake</category>
-        <category>tensoRT</category>
-        <category>git</category>
+        <category>Lambda 表达式</category>
+        <category>TypeScript</category>
         <category>Linux</category>
         <category>Windows</category>
+        <category>md图标</category>
+        <category>git</category>
+        <category>CMake</category>
         <category>python</category>
-        <category>python进阶</category>
-        <category>曲率</category>
-        <category>图像处理</category>
-        <category>3D</category>
+        <category>Docker</category>
         <category>LoRA</category>
-        <category>SQL</category>
+        <category>曲率</category>
+        <category>tensoRT</category>
+        <category>python进阶</category>
+        <category>图像处理</category>
         <category>数据结构</category>
+        <category>3D</category>
+        <category>SQL</category>
         <category>LSTM</category>
         <category>Adman梯度下降</category>
-        <category>单项负载识别</category>
         <category>YOLOv5s</category>
+        <category>单项负载识别</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/03/12/Tool/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</guid>
             <title>🚀 CMake项目构建</title>
