@@ -4,30 +4,30 @@
     <title>CodeVortex记事本 • Posts by &#34;open3d&#34; category</title>
     <link href="https://zhang3399.github.io" />
     <updated>2025-07-12T02:00:00.000Z</updated>
-    <category term="数据结构" />
+    <category term="TypeScript" />
+    <category term="pytorch" />
+    <category term="I/O多路复用" />
     <category term="Socket" />
     <category term="Boost" />
+    <category term="数据结构" />
     <category term="Lambda 表达式" />
-    <category term="TypeScript" />
-    <category term="I/O多路复用" />
-    <category term="曲率" />
     <category term="3D" />
-    <category term="pytorch" />
+    <category term="曲率" />
+    <category term="md图标" />
+    <category term="Docker" />
+    <category term="git" />
+    <category term="tensoRT" />
+    <category term="python" />
+    <category term="CMake" />
     <category term="Linux" />
     <category term="Windows" />
-    <category term="md图标" />
-    <category term="CMake" />
-    <category term="tensoRT" />
-    <category term="git" />
-    <category term="Docker" />
-    <category term="LoRA" />
     <category term="图像处理" />
-    <category term="SQL" />
-    <category term="python" />
-    <category term="python进阶" />
+    <category term="LoRA" />
     <category term="LSTM" />
+    <category term="python进阶" />
     <category term="YOLOv5s" />
     <category term="Adman梯度下降" />
+    <category term="SQL" />
     <category term="单项负载识别" />
     <entry>
         <id>https://zhang3399.github.io/2025/07/12/Open3D/2025-7-12-Open3D/</id>
@@ -400,7 +400,45 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;test.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; window_name&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Open3D&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;kdtree&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#kdtree&#34;&gt;#&lt;/a&gt; KDTree&lt;/h2&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;import&lt;/span&gt; open3d &lt;span class=&#34;token keyword&#34;&gt;as&lt;/span&gt; o3d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;test.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; window_name&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;Open3D&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;点云操作&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#点云操作&#34;&gt;#&lt;/a&gt; 点云操作&lt;/h1&gt;
+&lt;h2 id=&#34;点云法线估计&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#点云法线估计&#34;&gt;#&lt;/a&gt; 点云法线估计&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;点云法线估计是点云处理中的一项重要任务，它可以帮助我们理解点云的几何形状和结构。点云法线估计的目的是计算每个点的法线向量，法线向量垂直于点云表面的切平面。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;o3d.geometry.PointCloud.estimate_normals&lt;/code&gt;  函数可以估计点云的法线。&lt;/p&gt;
+&lt;p&gt;函数定义如下：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;estimate_normals&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;self&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; search_param&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; fast_normal_computation&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; print_progress&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token boolean&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# real signature unknown; restored from __doc__&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token triple-quoted-string string&#34;&gt;&#34;&#34;&#34;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    Returns:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        open3d.cpu.pybind.geometry.PointCloud&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &#34;&#34;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;search_param&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;搜索参数，默认为 None。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;fast_normal_computation&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否使用快速法线计算，默认为 False。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;print_progress&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;是否打印进度，默认为 False。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;estimate_normals&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;search_param&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;geometry&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;KDTreeSearchParamHybrid&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;radius&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; max_nn&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;点云降采样&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#点云降采样&#34;&gt;#&lt;/a&gt; 点云降采样&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;点云降采样是一种常用的点云处理技术，用于减少点云中的点数，从而降低计算复杂度。点云降采样可以通过多种方法实现，例如体素网格降采样、八叉树降采样等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code&gt;o3d.geometry.PointCloud.uniform_down_sample&lt;/code&gt;  函数可以降采样点云。&lt;/p&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;cat.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;uniform_down_sample&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;every_k_points&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# every_k_points: 每 K 个点保留一个&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;体素网格降采样&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;io&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;read_point_cloud&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;cat.pcd&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;pcd &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; pcd&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;voxel_down_sample&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;voxel_size&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# voxel_size: 体素大小&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;o3d&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;visualization&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;draw_geometries&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;pcd&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;原始点云、降采样后的点云、体素网格降采样后的点云可视化结果如下：&lt;br&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;/images/cat_pcd.png&#34; alt=&#34;cat_points&#34;&gt; &lt;img loading=&#34;lazy&#34; src=&#34;/images/cat_down.png&#34; alt=&#34;cat_down&#34;&gt; &lt;img loading=&#34;lazy&#34; src=&#34;/images/cat_voxel.png&#34; alt=&#34;cat_voxel&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kdtree&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#kdtree&#34;&gt;#&lt;/a&gt; KDTree&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;o3d.geometry.KDTreeFlann&lt;/code&gt;  是 Open3D 中用于实现 k-d 树的类。k-d 树是一种用于多维空间中快速搜索最近邻点的数据结构。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;o3d.geometry.KDTreeFlann&lt;/code&gt; : k-d 树类，用于实现 k-d 树。&lt;/li&gt;
