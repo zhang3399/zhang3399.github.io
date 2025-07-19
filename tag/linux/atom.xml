@@ -5,31 +5,31 @@
     <link href="https://zhang3399.github.io" />
     <updated>2024-03-29T02:00:00.000Z</updated>
     <category term="Socket" />
-    <category term="TypeScript" />
     <category term="多线程" />
     <category term="I/O多路复用" />
+    <category term="TypeScript" />
     <category term="Boost" />
-    <category term="Lambda 表达式" />
     <category term="md图标" />
-    <category term="python" />
-    <category term="git" />
+    <category term="Lambda 表达式" />
     <category term="pytorch" />
     <category term="Docker" />
     <category term="CMake" />
+    <category term="tensoRT" />
+    <category term="git" />
     <category term="Linux" />
     <category term="Windows" />
+    <category term="python" />
     <category term="python进阶" />
     <category term="曲率" />
-    <category term="tensoRT" />
+    <category term="图像处理" />
+    <category term="3D" />
+    <category term="LoRA" />
     <category term="SQL" />
     <category term="数据结构" />
-    <category term="图像处理" />
-    <category term="LoRA" />
-    <category term="3D" />
     <category term="LSTM" />
-    <category term="YOLOv5s" />
     <category term="Adman梯度下降" />
     <category term="单项负载识别" />
+    <category term="YOLOv5s" />
     <entry>
         <id>https://zhang3399.github.io/2024/03/29/linux/2024-6-15-%E7%BB%88%E7%AB%AF%E6%93%8D%E4%BD%9C/</id>
         <title>终端操作</title>

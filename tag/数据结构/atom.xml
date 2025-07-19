@@ -5,31 +5,31 @@
     <link href="https://zhang3399.github.io" />
     <updated>2024-06-08T02:00:00.000Z</updated>
     <category term="Socket" />
-    <category term="TypeScript" />
     <category term="多线程" />
     <category term="I/O多路复用" />
+    <category term="TypeScript" />
     <category term="Boost" />
-    <category term="Lambda 表达式" />
     <category term="md图标" />
-    <category term="python" />
-    <category term="git" />
+    <category term="Lambda 表达式" />
     <category term="pytorch" />
     <category term="Docker" />
     <category term="CMake" />
+    <category term="tensoRT" />
+    <category term="git" />
     <category term="Linux" />
     <category term="Windows" />
+    <category term="python" />
     <category term="python进阶" />
     <category term="曲率" />
-    <category term="tensoRT" />
+    <category term="图像处理" />
+    <category term="3D" />
+    <category term="LoRA" />
     <category term="SQL" />
     <category term="数据结构" />
-    <category term="图像处理" />
-    <category term="LoRA" />
-    <category term="3D" />
     <category term="LSTM" />
-    <category term="YOLOv5s" />
     <category term="Adman梯度下降" />
     <category term="单项负载识别" />
+    <category term="YOLOv5s" />
     <entry>
         <id>https://zhang3399.github.io/2024/06/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2024-6-15-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</id>
         <title>数据处理及内存管理</title>

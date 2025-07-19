@@ -5,31 +5,31 @@
     <link href="https://zhang3399.github.io" />
     <updated>2025-03-12T07:26:00.000Z</updated>
     <category term="Socket" />
-    <category term="TypeScript" />
     <category term="多线程" />
     <category term="I/O多路复用" />
+    <category term="TypeScript" />
     <category term="Boost" />
-    <category term="Lambda 表达式" />
     <category term="md图标" />
-    <category term="python" />
-    <category term="git" />
+    <category term="Lambda 表达式" />
     <category term="pytorch" />
     <category term="Docker" />
     <category term="CMake" />
+    <category term="tensoRT" />
+    <category term="git" />
     <category term="Linux" />
     <category term="Windows" />
+    <category term="python" />
     <category term="python进阶" />
     <category term="曲率" />
-    <category term="tensoRT" />
+    <category term="图像处理" />
+    <category term="3D" />
+    <category term="LoRA" />
     <category term="SQL" />
     <category term="数据结构" />
-    <category term="图像处理" />
-    <category term="LoRA" />
-    <category term="3D" />
     <category term="LSTM" />
-    <category term="YOLOv5s" />
     <category term="Adman梯度下降" />
     <category term="单项负载识别" />
+    <category term="YOLOv5s" />
     <entry>
         <id>https://zhang3399.github.io/2025/03/12/Tool/2025-3-12-CMake%E4%BD%BF%E7%94%A8/</id>
         <title>🚀 CMake项目构建</title>
