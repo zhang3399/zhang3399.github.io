@@ -7,31 +7,30 @@
         <language>zh-CN</language>
         <pubDate>Sun, 01 Jun 2025 10:00:00 +0800</pubDate>
         <lastBuildDate>Sun, 01 Jun 2025 10:00:00 +0800</lastBuildDate>
-        <category>I/O多路复用</category>
-        <category>多线程</category>
+        <category>数据结构</category>
         <category>Socket</category>
         <category>Boost</category>
-        <category>pytorch</category>
         <category>Lambda 表达式</category>
         <category>TypeScript</category>
+        <category>I/O多路复用</category>
+        <category>曲率</category>
+        <category>3D</category>
+        <category>pytorch</category>
         <category>Linux</category>
         <category>Windows</category>
         <category>md图标</category>
-        <category>git</category>
         <category>CMake</category>
-        <category>python</category>
+        <category>tensoRT</category>
+        <category>git</category>
         <category>Docker</category>
         <category>LoRA</category>
-        <category>曲率</category>
-        <category>tensoRT</category>
-        <category>python进阶</category>
         <category>图像处理</category>
-        <category>数据结构</category>
-        <category>3D</category>
         <category>SQL</category>
+        <category>python</category>
+        <category>python进阶</category>
         <category>LSTM</category>
-        <category>Adman梯度下降</category>
         <category>YOLOv5s</category>
+        <category>Adman梯度下降</category>
         <category>单项负载识别</category>
         <item>
             <guid isPermalink="true">https://zhang3399.github.io/2025/06/01/%E5%A4%A7%E6%A8%A1%E5%9E%8B/2025-6-1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83LoRA/</guid>

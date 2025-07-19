@@ -1,0 +1,473 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"/><meta name="theme-color" content="#222"/><meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/><meta name="renderer" content="webkit"/><link rel="icon" type="image/ico" sizes="32x32" href="/assets/favicon.ico"/><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico"/><link rel="alternate" href="/rss.xml" title="CodeVortex记事本" type="application/rss+xml"><link rel="alternate" href="/atom.xml" title="CodeVortex记事本" type="application/atom+xml"><link rel="alternate" type="application/json" title="CodeVortex记事本" href="https://zhang3399.github.io/feed.json"/><link rel="preconnect" href="https://s4.zstatic.net"/><link rel="preconnect" href="https://at.alicdn.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7CFredericka%20the%20Great:400,400italic,700,700italic%7CNoto%20Serif%20JP:400,400italic,700,700italic%7CNoto%20Serif%20SC:400,400italic,700,700italic%7CInconsolata:400,400italic,700,700italic&display=swap&subset=latin,latin-ext" media="none" onload="this.media&#x3D;&#39;all&#39;"><link rel="modulepreload" href="/js/siteInit.js"></link><link rel="modulepreload" href="/js/nyx-player-VPQ7ZXM7.js"></link><link rel="modulepreload" href="/js/copy-tex-QH6DMY3Z.js"></link><link rel="modulepreload" href="/js/codeblock-BDI7A3VH.js"></link><link rel="modulepreload" href="/js/post-CLCLH2NZ.js"></link><link rel="modulepreload" href="/js/chunk-JHRMBZR5.js"></link><link rel="modulepreload" href="/js/chunk-EZC2ENYV.js"></link><link rel="modulepreload" href="/js/index.esm-WNNNHWJP.js"></link><link rel="modulepreload" href="/js/chunk-RK7HQRIO.js"></link><link rel="modulepreload" href="/js/chunk-2QQ6TKPX.js"></link><link rel="stylesheet" href="/css/siteInit.css" media="none" onload="this.media&#x3D;&#39;all&#39;"></link><link rel="preload" href="images/img2.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img7.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img6.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img1.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img5.webp" as="image" fetchpriority="high"><link rel="preload" href="images/img3.webp" as="image" fetchpriority="high"><meta name="keywords" content="3D"/><meta name="description" content="滴答滴答滴答"/><link rel="canonical" href="https://zhang3399.github.io/2025/07/12/Open3D/2025-7-12-Open3D/"><link rel="stylesheet" href="/css/post.css?v=0.5.1"><link rel="stylesheet" href="/css/mermaid.css?v=0.5.1"><!-- 临时处理--><link rel="stylesheet" media="none" onload="this.media='all'" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css"><title>Open3D</title><meta name="generator" content="Hexo 7.3.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">Open3D</h1><div class="meta"><span class="item" title="创建时间：2025-07-12 10:00:00"><span class="icon"><i class="ic i-calendar"></i></span><span class="text">发表于</span><time itemprop="dateCreated datePublished" datetime="2025-07-12T10:00:00+08:00">2025-07-12</time></span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i></span><span class="text">本文字数</span><span>9.8k</span><span class="text">字</span></span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i></span><span class="text">阅读时长</span><span>9 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span><span class="line"></span><span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">学习笔记</a></li></ul><ul class="right" id="rightNav"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div class="pjax" id="imgs"><ul><li class="item" style="background-image: url(&quot;images/img2.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img7.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img6.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img1.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img5.webp&quot;);"></li><li class="item" style="background-image: url(&quot;images/img3.webp&quot;);"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"></use><use xlink:href="#gentle-wave" x="48" y="3"></use><use xlink:href="#gentle-wave" x="48" y="5"></use><use xlink:href="#gentle-wave" x="48" y="7"></use></g></svg></div><main><div class="inner"><div class="pjax" id="main"><div class="article wrap"><div class="breadcrumb" itemListElement itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i><span><a href="/">首页</a></span><i class="ic i-angle-right"></i><span class="current" itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem"><a href="/categories/Open3D/" itemprop="item" rel="index" title="分类于Open3D"><span itemprop="name">Open3D<meta itemprop="position" content="0"/></span></a></span></div><article class="post block" itemscope="itemscope" itemtype="http://schema.org/Article" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://zhang3399.github.io/2025/07/12/Open3D/2025-7-12-Open3D/"/><span hidden="hidden" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><meta itemprop="image" content="/assets/avatar.jpg"/><meta itemprop="name" content="CodeVortex"/><meta itemprop="description" content="Study, 滴答滴答滴答"/></span><span hidden="hidden" itemprop="publisher" itemscope="itemscope" itemtype="http://schema.org/Organization"><meta itemprop="name" content="CodeVortex记事本"/></span><div class="body md" itemprop="articleBody"><h1 id="3d文件"><a class="markdownIt-Anchor" href="#3d文件">#</a> 3D 文件</h1>
+<h2 id="点云文件"><a class="markdownIt-Anchor" href="#点云文件">#</a> 点云文件</h2>
+<blockquote>
+<p>点云文件是一种用于存储点云数据的文件格式。通常包括点云的坐标、颜色等信息。</p>
+</blockquote>
+<p>默认情况下，Open3D 支持以下点云文件格式：</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xyz</code></td>
+<td>纯文本格式，每行包含一个点的坐标（x, y, z）</td>
+</tr>
+<tr>
+<td><code>xyzn</code></td>
+<td>纯文本格式，每行包含一个点的坐标（x, y, z）和法线（nx, ny, nz）</td>
+</tr>
+<tr>
+<td><code>xyzrgb</code></td>
+<td>纯文本格式，每行包含一个点的坐标（x, y, z）和颜色（r, g, b）</td>
+</tr>
+<tr>
+<td><code>pcd</code></td>
+<td>PCD 文件格式，由 PCL（Point Cloud Library）定义</td>
+</tr>
+<tr>
+<td><code>ply</code></td>
+<td>PLY 文件格式，由 PLY（Polygon File Format）定义</td>
+</tr>
+<tr>
+<td><code>obj</code></td>
+<td>OBJ 文件格式，由 3D 建模软件定义</td>
+</tr>
+</tbody>
+</table>
+<p><code>o3d.io.read_point_cloud(pcd,format)</code>  函数未指定 <code>format</code>  参数时，Open3D 会根据文件扩展名自动推断文件格式。</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 读取点云文件</span></pre></td></tr><tr><td data-num="3"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_point_cloud<span class="token punctuation">(</span><span class="token string">"path_to_point_cloud_file.pcd"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 显示点云</span></pre></td></tr><tr><td data-num="5"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>pcd<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><blockquote>
+<p><strong>代码直接构造点云数据</strong></p>
+</blockquote>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 定义点坐标</span></pre></td></tr><tr><td data-num="4"></td><td><pre>vertices <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment"># 点 0</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 点 1</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 点 2</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span>  <span class="token comment"># 点 3</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float64<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># 创建点云对象</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>PointCloud<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>pcd<span class="token punctuation">.</span>points <span class="token operator">=</span> o3d<span class="token punctuation">.</span>utility<span class="token punctuation">.</span>Vector3dVector<span class="token punctuation">(</span>vertices<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>pcd<span class="token punctuation">]</span><span class="token punctuation">,</span> window_name<span class="token operator">=</span><span class="token string">"直接构造的点云"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="网格文件"><a class="markdownIt-Anchor" href="#网格文件">#</a> 网格文件</h2>
+<blockquote>
+<p>网格文件是一种用于存储三维网格数据的文件格式。通常包含多边形、顶点、法线、纹理等信息。</p>
+</blockquote>
+<p>默认情况下，Open3D 支持以下网格文件格式：</p>
+<table>
+<thead>
+<tr>
+<th>文件后缀</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ply</code></td>
+<td>PLY 文件格式，由 PLY（Polygon File Format）定义</td>
+</tr>
+<tr>
+<td><code>obj</code></td>
+<td>OBJ 文件格式，由 3D 建模软件定义</td>
+</tr>
+<tr>
+<td><code>stl</code></td>
+<td>STL 文件格式，由 STL（Stereolithography）定义</td>
+</tr>
+<tr>
+<td><code>off</code></td>
+<td>OFF 文件格式，由 OFF（Object File Format）定义</td>
+</tr>
+</tbody>
+</table>
+<p><code>o3d.io.read_triangle_mesh(mesh,format)</code>  函数未指定 <code>format</code>  参数时，Open3D 会根据文件扩展名自动推断文件格式。</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token comment"># 读取网格文件</span></pre></td></tr><tr><td data-num="3"></td><td><pre>mesh <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_triangle_mesh<span class="token punctuation">(</span><span class="token string">"path_to_mesh_file.ply"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 显示网格</span></pre></td></tr><tr><td data-num="5"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>mesh<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><blockquote>
+<p><strong>代码直接构造点网格数据</strong><br>
+注意： 网络数据定义面时，（右手定则）大拇指为面的法线方向，即可视化所展示的面。</p>
+</blockquote>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 定义顶点坐标</span></pre></td></tr><tr><td data-num="4"></td><td><pre>vertices <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment"># 点 0</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 点 1</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># 点 2</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">]</span>  <span class="token comment"># 点 3</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>float64<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment"># 创建点云对象</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token comment"># 定义面（每个面由 3 个顶点索引组成）</span></pre></td></tr><tr><td data-num="12"></td><td><pre>triangles <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment"># 面 0: 点 0-2-1</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment"># 面 1: 点 0-1-3</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>   <span class="token comment"># 面 2: 点 0-3-2</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>    <span class="token comment"># 面 3: 点 1-2-3</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>int32<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment"># 创建网格对象</span></pre></td></tr><tr><td data-num="19"></td><td><pre>mesh <span class="token operator">=</span> o3d<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>TriangleMesh<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># 设置顶点坐标和面索引</span></pre></td></tr><tr><td data-num="21"></td><td><pre>mesh<span class="token punctuation">.</span>vertices <span class="token operator">=</span> o3d<span class="token punctuation">.</span>utility<span class="token punctuation">.</span>Vector3dVector<span class="token punctuation">(</span>vertices<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>mesh<span class="token punctuation">.</span>triangles <span class="token operator">=</span> o3d<span class="token punctuation">.</span>utility<span class="token punctuation">.</span>Vector3iVector<span class="token punctuation">(</span>triangles<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment"># 可选：计算法线并可视化</span></pre></td></tr><tr><td data-num="24"></td><td><pre>mesh<span class="token punctuation">.</span>compute_vertex_normals<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>mesh<span class="token punctuation">]</span><span class="token punctuation">,</span> window_name<span class="token operator">=</span><span class="token string">"直接构造的网格"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><img loading="lazy" src="/images/mesh.png" alt="create mesh"></p>
+<h2 id="文件内容"><a class="markdownIt-Anchor" href="#文件内容">#</a> 文件内容</h2>
+<h3 id="pcd"><a class="markdownIt-Anchor" href="#pcd">#</a> PCD</h3>
+<blockquote>
+<p>PCD 文件是一种常用的点云文件格式，由 PCL（Point Cloud Library）定义。PCD 文件可以包含点云的坐标、颜色、法线等信息。</p>
+</blockquote>
+<p>PCD 文件头的具体内容如下：<br>
+<strong>VERSION</strong><br>
+ 指定 PCD 文件的版本，目前支持 PCD_V0.7 和 PCD_V0.7_BINARY 两种版本。<br>
+<strong>FIELDS</strong><br>
+ 指定点云数据中包含的字段，每个字段用空格分隔。<br>
+示例：</p>
+<table>
+<thead>
+<tr>
+<th>字段内容</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FIELDS x y z</code></td>
+<td><code>x</code> 、 <code>y</code> 、 <code>z</code>  三个坐标字段</td>
+</tr>
+<tr>
+<td><code>FIELDS x y z rgb</code></td>
+<td><code>x</code> 、 <code>y</code> 、 <code>z</code>  三个坐标字段 +  <code>rgb</code>  颜色字段（深度相机）</td>
+</tr>
+<tr>
+<td><code>FIELDS x y z normal_x normal_y normal_z</code></td>
+<td><code>x</code> 、 <code>y</code> 、 <code>z</code>  三个坐标字段 +  <code>normal_x</code> 、 <code>normal_y</code> 、 <code>normal_z</code>  三个法线字段</td>
+</tr>
+<tr>
+<td><code>FIELDS j1 j2 j3</code></td>
+<td><code>j1</code> 、 <code>j2</code> 、 <code>j3</code>  三个字段（例如激光雷达）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SIZE</strong><br>
+ 指定每个维度的大小<br>
+示例：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SIZE 4 4 4</code></td>
+<td>每个字段大小为 4 字节</td>
+</tr>
+<tr>
+<td><code>SIZE 4 4 4 4</code></td>
+<td>每个字段大小为 4 字节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TYPE</strong><br>
+ 指定每个字段的类型，每个字段用空格分隔。<br>
+示例：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TYPE F F F</code></td>
+<td>每个字段类型为浮点型</td>
+</tr>
+<tr>
+<td><code>TYPE U U U</code></td>
+<td>每个字段类型为无符号整型</td>
+</tr>
+<tr>
+<td><code>TYPE I I I</code></td>
+<td>每个字段类型为有符号整型</td>
+</tr>
+</tbody>
+</table>
+<p><strong>COUNT</strong><br>
+ 指定每个维度的元素数量，每个字段用空格分隔。例如，x 数据通常有 1 个元素，但像 VFH 这样的特征描述符有 308 个元素。<br>
+<strong>WIDTH</strong><br>
+ 指定点云数据的宽度，有序有结构表示行数，无需无结构等价 <code>POINTS</code> 。<br>
+<strong>HEIGHT</strong><br>
+ 指定点云数据的高度，表示点云数据行数（无序无结构为 1）。<br>
+<strong>VIEWPOINT</strong><br>
+ 为数据集中的点指定采集视点。这可能会在以后用于构建不同坐标系之间的变换，或用于帮助处理需要一致方向的特征，如曲面法线。<br>
+它由平移（tx-ty-tz）加上旋转四元数（qw-qx-qy-qz）组成。默认值为：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>VIEWPOINT <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span></pre></td></tr></table></figure><p><strong>POINTS</strong><br>
+ 指定点云数据中点的数量。<br>
+<strong>DATA</strong><br>
+ 指定点云数据的存储方式自版本 0.7 起，支持三种数据类型： <code>ascii</code> 、 <code>binary</code>  和 <code>binary_compressed</code> 。</p>
+<ul>
+<li><code>ascii</code>  每一行代表一个点的属性，由于是 <code>ascii</code>  码因此可以直接阅读，缺点就是占用空间大，空的点用 <code>NaN</code>  表示</li>
+<li><code>binary</code>  其中数据是 <code>pcl::PointCloud.points</code>  数组 / 向量的完整内存副本。在 Linux 系统上，我们使用 <code>mmap/munmap</code>  操作对数据进行最快的读 / 写访问。</li>
+<li><code>binary_compressed</code>  该文件（头部之后的所有内容）以一个 32 位无符号二进制数开始，该二进制数指定以压缩形式存在的数据的字节大小。接下来是另一个 32 位无符号二进制数，该二进制数指定未压缩数据的字节大小。然后是压缩后的数据。压缩和解压缩都使用 <code>Marc Lehmann</code>  的 <code>LZF</code>  算法。该算法在压缩率方面表现一般，但是速度非常快。对于典型的点云，压缩后的数据大小为原始大小的 30% 到 60%。在压缩之前，数据会被重新排序以改善压缩效果，从标准的结构数组布局变为数组结构布局。例如，一个包含三个点和 <code>x</code> 、 <code>y</code> 、 <code>z</code>  字段的云将从 <code>xyzxyzxyz</code>  重新排序为 <code>xxxyyyzzz</code> 。</li>
+</ul>
+<p>完整实例：</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># PCD 文件头</span></pre></td></tr><tr><td data-num="2"></td><td><pre>VERSION .7</pre></td></tr><tr><td data-num="3"></td><td><pre>FIELDS x y z</pre></td></tr><tr><td data-num="4"></td><td><pre>SIZE <span class="token number">4</span> <span class="token number">4</span> <span class="token number">4</span></pre></td></tr><tr><td data-num="5"></td><td><pre>TYPE F F F</pre></td></tr><tr><td data-num="6"></td><td><pre>COUNT <span class="token number">1</span> <span class="token number">1</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="7"></td><td><pre>WIDTH <span class="token number">27895</span></pre></td></tr><tr><td data-num="8"></td><td><pre>HEIGHT <span class="token number">1</span></pre></td></tr><tr><td data-num="9"></td><td><pre>VIEWPOINT <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="10"></td><td><pre>POINTS <span class="token number">27895</span></pre></td></tr><tr><td data-num="11"></td><td><pre>DATA ascii</pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token number">4.5875902</span> <span class="token number">37.243198</span> <span class="token number">46.776299</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token number">3.7279501</span> <span class="token number">37.171902</span> <span class="token number">46.5345</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token number">2.84834</span> <span class="token number">37.056301</span> <span class="token number">46.309101</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span></pre></td></tr></table></figure><h3 id="ply"><a class="markdownIt-Anchor" href="#ply">#</a> PLY</h3>
+<blockquote>
+<p>PLY 文件是一种常用的多边形文件格式，由 PLY（Polygon File Format）定义。PLY 文件可以包含多边形、顶点、法线、颜色等信息。</p>
+</blockquote>
+<p><strong>文件头</strong><br>
+ PLY 文件头包含以下信息：</p>
+<ul>
+<li>文件格式： <code>format ascii 1.0</code>  或  <code>format binary_little_endian 1.0</code>  或  <code>format binary_big_endian 1.0</code></li>
+<li>元素类型： <code>element vertex 1000</code>  或  <code>element face 1000</code></li>
+<li>属性： <code>property float x</code>  或  <code>property float y</code>  或  <code>property float z</code>  或  <code>property uchar red</code>  或  <code>property uchar green</code>  或  <code>property uchar blue</code></li>
+<li>结束： <code>end_header</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ply</code></td>
+<td>表示文件格式为 PLY。</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>指定文件格式，可以是  <code>ascii</code> 、 <code>binary_little_endian</code>  或  <code>binary_big_endian</code> 。</td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td>表示注释，可以包含任何文本。</td>
+</tr>
+<tr>
+<td><code>element</code></td>
+<td>指定元素类型，可以是  <code>vertex</code>  或  <code>face</code> 。</td>
+</tr>
+<tr>
+<td><code>property</code></td>
+<td>指定属性，可以是  <code>float</code> 、 <code>int</code> 、 <code>uchar</code>  等。</td>
+</tr>
+<tr>
+<td><code>end_header</code></td>
+<td>表示文件头结束。</td>
+</tr>
+</tbody>
+</table>
+<p>完整实例</p>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>ply</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token function">format</span> binary_little_endian <span class="token number">1.0</span></pre></td></tr><tr><td data-num="3"></td><td><pre>comment VCGLIB generated</pre></td></tr><tr><td data-num="4"></td><td><pre>element vertex <span class="token number">15934</span></pre></td></tr><tr><td data-num="5"></td><td><pre>property double x</pre></td></tr><tr><td data-num="6"></td><td><pre>property double y</pre></td></tr><tr><td data-num="7"></td><td><pre>property double z</pre></td></tr><tr><td data-num="8"></td><td><pre>property uchar red</pre></td></tr><tr><td data-num="9"></td><td><pre>property uchar green</pre></td></tr><tr><td data-num="10"></td><td><pre>property uchar blue</pre></td></tr><tr><td data-num="11"></td><td><pre>property uchar alpha</pre></td></tr><tr><td data-num="12"></td><td><pre>element face <span class="token number">31390</span></pre></td></tr><tr><td data-num="13"></td><td><pre>property list uchar int vertex_indices</pre></td></tr><tr><td data-num="14"></td><td><pre>end_header</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment"># vertex</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token parameter variable">-0.015828</span> <span class="token number">0.011844</span> <span class="token number">0.0</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token number">255</span> <span class="token number">255</span> <span class="token number">255</span> <span class="token number">255</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token parameter variable">-0.015828</span> <span class="token number">0.011844</span> <span class="token number">0.0</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token number">255</span> <span class="token number">255</span> <span class="token number">255</span> <span class="token number">255</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment"># face (首位表示此面所有点的数量，此处是三个点索引构成的面)</span></pre></td></tr><tr><td data-num="22"></td><td><pre><span class="token number">3</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token number">2</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token number">3</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token number">3</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token number">3</span> <span class="token number">15631</span> <span class="token number">15632</span> <span class="token number">15633</span></pre></td></tr></table></figure><h1 id="open3d"><a class="markdownIt-Anchor" href="#open3d">#</a> Open3D</h1>
+<h2 id="安装"><a class="markdownIt-Anchor" href="#安装">#</a> 安装</h2>
+<figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>pip <span class="token function">install</span> open3d</pre></td></tr></table></figure><h2 id="读取点云"><a class="markdownIt-Anchor" href="#读取点云">#</a> 读取点云</h2>
+<p><code>o3d.io.read_point_cloud</code>  函数可以读取点云文件，并返回一个  <code>open3d.geometry.PointCloud</code>  对象。<br>
+函数定义如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">read_point_cloud</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span> remove_nan_points<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> remove_infinite_points<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> print_progress<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  </pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token triple-quoted-string string">"""</pre></td></tr><tr><td data-num="3"></td><td><pre>    Returns:</pre></td></tr><tr><td data-num="4"></td><td><pre>        open3d.cpu.pybind.geometry.PointCloud</pre></td></tr><tr><td data-num="5"></td><td><pre>    """</span></pre></td></tr></table></figure><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td>点云文件的路径。</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>点云文件的格式，默认为  <code>auto</code> ，表示自动检测文件格式，支持 <code>pcd</code> 、 <code>ply</code> 、 <code>xyz</code>  等格式。</td>
+</tr>
+<tr>
+<td><code>remove_nan_points</code></td>
+<td>是否移除包含  <code>NaN</code>  值的点，默认为  <code>False</code> 。</td>
+</tr>
+<tr>
+<td><code>remove_infinite_points</code></td>
+<td>是否移除包含  <code>Inf</code>  值的点，默认为  <code>False</code> 。</td>
+</tr>
+<tr>
+<td><code>print_progress</code></td>
+<td>是否打印读取进度，默认为  <code>False</code> 。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_point_cloud<span class="token punctuation">(</span><span class="token string">"test.pcd"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="写入点云"><a class="markdownIt-Anchor" href="#写入点云">#</a> 写入点云</h2>
+<p><code>o3d.io.write_point_cloud</code>  函数可以写入点云文件，并返回一个  <code>open3d.geometry.PointCloud</code>  对象。<br>
+函数定义如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">write_point_cloud</span><span class="token punctuation">(</span>filename<span class="token punctuation">,</span> pointcloud<span class="token punctuation">,</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'auto'</span><span class="token punctuation">,</span> write_ascii<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> compressed<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> print_progress<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># real signature unknown; restored from __doc__</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token triple-quoted-string string">"""</pre></td></tr><tr><td data-num="3"></td><td><pre>    Returns:</pre></td></tr><tr><td data-num="4"></td><td><pre>        bool</pre></td></tr><tr><td data-num="5"></td><td><pre>    """</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">return</span> <span class="token boolean">False</span></pre></td></tr></table></figure><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filename</code></td>
+<td>点云文件的路径。</td>
+</tr>
+<tr>
+<td><code>pointcloud</code></td>
+<td>要写入的点云对象。</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>点云文件的格式，默认为  <code>auto</code> ，表示自动检测文件格式。</td>
+</tr>
+<tr>
+<td><code>write_ascii</code></td>
+<td>是否以 ASCII 格式写入，默认为  <code>False</code> 。</td>
+</tr>
+<tr>
+<td><code>compressed</code></td>
+<td>是否以压缩格式写入，默认为  <code>False</code> 。</td>
+</tr>
+<tr>
+<td><code>print_progress</code></td>
+<td>是否打印写入进度，默认为  <code>False</code> 。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>write_point_cloud<span class="token punctuation">(</span><span class="token string">"test.pcd"</span><span class="token punctuation">,</span> pcd<span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="显示点云"><a class="markdownIt-Anchor" href="#显示点云">#</a> 显示点云</h2>
+<p><code>o3d.visualization.draw_geometries</code>  函数可以显示点云。</p>
+<p>函数定义如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">draw_geometries</span><span class="token punctuation">(</span>geometry_list<span class="token punctuation">,</span> open3d_cpu_pybind_geometry_Geometry<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr></table></figure><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>geometry_list</code></td>
+<td>要显示的几何对象列表。</td>
+</tr>
+<tr>
+<td><code>window_name</code></td>
+<td>窗口标题，默认为 “Open3D”。</td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>窗口宽度，默认为 1920。</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>窗口高度，默认为 1080。</td>
+</tr>
+<tr>
+<td><code>left</code></td>
+<td>窗口左边界，默认为 50。</td>
+</tr>
+<tr>
+<td><code>top</code></td>
+<td>窗口上边界，默认为 50。</td>
+</tr>
+<tr>
+<td><code>point_show_normal</code></td>
+<td>是否显示点法线，默认为 False, 如果为 True，需要事先计算点云法线</td>
+</tr>
+<tr>
+<td><code>mesh_show_wireframe</code></td>
+<td>是否显示网格线框，默认为 False。</td>
+</tr>
+<tr>
+<td><code>mesh_show_back_face</code></td>
+<td>是否显示网格背面，默认为 False。</td>
+</tr>
+<tr>
+<td><code>lookat</code></td>
+<td>相机观察点，默认为 None。</td>
+</tr>
+<tr>
+<td><code>up</code></td>
+<td>相机上方向，默认为 None。</td>
+</tr>
+<tr>
+<td><code>front</code></td>
+<td>相机前方向，默认为 None。</td>
+</tr>
+<tr>
+<td><code>zoom</code></td>
+<td>相机缩放比例，默认为 None。</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_point_cloud<span class="token punctuation">(</span><span class="token string">"test.pcd"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>pcd<span class="token punctuation">]</span><span class="token punctuation">,</span> window_name<span class="token operator">=</span><span class="token string">"Open3D"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="kdtree"><a class="markdownIt-Anchor" href="#kdtree">#</a> KDTree</h2>
+<p><code>o3d.geometry.KDTreeFlann</code>  是 Open3D 中用于实现 k-d 树的类。k-d 树是一种用于多维空间中快速搜索最近邻点的数据结构。</p>
+<ul>
+<li><code>o3d.geometry.KDTreeFlann</code> : k-d 树类，用于实现 k-d 树。</li>
+<li><code>search_knn_vector_3d</code> ：在点云中搜索指定点的 k 个最近邻点。</li>
+<li><code>search_radius_vector_3d</code> ：在点云中搜索指定点半径内的所有点。</li>
+<li><code>search_hybrid_vector_3d</code> ：在点云中搜索指定点 k 个最近邻点和半径内的所有点。</li>
+</ul>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_point_cloud<span class="token punctuation">(</span><span class="token string">"cat.pcd"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>pcd_tree <span class="token operator">=</span> o3d<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>KDTreeFlann<span class="token punctuation">(</span>pcd<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment"># 将点云设置为灰色</span></pre></td></tr><tr><td data-num="6"></td><td><pre>pcd<span class="token punctuation">.</span>paint_uniform_color<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token comment"># 搜索某点的 K 个最近邻点</span></pre></td></tr><tr><td data-num="9"></td><td><pre>k <span class="token operator">=</span> <span class="token number">10</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token punctuation">[</span>num_k<span class="token punctuation">,</span> idx<span class="token punctuation">,</span> _<span class="token punctuation">]</span> <span class="token operator">=</span> pcd_tree<span class="token punctuation">.</span>search_knn_vector_3d<span class="token punctuation">(</span>pcd<span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>np<span class="token punctuation">.</span>asarray<span class="token punctuation">(</span>pcd<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">[</span>idx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment"># 将最近邻点的颜色设置为红色</span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"所得K邻域点索引点数为："</span><span class="token punctuation">,</span> num_k<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token comment"># 搜索每个点半径为 r 的所有点</span></pre></td></tr><tr><td data-num="15"></td><td><pre>r <span class="token operator">=</span> <span class="token number">0.1</span></pre></td></tr><tr><td data-num="16"></td><td><pre></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">[</span>_<span class="token punctuation">,</span> idx<span class="token punctuation">,</span> _<span class="token punctuation">]</span> <span class="token operator">=</span> pcd_tree<span class="token punctuation">.</span>search_radius_vector_3d<span class="token punctuation">(</span>pcd<span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token number">500</span><span class="token punctuation">]</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>np<span class="token punctuation">.</span>asarray<span class="token punctuation">(</span>pcd<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">[</span>idx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>  <span class="token comment"># 将半径内的点的颜色设置为绿色</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># 搜索每个点的 k 个最近邻点和半径为 r 的所有点</span></pre></td></tr><tr><td data-num="21"></td><td><pre>k <span class="token operator">=</span> <span class="token number">10</span></pre></td></tr><tr><td data-num="22"></td><td><pre>r <span class="token operator">=</span> <span class="token number">0.1</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">[</span>_<span class="token punctuation">,</span> idx_knn<span class="token punctuation">,</span> _<span class="token punctuation">]</span> <span class="token operator">=</span> pcd_tree<span class="token punctuation">.</span>search_hybrid_vector_3d<span class="token punctuation">(</span>pcd<span class="token punctuation">.</span>points<span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">,</span> r<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre>np<span class="token punctuation">.</span>asarray<span class="token punctuation">(</span>pcd<span class="token punctuation">.</span>colors<span class="token punctuation">)</span><span class="token punctuation">[</span>idx<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>  <span class="token comment"># 将半径内的点的颜色设置为蓝色</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>pcd<span class="token punctuation">]</span><span class="token punctuation">,</span> window_name<span class="token operator">=</span><span class="token string">"Open3D"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="octree"><a class="markdownIt-Anchor" href="#octree">#</a> Octree</h2>
+<blockquote>
+<p>八叉树（Octree）是一种用于三维空间中的数据结构，它将空间划分为 8 个子空间，每个子空间再继续划分，直到达到指定的深度。八叉树可以用于点云数据的快速搜索和可视化，例如最近邻搜索、空间分割等。</p>
+</blockquote>
+<p><img loading="lazy" src="/images/Octree.svg" alt="八叉树"></p>
+<ul>
+<li><code>o3d.geometry.Octree(max_depth=int)</code> : 八叉树类，用于实现八叉树。
+<ul>
+<li><code>max_depth</code> ：八叉树的最大深度。</li>
+</ul>
+</li>
+<li><code>convert_from_point_cloud</code> ：将点云转换为八叉树。</li>
+</ul>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_point_cloud<span class="token punctuation">(</span><span class="token string">"cat.pcd"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment"># 创建八叉树</span></pre></td></tr><tr><td data-num="4"></td><td><pre>octree <span class="token operator">=</span> o3d<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>Octree<span class="token punctuation">(</span>max_depth<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment"># 将点云转换为八叉树</span></pre></td></tr><tr><td data-num="6"></td><td><pre>octree<span class="token punctuation">.</span>convert_from_point_cloud<span class="token punctuation">(</span>pcd<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>octree<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong>体素栅格构建 Octree</strong><br>
+ 使用  <code>create_from_voxel_grid</code>  方法从体素栅格创建八叉树。</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> open3d <span class="token keyword">as</span> o3d</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np</pre></td></tr><tr><td data-num="3"></td><td><pre>pcd <span class="token operator">=</span> o3d<span class="token punctuation">.</span>io<span class="token punctuation">.</span>read_point_cloud<span class="token punctuation">(</span><span class="token string">"cat.pcd"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 创建一个体素栅格</span></pre></td></tr><tr><td data-num="5"></td><td><pre>voxel_grid <span class="token operator">=</span> o3d<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>VoxelGrid<span class="token punctuation">.</span>create_from_point_cloud<span class="token punctuation">(</span>pcd<span class="token punctuation">,</span> voxel_size<span class="token operator">=</span><span class="token number">0.05</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment"># 创建八叉树</span></pre></td></tr><tr><td data-num="8"></td><td><pre>octree <span class="token operator">=</span> o3d<span class="token punctuation">.</span>geometry<span class="token punctuation">.</span>Octree<span class="token punctuation">(</span>max_depth<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token comment"># max_depth: 八叉树的最大深度</span></pre></td></tr><tr><td data-num="9"></td><td><pre>octree<span class="token punctuation">.</span>convert_from_voxel_grid<span class="token punctuation">(</span>voxel_grid<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>o3d<span class="token punctuation">.</span>visualization<span class="token punctuation">.</span>draw_geometries<span class="token punctuation">(</span><span class="token punctuation">[</span>octree<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p><strong> <code>K-D树</code> 和 <code>八叉树</code> 具体适用场景分析</strong>：</p>
+<ol>
+<li>K-D 树的优势场景</li>
+</ol>
+<ul>
+<li>高维数据处理</li>
+<li>高效的最近邻搜索</li>
+<li>范围查询</li>
+<li>低内存占用</li>
+</ul>
+<ol start="2">
+<li>八叉树的优势场景</li>
+</ol>
+<ul>
+<li>纯 3D 空间的均匀划分</li>
+<li>体素化与多分辨率处理</li>
+<li>碰撞检测与空间占用查询</li>
+<li>点云压缩与降采样</li>
+</ul>
+<ol start="3">
+<li>实际应用中的选择策略</li>
+</ol>
+<ul>
+<li>优先使用 K-D 树的情况：
+<ul>
+<li>需频繁进行最近邻搜索（如 ICP 配准、法线估计）；</li>
+<li>点云包含非空间维度信息（如颜色、强度）；</li>
+<li>数据分布不均匀，需要自适应划分提高搜索效率。</li>
+</ul>
+</li>
+<li>优先使用八叉树的情况：
+<ul>
+<li>处理纯 3D 空间数据，且需要快速划分空间（如体素化、空间索引）；</li>
+<li>涉及多分辨率分析或三维重建；</li>
+<li>需要高效的碰撞检测或空间占用查询。</li>
+</ul>
+</li>
+<li>混合使用的场景：
+<ul>
+<li>在复杂任务中，两者可结合使用。例如：</li>
+<li>先用八叉树进行粗粒度空间划分，再对每个叶节点内的点构建 K-D 树进行精细搜索；</li>
+<li>在实时 SLAM 系统中，用八叉树管理全局地图的空间索引，用 K-D 树进行局部点云的特征匹配。</li>
+</ul>
+</li>
+</ul>
+<p><strong>总结</strong></p>
+<blockquote>
+<ul>
+<li><code>K-D树</code> 更适合处理高维数据和非均匀分布的点云，在最近邻搜索和范围查询中表现优异；</li>
+<li><code>八叉树</code> 则在纯 3D 空间划分、体素化和多分辨率处理中具有天然优势。</li>
+</ul>
+</blockquote>
+<div class="tags"><a href="/tags/3D/" rel="tag"><i class="ic i-tag"></i>3D</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i></span><span class="text">更新于 </span><time title="修改时间：2025-07-20 01:02:26" itemprop="dateModified" datetime="2025-07-20T01:02:26+08:00">2025-07-20</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i>赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img loading="lazy" src="/assets/wechatpay.png" alt="CodeVortex 微信支付"/><p>微信支付</p></div><div><img loading="lazy" src="/assets/alipay.png" alt="CodeVortex 支付宝"/><p>支付宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者：</strong>CodeVortex<i class="ic i-at"><em>@</em></i>CodeVortex记事本</li><li class="link"><strong>本文链接：</strong><a href="https://zhang3399.github.io/2025/07/12/Open3D/2025-7-12-Open3D/" title="Open3D">https://zhang3399.github.io/2025/07/12/Open3D/2025-7-12-Open3D/</a></li><li class="license"><strong>版权声明：</strong>本站所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/" rel="prev" itemprop="url" data-background-image="images&#x2F;img6.webp" title="位姿矫正"><span class="type">上一篇</span><span class="category"><i class="ic i-flag"></i>Opencv</span><h3>位姿矫正</h3></a></div><div class="item right"><a href="/2025/07/14/Open3D/2025-7-14-geomet/" rel="next" itemprop="url" data-background-image="images&#x2F;img1.webp" title="3D点云曲率计算"><span class="type">下一篇</span><span class="category"><i class="ic i-flag"></i>几何</span><h3>3D点云曲率计算</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3d%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text"> 3D 文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%B9%E4%BA%91%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text"> 点云文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text"> 网格文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-number">1.3.</span> <span class="toc-text"> 文件内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pcd"><span class="toc-number">1.3.1.</span> <span class="toc-text"> PCD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ply"><span class="toc-number">1.3.2.</span> <span class="toc-text"> PLY</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#open3d"><span class="toc-number">2.</span> <span class="toc-text"> Open3D</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text"> 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E7%82%B9%E4%BA%91"><span class="toc-number">2.2.</span> <span class="toc-text"> 读取点云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E7%82%B9%E4%BA%91"><span class="toc-number">2.3.</span> <span class="toc-text"> 写入点云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E7%82%B9%E4%BA%91"><span class="toc-number">2.4.</span> <span class="toc-text"> 显示点云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kdtree"><span class="toc-number">2.5.</span> <span class="toc-text"> KDTree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#octree"><span class="toc-number">2.6.</span> <span class="toc-text"> Octree</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li  class="active"><a href="/2025/07/12/Open3D/2025-7-12-Open3D/" rel="bookmark" title="Open3D">Open3D</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><img class="image" loading="lazy" decoding="async" itemprop="image" alt="CodeVortex" src="/assets/avatar.jpg"/><p class="name" itemprop="name">CodeVortex</p><div class="description" itemprop="description">滴答滴答滴答</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">27</span><span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span><span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">25</span><span class="name">标签</span></a></div></nav><div class="social"><a target="_blank" rel="noopener" href="https://github.com/zhang3399" class="item github" title="https:&#x2F;&#x2F;github.com&#x2F;zhang3399"><i class="ic i-github"></i></a></div><div class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li></div></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2025/07/14/Open3D/2025-7-14-geomet/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2025/06/18/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-6-18-%E4%BD%8D%E5%A7%BF%E7%9F%AB%E6%AD%A3/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div><div id="player"></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/tensoRT/" title="分类于tensoRT">tensoRT</a></div><span><a href="/2025/05/16/tensoRT/2025-5-16-tensoRT%E5%AE%89%E8%A3%85/">tensoRT安装</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/03/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-3-9-%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2YOLOv5s/">树莓派部署YOLOv5s</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="分类于数据库">数据库</a></div><span><a href="/2024/06/15/%E6%95%B0%E6%8D%AE%E5%BA%93/2023-10-12-SQL/">SQL</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/04/16/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-4-16-Adam%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/">Adman梯度下降</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E5%B7%A5%E5%85%B7/" title="分类于工具">工具</a></div><span><a href="/2025/05/22/Tool/2025-5-22-Docker/">Docker</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="分类于深度学习">深度学习</a></div><span><a href="/2025/06/13/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2025-6-13-%E5%8D%95%E9%A1%B9%E8%B4%9F%E8%BD%BD%E8%AF%86%E5%88%AB/">单项负载识别</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/python/" title="分类于python">python</a></div><span><a href="/2021/10/06/python/2023-10-16-python%E8%BF%9B%E9%98%B6/">python进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/C/" title="分类于C++">C++</a></div><span><a href="/2024/06/08/C++/2024-6-8-%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%8F%8A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">数据处理及内存管理</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="分类于大模型">大模型</a></div><span><a href="/2025/06/01/%E5%A4%A7%E6%A8%A1%E5%9E%8B/2025-6-1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83LoRA/">大模型微调LoRA</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" title="分类于机器视觉">机器视觉</a></div><span><a href="/2025/05/25/%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/2025-5-25-%E7%9B%B8%E6%9C%BA%E9%80%89%E5%9E%8B/">相机选型</a></span></li></ul></div><div class="rpost pjax"><h2>最新评论</h2></div></div><div class="status"><div class="copyright">&copy; 2022 -<span itemprop="copyrightYear">2025</span><span class="with-love"><i class="ic i-sakura rotate"></i></span><span class="author" itemprop="copyrightHolder">CodeVortex @ 学习笔记</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i></span><span title="站点总字数">225k 字</span><span class="post-meta-divider"> | </span><span class="post-meta-item-icon"><i class="ic i-coffee"></i></span><span title="站点阅读时长">3:25</span></div><div class="powered-by">基于 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & Theme.<a target="_blank" rel="noopener" href="https://github.com/theme-shoka-x/hexo-theme-shokaX/">ShokaX</a></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL = {
+    ispost: true,
+    path: `2025/07/12/Open3D/2025-7-12-Open3D/`,
+    favicon: {
+        show: `（●´3｀●）やれやれだぜ`,
+        hide: `(´Д｀)大変だ！`
+    },
+    search: {
+        placeholder: "文章搜索",
+        empty: "关于 「 ${query} 」，什么也没搜到",
+        stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    nocopy: "false",
+    copyright: `复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。`,
+    copy_tex: false,
+    katex: false,
+    mermaid: false,
+    audio: undefined,
+    nocopy: false,
+    outime: true,
+    template: `<div class="note warning"><p><span class="label warning">文章时效性提示</span><br>这是一篇发布于 {{publish}} 天前，最后一次更新在 {{updated}} 天前的文章，部分信息可能已经发生改变，请注意甄别。</p></div>`,
+    quiz: {
+        choice: `单选题`,
+        multiple: `多选题`,
+        true_false: `判断题`,
+        essay: `问答题`,
+        gap_fill: `填空题`,
+        mistake: `错题备注`
+    }
+};
+</script><script src="/js/siteInit.js?v=0.5.1" type="module" fetchpriority="high" defer></script></body></html>
